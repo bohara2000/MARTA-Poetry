@@ -1,0 +1,77 @@
+trigger:
+- main  # Runs pipeline when changes are pushed to `main`
+
+pool:
+  vmImage: 'ubuntu-latest'  # Use a Linux agent
+
+variables:
+  azureSubscription: 'AzureConnection'  # Service connection name in DevOps
+  resourceGroup: 'MartaPoetryRG'
+  location: 'eastus'
+  appServiceName: 'marta-poetry-app'
+  functionAppName: 'marta-poetry-functions'
+
+stages:
+- stage: ProvisionInfrastructure
+  displayName: "Provision Azure Resources"
+  jobs:
+  - job: DeployBicep
+    displayName: "Deploy Azure Bicep Template"
+    steps:
+    - task: AzureCLI@2
+      displayName: "Deploy Bicep Template"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          az deployment group create \
+          --resource-group $(resourceGroup) \
+          --template-file marta-poetry.bicep \
+          --parameters location=$(location)
+
+- stage: DeployFlaskApp
+  displayName: "Deploy Flask Web App"
+  jobs:
+  - job: BuildAndDeploy
+    displayName: "Build & Deploy Flask App"
+    steps:
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.x'
+
+    - script: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install -r requirements.txt
+      displayName: 'Install Dependencies'
+
+    - task: AzureWebApp@1
+      displayName: 'Deploy Flask Web App'
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(appServiceName)
+        package: '.'
+        runtimeStack: 'PYTHON|3.9'
+
+- stage: DeployAzureFunctions
+  displayName: "Deploy GTFS Processing Function"
+  jobs:
+  - job: DeployFunctionApp
+    displayName: "Deploy Azure Functions"
+    steps:
+    - task: ArchiveFiles@2
+      displayName: "Archive Function Code"
+      inputs:
+        rootFolderOrFile: 'functions/'
+        includeRootFolder: false
+        archiveType: 'zip'
+        archiveFile: '$(Build.ArtifactStagingDirectory)/functionapp.zip'
+
+    - task: AzureFunctionApp@1
+      displayName: "Deploy Function App"
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appType: 'functionApp'
+        appName: $(functionAppName)
+        package: '$(Build.ArtifactStagingDirectory)/functionapp.zip'
