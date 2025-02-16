@@ -27,7 +27,7 @@ stages:
         inlineScript: |
           az deployment group create \
           --resource-group $(resourceGroup) \
-          --template-file marta-poetry.bicep \
+          --template-file bicep/marta-poetry.bicep \
           --parameters location=$(location)
 
 - stage: DeployFlaskApp
