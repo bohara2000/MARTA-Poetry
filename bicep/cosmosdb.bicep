@@ -7,5 +7,11 @@ resource cosmosDb 'Microsoft.DocumentDB/databaseAccounts@2021-06-15' = {
   kind: 'GlobalDocumentDB'
   properties: {
     databaseAccountOfferType: 'Standard'
+    locations: [
+      {
+        locationName: location
+        failoverPriority: 0
+      }
+    ]
   }
 }

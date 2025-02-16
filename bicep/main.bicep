@@ -6,7 +6,6 @@ module appService './app-service.bicep' = {
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
-    resourceGroupName: resourceGroupName
   }
 }
 
@@ -15,7 +14,6 @@ module cosmosDB './cosmosdb.bicep' = {
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
-    resourceGroupName: resourceGroupName
   }
 }
 
@@ -24,7 +22,6 @@ module openAi './openai-service.bicep' = {
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
-    resourceGroupName: resourceGroupName
   }
 }
 
@@ -33,7 +30,6 @@ module storage './storage.bicep' = {
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
-    resourceGroupName: resourceGroupName
   }
 }
 
@@ -42,6 +38,5 @@ module functions './functions.bicep' = {
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
-    resourceGroupName: resourceGroupName
   }
 }
