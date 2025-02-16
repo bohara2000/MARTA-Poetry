@@ -1,3 +1,5 @@
+targetScope = 'subscription'
+
 param location string = 'eastus'
 param resourceGroupName string = 'MartaPoetryRG'
 
