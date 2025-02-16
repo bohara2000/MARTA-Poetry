@@ -1,5 +1,4 @@
 param location string
-param resourceGroupName string
 param openAiName string = 'marta-openai'
 
 resource openAi 'Microsoft.CognitiveServices/accounts@2021-10-01' = {

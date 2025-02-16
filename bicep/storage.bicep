@@ -1,9 +1,10 @@
 param location string
-param resourceGroupName string
-param storageAccountName string = 'martastorage'
+param storageAccountPrefix string = 'martastorage'
+
+var uniqueStorageAccountName = toLower('${storageAccountPrefix}${uniqueString(resourceGroup().id)}')
 
 resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
-  name: storageAccountName
+  name: uniqueStorageAccountName
   location: location
   kind: 'StorageV2'
   sku: {
