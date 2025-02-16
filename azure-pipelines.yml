@@ -25,10 +25,9 @@ stages:
         scriptType: 'bash'
         scriptLocation: 'inlineScript'
         inlineScript: |
-          az deployment group create \
-          --resource-group $(resourceGroup) \
-          --template-file bicep/marta-poetry.bicep \
-          --parameters location=$(location)
+          az deployment sub create \
+          --location $(location) \
+          --template-file bicep/marta-poetry.bicep
 
 - stage: DeployFlaskApp
   displayName: "Deploy Flask Web App"
