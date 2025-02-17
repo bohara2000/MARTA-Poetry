@@ -1,7 +1,7 @@
 param location string
 param storageAccountPrefix string = 'martastorage'
 
-var uniqueStorageAccountName = toLower('${storageAccountPrefix}${uniqueString(resourceGroup().id)}')
+var uniqueStorageAccountName = take(toLower('${storageAccountPrefix}${uniqueString(resourceGroup().id)}'),24)
 
 resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' = {
   name: uniqueStorageAccountName
