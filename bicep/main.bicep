@@ -20,6 +20,7 @@ module appService './app-service.bicep' = {
 module functions './functions.bicep' = {
   name: 'deployFunctions'
   scope: resourceGroup(resourceGroupName)
+  dependsOn: [appService] // Ensure the app service is deployed before the functions
   params: {
     location: location
   }
