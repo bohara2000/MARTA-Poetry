@@ -1,8 +1,24 @@
 param location string = 'eastus'
 param resourceGroupName string = 'MartaPoetryRG'
 
+module storage './storage.bicep' = {
+  name: 'deployStorage'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    location: location
+  }
+}
+
 module appService './app-service.bicep' = {
   name: 'deployAppService'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    location: location
+  }
+}
+
+module functions './functions.bicep' = {
+  name: 'deployFunctions'
   scope: resourceGroup(resourceGroupName)
   params: {
     location: location
@@ -25,18 +41,4 @@ module openAi './openai-service.bicep' = {
   }
 }
 
-module storage './storage.bicep' = {
-  name: 'deployStorage'
-  scope: resourceGroup(resourceGroupName)
-  params: {
-    location: location
-  }
-}
 
-module functions './functions.bicep' = {
-  name: 'deployFunctions'
-  scope: resourceGroup(resourceGroupName)
-  params: {
-    location: location
-  }
-}
