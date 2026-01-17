@@ -25,3 +25,6 @@ dist-ssr
 
 # environment files
 .env
+
+# poem json files
+backend/poems/*.json
