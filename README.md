@@ -1,7 +1,7 @@
 # MARTA-Poetry
 The MARTA Poetry Project aims to generate poetry inspired by transit data from the Metro Atlanta Rapid Transit Authority, using route "personalities", narrative elements, and real-time inputs.
 
-The goal is to create a system that interacts with a core canon of poems that serve as what is called The Homonculus. Each route will, based on its personality, either work with or against the narrative elements of The Homonculus.
+The goal is to create a system that interacts with a core canon of poems that serve as what is called The Homunculus. Each route will, based on its personality, either work with or against the narrative elements of The Homunculus.
 
 ![MARTA-Poetry site - alpha](frontend/src/assets/MARTA-Poetry-example.png)
 
