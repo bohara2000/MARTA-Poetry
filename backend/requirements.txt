@@ -17,3 +17,4 @@ typing-inspection==0.4.1
 typing_extensions==4.13.2
 uvicorn==0.34.3
 openai==1.59.3
+networkx>=3.0

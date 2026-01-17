@@ -1,0 +1,50 @@
+{
+  "MARTA_1": {
+    "name": "Route 1 - Marietta Blvd",
+    "description": "Industrial backbone, working-class rhythm",
+    "loyalty_to_canon": 0.7,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.6,
+      "repetition": 0.7,
+      "internal_rhyme": 0.3
+    },
+    "theme_affinities": {
+      "urban_life": 0.8,
+      "labor": 0.9,
+      "routine": 0.7
+    }
+  },
+  "MARTA_5": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  },
+  "MARTA_21": {
+    "name": "Route 21 - Memorial Drive",
+    "description": "Night runner, rebellious voice",
+    "loyalty_to_canon": 0.3,
+    "rebellious_mode": "invert",
+    "sound_preferences": {
+      "alliteration": 0.2,
+      "anaphora": 0.9,
+      "repetition": 0.85
+    },
+    "theme_affinities": {
+      "darkness": 0.9,
+      "truth": 0.8,
+      "isolation": 0.7
+    }
+  }
+}
