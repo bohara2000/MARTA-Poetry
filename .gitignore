@@ -1,8 +1,13 @@
 # Ignore the entire virtual environment directory
 backend/venv/
 
-# Ignore Python pycache files
-backend/__pycache__/
+# Ignore all Python pycache files
+backend/**/__pycache__/
 
 # Ignore the frontend node_modules directory
 frontend/node_modules/
+
+# ignore environment variable files
+*.env
+*.env.local
+*.env.*.local
