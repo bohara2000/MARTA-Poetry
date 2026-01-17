@@ -36,7 +36,7 @@ The goal is to create a system that interacts with a core canon of poems that se
 4. **Set up environment variables:**
    Create a `.env` file in the backend directory with your OpenAI API key:
    ```
-   OPENAI_API_KEY=your_openai_api_key_here
+   AZURE_OPENAI_API_KEY=your_AZURE_OPENAI_API_KEY_here
    ```
 
 5. **Download GTFS data (optional):**
