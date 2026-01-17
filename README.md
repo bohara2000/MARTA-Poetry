@@ -34,8 +34,11 @@ The goal is to create a system that interacts with a core canon of poems that se
    ```
 
 4. **Set up environment variables:**
-   Create a `.env` file in the backend directory with your OpenAI API key:
+   Create a `.env` file in the backend directory with the following entries:
    ```
+   POETRY_MODE=[development or production]
+   DEFAULT_STORY_INFLUENCE=0.7
+   OPENAI_API_KEY=your_OPENAI_API_KEY_here
    AZURE_OPENAI_API_KEY=your_AZURE_OPENAI_API_KEY_here
    ```
 
