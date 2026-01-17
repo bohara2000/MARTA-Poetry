@@ -1,0 +1,74 @@
+{
+    "5": {
+        "alignment": "chaotic good",
+        "tone": "dreamy",
+        "quirks": [
+            "pauses for graffiti",
+            "hums at stops"
+        ]
+    },
+    "21": {
+        "alignment": "lawful evil",
+        "tone": "gritty",
+        "quirks": [
+            "refuses to stop for possums",
+            "tells tall tales"
+        ]
+    },
+    "42": {
+        "alignment": "chaotic neutral",
+        "tone": "reflective",
+        "quirks": [
+            "refuses to stop for geese",
+            "pauses for graffiti"
+        ]
+    },
+    "110": {
+        "alignment": "chaotic neutral",
+        "tone": "chaotic",
+        "quirks": [
+            "hums at stops",
+            "refuses to stop for geese"
+        ]
+    },
+    "25950": {
+        "alignment": "lawful good",
+        "tone": "reflective",
+        "quirks": [
+            "hums at stops",
+            "compulsively syncopates"
+        ]
+    },
+    "26072": {
+        "alignment": "lawful good",
+        "tone": "dreamy",
+        "quirks": [
+            "hums at stops",
+            "compulsively syncopates"
+        ]
+    },
+    "27333": {
+        "alignment": "chaotic good",
+        "tone": "dreamy",
+        "quirks": [
+            "hums at stops",
+            "refuses to stop for geese"
+        ]
+    },
+    "27339": {
+        "alignment": "chaotic good",
+        "tone": "dreamy",
+        "quirks": [
+            "tells tall tales",
+            "hums at stops"
+        ]
+    },
+    "27324": {
+        "alignment": "neutral",
+        "tone": "chaotic",
+        "quirks": [
+            "refuses to stop for geese",
+            "hums at stops"
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "route": "21",
+  "timestamp": "2025-06-03T03:31:02.567605",
+  "story_influence": 0.7,
+  "poem": "Route 21 rumbles through cracked asphalt veins,  \nsteel lungs exhaling diesel mist at every stoplight.  \nLate-night neon pools in tire treads,  \nand the rumble carries stories of midnight deals.  \n\nPassengers settle into vinyl seats,  \nfingers grazing cold metal grips,  \neyes half-lidded against the thrum.  \nA stray possum darts across the road\u2014  \nthe bus doesn\u2019t pause, its wheels keep faith  \nwith the strict calendar of departures and arrivals.  \n\nThe driver\u2019s voice crackles over the intercom,  \nspinning a yarn about a ghost train in the subway tunnels,  \nwhere iron tracks bend to the will of a single whistle.  \nHe claims he once outraced a storm,  \nleaving thunder in his rearview mirror.  \nNo one asks for proof.  \n\nOutside, the city breathes in jagged rhythms:  \nsirens singing off-key,  \ndripping gutters gushing secrets,  \nand neon adverts flickering like distant beacons.  \nUnder flickering streetlamps,  \nthe route\u2019s silhouette cuts a straight line\u2014  \nunyielding, methodical, relentless in its promise:  \nto go where the map says go,  \nto tell the tale however tall,  \nand to keep rolling,  \neven when the night begs it to stop.",
+  "traits": {
+    "alignment": "lawful evil",
+    "tone": "gritty",
+    "quirks": [
+      "refuses to stop for possums",
+      "tells tall tales"
+    ]
+  }
+}

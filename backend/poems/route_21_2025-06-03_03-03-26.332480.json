@@ -1,0 +1,14 @@
+{
+  "route": "21",
+  "timestamp": "2025-06-03T03:03:26.332480",
+  "story_influence": 0.7,
+  "poem": "Begin the poem below:\n\nSteel heart humming through cracked pavement,  \nRoute 21 rumbles after dusk\u2014  \na serpent of headlights slicing neon fog.  \nIts engine growls like a warning,  \neach wheel spitting gravel at the curb.\n\nI smell burnt rubber and old coffee,  \nthe uneasy perfume of city bones.  \nPassengers fold into vinyl seats\u2014  \nshoulder-to-shoulder, breath mingling  \nwith the bus\u2019s hot metal ribs.\n\nAt the edge of a lamplit alley,  \na possum shivers on the yellow line.  \nEyes like scattered marbles.  \nThe doors hiss; they won\u2019t open.  \nThe creature trembles, abandoned,  \nand the wheels click forward,  \nunyielding, as if mercy were a traffic violation.\n\nInside, a crackle overhead\u2014  \nthe driver\u2019s voice, low and confident,  \nspinning fables about subterranean tracks  \nwhere the city\u2019s secrets burrow  \nbeneath subway grates.  \nHe swears there\u2019s a hidden lounge  \nwhere brass horns wail at midnight,  \nand rats in gold chains dance  \non puddles of spilled whiskey.\n\nOutside, the streetlights stutter,  \ncasting the world in fractured amber.  \nSirens wail in the distance\u2014  \na lullaby for restless souls.  \nConcrete towers hatch shadows  \nthat stretch like hungry hands.\n\nThe bus lurches up Market Street,  \nrhythm of suspension and steel cables,  \nsnaking through alleys slick with yesterday\u2019s rain.  \nTin cafes exhale steam,  \nand glass towers mirror ghosts of street sweepers.\n\nI feel the pulse beneath my palm\u2014  \nthe shudder of the metal beast,  \nits promise to follow schedules  \nwith unwavering certitude.  \nIt\u2019ll pass every stray creature,  \nevery flicker of life not written  \nin its ledger of stops.\n\nHere, on 21, the city breathes in sputters,  \nlurches into the next block,  \nhungers for the roar of passing wheels.  \nAnd though it tells its tall tales  \nin creaks and grumbles,  \nit never, not once,  \nopens wide for the little ones  \nscurrying at the edge of the road.",
+  "traits": {
+    "alignment": "lawful evil",
+    "tone": "gritty",
+    "quirks": [
+      "refuses to stop for possums",
+      "tells tall tales"
+    ]
+  }
+}

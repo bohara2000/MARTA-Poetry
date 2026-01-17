@@ -1,0 +1,14 @@
+{
+  "route": "21",
+  "timestamp": "2025-06-03T03:44:05.627591",
+  "story_influence": 0.43,
+  "poem": "Route 21 rumbles through midnight arteries,  \nits diesel breath fogging the neon glass,  \neach headlight carving a path across worn asphalt.  \n\nIt barrels past a possum frozen in the sheen of streetlamp\u2014  \nno mercy in its gears, no mercy in its schedule.  \nSteel resolve wrapped in a shell of scratched paint.  \n\nThe driver leans forward with a grin that cracks like sidewalk,  \n\u201cI once outran a midnight storm  \non two flat tires,\u201d he says\u2014  \nwords strung on the wind, half truth, half dare.  \n\nWindows vibrate to the city\u2019s pulse:  \ndistant sirens, a thief\u2019s soft footsteps,  \nthe hush of late-night vendors packing crates of fish.  \nEvery stop a promise, every acceleration a challenge.  \n\nAt point forty-three the route splits\u2014  \none finger pointing to the glowing tower,  \nthe other to shadowed alleys humming with whispers.  \nRiders cling to handrails as stories unfold,  \npulled along by a machine  \nboth strict in its purpose and eager for legend.  \n\nBy dawn, the city exhales in pink and gray,  \nRoute 21 slowing only for the call of its own myth\u2014  \nnever for a possum, always for the next tale.",
+  "traits": {
+    "alignment": "lawful evil",
+    "tone": "gritty",
+    "quirks": [
+      "refuses to stop for possums",
+      "tells tall tales"
+    ]
+  }
+}

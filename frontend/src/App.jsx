@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import RouteSelector from './components/RouteSelector';
-import StorySlider from './components/StorySlider';
-import PoetryDisplay from './components/PoetryDisplay';
-import AudioControls from './components/AudioControls';
+import RouteSelector from './components/RouteSelector.jsx';
+import StorySlider from './components/StorySlider.jsx';
+import PoetryDisplay from './components/PoetryDisplay.jsx';
+import AudioControls from './components/AudioControls.jsx';
 
 function App() {
   const [selectedRoute, setSelectedRoute] = useState('');
@@ -42,7 +42,7 @@ function App() {
 
       <button
         onClick={generatePoem}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-green-700 hover:bg-green-900 text-white font-bold py-3 px-6 rounded-lg border-2 border-white shadow-lg"
       >
         {loading ? 'Generating...' : 'Generate Poem'}
       </button>
