@@ -5,11 +5,11 @@ from .narrative_engine import apply_story_influence
 from .prompt_builder import build_poetry_prompt
 from storage.poem_store import PoemStore
 from openai import AzureOpenAI
-from config import AZURE_OPENAI_API_KEY
+from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME
 
-endpoint = "https://eastus.api.cognitive.microsoft.com/"
-model_name = "o4-mini"
-deployment = "o4-mini"
+endpoint = AZURE_OPENAI_ENDPOINT
+model_name = AZURE_OPENAI_DEPLOYMENT_NAME
+deployment = AZURE_OPENAI_DEPLOYMENT_NAME
 api_version = "2024-12-01-preview"
 subscription_key = AZURE_OPENAI_API_KEY
 
