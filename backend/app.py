@@ -3,7 +3,8 @@ from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from poetry.graph import initialize_graph, get_poetry_graph
-from poetry.generator import generate_poem
+# from poetry.generator import generate_poem
+from poetry.personality_routes import router as personality_router
 import csv
 import os
 
@@ -42,7 +43,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+app.include_router(personality_router)
 
 @app.get("/api/poetry")
 def get_poetry(route: str, story_influence: float = 0.7, route_type: str = 'bus'):
