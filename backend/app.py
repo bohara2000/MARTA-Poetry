@@ -1,11 +1,38 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from poetry.graph import initialize_graph, get_poetry_graph
 from poetry.generator import generate_poem
 import csv
 import os
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Handle startup and shutdown events."""
+    
+    # STARTUP
+    graph_path = os.getenv("POETRY_GRAPH_PATH", "data/poetry_graph.json")
+    
+    try:
+        graph = initialize_graph(graph_path)
+        summary = graph.get_graph_summary()
+        print(f"✓ Poetry graph initialized: {summary}")
+    except Exception as e:
+        print(f"⚠ Failed to initialize graph: {e}")
+        print("  Graph will be created on first use")
+    
+    yield  # Application runs here
+    
+    # SHUTDOWN
+    try:
+        graph = get_poetry_graph()
+        graph.save_graph()
+        print("✓ Poetry graph saved")
+    except Exception as e:
+        print(f"⚠ Failed to save graph: {e}")
+
+app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,6 +41,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 @app.get("/api/poetry")
 def get_poetry(route: str, story_influence: float = 0.7, route_type: str = 'bus'):
