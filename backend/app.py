@@ -50,7 +50,8 @@ def get_poetry(route: str, story_influence: float = 0.7, route_type: str = 'bus'
     """
     Generate a poem based on the route, route type, and story influence.
     """
-    poem = generate_poem(route, story_influence)  # Optionally, pass route_type to generator if needed
+    # poem = generate_poem(graph, route, story_influence, route_type) 
+    poem = f"This is a placeholder poem for route {route} with influence {story_influence} and type {route_type}."   
     return {"poem": poem}
 
 
