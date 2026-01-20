@@ -5,12 +5,12 @@ from .narrative_engine import apply_story_influence
 from .prompt_builder import build_poetry_prompt
 from storage.poem_store import PoemStore
 from openai import AzureOpenAI
-from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME
+from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION
 
 endpoint = AZURE_OPENAI_ENDPOINT
 model_name = AZURE_OPENAI_DEPLOYMENT_NAME
 deployment = AZURE_OPENAI_DEPLOYMENT_NAME
-api_version = "2024-12-01-preview"
+api_version = AZURE_OPENAI_API_VERSION 
 subscription_key = AZURE_OPENAI_API_KEY
 
 client = AzureOpenAI(    

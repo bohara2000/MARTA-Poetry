@@ -14,6 +14,8 @@ import re
 from typing import Dict, List, Any, Optional
 from openai import AzureOpenAI
 import os
+from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION
+
 
 
 class PoemAnalyzer:
@@ -26,8 +28,8 @@ class PoemAnalyzer:
         self,
         azure_endpoint: Optional[str] = None,
         api_key: Optional[str] = None,
-        api_version: str = "2024-02-15-preview",
-        deployment_name: str = "gpt-4"
+        api_version: str = AZURE_OPENAI_API_VERSION,
+        deployment_name: str = AZURE_OPENAI_DEPLOYMENT_NAME
     ):
         """
         Initialize the analyzer with Azure OpenAI credentials.
@@ -38,8 +40,8 @@ class PoemAnalyzer:
             api_version: API version to use
             deployment_name: Your GPT-4 deployment name
         """
-        self.azure_endpoint = azure_endpoint or os.getenv("AZURE_OPENAI_ENDPOINT")
-        self.api_key = api_key or os.getenv("AZURE_OPENAI_API_KEY")
+        self.azure_endpoint = azure_endpoint or AZURE_OPENAI_ENDPOINT
+        self.api_key = api_key or AZURE_OPENAI_API_KEY
         self.api_version = api_version
         self.deployment_name = deployment_name
         
@@ -89,8 +91,8 @@ class PoemAnalyzer:
                 {"role": "system", "content": "You are an expert poetry analyst. Extract structured metadata from poems."},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.3,
-            max_tokens=2000
+            # temperature=0.3,
+            max_completion_tokens=4000  # Increased for reasoning model
         )
         
         # Parse the response
