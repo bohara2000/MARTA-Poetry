@@ -1,0 +1,462 @@
+/**
+ * Personality Manager Styles
+ * Place in: frontend/src/components/PersonalityManager.css
+ */
+
+.personality-manager {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.personality-manager.loading,
+.personality-manager.error {
+  text-align: center;
+  padding: 4rem;
+  font-size: 1.2rem;
+}
+
+.personality-manager.error {
+  color: #ef4444;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin: 0;
+  color: #1f2937;
+}
+
+/* Save Status */
+.save-status {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.save-status.success {
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+}
+
+.save-status.error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+/* Layout */
+.content {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 2rem;
+  height: calc(100vh - 200px);
+}
+
+/* Route List */
+.route-list {
+  background: #f9fafb;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.route-list h2 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: #374151;
+}
+
+.route-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+}
+
+.route-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.1);
+}
+
+.route-card.selected {
+  border-color: #3b82f6;
+  background: #eff6ff;
+}
+
+.route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 0.5rem;
+}
+
+.route-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: #111827;
+}
+
+.type-badge {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-traditionalist {
+  background: #dbeafe;
+  color: #1e40af;
+}
+
+.type-contrarian {
+  background: #fce7f3;
+  color: #9f1239;
+}
+
+.type-explorer {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.type-pioneer {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.type-balanced {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.route-description {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.4;
+}
+
+.route-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.stat-label {
+  color: #9ca3af;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.stat-value {
+  color: #111827;
+  font-weight: 500;
+}
+
+/* Editor Panel */
+.editor-panel {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  overflow-y: auto;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* View Mode */
+.view-mode h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.75rem;
+  color: #111827;
+}
+
+.view-mode .description {
+  color: #6b7280;
+  margin: 0 0 2rem 0;
+  font-size: 1.125rem;
+}
+
+.detail-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-section:last-of-type {
+  border-bottom: none;
+}
+
+.detail-section h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  color: #374151;
+}
+
+.loyalty-display {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.loyalty-bar {
+  width: 100%;
+  height: 2rem;
+  background: #e5e7eb;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.loyalty-fill {
+  height: 100%;
+  background: linear-gradient(to right, #ef4444, #f59e0b, #10b981, #3b82f6);
+  transition: width 0.3s;
+}
+
+.loyalty-value {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.preferences-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.preference-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 0.375rem;
+}
+
+.preference-item span:first-child {
+  color: #374151;
+  font-weight: 500;
+}
+
+.preference-item span:last-child {
+  color: #6b7280;
+}
+
+/* Edit Mode */
+.edit-mode h2 {
+  margin: 0 0 2rem 0;
+  font-size: 1.5rem;
+  color: #111827;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.preferences-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.preference-edit-item {
+  display: grid;
+  grid-template-columns: 120px 1fr 60px 40px;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 0.375rem;
+}
+
+.preference-edit-item span:first-child {
+  font-weight: 500;
+  color: #374151;
+}
+
+.preference-edit-item span:last-of-type {
+  text-align: right;
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.preference-edit-item button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #ef4444;
+  color: white;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: background 0.2s;
+}
+
+.preference-edit-item button:hover {
+  background: #dc2626;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 500;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+  border: none;
+}
+
+.btn-create,
+.btn-edit,
+.btn-save {
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+}
+
+.btn-create:hover,
+.btn-edit:hover,
+.btn-save:hover {
+  background: #2563eb;
+}
+
+.btn-cancel {
+  padding: 0.75rem 1.5rem;
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.btn-cancel:hover {
+  background: #d1d5db;
+}
+
+.btn-add-small {
+  padding: 0.25rem 0.75rem;
+  background: #10b981;
+  color: white;
+  font-size: 0.875rem;
+}
+
+.btn-add-small:hover {
+  background: #059669;
+}
+
+.btn-create-large {
+  padding: 1rem 2rem;
+  background: #3b82f6;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.btn-create-large:hover {
+  background: #2563eb;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* Empty State */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+  color: #9ca3af;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .route-list {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 640px) {
+  .personality-manager {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .preference-edit-item {
+    grid-template-columns: 100px 1fr 50px 32px;
+    gap: 0.5rem;
+  }
+}

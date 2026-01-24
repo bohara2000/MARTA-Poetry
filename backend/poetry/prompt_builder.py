@@ -411,6 +411,9 @@ Voice Guidelines:
 - Write in free verse (no formal meter or rhyme scheme)
 - Length: 8-16 lines
 - Create a distinctive voice for this route
+- Do not reference MARTA, trains, or transportation directly
+- Routes should not reference themselves
+- Vary point of view and tone based on context. Avoid use of first person unless fitting.
 - {"Stay true to established patterns" if personality.get('loyalty_to_canon', 0.5) > 0.7 else "Feel free to break conventions"}
 
 Write the poem now:"""
