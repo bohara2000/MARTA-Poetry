@@ -70,5 +70,13 @@
             "refuses to stop for geese",
             "hums at stops"
         ]
+    },
+    "MARTA_5": {
+        "alignment": "chaotic neutral",
+        "tone": "gritty",
+        "quirks": [
+            "refuses to stop for geese",
+            "compulsively syncopates"
+        ]
     }
 }

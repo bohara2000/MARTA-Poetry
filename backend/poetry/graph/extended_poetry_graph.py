@@ -66,7 +66,8 @@ class ExtendedPoetryGraph:
         sound_devices: List[str] = None,
         structure_metadata: Dict[str, Any] = None,
         sound_metadata: Dict[str, Any] = None,
-        metadata: Dict[str, Any] = None
+        metadata: Dict[str, Any] = None,
+        narrative_role: str = "route_generated"
     ) -> None:
         """
         Add a poem to the graph with its associated elements.
@@ -83,6 +84,7 @@ class ExtendedPoetryGraph:
             structure_metadata: Free verse structure metrics
             sound_metadata: Detailed sound pattern information
             metadata: Additional metadata (timestamp, etc.)
+            narrative_role: Role in narrative ("core", "route_generated", "extension", "variation")
         """
         # Combine all metadata
         full_metadata = metadata or {}
@@ -99,6 +101,7 @@ class ExtendedPoetryGraph:
             text=text,
             route_id=route_id,
             created_at=datetime.now().isoformat(),
+            narrative_role=narrative_role,
             metadata=full_metadata
         )
         
@@ -680,7 +683,8 @@ class ExtendedPoetryGraph:
             "total_emotions": len(emotions),
             "total_sound_devices": len(sound_devices),
             "contributing_routes": len(routes),
-            "total_connections": self.graph.number_of_edges()
+            "total_connections": self.graph.number_of_edges(),
+            **self.get_narrative_summary()  # Include narrative breakdown
         }
     
     def get_entity_co_occurrence(
@@ -705,6 +709,229 @@ class ExtendedPoetryGraph:
                     co_occurrences[(e1, e2)] += 1
         
         return dict(co_occurrences)
+    
+    # ==================== NARRATIVE MANAGEMENT ====================
+    
+    def mark_poem_as_core(self, poem_id: str) -> bool:
+        """Mark a poem as part of the core narrative."""
+        return self._set_narrative_role(poem_id, "core")
+    
+    def mark_poem_as_extension(self, poem_id: str) -> bool:
+        """Mark a poem as an extension of the core narrative."""
+        return self._set_narrative_role(poem_id, "extension")
+    
+    def mark_poem_as_variation(self, poem_id: str) -> bool:
+        """Mark a poem as a variation on existing themes."""
+        return self._set_narrative_role(poem_id, "variation")
+    
+    def _set_narrative_role(self, poem_id: str, role: str) -> bool:
+        """Set the narrative role for a poem."""
+        if not self.graph.has_node(poem_id):
+            return False
+        
+        node_data = self.graph.nodes[poem_id]
+        if node_data.get("type") != "poem":
+            return False
+        
+        self.graph.nodes[poem_id]["narrative_role"] = role
+        return True
+    
+    def get_core_poems(self) -> List[Dict[str, Any]]:
+        """Get all poems marked as core narrative."""
+        return self._get_poems_by_narrative_role("core")
+    
+    def get_extension_poems(self) -> List[Dict[str, Any]]:
+        """Get all poems that extend the core narrative."""
+        return self._get_poems_by_narrative_role("extension")
+    
+    def get_route_generated_poems(self) -> List[Dict[str, Any]]:
+        """Get all route-generated poems."""
+        return self._get_poems_by_narrative_role("route_generated")
+    
+    def _get_poems_by_narrative_role(self, role: str) -> List[Dict[str, Any]]:
+        """Get poems by their narrative role."""
+        poems = []
+        for node_id, node_data in self.graph.nodes(data=True):
+            if (node_data.get("type") == "poem" and 
+                node_data.get("narrative_role") == role):
+                
+                full_poem_data = self.get_poem(node_id)
+                poems.append(full_poem_data)
+        
+        # Sort by creation date
+        poems.sort(key=lambda x: x.get("created_at", ""), reverse=True)
+        return poems
+    
+    def create_narrative_connection(
+        self,
+        source_poem_id: str,
+        target_poem_id: str,
+        connection_type: str = "narrative_extension",
+        strength: float = 1.0,
+        notes: str = None
+    ) -> bool:
+        """
+        Create a narrative connection between poems.
+        
+        Args:
+            source_poem_id: Source poem (often core narrative)
+            target_poem_id: Target poem (often extension/variation)
+            connection_type: Type of connection ("narrative_extension", "thematic_echo", "response", etc.)
+            strength: Connection strength (0.0 to 1.0)
+            notes: Optional notes about the connection
+        """
+        if not (self.graph.has_node(source_poem_id) and self.graph.has_node(target_poem_id)):
+            return False
+        
+        self.graph.add_edge(
+            source_poem_id,
+            target_poem_id,
+            type="narrative_connection",
+            connection_type=connection_type,
+            strength=strength,
+            notes=notes,
+            created_at=datetime.now().isoformat()
+        )
+        return True
+    
+    def get_narrative_summary(self) -> Dict[str, Any]:
+        """Get a summary of the narrative structure."""
+        core_poems = self.get_core_poems()
+        extension_poems = self.get_extension_poems()
+        route_poems = self.get_route_generated_poems()
+        variation_poems = self._get_poems_by_narrative_role("variation")
+        
+        # Count narrative connections
+        narrative_connections = 0
+        for u, v, data in self.graph.edges(data=True):
+            if data.get("type") == "narrative_connection":
+                narrative_connections += 1
+        
+        return {
+            "core_poems": len(core_poems),
+            "extension_poems": len(extension_poems),
+            "route_generated_poems": len(route_poems),
+            "variation_poems": len(variation_poems),
+            "narrative_connections": narrative_connections,
+            "core_poem_titles": [p.get("title", "Untitled") for p in core_poems],
+            "latest_core_poem": core_poems[0] if core_poems else None,
+            "total_narrative_poems": len(core_poems) + len(extension_poems)
+        }
+    
+    def remove_poem(self, poem_id: str, cleanup_orphaned_entities: bool = True) -> bool:
+        """
+        Remove a poem and optionally clean up orphaned entities.
+        
+        Args:
+            poem_id: ID of the poem to remove
+            cleanup_orphaned_entities: Remove themes/imagery/etc that become unused
+        
+        Returns:
+            True if poem was removed, False if not found
+        """
+        if not self.graph.has_node(poem_id):
+            return False
+        
+        node_data = self.graph.nodes[poem_id]
+        if node_data.get("type") != "poem":
+            return False
+        
+        # Get connected entities before removing poem
+        connected_entities = []
+        if cleanup_orphaned_entities:
+            for neighbor in list(self.graph.neighbors(poem_id)):
+                neighbor_data = self.graph.nodes[neighbor]
+                entity_type = neighbor_data.get("type")
+                if entity_type in ["theme", "imagery", "emotion", "sound_device"]:
+                    connected_entities.append((neighbor, entity_type))
+        
+        # Remove the poem node (automatically removes all edges)
+        self.graph.remove_node(poem_id)
+        
+        # Clean up orphaned entities if requested
+        if cleanup_orphaned_entities:
+            for entity_id, entity_type in connected_entities:
+                if self.graph.has_node(entity_id):
+                    # Check if any other poems are connected to this entity
+                    has_poem_connections = any(
+                        self.graph.nodes[n].get("type") == "poem" 
+                        for n in self.graph.neighbors(entity_id)
+                    )
+                    
+                    # Remove entity if no poems use it
+                    if not has_poem_connections:
+                        self.graph.remove_node(entity_id)
+        
+        return True
+    
+    def remove_narrative_connection(self, source_poem_id: str, target_poem_id: str) -> bool:
+        """Remove narrative connection between two poems."""
+        if not (self.graph.has_node(source_poem_id) and self.graph.has_node(target_poem_id)):
+            return False
+        
+        # Remove narrative connection edges
+        if self.graph.has_edge(source_poem_id, target_poem_id):
+            edge_data = self.graph.get_edge_data(source_poem_id, target_poem_id)
+            edges_to_remove = []
+            
+            for key, data in edge_data.items():
+                if data.get("type") == "narrative_connection":
+                    edges_to_remove.append(key)
+            
+            for key in edges_to_remove:
+                self.graph.remove_edge(source_poem_id, target_poem_id, key)
+                
+            return len(edges_to_remove) > 0
+        
+        return False
+    
+    def clear_narrative_role(self, poem_id: str) -> bool:
+        """Clear/reset the narrative role of a poem to unassigned."""
+        if not self.graph.has_node(poem_id):
+            return False
+        
+        node_data = self.graph.nodes[poem_id]
+        if node_data.get("type") != "poem":
+            return False
+        
+        # Remove narrative_role or set to None
+        if "narrative_role" in self.graph.nodes[poem_id]:
+            del self.graph.nodes[poem_id]["narrative_role"]
+        
+        return True
+    
+    def remove_poems_by_narrative_role(self, role: str, confirm_callback=None) -> int:
+        """
+        Remove all poems with a specific narrative role.
+        
+        Args:
+            role: Narrative role to remove ("core", "extension", etc.)
+            confirm_callback: Optional function to confirm each removal
+        
+        Returns:
+            Number of poems removed
+        """
+        poems_to_remove = []
+        
+        for node_id, node_data in self.graph.nodes(data=True):
+            if (node_data.get("type") == "poem" and 
+                node_data.get("narrative_role") == role):
+                poems_to_remove.append((node_id, node_data))
+        
+        removed_count = 0
+        for poem_id, poem_data in poems_to_remove:
+            should_remove = True
+            
+            if confirm_callback:
+                title = poem_data.get("title", "Untitled")
+                should_remove = confirm_callback(poem_id, title, role)
+            
+            if should_remove and self.remove_poem(poem_id):
+                removed_count += 1
+        
+        return removed_count
+    
+    # ==================== PATH AND NETWORK ANALYSIS ====================
     
     def find_shortest_path_poems(
         self,

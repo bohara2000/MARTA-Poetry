@@ -3,6 +3,7 @@ import RouteSelector from './components/RouteSelector.jsx';
 import StorySlider from './components/StorySlider.jsx';
 import PoetryDisplay from './components/PoetryDisplay.jsx';
 import AudioControls from './components/AudioControls.jsx';
+import AdminPanel from './components/AdminPanel.jsx';
 
 function App() {
   const [selectedRoute, setSelectedRoute] = useState('');
@@ -10,6 +11,7 @@ function App() {
   const [poemData, setPoemData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [routeType, setRouteType] = useState('bus'); // 'bus' or 'train'
+  const [showAdmin, setShowAdmin] = useState(false);
   
   // Additional context parameters
   const [timeOfDay, setTimeOfDay] = useState('');
@@ -53,9 +55,22 @@ function App() {
       .finally(() => setLoading(false));
   };
 
+  // Show admin interface if toggled
+  if (showAdmin) {
+    return <AdminPanel onClose={() => setShowAdmin(false)} />;
+  }
+
   return (
     <div className="min-h-screen p-4 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">MARTA Poetry Project</h1>
+      <div className="flex justify-between items-center mb-4">
+        <h1 className="text-3xl font-bold">MARTA Poetry Project</h1>
+        <button
+          onClick={() => setShowAdmin(true)}
+          className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm"
+        >
+          🔧 Admin Panel
+        </button>
+      </div>
 
       <div className="mb-4">
         <label className="mr-4 font-semibold">Type:</label>

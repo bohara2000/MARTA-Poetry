@@ -1,0 +1,336 @@
+source_id,target_id,source_type,target_type,connection_type,source_name,target_name
+poem_MARTA_5_20260124_163409,theme_urban_life,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:34,urban_life
+poem_MARTA_5_20260124_163409,theme_commute,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:34,commute
+poem_MARTA_5_20260124_163409,theme_rhythm,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:34,rhythm
+poem_MARTA_5_20260124_163409,theme_dawn,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:34,dawn
+poem_MARTA_5_20260124_163409,img_cauldron,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,cauldron
+poem_MARTA_5_20260124_163409,img_clattering_wheels,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,clattering wheels
+poem_MARTA_5_20260124_163409,img_amber_lights,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,amber lights
+poem_MARTA_5_20260124_163409,img_coffee_cups,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,coffee cups
+poem_MARTA_5_20260124_163409,img_glass_towers,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,glass towers
+poem_MARTA_5_20260124_163409,img_granite_sidewalks,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,granite sidewalks
+poem_MARTA_5_20260124_163409,img_rails,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,rails
+poem_MARTA_5_20260124_163409,img_skyscrapers,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,skyscrapers
+poem_MARTA_5_20260124_163409,img_phone_screens_aflame,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,phone screens aflame
+poem_MARTA_5_20260124_163409,img_footprints,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:34,footprints
+poem_MARTA_5_20260124_163409,emo_energetic,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:34,energetic
+poem_MARTA_5_20260124_163409,emo_anticipatory,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:34,anticipatory
+poem_MARTA_5_20260124_163409,emo_hopeful,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:34,hopeful
+poem_MARTA_5_20260124_163409,sound_alliteration,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,alliteration
+poem_MARTA_5_20260124_163409,sound_repetition,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,repetition
+poem_MARTA_5_20260124_163409,sound_anaphora,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,anaphora
+poem_MARTA_5_20260124_163409,sound_assonance,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,assonance
+poem_MARTA_5_20260124_163409,sound_consonance,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,consonance
+poem_MARTA_5_20260124_163409,sound_onomatopoeia,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:34,onomatopoeia
+poem_MARTA_5_20260124_163506,theme_urban_life,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:35,urban_life
+poem_MARTA_5_20260124_163506,theme_movement,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:35,movement
+poem_MARTA_5_20260124_163506,theme_morning,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:35,morning
+poem_MARTA_5_20260124_163506,theme_rhythm,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:35,rhythm
+poem_MARTA_5_20260124_163506,theme_energy,poem,theme,has_theme,Route 5 - Peachtree - 2026-01-24 16:35,energy
+poem_MARTA_5_20260124_163506,img_dawn,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,dawn
+poem_MARTA_5_20260124_163506,img_dappled_gold,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,dappled gold
+poem_MARTA_5_20260124_163506,img_skyscraper_shadows,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,skyscraper shadows
+poem_MARTA_5_20260124_163506,img_buses,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,buses
+poem_MARTA_5_20260124_163506,img_sidewalk,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,sidewalk
+poem_MARTA_5_20260124_163506,img_voices_volley,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,voices volley
+poem_MARTA_5_20260124_163506,img_neon_signs,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,neon signs
+poem_MARTA_5_20260124_163506,img_tires_tick,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,tires tick
+poem_MARTA_5_20260124_163506,img_asphalt,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,asphalt
+poem_MARTA_5_20260124_163506,img_rolling_arteries,poem,imagery,contains_imagery,Route 5 - Peachtree - 2026-01-24 16:35,rolling arteries
+poem_MARTA_5_20260124_163506,emo_energetic,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:35,energetic
+poem_MARTA_5_20260124_163506,emo_vibrant,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:35,vibrant
+poem_MARTA_5_20260124_163506,emo_anticipatory,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:35,anticipatory
+poem_MARTA_5_20260124_163506,emo_alive,poem,emotion,conveys_emotion,Route 5 - Peachtree - 2026-01-24 16:35,alive
+poem_MARTA_5_20260124_163506,sound_alliteration,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:35,alliteration
+poem_MARTA_5_20260124_163506,sound_internal_rhyme,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:35,internal_rhyme
+poem_MARTA_5_20260124_163506,sound_assonance,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:35,assonance
+poem_MARTA_5_20260124_163506,sound_consonance,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:35,consonance
+poem_MARTA_5_20260124_163506,sound_onomatopoeia,poem,sound_device,uses_sound_device,Route 5 - Peachtree - 2026-01-24 16:35,onomatopoeia
+poem_MARTA_27324_20260124_163806,theme_urban_life,poem,theme,has_theme,MARTA_27324 - 2026-01-24 16:38,urban_life
+poem_MARTA_27324_20260124_163806,theme_transition,poem,theme,has_theme,MARTA_27324 - 2026-01-24 16:38,transition
+poem_MARTA_27324_20260124_163806,theme_isolation,poem,theme,has_theme,MARTA_27324 - 2026-01-24 16:38,isolation
+poem_MARTA_27324_20260124_163806,theme_memory,poem,theme,has_theme,MARTA_27324 - 2026-01-24 16:38,memory
+poem_MARTA_27324_20260124_163806,theme_routine,poem,theme,has_theme,MARTA_27324 - 2026-01-24 16:38,routine
+poem_MARTA_27324_20260124_163806,img_hollow_hum_of_steel_wheels,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,hollow hum of steel wheels
+poem_MARTA_27324_20260124_163806,img_afternoon_lull,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,afternoon lull
+poem_MARTA_27324_20260124_163806,img_gutters_holding_sunlight,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,gutters holding sunlight
+poem_MARTA_27324_20260124_163806,img_red-brick_echoes,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,red-brick echoes
+poem_MARTA_27324_20260124_163806,img_distant_thrum_of_the_city’s_pulse,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,distant thrum of the city’s pulse
+poem_MARTA_27324_20260124_163806,img_asphalt_veins,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,asphalt veins
+poem_MARTA_27324_20260124_163806,img_flickering_lamps,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,flickering lamps
+poem_MARTA_27324_20260124_163806,img_blank_page,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,blank page
+poem_MARTA_27324_20260124_163806,img_classical_whisper,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,classical whisper
+poem_MARTA_27324_20260124_163806,img_clang_of_innovation,poem,imagery,contains_imagery,MARTA_27324 - 2026-01-24 16:38,clang of innovation
+poem_MARTA_27324_20260124_163806,emo_contemplative,poem,emotion,conveys_emotion,MARTA_27324 - 2026-01-24 16:38,contemplative
+poem_MARTA_27324_20260124_163806,emo_lonely,poem,emotion,conveys_emotion,MARTA_27324 - 2026-01-24 16:38,lonely
+poem_MARTA_27324_20260124_163806,emo_reflective,poem,emotion,conveys_emotion,MARTA_27324 - 2026-01-24 16:38,reflective
+poem_MARTA_27324_20260124_163806,sound_alliteration,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,alliteration
+poem_MARTA_27324_20260124_163806,sound_repetition,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,repetition
+poem_MARTA_27324_20260124_163806,sound_anaphora,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,anaphora
+poem_MARTA_27324_20260124_163806,sound_assonance,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,assonance
+poem_MARTA_27324_20260124_163806,sound_consonance,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,consonance
+poem_MARTA_27324_20260124_163806,sound_onomatopoeia,poem,sound_device,uses_sound_device,MARTA_27324 - 2026-01-24 16:38,onomatopoeia
+poem_MARTA_27329_20260124_164004,theme_urban_life,poem,theme,has_theme,MARTA_27329 - 2026-01-24 16:40,urban_life
+poem_MARTA_27329_20260124_164004,theme_transition,poem,theme,has_theme,MARTA_27329 - 2026-01-24 16:40,transition
+poem_MARTA_27329_20260124_164004,theme_isolation,poem,theme,has_theme,MARTA_27329 - 2026-01-24 16:40,isolation
+poem_MARTA_27329_20260124_164004,theme_connectivity,poem,theme,has_theme,MARTA_27329 - 2026-01-24 16:40,connectivity
+poem_MARTA_27329_20260124_164004,theme_memory,poem,theme,has_theme,MARTA_27329 - 2026-01-24 16:40,memory
+poem_MARTA_27329_20260124_164004,img_silver_artery,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,silver artery
+poem_MARTA_27329_20260124_164004,img_cracked_sidewalks,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,cracked sidewalks
+poem_MARTA_27329_20260124_164004,img_cool_steel_folds,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,cool steel folds
+poem_MARTA_27329_20260124_164004,img_half-forgotten_gold,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,half-forgotten gold
+poem_MARTA_27329_20260124_164004,img_breathmarks,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,breathmarks
+poem_MARTA_27329_20260124_164004,img_empty_seats,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,empty seats
+poem_MARTA_27329_20260124_164004,img_leather_handles,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,leather handles
+poem_MARTA_27329_20260124_164004,img_digital_fare_cards,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,digital fare cards
+poem_MARTA_27329_20260124_164004,img_living_seam,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,living seam
+poem_MARTA_27329_20260124_164004,img_new_skylines,poem,imagery,contains_imagery,MARTA_27329 - 2026-01-24 16:40,new skylines
+poem_MARTA_27329_20260124_164004,emo_contemplative,poem,emotion,conveys_emotion,MARTA_27329 - 2026-01-24 16:40,contemplative
+poem_MARTA_27329_20260124_164004,emo_lonely,poem,emotion,conveys_emotion,MARTA_27329 - 2026-01-24 16:40,lonely
+poem_MARTA_27329_20260124_164004,emo_hopeful,poem,emotion,conveys_emotion,MARTA_27329 - 2026-01-24 16:40,hopeful
+poem_MARTA_27329_20260124_164004,emo_calm,poem,emotion,conveys_emotion,MARTA_27329 - 2026-01-24 16:40,calm
+poem_MARTA_27329_20260124_164004,sound_alliteration,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,alliteration
+poem_MARTA_27329_20260124_164004,sound_internal_rhyme,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,internal_rhyme
+poem_MARTA_27329_20260124_164004,sound_slant_rhyme,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,slant_rhyme
+poem_MARTA_27329_20260124_164004,sound_anaphora,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,anaphora
+poem_MARTA_27329_20260124_164004,sound_assonance,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,assonance
+poem_MARTA_27329_20260124_164004,sound_consonance,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,consonance
+poem_MARTA_27329_20260124_164004,sound_onomatopoeia,poem,sound_device,uses_sound_device,MARTA_27329 - 2026-01-24 16:40,onomatopoeia
+poem_MARTA_27448_20260124_164516,theme_urban_life,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:45,urban_life
+poem_MARTA_27448_20260124_164516,theme_movement,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:45,movement
+poem_MARTA_27448_20260124_164516,theme_technology,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:45,technology
+poem_MARTA_27448_20260124_164516,theme_memory,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:45,memory
+poem_MARTA_27448_20260124_164516,theme_rhythm,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:45,rhythm
+poem_MARTA_27448_20260124_164516,img_neon_wires,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,neon wires
+poem_MARTA_27448_20260124_164516,img_asphalt_nights,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,asphalt nights
+poem_MARTA_27448_20260124_164516,img_silver_veins,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,silver veins
+poem_MARTA_27448_20260124_164516,img_office_towers,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,office towers
+poem_MARTA_27448_20260124_164516,img_glowing_windows,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,glowing windows
+poem_MARTA_27448_20260124_164516,img_lantern-like_breath,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,lantern-like breath
+poem_MARTA_27448_20260124_164516,img_homunculus,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,homunculus
+poem_MARTA_27448_20260124_164516,img_streetlight,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,streetlight
+poem_MARTA_27448_20260124_164516,img_dusk,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,dusk
+poem_MARTA_27448_20260124_164516,img_invisible_seam,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:45,invisible seam
+poem_MARTA_27448_20260124_164516,emo_contemplative,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:45,contemplative
+poem_MARTA_27448_20260124_164516,emo_tense,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:45,tense
+poem_MARTA_27448_20260124_164516,emo_restless,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:45,restless
+poem_MARTA_27448_20260124_164516,emo_awe,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:45,awe
+poem_MARTA_27448_20260124_164516,sound_alliteration,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,alliteration
+poem_MARTA_27448_20260124_164516,sound_consonance,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,consonance
+poem_MARTA_27448_20260124_164516,sound_assonance,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,assonance
+poem_MARTA_27448_20260124_164516,sound_slant_rhyme,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,slant_rhyme
+poem_MARTA_27448_20260124_164516,sound_repetition,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,repetition
+poem_MARTA_27448_20260124_164516,sound_anaphora,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,anaphora
+poem_MARTA_27448_20260124_164516,sound_onomatopoeia,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:45,onomatopoeia
+poem_MARTA_27448_20260124_164812,theme_urban_life,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:48,urban_life
+poem_MARTA_27448_20260124_164812,theme_transition,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:48,transition
+poem_MARTA_27448_20260124_164812,theme_nostalgia,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:48,nostalgia
+poem_MARTA_27448_20260124_164812,theme_rhythm,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:48,rhythm
+poem_MARTA_27448_20260124_164812,theme_connection,poem,theme,has_theme,MARTA_27448 - 2026-01-24 16:48,connection
+poem_MARTA_27448_20260124_164812,img_streetlamps,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,streetlamps
+poem_MARTA_27448_20260124_164812,img_fevered_footsteps,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,fevered footsteps
+poem_MARTA_27448_20260124_164812,img_old_brick,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,old brick
+poem_MARTA_27448_20260124_164812,img_new_glass,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,new glass
+poem_MARTA_27448_20260124_164812,img_shimmer_of_dusk,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,shimmer of dusk
+poem_MARTA_27448_20260124_164812,img_silent_chord,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,silent chord
+poem_MARTA_27448_20260124_164812,img_fresh_asphalt,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,fresh asphalt
+poem_MARTA_27448_20260124_164812,img_street_art,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,street art
+poem_MARTA_27448_20260124_164812,img_vines,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,vines
+poem_MARTA_27448_20260124_164812,img_neon_hum,poem,imagery,contains_imagery,MARTA_27448 - 2026-01-24 16:48,neon hum
+poem_MARTA_27448_20260124_164812,emo_contemplative,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:48,contemplative
+poem_MARTA_27448_20260124_164812,emo_nostalgic,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:48,nostalgic
+poem_MARTA_27448_20260124_164812,emo_vibrant,poem,emotion,conveys_emotion,MARTA_27448 - 2026-01-24 16:48,vibrant
+poem_MARTA_27448_20260124_164812,sound_alliteration,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:48,alliteration
+poem_MARTA_27448_20260124_164812,sound_anaphora,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:48,anaphora
+poem_MARTA_27448_20260124_164812,sound_assonance,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:48,assonance
+poem_MARTA_27448_20260124_164812,sound_consonance,poem,sound_device,uses_sound_device,MARTA_27448 - 2026-01-24 16:48,consonance
+poem_MARTA_5_20260124_165920,theme_urban_life,poem,theme,has_theme,"Dawn's Commute
+By Route 5 - Peachtree",urban_life
+poem_MARTA_5_20260124_165920,theme_transition,poem,theme,has_theme,"Dawn's Commute
+By Route 5 - Peachtree",transition
+poem_MARTA_5_20260124_165920,theme_routine,poem,theme,has_theme,"Dawn's Commute
+By Route 5 - Peachtree",routine
+poem_MARTA_5_20260124_165920,theme_hope,poem,theme,has_theme,"Dawn's Commute
+By Route 5 - Peachtree",hope
+poem_MARTA_5_20260124_165920,img_dawn,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",dawn
+poem_MARTA_5_20260124_165920,img_downtown’s_pulse,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",downtown’s pulse
+poem_MARTA_5_20260124_165920,img_sidewalks,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",sidewalks
+poem_MARTA_5_20260124_165920,img_suits,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",suits
+poem_MARTA_5_20260124_165920,img_coffee,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",coffee
+poem_MARTA_5_20260124_165920,img_horns,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",horns
+poem_MARTA_5_20260124_165920,img_asphalt,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",asphalt
+poem_MARTA_5_20260124_165920,img_glass,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",glass
+poem_MARTA_5_20260124_165920,img_vertical_canyons,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",vertical canyons
+poem_MARTA_5_20260124_165920,img_echoes,poem,imagery,contains_imagery,"Dawn's Commute
+By Route 5 - Peachtree",echoes
+poem_MARTA_5_20260124_165920,emo_energetic,poem,emotion,conveys_emotion,"Dawn's Commute
+By Route 5 - Peachtree",energetic
+poem_MARTA_5_20260124_165920,emo_anticipation,poem,emotion,conveys_emotion,"Dawn's Commute
+By Route 5 - Peachtree",anticipation
+poem_MARTA_5_20260124_165920,emo_hopeful,poem,emotion,conveys_emotion,"Dawn's Commute
+By Route 5 - Peachtree",hopeful
+poem_MARTA_5_20260124_165920,sound_alliteration,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",alliteration
+poem_MARTA_5_20260124_165920,sound_internal_rhyme,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",internal_rhyme
+poem_MARTA_5_20260124_165920,sound_repetition,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",repetition
+poem_MARTA_5_20260124_165920,sound_assonance,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",assonance
+poem_MARTA_5_20260124_165920,sound_consonance,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",consonance
+poem_MARTA_5_20260124_165920,sound_onomatopoeia,poem,sound_device,uses_sound_device,"Dawn's Commute
+By Route 5 - Peachtree",onomatopoeia
+poem_MARTA_21_20260124_170000,theme_urban_life,poem,theme,has_theme,"Night Shift
+By Route 21 - Memorial Drive",urban_life
+poem_MARTA_21_20260124_170000,theme_rebellion,poem,theme,has_theme,"Night Shift
+By Route 21 - Memorial Drive",rebellion
+poem_MARTA_21_20260124_170000,theme_night,poem,theme,has_theme,"Night Shift
+By Route 21 - Memorial Drive",night
+poem_MARTA_21_20260124_170000,theme_defiance,poem,theme,has_theme,"Night Shift
+By Route 21 - Memorial Drive",defiance
+poem_MARTA_21_20260124_170000,theme_isolation,poem,theme,has_theme,"Night Shift
+By Route 21 - Memorial Drive",isolation
+poem_MARTA_21_20260124_170000,img_midnight_moons,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",midnight moons
+poem_MARTA_21_20260124_170000,img_cracked_pavement,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",cracked pavement
+poem_MARTA_21_20260124_170000,img_ghost_wasp,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",ghost wasp
+poem_MARTA_21_20260124_170000,img_sax_on_cinderblock,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",sax on cinderblock
+poem_MARTA_21_20260124_170000,img_streetlamps,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",streetlamps
+poem_MARTA_21_20260124_170000,img_soot-smeared_alleys,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",soot-smeared alleys
+poem_MARTA_21_20260124_170000,img_moths,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",moths
+poem_MARTA_21_20260124_170000,img_shivering_scaffolds,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",shivering scaffolds
+poem_MARTA_21_20260124_170000,img_crumbling_brick,poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",crumbling brick
+poem_MARTA_21_20260124_170000,img_poised_blade_(dawn),poem,imagery,contains_imagery,"Night Shift
+By Route 21 - Memorial Drive",poised blade (dawn)
+poem_MARTA_21_20260124_170000,emo_tense,poem,emotion,conveys_emotion,"Night Shift
+By Route 21 - Memorial Drive",tense
+poem_MARTA_21_20260124_170000,emo_defiant,poem,emotion,conveys_emotion,"Night Shift
+By Route 21 - Memorial Drive",defiant
+poem_MARTA_21_20260124_170000,emo_ominous,poem,emotion,conveys_emotion,"Night Shift
+By Route 21 - Memorial Drive",ominous
+poem_MARTA_21_20260124_170000,emo_restless,poem,emotion,conveys_emotion,"Night Shift
+By Route 21 - Memorial Drive",restless
+poem_MARTA_21_20260124_170000,sound_alliteration,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",alliteration
+poem_MARTA_21_20260124_170000,sound_slant_rhyme,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",slant_rhyme
+poem_MARTA_21_20260124_170000,sound_internal_rhyme,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",internal_rhyme
+poem_MARTA_21_20260124_170000,sound_assonance,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",assonance
+poem_MARTA_21_20260124_170000,sound_consonance,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",consonance
+poem_MARTA_21_20260124_170000,sound_onomatopoeia,poem,sound_device,uses_sound_device,"Night Shift
+By Route 21 - Memorial Drive",onomatopoeia
+poem_MARTA_5_20260124_170206,theme_urban_life,poem,theme,has_theme,"Morning Pulse
+By Route 5 - Peachtree",urban_life
+poem_MARTA_5_20260124_170206,theme_transition,poem,theme,has_theme,"Morning Pulse
+By Route 5 - Peachtree",transition
+poem_MARTA_5_20260124_170206,theme_rhythm,poem,theme,has_theme,"Morning Pulse
+By Route 5 - Peachtree",rhythm
+poem_MARTA_5_20260124_170206,theme_morning,poem,theme,has_theme,"Morning Pulse
+By Route 5 - Peachtree",morning
+poem_MARTA_5_20260124_170206,theme_routine,poem,theme,has_theme,"Morning Pulse
+By Route 5 - Peachtree",routine
+poem_MARTA_5_20260124_170206,img_metal_silhouettes,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",metal silhouettes
+poem_MARTA_5_20260124_170206,img_glass_giants,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",glass giants
+poem_MARTA_5_20260124_170206,img_cardboard_corners,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",cardboard corners
+poem_MARTA_5_20260124_170206,img_river_of_reflections,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",river of reflections
+poem_MARTA_5_20260124_170206,img_coffee-scented_breath,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",coffee-scented breath
+poem_MARTA_5_20260124_170206,img_fractured_fireworks,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",fractured fireworks
+poem_MARTA_5_20260124_170206,img_tiled_thresholds,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",tiled thresholds
+poem_MARTA_5_20260124_170206,img_lamplit_hush,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",lamplit hush
+poem_MARTA_5_20260124_170206,img_footfalls,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",footfalls
+poem_MARTA_5_20260124_170206,img_downtown_pulse,poem,imagery,contains_imagery,"Morning Pulse
+By Route 5 - Peachtree",downtown pulse
+poem_MARTA_5_20260124_170206,emo_restless,poem,emotion,conveys_emotion,"Morning Pulse
+By Route 5 - Peachtree",restless
+poem_MARTA_5_20260124_170206,emo_anticipatory,poem,emotion,conveys_emotion,"Morning Pulse
+By Route 5 - Peachtree",anticipatory
+poem_MARTA_5_20260124_170206,emo_energetic,poem,emotion,conveys_emotion,"Morning Pulse
+By Route 5 - Peachtree",energetic
+poem_MARTA_5_20260124_170206,emo_tense,poem,emotion,conveys_emotion,"Morning Pulse
+By Route 5 - Peachtree",tense
+poem_MARTA_5_20260124_170206,sound_alliteration,poem,sound_device,uses_sound_device,"Morning Pulse
+By Route 5 - Peachtree",alliteration
+poem_MARTA_5_20260124_170206,sound_assonance,poem,sound_device,uses_sound_device,"Morning Pulse
+By Route 5 - Peachtree",assonance
+poem_MARTA_5_20260124_170206,sound_consonance,poem,sound_device,uses_sound_device,"Morning Pulse
+By Route 5 - Peachtree",consonance
+poem_MARTA_5_20260124_170206,sound_internal_rhyme,poem,sound_device,uses_sound_device,"Morning Pulse
+By Route 5 - Peachtree",internal_rhyme
+poem_MARTA_27333_20260124_170341,theme_urban_life,poem,theme,has_theme,"Awakening Streets
+By MARTA_27333",urban_life
+poem_MARTA_27333_20260124_170341,theme_transition,poem,theme,has_theme,"Awakening Streets
+By MARTA_27333",transition
+poem_MARTA_27333_20260124_170341,theme_routine,poem,theme,has_theme,"Awakening Streets
+By MARTA_27333",routine
+poem_MARTA_27333_20260124_170341,theme_connectivity,poem,theme,has_theme,"Awakening Streets
+By MARTA_27333",connectivity
+poem_MARTA_27333_20260124_170341,theme_beginning,poem,theme,has_theme,"Awakening Streets
+By MARTA_27333",beginning
+poem_MARTA_27333_20260124_170341,img_dawn,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",dawn
+poem_MARTA_27333_20260124_170341,img_streetlights,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",streetlights
+poem_MARTA_27333_20260124_170341,img_damp_pavement,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",damp pavement
+poem_MARTA_27333_20260124_170341,img_amber_glow,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",amber glow
+poem_MARTA_27333_20260124_170341,img_humming_arcades,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",humming arcades
+poem_MARTA_27333_20260124_170341,img_glassy_storefronts,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",glassy storefronts
+poem_MARTA_27333_20260124_170341,img_footfalls,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",footfalls
+poem_MARTA_27333_20260124_170341,img_morse_code,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",Morse code
+poem_MARTA_27333_20260124_170341,img_arteries_of_asphalt,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",arteries of asphalt
+poem_MARTA_27333_20260124_170341,img_paper_cups,poem,imagery,contains_imagery,"Awakening Streets
+By MARTA_27333",paper cups
+poem_MARTA_27333_20260124_170341,emo_contemplative,poem,emotion,conveys_emotion,"Awakening Streets
+By MARTA_27333",contemplative
+poem_MARTA_27333_20260124_170341,emo_anticipatory,poem,emotion,conveys_emotion,"Awakening Streets
+By MARTA_27333",anticipatory
+poem_MARTA_27333_20260124_170341,emo_hopeful,poem,emotion,conveys_emotion,"Awakening Streets
+By MARTA_27333",hopeful
+poem_MARTA_27333_20260124_170341,sound_alliteration,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",alliteration
+poem_MARTA_27333_20260124_170341,sound_slant_rhyme,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",slant_rhyme
+poem_MARTA_27333_20260124_170341,sound_repetition,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",repetition
+poem_MARTA_27333_20260124_170341,sound_assonance,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",assonance
+poem_MARTA_27333_20260124_170341,sound_consonance,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",consonance
+poem_MARTA_27333_20260124_170341,sound_onomatopoeia,poem,sound_device,uses_sound_device,"Awakening Streets
+By MARTA_27333",onomatopoeia

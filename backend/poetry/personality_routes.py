@@ -14,10 +14,52 @@ from pathlib import Path
 router = APIRouter(prefix="/api/personalities", tags=["personalities"])
 
 # Path to personalities file
-PERSONALITIES_FILE = Path("data/route_personalities.json")
+PERSONALITIES_FILE = Path(__file__).parent.parent / "data" / "route_personalities.json"
+
+# Path to GTFS routes file 
+ROUTES_FILE = Path(__file__).parent.parent / "data" / "gtfs" / "routes.txt"
 
 
-# ==================== PYDANTIC MODELS ====================
+def load_available_routes():
+    """Load available routes from GTFS data."""
+    routes = {}
+    try:
+        print(f"Looking for GTFS routes file at: {ROUTES_FILE}")
+        if ROUTES_FILE.exists():
+            with open(ROUTES_FILE, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+                headers = lines[0].strip().split(',')
+                
+                for line in lines[1:]:
+                    values = line.strip().split(',')
+                    if len(values) >= len(headers):
+                        route_data = dict(zip(headers, values))
+                        route_id = f"MARTA_{route_data.get('route_id', '')}"
+                        route_short = route_data.get('route_short_name', '')
+                        route_long = route_data.get('route_long_name', '')
+                        
+                        # Create human-friendly name
+                        if route_short and route_long:
+                            friendly_name = f"Route {route_short} - {route_long}"
+                        elif route_short:
+                            friendly_name = f"Route {route_short}"
+                        elif route_long:
+                            friendly_name = route_long
+                        else:
+                            friendly_name = route_id
+                        
+                        routes[route_id] = {
+                            "id": route_id,
+                            "name": friendly_name,
+                            "short_name": route_short,
+                            "long_name": route_long
+                        }
+    except Exception as e:
+        print(f"Error loading routes: {e}")
+        print(f"ROUTES_FILE path: {ROUTES_FILE}")
+        print(f"File exists: {ROUTES_FILE.exists()}")
+    
+    return routes
 
 class RoutePersonality(BaseModel):
     """Model for a single route personality."""
@@ -352,6 +394,36 @@ def _get_personality_type(personality: RoutePersonality) -> str:
         return "Pioneer"
     else:
         return "Balanced"
+
+
+@router.get("/available-routes")
+async def get_available_routes():
+    """
+    Get all available routes from GTFS data with human-friendly names.
+    """
+    try:
+        available_routes = load_available_routes()
+        existing_personalities = load_personalities()
+        
+        # Mark which routes already have personalities
+        for route_id in available_routes:
+            available_routes[route_id]["has_personality"] = route_id in existing_personalities
+        
+        return {
+            "routes": available_routes,
+            "total_available": len(available_routes),
+            "total_with_personalities": len(existing_personalities)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to load available routes: {e}"
+        )
+
+@router.get("/test-routes")
+async def test_routes():
+    """Test endpoint to check if routes work."""
+    return {"message": "Routes endpoint working!", "gtfs_file_path": str(ROUTES_FILE), "file_exists": ROUTES_FILE.exists()}
 
 
 # ==================== USAGE IN app.py ====================

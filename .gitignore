@@ -1,3 +1,8 @@
+# ignore poems in data files
+backend/poems/*.txt
+backend/data/poetry_graph_backup_133225.json
+backend/reports/*.txt
+
 # Ignore the entire virtual environment directory
 backend/venv/
 
@@ -11,3 +16,5 @@ frontend/node_modules/
 *.env
 *.env.local
 *.env.*.local
+
+

@@ -1,0 +1,1607 @@
+{
+  "generated_at": "2026-01-24T18:59:52.827603",
+  "graph_summary": {
+    "total_poems": 10,
+    "total_themes": 20,
+    "total_imagery": 95,
+    "total_emotions": 16,
+    "total_sound_devices": 8,
+    "contributing_routes": 6,
+    "total_connections": 240
+  },
+  "route_statistics": [
+    {
+      "route_id": "MARTA_21",
+      "poem_count": 1,
+      "themes": {
+        "urban_life": 1,
+        "rebellion": 1,
+        "night": 1,
+        "defiance": 1,
+        "isolation": 1
+      },
+      "imagery": {
+        "midnight moons": 1,
+        "cracked pavement": 1,
+        "ghost wasp": 1,
+        "sax on cinderblock": 1,
+        "streetlamps": 1,
+        "soot-smeared alleys": 1,
+        "moths": 1,
+        "shivering scaffolds": 1,
+        "crumbling brick": 1,
+        "poised blade (dawn)": 1
+      },
+      "emotions": {
+        "tense": 1,
+        "defiant": 1,
+        "ominous": 1,
+        "restless": 1
+      },
+      "sound_devices": {
+        "alliteration": 1,
+        "slant_rhyme": 1,
+        "internal_rhyme": 1,
+        "assonance": 1,
+        "consonance": 1,
+        "onomatopoeia": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_21",
+        "poem_count": 1,
+        "line_counts": [
+          12
+        ],
+        "avg_line_length": [
+          14.666666666666666
+        ],
+        "stanza_patterns": [
+          [
+            12
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 12.0,
+        "overall_avg_line_length": 14.666666666666666
+      },
+      "structural_diversity": 0.0
+    },
+    {
+      "route_id": "MARTA_27324",
+      "poem_count": 1,
+      "themes": {
+        "urban_life": 1,
+        "transition": 1,
+        "isolation": 1,
+        "memory": 1,
+        "routine": 1
+      },
+      "imagery": {
+        "hollow hum of steel wheels": 1,
+        "afternoon lull": 1,
+        "gutters holding sunlight": 1,
+        "red-brick echoes": 1,
+        "distant thrum of the city’s pulse": 1,
+        "asphalt veins": 1,
+        "flickering lamps": 1,
+        "blank page": 1,
+        "classical whisper": 1,
+        "clang of innovation": 1
+      },
+      "emotions": {
+        "contemplative": 1,
+        "lonely": 1,
+        "reflective": 1
+      },
+      "sound_devices": {
+        "alliteration": 1,
+        "repetition": 1,
+        "anaphora": 1,
+        "assonance": 1,
+        "consonance": 1,
+        "onomatopoeia": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_27324",
+        "poem_count": 1,
+        "line_counts": [
+          12
+        ],
+        "avg_line_length": [
+          13.833333333333334
+        ],
+        "stanza_patterns": [
+          [
+            12
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 12.0,
+        "overall_avg_line_length": 13.833333333333334
+      },
+      "structural_diversity": 0.0
+    },
+    {
+      "route_id": "MARTA_27329",
+      "poem_count": 1,
+      "themes": {
+        "urban_life": 1,
+        "transition": 1,
+        "isolation": 1,
+        "connectivity": 1,
+        "memory": 1
+      },
+      "imagery": {
+        "silver artery": 1,
+        "cracked sidewalks": 1,
+        "cool steel folds": 1,
+        "half-forgotten gold": 1,
+        "breathmarks": 1,
+        "empty seats": 1,
+        "leather handles": 1,
+        "digital fare cards": 1,
+        "living seam": 1,
+        "new skylines": 1
+      },
+      "emotions": {
+        "contemplative": 1,
+        "lonely": 1,
+        "hopeful": 1,
+        "calm": 1
+      },
+      "sound_devices": {
+        "alliteration": 1,
+        "internal_rhyme": 1,
+        "slant_rhyme": 1,
+        "anaphora": 1,
+        "assonance": 1,
+        "consonance": 1,
+        "onomatopoeia": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_27329",
+        "poem_count": 1,
+        "line_counts": [
+          10
+        ],
+        "avg_line_length": [
+          12.5
+        ],
+        "stanza_patterns": [
+          [
+            5,
+            5
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 10.0,
+        "overall_avg_line_length": 12.5
+      },
+      "structural_diversity": 0.0
+    },
+    {
+      "route_id": "MARTA_27333",
+      "poem_count": 1,
+      "themes": {
+        "urban_life": 1,
+        "transition": 1,
+        "routine": 1,
+        "connectivity": 1,
+        "beginning": 1
+      },
+      "imagery": {
+        "dawn": 1,
+        "streetlights": 1,
+        "damp pavement": 1,
+        "amber glow": 1,
+        "humming arcades": 1,
+        "glassy storefronts": 1,
+        "footfalls": 1,
+        "Morse code": 1,
+        "arteries of asphalt": 1,
+        "paper cups": 1
+      },
+      "emotions": {
+        "contemplative": 1,
+        "anticipatory": 1,
+        "hopeful": 1
+      },
+      "sound_devices": {
+        "alliteration": 1,
+        "slant_rhyme": 1,
+        "repetition": 1,
+        "assonance": 1,
+        "consonance": 1,
+        "onomatopoeia": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_27333",
+        "poem_count": 1,
+        "line_counts": [
+          10
+        ],
+        "avg_line_length": [
+          11.6
+        ],
+        "stanza_patterns": [
+          [
+            10
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 10.0,
+        "overall_avg_line_length": 11.6
+      },
+      "structural_diversity": 0.0
+    },
+    {
+      "route_id": "MARTA_27448",
+      "poem_count": 2,
+      "themes": {
+        "urban_life": 2,
+        "rhythm": 2,
+        "movement": 1,
+        "technology": 1,
+        "memory": 1,
+        "transition": 1,
+        "nostalgia": 1,
+        "connection": 1
+      },
+      "imagery": {
+        "neon wires": 1,
+        "asphalt nights": 1,
+        "silver veins": 1,
+        "office towers": 1,
+        "glowing windows": 1,
+        "lantern-like breath": 1,
+        "homunculus": 1,
+        "streetlight": 1,
+        "dusk": 1,
+        "invisible seam": 1,
+        "streetlamps": 1,
+        "fevered footsteps": 1,
+        "old brick": 1,
+        "new glass": 1,
+        "shimmer of dusk": 1,
+        "silent chord": 1,
+        "fresh asphalt": 1,
+        "street art": 1,
+        "vines": 1,
+        "neon hum": 1
+      },
+      "emotions": {
+        "contemplative": 2,
+        "tense": 1,
+        "restless": 1,
+        "awe": 1,
+        "nostalgic": 1,
+        "vibrant": 1
+      },
+      "sound_devices": {
+        "alliteration": 2,
+        "consonance": 2,
+        "assonance": 2,
+        "anaphora": 2,
+        "slant_rhyme": 1,
+        "repetition": 1,
+        "onomatopoeia": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_27448",
+        "poem_count": 2,
+        "line_counts": [
+          16,
+          11
+        ],
+        "avg_line_length": [
+          11.125,
+          13.636363636363637
+        ],
+        "stanza_patterns": [
+          [
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            4,
+            3
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 13.5,
+        "overall_avg_line_length": 12.380681818181818
+      },
+      "structural_diversity": 0.37037037037037035
+    },
+    {
+      "route_id": "MARTA_5",
+      "poem_count": 4,
+      "themes": {
+        "urban_life": 4,
+        "rhythm": 3,
+        "morning": 2,
+        "transition": 2,
+        "routine": 2,
+        "commute": 1,
+        "dawn": 1,
+        "movement": 1,
+        "energy": 1,
+        "hope": 1
+      },
+      "imagery": {
+        "dawn": 2,
+        "asphalt": 2,
+        "cauldron": 1,
+        "clattering wheels": 1,
+        "amber lights": 1,
+        "coffee cups": 1,
+        "glass towers": 1,
+        "granite sidewalks": 1,
+        "rails": 1,
+        "skyscrapers": 1,
+        "phone screens aflame": 1,
+        "footprints": 1,
+        "dappled gold": 1,
+        "skyscraper shadows": 1,
+        "buses": 1,
+        "sidewalk": 1,
+        "voices volley": 1,
+        "neon signs": 1,
+        "tires tick": 1,
+        "rolling arteries": 1,
+        "downtown’s pulse": 1,
+        "sidewalks": 1,
+        "suits": 1,
+        "coffee": 1,
+        "horns": 1,
+        "glass": 1,
+        "vertical canyons": 1,
+        "echoes": 1,
+        "metal silhouettes": 1,
+        "glass giants": 1,
+        "cardboard corners": 1,
+        "river of reflections": 1,
+        "coffee-scented breath": 1,
+        "fractured fireworks": 1,
+        "tiled thresholds": 1,
+        "lamplit hush": 1,
+        "footfalls": 1,
+        "downtown pulse": 1
+      },
+      "emotions": {
+        "energetic": 4,
+        "anticipatory": 3,
+        "hopeful": 2,
+        "vibrant": 1,
+        "alive": 1,
+        "anticipation": 1,
+        "restless": 1,
+        "tense": 1
+      },
+      "sound_devices": {
+        "alliteration": 4,
+        "assonance": 4,
+        "consonance": 4,
+        "onomatopoeia": 3,
+        "internal_rhyme": 3,
+        "repetition": 2,
+        "anaphora": 1
+      },
+      "structure_metrics": {
+        "route_id": "MARTA_5",
+        "poem_count": 4,
+        "line_counts": [
+          12,
+          11,
+          12,
+          12
+        ],
+        "avg_line_length": [
+          15.166666666666666,
+          11.454545454545455,
+          10.333333333333334,
+          11.166666666666666
+        ],
+        "stanza_patterns": [
+          [
+            12
+          ],
+          [
+            11
+          ],
+          [
+            12
+          ],
+          [
+            12
+          ]
+        ],
+        "enjambment_usage": [],
+        "avg_line_count": 11.75,
+        "overall_avg_line_length": 12.030303030303031
+      },
+      "structural_diversity": 0.07370428968378201
+    }
+  ],
+  "elements_by_type": {
+    "poem": [],
+    "theme": [
+      {
+        "id": "theme_urban_life",
+        "name": "urban_life",
+        "connections": 0
+      },
+      {
+        "id": "theme_commute",
+        "name": "commute",
+        "connections": 0
+      },
+      {
+        "id": "theme_rhythm",
+        "name": "rhythm",
+        "connections": 0
+      },
+      {
+        "id": "theme_dawn",
+        "name": "dawn",
+        "connections": 0
+      },
+      {
+        "id": "theme_movement",
+        "name": "movement",
+        "connections": 0
+      },
+      {
+        "id": "theme_morning",
+        "name": "morning",
+        "connections": 0
+      },
+      {
+        "id": "theme_energy",
+        "name": "energy",
+        "connections": 0
+      },
+      {
+        "id": "theme_transition",
+        "name": "transition",
+        "connections": 0
+      },
+      {
+        "id": "theme_isolation",
+        "name": "isolation",
+        "connections": 0
+      },
+      {
+        "id": "theme_memory",
+        "name": "memory",
+        "connections": 0
+      },
+      {
+        "id": "theme_routine",
+        "name": "routine",
+        "connections": 0
+      },
+      {
+        "id": "theme_connectivity",
+        "name": "connectivity",
+        "connections": 0
+      },
+      {
+        "id": "theme_technology",
+        "name": "technology",
+        "connections": 0
+      },
+      {
+        "id": "theme_nostalgia",
+        "name": "nostalgia",
+        "connections": 0
+      },
+      {
+        "id": "theme_connection",
+        "name": "connection",
+        "connections": 0
+      },
+      {
+        "id": "theme_hope",
+        "name": "hope",
+        "connections": 0
+      },
+      {
+        "id": "theme_rebellion",
+        "name": "rebellion",
+        "connections": 0
+      },
+      {
+        "id": "theme_night",
+        "name": "night",
+        "connections": 0
+      },
+      {
+        "id": "theme_defiance",
+        "name": "defiance",
+        "connections": 0
+      },
+      {
+        "id": "theme_beginning",
+        "name": "beginning",
+        "connections": 0
+      }
+    ],
+    "imagery": [
+      {
+        "id": "img_cauldron",
+        "name": "cauldron",
+        "connections": 0
+      },
+      {
+        "id": "img_clattering_wheels",
+        "name": "clattering wheels",
+        "connections": 0
+      },
+      {
+        "id": "img_amber_lights",
+        "name": "amber lights",
+        "connections": 0
+      },
+      {
+        "id": "img_coffee_cups",
+        "name": "coffee cups",
+        "connections": 0
+      },
+      {
+        "id": "img_glass_towers",
+        "name": "glass towers",
+        "connections": 0
+      },
+      {
+        "id": "img_granite_sidewalks",
+        "name": "granite sidewalks",
+        "connections": 0
+      },
+      {
+        "id": "img_rails",
+        "name": "rails",
+        "connections": 0
+      },
+      {
+        "id": "img_skyscrapers",
+        "name": "skyscrapers",
+        "connections": 0
+      },
+      {
+        "id": "img_phone_screens_aflame",
+        "name": "phone screens aflame",
+        "connections": 0
+      },
+      {
+        "id": "img_footprints",
+        "name": "footprints",
+        "connections": 0
+      },
+      {
+        "id": "img_dawn",
+        "name": "dawn",
+        "connections": 0
+      },
+      {
+        "id": "img_dappled_gold",
+        "name": "dappled gold",
+        "connections": 0
+      },
+      {
+        "id": "img_skyscraper_shadows",
+        "name": "skyscraper shadows",
+        "connections": 0
+      },
+      {
+        "id": "img_buses",
+        "name": "buses",
+        "connections": 0
+      },
+      {
+        "id": "img_sidewalk",
+        "name": "sidewalk",
+        "connections": 0
+      },
+      {
+        "id": "img_voices_volley",
+        "name": "voices volley",
+        "connections": 0
+      },
+      {
+        "id": "img_neon_signs",
+        "name": "neon signs",
+        "connections": 0
+      },
+      {
+        "id": "img_tires_tick",
+        "name": "tires tick",
+        "connections": 0
+      },
+      {
+        "id": "img_asphalt",
+        "name": "asphalt",
+        "connections": 0
+      },
+      {
+        "id": "img_rolling_arteries",
+        "name": "rolling arteries",
+        "connections": 0
+      },
+      {
+        "id": "img_hollow_hum_of_steel_wheels",
+        "name": "hollow hum of steel wheels",
+        "connections": 0
+      },
+      {
+        "id": "img_afternoon_lull",
+        "name": "afternoon lull",
+        "connections": 0
+      },
+      {
+        "id": "img_gutters_holding_sunlight",
+        "name": "gutters holding sunlight",
+        "connections": 0
+      },
+      {
+        "id": "img_red-brick_echoes",
+        "name": "red-brick echoes",
+        "connections": 0
+      },
+      {
+        "id": "img_distant_thrum_of_the_city’s_pulse",
+        "name": "distant thrum of the city’s pulse",
+        "connections": 0
+      },
+      {
+        "id": "img_asphalt_veins",
+        "name": "asphalt veins",
+        "connections": 0
+      },
+      {
+        "id": "img_flickering_lamps",
+        "name": "flickering lamps",
+        "connections": 0
+      },
+      {
+        "id": "img_blank_page",
+        "name": "blank page",
+        "connections": 0
+      },
+      {
+        "id": "img_classical_whisper",
+        "name": "classical whisper",
+        "connections": 0
+      },
+      {
+        "id": "img_clang_of_innovation",
+        "name": "clang of innovation",
+        "connections": 0
+      },
+      {
+        "id": "img_silver_artery",
+        "name": "silver artery",
+        "connections": 0
+      },
+      {
+        "id": "img_cracked_sidewalks",
+        "name": "cracked sidewalks",
+        "connections": 0
+      },
+      {
+        "id": "img_cool_steel_folds",
+        "name": "cool steel folds",
+        "connections": 0
+      },
+      {
+        "id": "img_half-forgotten_gold",
+        "name": "half-forgotten gold",
+        "connections": 0
+      },
+      {
+        "id": "img_breathmarks",
+        "name": "breathmarks",
+        "connections": 0
+      },
+      {
+        "id": "img_empty_seats",
+        "name": "empty seats",
+        "connections": 0
+      },
+      {
+        "id": "img_leather_handles",
+        "name": "leather handles",
+        "connections": 0
+      },
+      {
+        "id": "img_digital_fare_cards",
+        "name": "digital fare cards",
+        "connections": 0
+      },
+      {
+        "id": "img_living_seam",
+        "name": "living seam",
+        "connections": 0
+      },
+      {
+        "id": "img_new_skylines",
+        "name": "new skylines",
+        "connections": 0
+      },
+      {
+        "id": "img_neon_wires",
+        "name": "neon wires",
+        "connections": 0
+      },
+      {
+        "id": "img_asphalt_nights",
+        "name": "asphalt nights",
+        "connections": 0
+      },
+      {
+        "id": "img_silver_veins",
+        "name": "silver veins",
+        "connections": 0
+      },
+      {
+        "id": "img_office_towers",
+        "name": "office towers",
+        "connections": 0
+      },
+      {
+        "id": "img_glowing_windows",
+        "name": "glowing windows",
+        "connections": 0
+      },
+      {
+        "id": "img_lantern-like_breath",
+        "name": "lantern-like breath",
+        "connections": 0
+      },
+      {
+        "id": "img_homunculus",
+        "name": "homunculus",
+        "connections": 0
+      },
+      {
+        "id": "img_streetlight",
+        "name": "streetlight",
+        "connections": 0
+      },
+      {
+        "id": "img_dusk",
+        "name": "dusk",
+        "connections": 0
+      },
+      {
+        "id": "img_invisible_seam",
+        "name": "invisible seam",
+        "connections": 0
+      },
+      {
+        "id": "img_streetlamps",
+        "name": "streetlamps",
+        "connections": 0
+      },
+      {
+        "id": "img_fevered_footsteps",
+        "name": "fevered footsteps",
+        "connections": 0
+      },
+      {
+        "id": "img_old_brick",
+        "name": "old brick",
+        "connections": 0
+      },
+      {
+        "id": "img_new_glass",
+        "name": "new glass",
+        "connections": 0
+      },
+      {
+        "id": "img_shimmer_of_dusk",
+        "name": "shimmer of dusk",
+        "connections": 0
+      },
+      {
+        "id": "img_silent_chord",
+        "name": "silent chord",
+        "connections": 0
+      },
+      {
+        "id": "img_fresh_asphalt",
+        "name": "fresh asphalt",
+        "connections": 0
+      },
+      {
+        "id": "img_street_art",
+        "name": "street art",
+        "connections": 0
+      },
+      {
+        "id": "img_vines",
+        "name": "vines",
+        "connections": 0
+      },
+      {
+        "id": "img_neon_hum",
+        "name": "neon hum",
+        "connections": 0
+      },
+      {
+        "id": "img_downtown’s_pulse",
+        "name": "downtown’s pulse",
+        "connections": 0
+      },
+      {
+        "id": "img_sidewalks",
+        "name": "sidewalks",
+        "connections": 0
+      },
+      {
+        "id": "img_suits",
+        "name": "suits",
+        "connections": 0
+      },
+      {
+        "id": "img_coffee",
+        "name": "coffee",
+        "connections": 0
+      },
+      {
+        "id": "img_horns",
+        "name": "horns",
+        "connections": 0
+      },
+      {
+        "id": "img_glass",
+        "name": "glass",
+        "connections": 0
+      },
+      {
+        "id": "img_vertical_canyons",
+        "name": "vertical canyons",
+        "connections": 0
+      },
+      {
+        "id": "img_echoes",
+        "name": "echoes",
+        "connections": 0
+      },
+      {
+        "id": "img_midnight_moons",
+        "name": "midnight moons",
+        "connections": 0
+      },
+      {
+        "id": "img_cracked_pavement",
+        "name": "cracked pavement",
+        "connections": 0
+      },
+      {
+        "id": "img_ghost_wasp",
+        "name": "ghost wasp",
+        "connections": 0
+      },
+      {
+        "id": "img_sax_on_cinderblock",
+        "name": "sax on cinderblock",
+        "connections": 0
+      },
+      {
+        "id": "img_soot-smeared_alleys",
+        "name": "soot-smeared alleys",
+        "connections": 0
+      },
+      {
+        "id": "img_moths",
+        "name": "moths",
+        "connections": 0
+      },
+      {
+        "id": "img_shivering_scaffolds",
+        "name": "shivering scaffolds",
+        "connections": 0
+      },
+      {
+        "id": "img_crumbling_brick",
+        "name": "crumbling brick",
+        "connections": 0
+      },
+      {
+        "id": "img_poised_blade_(dawn)",
+        "name": "poised blade (dawn)",
+        "connections": 0
+      },
+      {
+        "id": "img_metal_silhouettes",
+        "name": "metal silhouettes",
+        "connections": 0
+      },
+      {
+        "id": "img_glass_giants",
+        "name": "glass giants",
+        "connections": 0
+      },
+      {
+        "id": "img_cardboard_corners",
+        "name": "cardboard corners",
+        "connections": 0
+      },
+      {
+        "id": "img_river_of_reflections",
+        "name": "river of reflections",
+        "connections": 0
+      },
+      {
+        "id": "img_coffee-scented_breath",
+        "name": "coffee-scented breath",
+        "connections": 0
+      },
+      {
+        "id": "img_fractured_fireworks",
+        "name": "fractured fireworks",
+        "connections": 0
+      },
+      {
+        "id": "img_tiled_thresholds",
+        "name": "tiled thresholds",
+        "connections": 0
+      },
+      {
+        "id": "img_lamplit_hush",
+        "name": "lamplit hush",
+        "connections": 0
+      },
+      {
+        "id": "img_footfalls",
+        "name": "footfalls",
+        "connections": 0
+      },
+      {
+        "id": "img_downtown_pulse",
+        "name": "downtown pulse",
+        "connections": 0
+      },
+      {
+        "id": "img_streetlights",
+        "name": "streetlights",
+        "connections": 0
+      },
+      {
+        "id": "img_damp_pavement",
+        "name": "damp pavement",
+        "connections": 0
+      },
+      {
+        "id": "img_amber_glow",
+        "name": "amber glow",
+        "connections": 0
+      },
+      {
+        "id": "img_humming_arcades",
+        "name": "humming arcades",
+        "connections": 0
+      },
+      {
+        "id": "img_glassy_storefronts",
+        "name": "glassy storefronts",
+        "connections": 0
+      },
+      {
+        "id": "img_morse_code",
+        "name": "Morse code",
+        "connections": 0
+      },
+      {
+        "id": "img_arteries_of_asphalt",
+        "name": "arteries of asphalt",
+        "connections": 0
+      },
+      {
+        "id": "img_paper_cups",
+        "name": "paper cups",
+        "connections": 0
+      }
+    ],
+    "emotion": [
+      {
+        "id": "emo_energetic",
+        "name": "energetic",
+        "connections": 0
+      },
+      {
+        "id": "emo_anticipatory",
+        "name": "anticipatory",
+        "connections": 0
+      },
+      {
+        "id": "emo_hopeful",
+        "name": "hopeful",
+        "connections": 0
+      },
+      {
+        "id": "emo_vibrant",
+        "name": "vibrant",
+        "connections": 0
+      },
+      {
+        "id": "emo_alive",
+        "name": "alive",
+        "connections": 0
+      },
+      {
+        "id": "emo_contemplative",
+        "name": "contemplative",
+        "connections": 0
+      },
+      {
+        "id": "emo_lonely",
+        "name": "lonely",
+        "connections": 0
+      },
+      {
+        "id": "emo_reflective",
+        "name": "reflective",
+        "connections": 0
+      },
+      {
+        "id": "emo_calm",
+        "name": "calm",
+        "connections": 0
+      },
+      {
+        "id": "emo_tense",
+        "name": "tense",
+        "connections": 0
+      },
+      {
+        "id": "emo_restless",
+        "name": "restless",
+        "connections": 0
+      },
+      {
+        "id": "emo_awe",
+        "name": "awe",
+        "connections": 0
+      },
+      {
+        "id": "emo_nostalgic",
+        "name": "nostalgic",
+        "connections": 0
+      },
+      {
+        "id": "emo_anticipation",
+        "name": "anticipation",
+        "connections": 0
+      },
+      {
+        "id": "emo_defiant",
+        "name": "defiant",
+        "connections": 0
+      },
+      {
+        "id": "emo_ominous",
+        "name": "ominous",
+        "connections": 0
+      }
+    ],
+    "sound_device": [
+      {
+        "id": "sound_alliteration",
+        "name": "alliteration",
+        "connections": 0
+      },
+      {
+        "id": "sound_repetition",
+        "name": "repetition",
+        "connections": 0
+      },
+      {
+        "id": "sound_anaphora",
+        "name": "anaphora",
+        "connections": 0
+      },
+      {
+        "id": "sound_assonance",
+        "name": "assonance",
+        "connections": 0
+      },
+      {
+        "id": "sound_consonance",
+        "name": "consonance",
+        "connections": 0
+      },
+      {
+        "id": "sound_onomatopoeia",
+        "name": "onomatopoeia",
+        "connections": 0
+      },
+      {
+        "id": "sound_internal_rhyme",
+        "name": "internal_rhyme",
+        "connections": 0
+      },
+      {
+        "id": "sound_slant_rhyme",
+        "name": "slant_rhyme",
+        "connections": 0
+      }
+    ]
+  },
+  "co_occurrences": {
+    "theme_emotion": {
+      "urban_life+energetic": 4,
+      "urban_life+anticipatory": 4,
+      "urban_life+hopeful": 4,
+      "commute+energetic": 1,
+      "commute+anticipatory": 1,
+      "commute+hopeful": 1,
+      "rhythm+energetic": 3,
+      "rhythm+anticipatory": 3,
+      "rhythm+hopeful": 1,
+      "dawn+energetic": 1,
+      "dawn+anticipatory": 1,
+      "dawn+hopeful": 1,
+      "urban_life+vibrant": 2,
+      "urban_life+alive": 1,
+      "movement+energetic": 1,
+      "movement+vibrant": 1,
+      "movement+anticipatory": 1,
+      "movement+alive": 1,
+      "morning+energetic": 2,
+      "morning+vibrant": 1,
+      "morning+anticipatory": 2,
+      "morning+alive": 1,
+      "rhythm+vibrant": 2,
+      "rhythm+alive": 1,
+      "energy+energetic": 1,
+      "energy+vibrant": 1,
+      "energy+anticipatory": 1,
+      "energy+alive": 1,
+      "urban_life+contemplative": 5,
+      "urban_life+lonely": 2,
+      "urban_life+reflective": 1,
+      "transition+contemplative": 4,
+      "transition+lonely": 2,
+      "transition+reflective": 1,
+      "isolation+contemplative": 2,
+      "isolation+lonely": 2,
+      "isolation+reflective": 1,
+      "memory+contemplative": 3,
+      "memory+lonely": 2,
+      "memory+reflective": 1,
+      "routine+contemplative": 2,
+      "routine+lonely": 1,
+      "routine+reflective": 1,
+      "urban_life+calm": 1,
+      "transition+hopeful": 3,
+      "transition+calm": 1,
+      "isolation+hopeful": 1,
+      "isolation+calm": 1,
+      "connectivity+contemplative": 2,
+      "connectivity+lonely": 1,
+      "connectivity+hopeful": 2,
+      "connectivity+calm": 1,
+      "memory+hopeful": 1,
+      "memory+calm": 1,
+      "urban_life+tense": 3,
+      "urban_life+restless": 3,
+      "urban_life+awe": 1,
+      "movement+contemplative": 1,
+      "movement+tense": 1,
+      "movement+restless": 1,
+      "movement+awe": 1,
+      "technology+contemplative": 1,
+      "technology+tense": 1,
+      "technology+restless": 1,
+      "technology+awe": 1,
+      "memory+tense": 1,
+      "memory+restless": 1,
+      "memory+awe": 1,
+      "rhythm+contemplative": 2,
+      "rhythm+tense": 2,
+      "rhythm+restless": 2,
+      "rhythm+awe": 1,
+      "urban_life+nostalgic": 1,
+      "transition+nostalgic": 1,
+      "transition+vibrant": 1,
+      "nostalgia+contemplative": 1,
+      "nostalgia+nostalgic": 1,
+      "nostalgia+vibrant": 1,
+      "rhythm+nostalgic": 1,
+      "connection+contemplative": 1,
+      "connection+nostalgic": 1,
+      "connection+vibrant": 1,
+      "urban_life+anticipation": 1,
+      "transition+energetic": 2,
+      "transition+anticipation": 1,
+      "routine+energetic": 2,
+      "routine+anticipation": 1,
+      "routine+hopeful": 2,
+      "hope+energetic": 1,
+      "hope+anticipation": 1,
+      "hope+hopeful": 1,
+      "urban_life+defiant": 1,
+      "urban_life+ominous": 1,
+      "rebellion+tense": 1,
+      "rebellion+defiant": 1,
+      "rebellion+ominous": 1,
+      "rebellion+restless": 1,
+      "night+tense": 1,
+      "night+defiant": 1,
+      "night+ominous": 1,
+      "night+restless": 1,
+      "defiance+tense": 1,
+      "defiance+defiant": 1,
+      "defiance+ominous": 1,
+      "defiance+restless": 1,
+      "isolation+tense": 1,
+      "isolation+defiant": 1,
+      "isolation+ominous": 1,
+      "isolation+restless": 1,
+      "transition+restless": 1,
+      "transition+anticipatory": 2,
+      "transition+tense": 1,
+      "morning+restless": 1,
+      "morning+tense": 1,
+      "routine+restless": 1,
+      "routine+anticipatory": 2,
+      "routine+tense": 1,
+      "connectivity+anticipatory": 1,
+      "beginning+contemplative": 1,
+      "beginning+anticipatory": 1,
+      "beginning+hopeful": 1
+    },
+    "imagery_emotion": {
+      "cauldron+energetic": 1,
+      "cauldron+anticipatory": 1,
+      "cauldron+hopeful": 1,
+      "clattering wheels+energetic": 1,
+      "clattering wheels+anticipatory": 1,
+      "clattering wheels+hopeful": 1,
+      "amber lights+energetic": 1,
+      "amber lights+anticipatory": 1,
+      "amber lights+hopeful": 1,
+      "coffee cups+energetic": 1,
+      "coffee cups+anticipatory": 1,
+      "coffee cups+hopeful": 1,
+      "glass towers+energetic": 1,
+      "glass towers+anticipatory": 1,
+      "glass towers+hopeful": 1,
+      "granite sidewalks+energetic": 1,
+      "granite sidewalks+anticipatory": 1,
+      "granite sidewalks+hopeful": 1,
+      "rails+energetic": 1,
+      "rails+anticipatory": 1,
+      "rails+hopeful": 1,
+      "skyscrapers+energetic": 1,
+      "skyscrapers+anticipatory": 1,
+      "skyscrapers+hopeful": 1,
+      "phone screens aflame+energetic": 1,
+      "phone screens aflame+anticipatory": 1,
+      "phone screens aflame+hopeful": 1,
+      "footprints+energetic": 1,
+      "footprints+anticipatory": 1,
+      "footprints+hopeful": 1,
+      "dawn+energetic": 2,
+      "dawn+vibrant": 1,
+      "dawn+anticipatory": 2,
+      "dawn+alive": 1,
+      "dappled gold+energetic": 1,
+      "dappled gold+vibrant": 1,
+      "dappled gold+anticipatory": 1,
+      "dappled gold+alive": 1,
+      "skyscraper shadows+energetic": 1,
+      "skyscraper shadows+vibrant": 1,
+      "skyscraper shadows+anticipatory": 1,
+      "skyscraper shadows+alive": 1,
+      "buses+energetic": 1,
+      "buses+vibrant": 1,
+      "buses+anticipatory": 1,
+      "buses+alive": 1,
+      "sidewalk+energetic": 1,
+      "sidewalk+vibrant": 1,
+      "sidewalk+anticipatory": 1,
+      "sidewalk+alive": 1,
+      "voices volley+energetic": 1,
+      "voices volley+vibrant": 1,
+      "voices volley+anticipatory": 1,
+      "voices volley+alive": 1,
+      "neon signs+energetic": 1,
+      "neon signs+vibrant": 1,
+      "neon signs+anticipatory": 1,
+      "neon signs+alive": 1,
+      "tires tick+energetic": 1,
+      "tires tick+vibrant": 1,
+      "tires tick+anticipatory": 1,
+      "tires tick+alive": 1,
+      "asphalt+energetic": 2,
+      "asphalt+vibrant": 1,
+      "asphalt+anticipatory": 1,
+      "asphalt+alive": 1,
+      "rolling arteries+energetic": 1,
+      "rolling arteries+vibrant": 1,
+      "rolling arteries+anticipatory": 1,
+      "rolling arteries+alive": 1,
+      "hollow hum of steel wheels+contemplative": 1,
+      "hollow hum of steel wheels+lonely": 1,
+      "hollow hum of steel wheels+reflective": 1,
+      "afternoon lull+contemplative": 1,
+      "afternoon lull+lonely": 1,
+      "afternoon lull+reflective": 1,
+      "gutters holding sunlight+contemplative": 1,
+      "gutters holding sunlight+lonely": 1,
+      "gutters holding sunlight+reflective": 1,
+      "red-brick echoes+contemplative": 1,
+      "red-brick echoes+lonely": 1,
+      "red-brick echoes+reflective": 1,
+      "distant thrum of the city’s pulse+contemplative": 1,
+      "distant thrum of the city’s pulse+lonely": 1,
+      "distant thrum of the city’s pulse+reflective": 1,
+      "asphalt veins+contemplative": 1,
+      "asphalt veins+lonely": 1,
+      "asphalt veins+reflective": 1,
+      "flickering lamps+contemplative": 1,
+      "flickering lamps+lonely": 1,
+      "flickering lamps+reflective": 1,
+      "blank page+contemplative": 1,
+      "blank page+lonely": 1,
+      "blank page+reflective": 1,
+      "classical whisper+contemplative": 1,
+      "classical whisper+lonely": 1,
+      "classical whisper+reflective": 1,
+      "clang of innovation+contemplative": 1,
+      "clang of innovation+lonely": 1,
+      "clang of innovation+reflective": 1,
+      "silver artery+contemplative": 1,
+      "silver artery+lonely": 1,
+      "silver artery+hopeful": 1,
+      "silver artery+calm": 1,
+      "cracked sidewalks+contemplative": 1,
+      "cracked sidewalks+lonely": 1,
+      "cracked sidewalks+hopeful": 1,
+      "cracked sidewalks+calm": 1,
+      "cool steel folds+contemplative": 1,
+      "cool steel folds+lonely": 1,
+      "cool steel folds+hopeful": 1,
+      "cool steel folds+calm": 1,
+      "half-forgotten gold+contemplative": 1,
+      "half-forgotten gold+lonely": 1,
+      "half-forgotten gold+hopeful": 1,
+      "half-forgotten gold+calm": 1,
+      "breathmarks+contemplative": 1,
+      "breathmarks+lonely": 1,
+      "breathmarks+hopeful": 1,
+      "breathmarks+calm": 1,
+      "empty seats+contemplative": 1,
+      "empty seats+lonely": 1,
+      "empty seats+hopeful": 1,
+      "empty seats+calm": 1,
+      "leather handles+contemplative": 1,
+      "leather handles+lonely": 1,
+      "leather handles+hopeful": 1,
+      "leather handles+calm": 1,
+      "digital fare cards+contemplative": 1,
+      "digital fare cards+lonely": 1,
+      "digital fare cards+hopeful": 1,
+      "digital fare cards+calm": 1,
+      "living seam+contemplative": 1,
+      "living seam+lonely": 1,
+      "living seam+hopeful": 1,
+      "living seam+calm": 1,
+      "new skylines+contemplative": 1,
+      "new skylines+lonely": 1,
+      "new skylines+hopeful": 1,
+      "new skylines+calm": 1,
+      "neon wires+contemplative": 1,
+      "neon wires+tense": 1,
+      "neon wires+restless": 1,
+      "neon wires+awe": 1,
+      "asphalt nights+contemplative": 1,
+      "asphalt nights+tense": 1,
+      "asphalt nights+restless": 1,
+      "asphalt nights+awe": 1,
+      "silver veins+contemplative": 1,
+      "silver veins+tense": 1,
+      "silver veins+restless": 1,
+      "silver veins+awe": 1,
+      "office towers+contemplative": 1,
+      "office towers+tense": 1,
+      "office towers+restless": 1,
+      "office towers+awe": 1,
+      "glowing windows+contemplative": 1,
+      "glowing windows+tense": 1,
+      "glowing windows+restless": 1,
+      "glowing windows+awe": 1,
+      "lantern-like breath+contemplative": 1,
+      "lantern-like breath+tense": 1,
+      "lantern-like breath+restless": 1,
+      "lantern-like breath+awe": 1,
+      "homunculus+contemplative": 1,
+      "homunculus+tense": 1,
+      "homunculus+restless": 1,
+      "homunculus+awe": 1,
+      "streetlight+contemplative": 1,
+      "streetlight+tense": 1,
+      "streetlight+restless": 1,
+      "streetlight+awe": 1,
+      "dusk+contemplative": 1,
+      "dusk+tense": 1,
+      "dusk+restless": 1,
+      "dusk+awe": 1,
+      "invisible seam+contemplative": 1,
+      "invisible seam+tense": 1,
+      "invisible seam+restless": 1,
+      "invisible seam+awe": 1,
+      "streetlamps+contemplative": 1,
+      "streetlamps+nostalgic": 1,
+      "streetlamps+vibrant": 1,
+      "fevered footsteps+contemplative": 1,
+      "fevered footsteps+nostalgic": 1,
+      "fevered footsteps+vibrant": 1,
+      "old brick+contemplative": 1,
+      "old brick+nostalgic": 1,
+      "old brick+vibrant": 1,
+      "new glass+contemplative": 1,
+      "new glass+nostalgic": 1,
+      "new glass+vibrant": 1,
+      "shimmer of dusk+contemplative": 1,
+      "shimmer of dusk+nostalgic": 1,
+      "shimmer of dusk+vibrant": 1,
+      "silent chord+contemplative": 1,
+      "silent chord+nostalgic": 1,
+      "silent chord+vibrant": 1,
+      "fresh asphalt+contemplative": 1,
+      "fresh asphalt+nostalgic": 1,
+      "fresh asphalt+vibrant": 1,
+      "street art+contemplative": 1,
+      "street art+nostalgic": 1,
+      "street art+vibrant": 1,
+      "vines+contemplative": 1,
+      "vines+nostalgic": 1,
+      "vines+vibrant": 1,
+      "neon hum+contemplative": 1,
+      "neon hum+nostalgic": 1,
+      "neon hum+vibrant": 1,
+      "dawn+anticipation": 1,
+      "dawn+hopeful": 2,
+      "downtown’s pulse+energetic": 1,
+      "downtown’s pulse+anticipation": 1,
+      "downtown’s pulse+hopeful": 1,
+      "sidewalks+energetic": 1,
+      "sidewalks+anticipation": 1,
+      "sidewalks+hopeful": 1,
+      "suits+energetic": 1,
+      "suits+anticipation": 1,
+      "suits+hopeful": 1,
+      "coffee+energetic": 1,
+      "coffee+anticipation": 1,
+      "coffee+hopeful": 1,
+      "horns+energetic": 1,
+      "horns+anticipation": 1,
+      "horns+hopeful": 1,
+      "asphalt+anticipation": 1,
+      "asphalt+hopeful": 1,
+      "glass+energetic": 1,
+      "glass+anticipation": 1,
+      "glass+hopeful": 1,
+      "vertical canyons+energetic": 1,
+      "vertical canyons+anticipation": 1,
+      "vertical canyons+hopeful": 1,
+      "echoes+energetic": 1,
+      "echoes+anticipation": 1,
+      "echoes+hopeful": 1,
+      "midnight moons+tense": 1,
+      "midnight moons+defiant": 1,
+      "midnight moons+ominous": 1,
+      "midnight moons+restless": 1,
+      "cracked pavement+tense": 1,
+      "cracked pavement+defiant": 1,
+      "cracked pavement+ominous": 1,
+      "cracked pavement+restless": 1,
+      "ghost wasp+tense": 1,
+      "ghost wasp+defiant": 1,
+      "ghost wasp+ominous": 1,
+      "ghost wasp+restless": 1,
+      "sax on cinderblock+tense": 1,
+      "sax on cinderblock+defiant": 1,
+      "sax on cinderblock+ominous": 1,
+      "sax on cinderblock+restless": 1,
+      "streetlamps+tense": 1,
+      "streetlamps+defiant": 1,
+      "streetlamps+ominous": 1,
+      "streetlamps+restless": 1,
+      "soot-smeared alleys+tense": 1,
+      "soot-smeared alleys+defiant": 1,
+      "soot-smeared alleys+ominous": 1,
+      "soot-smeared alleys+restless": 1,
+      "moths+tense": 1,
+      "moths+defiant": 1,
+      "moths+ominous": 1,
+      "moths+restless": 1,
+      "shivering scaffolds+tense": 1,
+      "shivering scaffolds+defiant": 1,
+      "shivering scaffolds+ominous": 1,
+      "shivering scaffolds+restless": 1,
+      "crumbling brick+tense": 1,
+      "crumbling brick+defiant": 1,
+      "crumbling brick+ominous": 1,
+      "crumbling brick+restless": 1,
+      "poised blade (dawn)+tense": 1,
+      "poised blade (dawn)+defiant": 1,
+      "poised blade (dawn)+ominous": 1,
+      "poised blade (dawn)+restless": 1,
+      "metal silhouettes+restless": 1,
+      "metal silhouettes+anticipatory": 1,
+      "metal silhouettes+energetic": 1,
+      "metal silhouettes+tense": 1,
+      "glass giants+restless": 1,
+      "glass giants+anticipatory": 1,
+      "glass giants+energetic": 1,
+      "glass giants+tense": 1,
+      "cardboard corners+restless": 1,
+      "cardboard corners+anticipatory": 1,
+      "cardboard corners+energetic": 1,
+      "cardboard corners+tense": 1,
+      "river of reflections+restless": 1,
+      "river of reflections+anticipatory": 1,
+      "river of reflections+energetic": 1,
+      "river of reflections+tense": 1,
+      "coffee-scented breath+restless": 1,
+      "coffee-scented breath+anticipatory": 1,
+      "coffee-scented breath+energetic": 1,
+      "coffee-scented breath+tense": 1,
+      "fractured fireworks+restless": 1,
+      "fractured fireworks+anticipatory": 1,
+      "fractured fireworks+energetic": 1,
+      "fractured fireworks+tense": 1,
+      "tiled thresholds+restless": 1,
+      "tiled thresholds+anticipatory": 1,
+      "tiled thresholds+energetic": 1,
+      "tiled thresholds+tense": 1,
+      "lamplit hush+restless": 1,
+      "lamplit hush+anticipatory": 1,
+      "lamplit hush+energetic": 1,
+      "lamplit hush+tense": 1,
+      "footfalls+restless": 1,
+      "footfalls+anticipatory": 2,
+      "footfalls+energetic": 1,
+      "footfalls+tense": 1,
+      "downtown pulse+restless": 1,
+      "downtown pulse+anticipatory": 1,
+      "downtown pulse+energetic": 1,
+      "downtown pulse+tense": 1,
+      "dawn+contemplative": 1,
+      "streetlights+contemplative": 1,
+      "streetlights+anticipatory": 1,
+      "streetlights+hopeful": 1,
+      "damp pavement+contemplative": 1,
+      "damp pavement+anticipatory": 1,
+      "damp pavement+hopeful": 1,
+      "amber glow+contemplative": 1,
+      "amber glow+anticipatory": 1,
+      "amber glow+hopeful": 1,
+      "humming arcades+contemplative": 1,
+      "humming arcades+anticipatory": 1,
+      "humming arcades+hopeful": 1,
+      "glassy storefronts+contemplative": 1,
+      "glassy storefronts+anticipatory": 1,
+      "glassy storefronts+hopeful": 1,
+      "footfalls+contemplative": 1,
+      "footfalls+hopeful": 1,
+      "Morse code+contemplative": 1,
+      "Morse code+anticipatory": 1,
+      "Morse code+hopeful": 1,
+      "arteries of asphalt+contemplative": 1,
+      "arteries of asphalt+anticipatory": 1,
+      "arteries of asphalt+hopeful": 1,
+      "paper cups+contemplative": 1,
+      "paper cups+anticipatory": 1,
+      "paper cups+hopeful": 1
+    }
+  }
+}

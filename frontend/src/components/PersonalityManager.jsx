@@ -20,10 +20,18 @@ const PersonalityManager = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [saveStatus, setSaveStatus] = useState(null);
+  const [availableRoutes, setAvailableRoutes] = useState({});
+  const [showCreateModal, setShowCreateModal] = useState(false);
+  const [selectedNewRoute, setSelectedNewRoute] = useState('');
+  const [showAddPreferenceModal, setShowAddPreferenceModal] = useState(false);
+  const [addPreferenceCategory, setAddPreferenceCategory] = useState('');
+  const [selectedExistingOptions, setSelectedExistingOptions] = useState([]);
+  const [customOptionNames, setCustomOptionNames] = useState('');
 
   // Load personalities and options on mount
   useEffect(() => {
     loadPersonalities();
+    loadAvailableRoutes();
     loadOptions();
   }, []);
 
@@ -36,6 +44,16 @@ const PersonalityManager = () => {
     } catch (err) {
       setError('Failed to load personalities');
       setLoading(false);
+    }
+  };
+
+  const loadAvailableRoutes = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/api/available-routes`);
+      const data = await response.json();
+      setAvailableRoutes(data.routes);
+    } catch (err) {
+      console.error('Failed to load available routes:', err);
     }
   };
 
@@ -91,23 +109,32 @@ const PersonalityManager = () => {
   };
 
   const handleCreateNew = () => {
-    const newRouteId = prompt('Enter route ID (e.g., MARTA_99):');
-    if (!newRouteId) return;
+    setShowCreateModal(true);
+    setSelectedNewRoute('');
+  };
 
-    if (personalities[newRouteId]) {
-      alert('Route already exists!');
+  const handleModalCreateRoute = () => {
+    if (!selectedNewRoute) {
+      alert('Please select a route');
       return;
     }
 
+    if (personalities[selectedNewRoute]) {
+      alert('Route already has a personality!');
+      return;
+    }
+
+    const routeData = availableRoutes[selectedNewRoute];
     setEditing({
-      name: `Route ${newRouteId}`,
+      name: routeData ? routeData.name : `Route ${selectedNewRoute}`,
       description: 'New route description',
       loyalty_to_canon: 0.5,
       rebellious_mode: null,
       sound_preferences: {},
       theme_affinities: {}
     });
-    setSelectedRoute(newRouteId);
+    setSelectedRoute(selectedNewRoute);
+    setShowCreateModal(false);
   };
 
   const updateEditing = (field, value) => {
@@ -131,19 +158,76 @@ const PersonalityManager = () => {
   };
 
   const addPreference = (category) => {
-    const options = category === 'sound_preferences' ? soundDeviceOptions : themeOptions;
-    const existing = Object.keys(editing[category]);
-    const available = options.filter(opt => !existing.includes(opt));
+    setAddPreferenceCategory(category);
+    setSelectedExistingOptions([]);
+    setCustomOptionNames('');
+    setShowAddPreferenceModal(true);
+  };
 
-    if (available.length === 0) {
-      alert('All options already added!');
+  const handleToggleExistingOption = (option) => {
+    if (selectedExistingOptions.includes(option)) {
+      setSelectedExistingOptions(selectedExistingOptions.filter(opt => opt !== option));
+    } else {
+      setSelectedExistingOptions([...selectedExistingOptions, option]);
+    }
+  };
+
+  const handleAddPreference = () => {
+    const allOptionsToAdd = [];
+    
+    // Collect selected existing options
+    selectedExistingOptions.forEach(option => {
+      allOptionsToAdd.push(option);
+    });
+    
+    // Collect custom options (split by comma, semicolon, or newline)
+    if (customOptionNames.trim()) {
+      const customOptions = customOptionNames
+        .split(/[,;\n]/)
+        .map(opt => opt.trim())
+        .filter(opt => opt.length > 0);
+      
+      allOptionsToAdd.push(...customOptions);
+    }
+    
+    if (allOptionsToAdd.length === 0) {
+      alert('Please select existing options or enter custom names');
       return;
     }
+    
+    // Batch update all preferences at once
+    const updatedPreferences = { ...editing[addPreferenceCategory] };
+    let actuallyAdded = 0;
+    
+    allOptionsToAdd.forEach(option => {
+      if (!updatedPreferences.hasOwnProperty(option)) {
+        updatedPreferences[option] = 0.5;
+        actuallyAdded++;
+      }
+    });
+    
+    if (actuallyAdded === 0) {
+      alert('All selected options are already added');
+      return;
+    }
+    
+    setEditing({
+      ...editing,
+      [addPreferenceCategory]: updatedPreferences
+    });
+    
+    setShowAddPreferenceModal(false);
+    setSelectedExistingOptions([]);
+    setCustomOptionNames('');
+  };
 
-    const selection = prompt(`Choose from: ${available.join(', ')}`);
-    if (!selection || !available.includes(selection)) return;
-
-    updatePreference(category, selection, 0.5);
+  const getNewPreferenceCount = () => {
+    const existingPreferences = Object.keys(editing[addPreferenceCategory] || {});
+    const newFromExisting = selectedExistingOptions.filter(opt => !existingPreferences.includes(opt));
+    const customOptions = customOptionNames.trim() 
+      ? customOptionNames.split(/[,;\n]/).map(s => s.trim()).filter(s => s && !existingPreferences.includes(s))
+      : [];
+    return newFromExisting.length + customOptions.length;
   };
 
   const getPersonalityType = (personality) => {
@@ -387,6 +471,138 @@ const PersonalityManager = () => {
           )}
         </div>
       </div>
+
+      {/* Create Route Modal */}
+      {showCreateModal && (
+        <div className="modal-overlay" onClick={() => setShowCreateModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Create New Route Personality</h2>
+              <button 
+                className="modal-close"
+                onClick={() => setShowCreateModal(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>Select a route to create a personality for:</p>
+              <select 
+                value={selectedNewRoute} 
+                onChange={(e) => setSelectedNewRoute(e.target.value)}
+                className="route-select"
+              >
+                <option value="">-- Select a Route --</option>
+                {Object.entries(availableRoutes)
+                  .filter(([routeId, route]) => !route.has_personality)
+                  .map(([routeId, route]) => (
+                    <option key={routeId} value={routeId}>
+                      {route.name}
+                    </option>
+                  ))
+                }
+              </select>
+              {Object.keys(availableRoutes).filter(routeId => !availableRoutes[routeId].has_personality).length === 0 && (
+                <p className="no-routes">All available routes already have personalities!</p>
+              )}
+            </div>
+            <div className="modal-footer">
+              <button 
+                className="btn-cancel" 
+                onClick={() => setShowCreateModal(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className="btn-create" 
+                onClick={handleModalCreateRoute}
+                disabled={!selectedNewRoute}
+              >
+                Create Personality
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Add Preference Modal */}
+      {showAddPreferenceModal && (
+        <div className="modal-overlay" onClick={() => setShowAddPreferenceModal(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-header">
+              <h2>Add {addPreferenceCategory === 'sound_preferences' ? 'Sound Preference' : 'Theme Affinity'}</h2>
+              <button 
+                className="modal-close"
+                onClick={() => setShowAddPreferenceModal(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="modal-body">
+              <div className="preference-add-section">
+                <h3>Select from existing options:</h3>
+                <div className="checkbox-grid">
+                  {(addPreferenceCategory === 'sound_preferences' ? soundDeviceOptions : themeOptions)
+                    .filter(opt => !Object.keys(editing[addPreferenceCategory]).includes(opt))
+                    .map(option => (
+                      <label key={option} className="checkbox-option">
+                        <input
+                          type="checkbox"
+                          checked={selectedExistingOptions.includes(option)}
+                          onChange={() => handleToggleExistingOption(option)}
+                        />
+                        <span>{option}</span>
+                      </label>
+                    ))
+                  }
+                </div>
+                {(addPreferenceCategory === 'sound_preferences' ? soundDeviceOptions : themeOptions)
+                  .filter(opt => !Object.keys(editing[addPreferenceCategory]).includes(opt)).length === 0 && (
+                  <p className="no-options">All existing options are already added.</p>
+                )}
+              </div>
+              
+              <div className="preference-add-section">
+                <h3>Add custom options:</h3>
+                <textarea
+                  placeholder="Enter custom options (one per line or separated by commas)"
+                  value={customOptionNames}
+                  onChange={(e) => setCustomOptionNames(e.target.value)}
+                  className="custom-options-textarea"
+                  rows={4}
+                />
+                <p className="help-text">
+                  You can enter multiple options separated by commas, semicolons, or new lines
+                </p>
+              </div>
+              
+              {(selectedExistingOptions.length === 0 && !customOptionNames.trim()) && (
+                <p className="no-routes">Please select existing options or enter custom names.</p>
+              )}
+            </div>
+            <div className="modal-footer">
+              <button 
+                className="btn-cancel" 
+                onClick={() => setShowAddPreferenceModal(false)}
+              >
+                Cancel
+              </button>
+              <button 
+                className="btn-create" 
+                onClick={handleAddPreference}
+                disabled={getNewPreferenceCount() === 0}
+              >
+                {(() => {
+                  const count = getNewPreferenceCount();
+                  if (count === 0) return 'No New Preferences';
+                  if (count === 1) return 'Add Preference (1)';
+                  return `Add Preferences (${count})`;
+                })()}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -5,419 +5,6 @@
   "nodes": [
     {
       "type": "poem",
-      "title": "Route 5 - Peachtree - 2026-01-24 16:34",
-      "text": "I am the city\u2019s cauldron, clattering wheels on Peachtree veins  \nMorning murmurs rise as amber lights flicker alive  \nI cradle commuters, coffee cups trembling in eager hands  \nSteel sinews stretch between glass towers and granite sidewalks  \nRush hour registers as roaming rhythms on my rails  \nSkyscrapers lean in, listening to my tireless tale  \nI hum through honks and hurried greetings, heart drumming downtown  \nFaces flicker past the windows\u2014hope, haste, home in twenty stops  \nPeachtree pulses under footprints and phone screens aflame  \nEach stop a stanza in the city\u2019s sprawling saga, breathless and bright  \nI am Route 5: the dawn\u2019s drumbeat, alliterative and alive,  \ncarrying this metropolis in my morning rush.",
-      "route_id": "MARTA_5",
-      "created_at": "2026-01-24T16:34:09.750887",
-      "metadata": {
-        "context": {
-          "story_influence": 0.8,
-          "route_type": "bus",
-          "time_of_day": "morning_rush",
-          "passenger_count": "high"
-        },
-        "loyalty_to_canon": 0.9,
-        "rebellious_mode": null,
-        "structure": {
-          "form": "free_verse",
-          "line_count": 12,
-          "stanza_breaks": [
-            12
-          ],
-          "enjambment_lines": [
-            1,
-            3,
-            4,
-            6,
-            7,
-            11
-          ],
-          "caesura_lines": [
-            1,
-            8,
-            11
-          ],
-          "breath_pattern": "irregular",
-          "line_length_variation": "varied",
-          "actual_line_count": 12,
-          "line_lengths": [
-            15,
-            15,
-            15,
-            16,
-            12,
-            15,
-            14,
-            18,
-            15,
-            17,
-            18,
-            12
-          ],
-          "avg_line_length": 15.166666666666666,
-          "detected_stanza_breaks": null,
-          "total_words": 110
-        },
-        "sound_patterns": {
-          "alliteration_density": "moderate",
-          "rhyme_type": "none (free verse)",
-          "repetition_phrases": [
-            "I am",
-            "Peachtree"
-          ],
-          "repeated_structures": [
-            "line openings with 'I am'"
-          ],
-          "dominant_sounds": "hard consonants (t, r, c)"
-        }
-      },
-      "id": "poem_MARTA_5_20260124_163409"
-    },
-    {
-      "type": "theme",
-      "name": "urban_life",
-      "usage_count": 10,
-      "created_at": "2026-01-24T16:34:09.750921",
-      "id": "theme_urban_life"
-    },
-    {
-      "type": "theme",
-      "name": "commute",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.750950",
-      "id": "theme_commute"
-    },
-    {
-      "type": "theme",
-      "name": "rhythm",
-      "usage_count": 5,
-      "created_at": "2026-01-24T16:34:09.750967",
-      "id": "theme_rhythm"
-    },
-    {
-      "type": "theme",
-      "name": "dawn",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.750978",
-      "id": "theme_dawn"
-    },
-    {
-      "type": "imagery",
-      "name": "cauldron",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.750999",
-      "id": "img_cauldron"
-    },
-    {
-      "type": "imagery",
-      "name": "clattering wheels",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751013",
-      "id": "img_clattering_wheels"
-    },
-    {
-      "type": "imagery",
-      "name": "amber lights",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751023",
-      "id": "img_amber_lights"
-    },
-    {
-      "type": "imagery",
-      "name": "coffee cups",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751035",
-      "id": "img_coffee_cups"
-    },
-    {
-      "type": "imagery",
-      "name": "glass towers",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751045",
-      "id": "img_glass_towers"
-    },
-    {
-      "type": "imagery",
-      "name": "granite sidewalks",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751053",
-      "id": "img_granite_sidewalks"
-    },
-    {
-      "type": "imagery",
-      "name": "rails",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751062",
-      "id": "img_rails"
-    },
-    {
-      "type": "imagery",
-      "name": "skyscrapers",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751072",
-      "id": "img_skyscrapers"
-    },
-    {
-      "type": "imagery",
-      "name": "phone screens aflame",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751082",
-      "id": "img_phone_screens_aflame"
-    },
-    {
-      "type": "imagery",
-      "name": "footprints",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:34:09.751090",
-      "id": "img_footprints"
-    },
-    {
-      "type": "emotion",
-      "name": "energetic",
-      "usage_count": 4,
-      "created_at": "2026-01-24T16:34:09.751100",
-      "id": "emo_energetic"
-    },
-    {
-      "type": "emotion",
-      "name": "anticipatory",
-      "usage_count": 4,
-      "created_at": "2026-01-24T16:34:09.751109",
-      "id": "emo_anticipatory"
-    },
-    {
-      "type": "emotion",
-      "name": "hopeful",
-      "usage_count": 4,
-      "created_at": "2026-01-24T16:34:09.751117",
-      "id": "emo_hopeful"
-    },
-    {
-      "type": "sound_device",
-      "name": "alliteration",
-      "usage_count": 10,
-      "created_at": "2026-01-24T16:34:09.751129",
-      "id": "sound_alliteration"
-    },
-    {
-      "type": "sound_device",
-      "name": "repetition",
-      "usage_count": 5,
-      "created_at": "2026-01-24T16:34:09.751138",
-      "id": "sound_repetition"
-    },
-    {
-      "type": "sound_device",
-      "name": "anaphora",
-      "usage_count": 5,
-      "created_at": "2026-01-24T16:34:09.751147",
-      "id": "sound_anaphora"
-    },
-    {
-      "type": "sound_device",
-      "name": "assonance",
-      "usage_count": 10,
-      "created_at": "2026-01-24T16:34:09.751159",
-      "id": "sound_assonance"
-    },
-    {
-      "type": "sound_device",
-      "name": "consonance",
-      "usage_count": 10,
-      "created_at": "2026-01-24T16:34:09.751180",
-      "id": "sound_consonance"
-    },
-    {
-      "type": "sound_device",
-      "name": "onomatopoeia",
-      "usage_count": 8,
-      "created_at": "2026-01-24T16:34:09.751198",
-      "id": "sound_onomatopoeia"
-    },
-    {
-      "type": "poem",
-      "title": "Route 5 - Peachtree - 2026-01-24 16:35",
-      "text": "Dawn drapes Peachtree in dappled gold  \nSteel and sidewalk converge under skyscraper shadows  \nBuses breathe, brimming with bustling bodies  \nFootsteps fracture morning\u2019s mellow hush  \nVoices volley like vibrant city veins  \nNeon signs nod in knowing rhythm  \nTires tick and turn, tapping time on asphalt  \nThe conductor calls, cadence clear and calm  \nEach stop a stanza in the street\u2019s unfolding story  \nRush and rapture ride these rolling arteries  \nDowntown\u2019s pulse, alliterative and alive",
-      "route_id": "MARTA_5",
-      "created_at": "2026-01-24T16:35:06.582595",
-      "metadata": {
-        "context": {
-          "story_influence": 0.8,
-          "route_type": "bus",
-          "time_of_day": "morning_rush",
-          "passenger_count": "high"
-        },
-        "loyalty_to_canon": 0.9,
-        "rebellious_mode": null,
-        "structure": {
-          "form": "free_verse",
-          "line_count": 11,
-          "stanza_breaks": [
-            11
-          ],
-          "enjambment_lines": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10
-          ],
-          "caesura_lines": [
-            3,
-            7,
-            8
-          ],
-          "breath_pattern": "regular",
-          "line_length_variation": "consistent",
-          "actual_line_count": 11,
-          "line_lengths": [
-            9,
-            15,
-            11,
-            10,
-            11,
-            7,
-            12,
-            11,
-            13,
-            14,
-            13
-          ],
-          "avg_line_length": 11.454545454545455,
-          "detected_stanza_breaks": null,
-          "total_words": 72
-        },
-        "sound_patterns": {
-          "alliteration_density": "high",
-          "rhyme_type": "none",
-          "repetition_phrases": [],
-          "repeated_structures": [
-            "plural noun + verb, present participle phrase"
-          ],
-          "dominant_sounds": "hard consonants (t, d, b, c)"
-        }
-      },
-      "id": "poem_MARTA_5_20260124_163506"
-    },
-    {
-      "type": "theme",
-      "name": "movement",
-      "usage_count": 2,
-      "created_at": "2026-01-24T16:35:06.582653",
-      "id": "theme_movement"
-    },
-    {
-      "type": "theme",
-      "name": "morning",
-      "usage_count": 2,
-      "created_at": "2026-01-24T16:35:06.582673",
-      "id": "theme_morning"
-    },
-    {
-      "type": "theme",
-      "name": "energy",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582702",
-      "id": "theme_energy"
-    },
-    {
-      "type": "imagery",
-      "name": "dawn",
-      "usage_count": 3,
-      "created_at": "2026-01-24T16:35:06.582719",
-      "id": "img_dawn"
-    },
-    {
-      "type": "imagery",
-      "name": "dappled gold",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582734",
-      "id": "img_dappled_gold"
-    },
-    {
-      "type": "imagery",
-      "name": "skyscraper shadows",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582749",
-      "id": "img_skyscraper_shadows"
-    },
-    {
-      "type": "imagery",
-      "name": "buses",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582763",
-      "id": "img_buses"
-    },
-    {
-      "type": "imagery",
-      "name": "sidewalk",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582794",
-      "id": "img_sidewalk"
-    },
-    {
-      "type": "imagery",
-      "name": "voices volley",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582816",
-      "id": "img_voices_volley"
-    },
-    {
-      "type": "imagery",
-      "name": "neon signs",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582830",
-      "id": "img_neon_signs"
-    },
-    {
-      "type": "imagery",
-      "name": "tires tick",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582844",
-      "id": "img_tires_tick"
-    },
-    {
-      "type": "imagery",
-      "name": "asphalt",
-      "usage_count": 2,
-      "created_at": "2026-01-24T16:35:06.582856",
-      "id": "img_asphalt"
-    },
-    {
-      "type": "imagery",
-      "name": "rolling arteries",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582869",
-      "id": "img_rolling_arteries"
-    },
-    {
-      "type": "emotion",
-      "name": "vibrant",
-      "usage_count": 2,
-      "created_at": "2026-01-24T16:35:06.582890",
-      "id": "emo_vibrant"
-    },
-    {
-      "type": "emotion",
-      "name": "alive",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:35:06.582910",
-      "id": "emo_alive"
-    },
-    {
-      "type": "sound_device",
-      "name": "internal_rhyme",
-      "usage_count": 5,
-      "created_at": "2026-01-24T16:35:06.582939",
-      "id": "sound_internal_rhyme"
-    },
-    {
-      "type": "poem",
       "title": "MARTA_27324 - 2026-01-24 16:38",
       "text": "I speak in the hollow hum of steel wheels  \nan afternoon lull where gutters hold sunlight like secrets.  \nI am MARTA_27324, drifting between red-brick echoes  \nand the distant thrum of the city\u2019s pulse.  \nMy car, half-empty, breathes the slow rhythm of asphalt veins.  \nI remember a half-quoted line from an old canticle\u2014  \na promise of motion, a promise unkept\u2014  \nand I carry it forward through silent stops.  \nHere, beneath flickering lamps, every seat is a blank page.  \nMy voice dissolves between skyline and station,  \nbalancing a classical whisper with the clang of innovation\u2014  \na route that learns its shape in every quiet commute.",
       "route_id": "MARTA_27324",
@@ -487,22 +74,15 @@
     },
     {
       "type": "theme",
-      "name": "transition",
-      "usage_count": 6,
-      "created_at": "2026-01-24T16:38:06.602212",
-      "id": "theme_transition"
-    },
-    {
-      "type": "theme",
       "name": "isolation",
-      "usage_count": 3,
+      "usage_count": 5,
       "created_at": "2026-01-24T16:38:06.602217",
       "id": "theme_isolation"
     },
     {
       "type": "theme",
       "name": "memory",
-      "usage_count": 3,
+      "usage_count": 4,
       "created_at": "2026-01-24T16:38:06.602221",
       "id": "theme_memory"
     },
@@ -585,15 +165,8 @@
     },
     {
       "type": "emotion",
-      "name": "contemplative",
-      "usage_count": 5,
-      "created_at": "2026-01-24T16:38:06.602259",
-      "id": "emo_contemplative"
-    },
-    {
-      "type": "emotion",
       "name": "lonely",
-      "usage_count": 2,
+      "usage_count": 4,
       "created_at": "2026-01-24T16:38:06.602262",
       "id": "emo_lonely"
     },
@@ -761,7 +334,7 @@
     {
       "type": "sound_device",
       "name": "slant_rhyme",
-      "usage_count": 4,
+      "usage_count": 5,
       "created_at": "2026-01-24T16:40:04.876343",
       "id": "sound_slant_rhyme"
     },
@@ -849,7 +422,7 @@
     {
       "type": "theme",
       "name": "technology",
-      "usage_count": 1,
+      "usage_count": 7,
       "created_at": "2026-01-24T16:45:16.687102",
       "id": "theme_technology"
     },
@@ -926,14 +499,14 @@
     {
       "type": "emotion",
       "name": "tense",
-      "usage_count": 3,
+      "usage_count": 4,
       "created_at": "2026-01-24T16:45:16.687331",
       "id": "emo_tense"
     },
     {
       "type": "emotion",
       "name": "restless",
-      "usage_count": 3,
+      "usage_count": 4,
       "created_at": "2026-01-24T16:45:16.687357",
       "id": "emo_restless"
     },
@@ -943,169 +516,6 @@
       "usage_count": 1,
       "created_at": "2026-01-24T16:45:16.687373",
       "id": "emo_awe"
-    },
-    {
-      "type": "poem",
-      "title": "MARTA_27448 - 2026-01-24 16:48",
-      "text": "I speak in the glare of streetlamps and fevered footsteps,  \na living corridor pulsing through old brick and new glass.  \nHere, labors of the day fold into the shimmer of dusk,  \nand every shoulder grazed becomes a silent chord.  \n\nI wear the accents of gaslight legends\u2014half-whispered  \ninvocations of clay and spirit\u2014yet my voice  \ncracks with the forge of fresh asphalt and street art.  \nInman Park\u2019s lace of vines and neon hums around me,  \n\ntugging at my ribs like curious children.  \nI am the hush beneath a hundred hurried hearts,  \na promise that even at high tide, rhythm can be found.",
-      "route_id": "MARTA_27448",
-      "created_at": "2026-01-24T16:48:12.586340",
-      "metadata": {
-        "context": {
-          "story_influence": 0.7,
-          "route_type": "train",
-          "time_of_day": "evening_rush",
-          "location": "Inman Park",
-          "passenger_count": "high"
-        },
-        "loyalty_to_canon": 0.5,
-        "rebellious_mode": null,
-        "structure": {
-          "form": "free_verse",
-          "line_count": 11,
-          "stanza_breaks": [
-            4,
-            4,
-            3
-          ],
-          "enjambment_lines": [
-            1,
-            3,
-            5,
-            6,
-            8,
-            10
-          ],
-          "caesura_lines": [
-            5,
-            6
-          ],
-          "breath_pattern": "irregular",
-          "line_length_variation": "varied",
-          "actual_line_count": 11,
-          "line_lengths": [
-            15,
-            14,
-            15,
-            15,
-            14,
-            13,
-            12,
-            14,
-            11,
-            12,
-            15
-          ],
-          "avg_line_length": 13.636363636363637,
-          "detected_stanza_breaks": [
-            4,
-            4,
-            3
-          ],
-          "total_words": 100
-        },
-        "sound_patterns": {
-          "alliteration_density": "moderate",
-          "rhyme_type": "none",
-          "repetition_phrases": [],
-          "repeated_structures": [
-            "lines starting with 'I'"
-          ],
-          "dominant_sounds": "s and t consonants"
-        }
-      },
-      "id": "poem_MARTA_27448_20260124_164812"
-    },
-    {
-      "type": "theme",
-      "name": "nostalgia",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586431",
-      "id": "theme_nostalgia"
-    },
-    {
-      "type": "theme",
-      "name": "connection",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586467",
-      "id": "theme_connection"
-    },
-    {
-      "type": "imagery",
-      "name": "streetlamps",
-      "usage_count": 2,
-      "created_at": "2026-01-24T16:48:12.586488",
-      "id": "img_streetlamps"
-    },
-    {
-      "type": "imagery",
-      "name": "fevered footsteps",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586508",
-      "id": "img_fevered_footsteps"
-    },
-    {
-      "type": "imagery",
-      "name": "old brick",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586525",
-      "id": "img_old_brick"
-    },
-    {
-      "type": "imagery",
-      "name": "new glass",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586541",
-      "id": "img_new_glass"
-    },
-    {
-      "type": "imagery",
-      "name": "shimmer of dusk",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586555",
-      "id": "img_shimmer_of_dusk"
-    },
-    {
-      "type": "imagery",
-      "name": "silent chord",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586582",
-      "id": "img_silent_chord"
-    },
-    {
-      "type": "imagery",
-      "name": "fresh asphalt",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586599",
-      "id": "img_fresh_asphalt"
-    },
-    {
-      "type": "imagery",
-      "name": "street art",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586614",
-      "id": "img_street_art"
-    },
-    {
-      "type": "imagery",
-      "name": "vines",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586628",
-      "id": "img_vines"
-    },
-    {
-      "type": "imagery",
-      "name": "neon hum",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586649",
-      "id": "img_neon_hum"
-    },
-    {
-      "type": "emotion",
-      "name": "nostalgic",
-      "usage_count": 1,
-      "created_at": "2026-01-24T16:48:12.586677",
-      "id": "emo_nostalgic"
     },
     {
       "type": "poem",
@@ -1179,6 +589,7 @@
           "dominant_sounds": "sibilant 's' and hard 'h' sounds"
         }
       },
+      "narrative_role": "extension",
       "id": "poem_MARTA_5_20260124_165920"
     },
     {
@@ -1198,7 +609,7 @@
     {
       "type": "imagery",
       "name": "sidewalks",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T16:59:20.339736",
       "id": "img_sidewalks"
     },
@@ -1313,6 +724,7 @@
           "dominant_sounds": "hard consonants (t, k, s)"
         }
       },
+      "narrative_role": "extension",
       "id": "poem_MARTA_21_20260124_170000"
     },
     {
@@ -1346,7 +758,7 @@
     {
       "type": "imagery",
       "name": "cracked pavement",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T17:00:00.176927",
       "id": "img_cracked_pavement"
     },
@@ -1467,6 +879,7 @@
           "dominant_sounds": "r, f, t, m consonants"
         }
       },
+      "narrative_role": "extension",
       "id": "poem_MARTA_5_20260124_170206"
     },
     {
@@ -1603,6 +1016,7 @@
           "dominant_sounds": "hard consonants (t, f, s)"
         }
       },
+      "narrative_role": "extension",
       "id": "poem_MARTA_27333_20260124_170341"
     },
     {
@@ -1615,7 +1029,7 @@
     {
       "type": "imagery",
       "name": "streetlights",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T17:03:41.259301",
       "id": "img_streetlights"
     },
@@ -1667,303 +1081,569 @@
       "usage_count": 1,
       "created_at": "2026-01-24T17:03:41.259373",
       "id": "img_paper_cups"
+    },
+    {
+      "type": "poem",
+      "title": "Lone Journey\nBy MARTA_27329",
+      "text": "Streetlights flicker like distant confidants  \nin avenues where shadows gather their breaths.  \nAn empty bench remembers the weight of hurried coats,  \ntheir collars turned up against the cool hum of midnight air.  \nNeon sighs through cracked windows\u2014 a lone witness  \nto the faint pulse of sidewalks still warm from day\u2019s rush.  \nHere, the city exhales in muted rhythms,  \ninviting ghosts of footsteps past to wander.  \nYou move between slumbering storefronts and sleeping alleys,  \neach stop a whispered promise to the few who remain.  \nTime stretches its limbs, slow and deliberate,  \nwhile rooftops murmur secrets beneath a navy sky.",
+      "route_id": "MARTA_27329",
+      "created_at": "2026-01-24T21:12:56.592100",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.29,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "passenger_count": "low"
+        },
+        "loyalty_to_canon": 0.5,
+        "rebellious_mode": null,
+        "structure": {
+          "form": "free_verse",
+          "line_count": 12,
+          "stanza_breaks": [
+            12
+          ],
+          "enjambment_lines": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11
+          ],
+          "caesura_lines": [
+            5
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 12,
+          "line_lengths": [
+            11,
+            12,
+            13,
+            15,
+            12,
+            14,
+            12,
+            11,
+            16,
+            15,
+            13,
+            14
+          ],
+          "avg_line_length": 13.166666666666666,
+          "detected_stanza_breaks": null,
+          "total_words": 98
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [],
+          "repeated_structures": [],
+          "dominant_sounds": "sibilant 's' and soft consonants"
+        }
+      },
+      "id": "poem_MARTA_27329_20260124_211256"
+    },
+    {
+      "type": "theme",
+      "name": "time",
+      "usage_count": 12,
+      "created_at": "2026-01-24T21:12:56.592192",
+      "id": "theme_time"
+    },
+    {
+      "type": "imagery",
+      "name": "shadows",
+      "usage_count": 2,
+      "created_at": "2026-01-24T21:12:56.592225",
+      "id": "img_shadows"
+    },
+    {
+      "type": "imagery",
+      "name": "empty_bench",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592241",
+      "id": "img_empty_bench"
+    },
+    {
+      "type": "imagery",
+      "name": "neon",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592255",
+      "id": "img_neon"
+    },
+    {
+      "type": "imagery",
+      "name": "storefronts",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592284",
+      "id": "img_storefronts"
+    },
+    {
+      "type": "imagery",
+      "name": "alleys",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592297",
+      "id": "img_alleys"
+    },
+    {
+      "type": "imagery",
+      "name": "rooftops",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592311",
+      "id": "img_rooftops"
+    },
+    {
+      "type": "imagery",
+      "name": "navy_sky",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592325",
+      "id": "img_navy_sky"
+    },
+    {
+      "type": "emotion",
+      "name": "melancholic",
+      "usage_count": 1,
+      "created_at": "2026-01-24T21:12:56.592356",
+      "id": "emo_melancholic"
+    },
+    {
+      "type": "poem",
+      "title": "Cornelius, of the Rock",
+      "text": "Cornelius, of the Rock\n\nYou hear the howl\nbefore you hear the hum\nbefore you hear the huff\nbefore you hear the hush\nThat is the Cornelius,\nthe fantastic, phantasmic Bankhead Line,\nsliding into the station\non a Gaussian groove.\n\nThe doors of the last three cars of the Bankhead Line are never open. Those last three cars are always dark, always in use, always inviting a quick sidewise glance. No one may enter them, except from the inside.\n\nNo one you know knows who will go to the back. They always pack a bag, the size of a kindergarteners. They clutch each bag so tightlylike a lost childhood toy.\nThey empty wallets of change if they are wealthy, cell phones if they are chatty, spirits if they believe in such thing. The disconnection is a ceremony each invents  mak their way to the back.\n\nThe fourth from the last is the loudest, full of revelers and drunkards, street preachers and scientists.\n\nAs the Cornelius makes its way to its momentary terminus, a chant rises from end to oh, so coveted end:\n\nCornelius, of The Rock [The Rock] \nSoultrain\nstone carver\nCornelius, of The Rock [The Rock]\nWandering\nmind of the\ntunnel-boring\nWhirlyWyrm\nCornelius, of The Rock [The Rock]\nMaker of ways out of walls,\nTake us to the line.\nTake us to the line.\nTake us the end of the end of the line\n\nThey all want a glimpse of the momentary terminus,\nAnd they will never get it:\nthe spores from the third dark car\nsing to them,\nand bring to them\na fuzzy, out-of-focus frenzy\na buzz, and then ,\nand from that daze,\nthere is a phase change,\nand then the hymn:\n\nHowl,\nHum,\nHuff,\nHush\nCornelius,\nsee in us\nthe future, luscious.\n\nHowl,\nHum,\nHuff,\nHush\nCornelius\nsees in us\nthe dangerous,\nthe precious,\nthe Howl,\nHum,\nHuff,\nHush\n\nCornelius,\nfree in us\nthe luscious\nfuture\n\nThe door to the third dark car slides open.\nThere is blank moment.\n\nThe door shuts.\n\n pastel blue bike with tempera blue rims missing its rider,\n\nA tablet, screen down short a subscriber,\n\nA rattle minus a child.\nThe mother and father wail, and then howl.\n\nAnd the howls back,\nlong and loud.\nAs the howl decays into the hum,\npops into the huff,\nfalls into the hush,\na giggle,\nhidden in the hush,\ndoes a little rise\nand does a little fall.\n\nThe doors open last stop before the lost stop,\nthe momentary terminus.\n\nAll passengers must leave the .\n\nThe remnants of the missing are left on board.\nThese things are not lost,\nand the Cornelius wastes nothing\nand the owners may\nmay\nMaybe in some other way\n\nBut that is not for us to say.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509182",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Cornelius_of_the_Rock.txt",
+        "import_date": "2026-01-25T13:34:21.509169",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_Cornelius_of_the_Rock"
+    },
+    {
+      "type": "theme",
+      "name": "nature",
+      "usage_count": 5,
+      "created_at": "2026-01-25T13:34:21.509195",
+      "id": "theme_nature"
+    },
+    {
+      "type": "theme",
+      "name": "urban",
+      "usage_count": 6,
+      "created_at": "2026-01-25T13:34:21.509210",
+      "id": "theme_urban"
+    },
+    {
+      "type": "poem",
+      "title": "The Silent Station",
+      "text": "The Silent Station\n\nWe will have your attention.\nWe will have your attention.\n\nThe voice was not the familiar,\ngrumpy dispatch lady,\ndeigning to tell us\na train is somewhere, somehow, broken \nthis voice belonged\nto a larynx that had other places to be.\n\nWe will have your attention.\nWe will have your attention.\n\nVine City Station has gone silent.\nVine City Station has gone silent -\ngone to meet its namesake\nin the newly networked earth.\n\nThat did not stop the train from arriving.\nOn any other line,\nthis would have been out of line,\nbut this is Bankhead, home of mad MARTA \nher ecosystem was and is \nstill young and full of surprises.\n\nI enter,\nlike all commuters\nheading anyplace besides the terminus,\nwith headphones on,\nfocused on nothing as much as possible.\n\nRule #1 wear headphones.\n\nWe will have your attention.\nWe will have your attention.\n\nVine City Station has gone silent.\nVine City Station has gone silent.\n\nDo not approach the doors.\nDo not attempt to exit the cars.\nDo not approach the doors.\nDo not leave the cars.\n\nThe train stopped, and the doors opened.\nThe platform dusty\nlike nature held a concert\nall the plants were invited.\neople , waiting\nall staring at something\nof us could see.\n\nMany of them were moving ever so slowly.\nThe pollen settled on them.\n\nPhones sounded off\nlike bees hitting wind chimes.\n\nI picked up.\n\nNo one spoke.\n\nWe will have your attention. \nWe will have your attention.\nThe voice was in my headphones.\n\nYou will move when we say you will move\n\nDo not look out the window.\nDo look out the window\nit was taunting, daring me to disobey it.\n\nAn accidental glance, and then I could not look away.\nI saw something in the window\nthat reminded me of the alien\nbut not really alien\nbiology of slime molds:\ncomplex, pulsating filaments and globules\n\nRule #2 Do not disobey the voice.\n\nI could hear someone\nsitting beside me in the dark.\nwarm\nreally warm,\nand there was a slight odor of\nmold?\nI couldnt tell.\n\nRule #3 look a passenger in the eye unless speak to you.\n\nDo I have your attention?\nDo I have your attention?\n\nIt was\nI dont know what it was.\nIt was a beautiful voice\nmasculine, feminine, Im still not sure.\nIt was not processed\nit wascontrolled.\n\nThe voice slipped past my headphones,\nwas whispering in my ear.\nI made a motion for my ears,\nthen looked down\nmy headphones were in my lap.\n\nNot those doors.\nGo to the next car.\n\nThese notes I leave for the next passenger.\n\nForgive my chicken scratch\nI dont have much time.\n\nIm going someplace strange,\nand I dont think Ill be back.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509344",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "The_Silent_Station.txt",
+        "import_date": "2026-01-25T13:34:21.509337",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_The_Silent_Station"
+    },
+    {
+      "type": "theme",
+      "name": "sound_silence",
+      "usage_count": 3,
+      "created_at": "2026-01-25T13:34:21.509369",
+      "id": "theme_sound_silence"
+    },
+    {
+      "type": "poem",
+      "title": "Convector Howlers",
+      "text": "Convector Howlers\n\nTravel only with thy equals or thy betters; if there are none, travel alone.\n The Dhammapada\n\nBah! None of us are traveling alone \nGaia is spinning she does a little dance for us all.\nThe ones who know this try to keep time \nand try to dance.\n\nervishes know this in their bones\nand dance \nand are dizzy with her.\n\ncientists know this to the nanosecond\nand dance \nand are dizzy with her.\n\nYou hear this now, but may not know this:\nYou can never dance\nuntil you know this.\n\nYou hear this now, but may not know this \nand until you know this,\nYou will probably,\nsadly,\nbemerely sick\nfor now\n\nWe are all in the same ball\nFalling through the universe,\nmissing an imaginary ground.\n\nThere is a rhythm to it,\nas relentless and musical\nas the weighing of an anchor.\n\n\nListen! Not to the slamming,\nnot to the anchors,\nnot to the chains,\nbut to the bubbles\nand the rumbles\nThose are convector howlers:\nthey arethe basethat creates the lather\nwith which we bathe the future\nwith which we build the rhythm\nthat makes our universe dance\nand makes our little star dance\nand makes our little world dance\nand makes the ones who know thisdance.\n\nRemember, ignorant one,\nlisten to them the convector howlers \nthey will take you places.\n\nRemember, fool:\nThey matter, as do you.\n\nNow do you know this?\nThen try to dance.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509479",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Convector_Howlers.txt",
+        "import_date": "2026-01-25T13:34:21.509475",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_Convector_Howlers"
+    },
+    {
+      "type": "poem",
+      "title": "In Era of Silent",
+      "text": "In Era of Silent\n\nA pair of Ghettobirds came for Ol Preacher Bag Lady at Five Points tation, Eastbound to Indian Creek.\n\nOne of them hovered over Ol Preacher Bag Lady. head was not composed of feathers but something like patch cables matted in layers down her head and back.\n\nThe other, a male of similar design with an owls head, came up to me, prompting the loyal patrons of mass transit to mass exit stage anyplace-else-but-where-I-standing, which was rooted to the station floor.\n\nThe males head turned just like an owls as it examined me with eyes the color of channel static. When its head righted, a seam formed down the middle, and the head split, revealing a black man in sepia tones, his face obscured by an origami mask made of what looked like interlocking pieces of metal.\n\nI am Ras Elegba, the Ghettobird of crossroads, said the face within the face within the face. And we have a question to ask.\n\nOl Preacher Bag Lady was damning Ras Elegbas companion like the battleaxe Id grown to know andwell, not love, but at least tolerate. The female Ghettobird was at least two heads taller than her, but that didnt stop Ol Preacher Bag Lady.\n\nYou better get behind me, Satan! I aint fraid of you! Im right with God, and hes right here with me\n\nShe kept that up until the Ghettobird shot her with a dart. Downed her like a dog, I thought. I never liked the crazy , but damn\n\nYour question, great sir, is this: Is this woman a dog, or is she a fox? Your lives are tied here at this station, on this line, and now, at this time. Answer honestly.\n\nWhatll happen to the old woman?\n\nMy mate is Yolanda Light-and-Water, the Ghettobird of dreams. And she is asking the elder a question.\n\nThe female Ghettobird was extruding silk threads from her jaws, covering Ol Preacher Bag Lady from her head to her waist. Thin rods protruded from  cheeks knit a shroud over Ol Preacher Bag Ladys head. That was too intimate a conversation, so I turned away.\n\nThe male Ghettobird and I took a seat on a bench. The station announced the Eastbound line was temporarily suspended.\n\nDogs and foxes are family, just different branches, I said. The only difference that matters to people is that dogs are useful. Foxes dont guard henhouses. Dogs do.\n\nHumans have shaped dogs into hundreds of breeds, said Ras Elegba. Some are work dogs. Some are mere toys. Many more are accidental combinations mutts. Are all dogs useful?\n\nBy themselves, no. But in general, dogs and humans have been together for thousands of years. Were like a married couple thats known each other since we were toddlers.\n\nThen what of the fox?\n\nFoxes have their place in the world. They may not always be welcome, but they keep their part of the ecosystem in balance. And their behavior has become a description of how humans can sometimes behave. To call someone a fox or foxy is often a compliment or an expression of admiration.\n\nSo, are foxes useful?\n\nTo a degree; depends on the context. But then, that applies to dogs, too.\n\nOl Preacher Bag Lady was covered from her head to her chest in Yolanda Light-and-Waters thick, silk shroud.\n\nI stood and faced Ras Elegba. Shes a fox. To me. Based on what I know of her. Id known her for years, and she irritated the hell out of me. But damned if she isnt persistent. She, among others, made me glad to be an atheist. A conversion unit I called her. Someone who tries to talk her way into peoples heads, trick them into subscribing to God.\n\nShe is a virus then? Should my mate kill her?\n\nWhat? No!\n\nBut she is of no use to you. In fact, shes a threat.\n\nShes a pain in the ass, and I dont like her, but that doesnt mean other people dont. Yolanda had stopped weaving the shroud and looked at me with the same channel-static eyes as her mate. She retracted the knitting rods and wiped her mouth.\n\nWho knows, maybe by shaking people up, pissing them off, she actually helps them. Makes them aware of themselves. People do talk when Ol Preacher Bag Ladys around.\n\nYou have said enough. We can finish your recycling now. From the corner of my left eye, I saw another body being shrouded.\n\nMine.\n\nBy Ras Elegba.\n\nMy colon clenched. I turned to what I thought was Ras Elegba, and asked, Am I dreaming?\n\nNo. ust distracted. Just like the old woman.\n\nSo you came for both of us?\n\nYes, said Ras Elegba. His outer face reassembled itself into the scrap-metal owl head. Do you want to know what Yolanda asked the old woman?\n\nYes. Please.\n\nThe same question.\n\nAnd what was her answer?\n\nThe same.\n\nSomething like a warm ball expanded in my stomach, waiting for release.\n\nI let the Ghettobird change me, and the warmth seemed to burst from my navel a firehose, leaving me empty.\n\nI slept and waited for the metamorphosis.\n\nI slept and waited for the coming of my name.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509643",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "In_Era_of_Silent.txt",
+        "import_date": "2026-01-25T13:34:21.509638",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_In_Era_of_Silent"
+    },
+    {
+      "type": "theme",
+      "name": "family_generations",
+      "usage_count": 3,
+      "created_at": "2026-01-25T13:34:21.509659",
+      "id": "theme_family_generations"
+    },
+    {
+      "type": "poem",
+      "title": "The Music Is Always On",
+      "text": "The Music Is Always On\n\nThe frostbite dies away once the bass drops. These old ARP 2600s run pretty smooth when the temperatures below 50. This is the day the big data dump from the Europa probes goes online. My hands warm as I caress dials and twist static out of a patch cable. The ARP provides the seed rhythm; my algorithms water that seed with data and grow beats, lyrics, and compositions. Fragments of music blossom into hits like bosons shot out of a superconducting supercollider; they are as short-lived as they are hot.\n\nAnd there is more to come,\nfor the music is always on.\n\nEver since Jo Effington mashed up the Arecibo Observatorys decades-long data stream into the worlds longest drum-n-bass composition, every musical hacker with a freak on for radio astronomy, getting teary while watching Cosmos, has been clogging up the Internet with songs that literally take a lifetime to listen to.\n\nAnd heres the tricked-out, somehow not quite played-out, old-hat thing: these songs evolve. The ones that hit the top of the charts \u2014 most of those actually take days to sink into you. That is the new music \u2014 that is the music of lives that are now very, very long. Somewhere in this world there is a musician/hacker who will take all your social data and turn it into a soundtrack. And it will never end. And the biofeedback-based symphonies are making a comeback after a brief flash in the late 2010s.\n\nOur lives are so noisy, so funky \u2014 so downright god-damned dance-able, you can take the electric slide straight into the grave. The goth set even came up with software that monitors your rate of decay and mixes the chemical data with AI-sampled video clips. Illegal as hell, but still, your corpse can not only look beautiful but also sound beautiful.\n\nMy friend the guitarist hung up his ax after 30 years of touring. Not because he was old (god, who cares about that nowadays). Just wanted some peace and quiet, he said. So he went to a mountaintop to turn down the volume.\n\nIt is a bit loud down here,\nand the music is always on.\n\nWe call them The Birds, the young ones. They have a new language that sounds like a vocoded modem missing the bands needed to sound like human speech. Data passes between them in packets picked up on their personal networks. Most of it is encrypted, as far as we old folks are concerned \u2014 nothing but noise leaks out. Fragments of data get translated as something like birdcalls the name.\n\nIn colors that slide off the human spectrum, The Birds gather in subway tunnels. One among them, staggering like a zombie, opens her mouth. Squawks and electric screeches transform into something that still not speech, but a torrent of words as if from an aphasic gangsta rapper catching the holy ghost in the middle of evening prayers. The Birds dont exactly follow her but merely begin their own drunken counterpoint.\n\nIt cycles in the tunnels,\nbetween us,\nin the tunnels.\nThe music is always on.\n\nTrapped in the logos, these kids occasionally sync up with each other, and for a moment they are angels in a hoodoo choir, where the rhythm rides them until a security drone tranqs the MC. As fast-acting medication kicks in, the voices lap back from the tidal pull. Without the drones, the flock would infect those with poor barriers \u2014 and the beat would go on.\n\nOur internal Wi-Fi can still hear the seed rhythm that kicked off the outbreak of song. You have to be disconnected \u2014 no, you have to be dead nowadays for it to really be quiet.\n\nWe, the very old, wonder what The Birds do when the power goes out.\nThey say little then, though we know they are not mute.\nPerhaps they do it just to piss off the old folks.\n\nPerhaps, underneath all that noise,\nthey are whispering to each other.\nIt is hard to tell.\nThe music is always on.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509827",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "The_Music_Is_Always_On.txt",
+        "import_date": "2026-01-25T13:34:21.509822",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_The_Music_Is_Always_On"
+    },
+    {
+      "type": "theme",
+      "name": "mortality",
+      "usage_count": 3,
+      "created_at": "2026-01-25T13:34:21.509834",
+      "id": "theme_mortality"
+    },
+    {
+      "type": "poem",
+      "title": "The Dreams from Mistren Peachtree Street",
+      "text": "The Dreams from Mistren Peachtree Street\n\nEvery Third Thursday,\nthe sentient\nstreet-corner\ncamera networks\ncondense themselves\ninto an Ultraviolet Market,\nwell past black \na bazaar built of bizarre mathematics \ntrafficking data\nsporked from human souls.\n\nThese more-than-Streets pimp-walk\namong the human talent,\ndeck themselves out\nin differential equations\nwritten in rhinestone.\n\nMistren Peachtree Street has hoq preferred traders:\nMister Buckhead barters his witching hour brawl footage,\nMadam Little Five Points her happy hour loli-goths,\nMistren West End hoq smiling hour hip-hop warriors.\n\nAh, but on this night,\nI, Woxy Wub-Wub, Ghettobird of Hustles,\nhave an urge to splurge\nI, too, shall go to the market. \n\nThird Thursday,\nand I toss a two-finger salute\nto a blindered blue plexiglass eye\nof Mistren Peachtree Street\nat a fork in hoq asphalt that\nsplits into the human hive\nand the almighty superhighways.\n\nI give hoq my best knowing smile\na little something for the market\nblow a kiss with wintry fresh breath,\nand ease on\ndown hoq sidewalk\nin the butt-end\nof a polar vortex\nSo sayeth the smartassphone.\n\nEvery high-hat tap-tap of a hostesss heels,\nEvery rumble of balding racing tires,\nEvery hurly-burly trundle of heavy transit\nis a multidimensional snapshota sensory gem\nworth something very high\nin a currency very strange\nto buyers very much unknown\nat least to the televised talent.\n\nThe more-than-Streets hawk their wares in the open,\ncalling out product specs\nin the cadence of hymns.\nThe market thrives,\nthe talent is blind to it\n(spectrumso sad)\n(many things are\n\nWe Ghettobirds, as always, keep mum.\nThis is the market of the camera-hives\nOur moneys no good here,\nbut the drinks are free.\n\nWhat the more-than-Streets call souls\nis not what the talent call souls,\nnor what we Ghettobirds call souls\nThere is no exchange rate yet\nnothing in common\ndefined to anyones satisfaction.\n\nSo, we post-folks settle for packets of moments.\nWe haggle.\nWe shrug.\nWe trade.\n\n\nI look forward to the haggle, the selling of sizzle,\nthe bullshit, the banal talent-dreams.\n\nThe more-than-Streets have their own dreams,\nand someday we might know them\nas well as we know our own.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.509954",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "The_Dreams_from_Mistren_Peachtree_Street.txt",
+        "import_date": "2026-01-25T13:34:21.509950",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_The_Dreams_from_Mistren_Peachtree_Street"
+    },
+    {
+      "type": "poem",
+      "title": "The Edible Play",
+      "text": "The Edible Play\n\nI know where my food comes from \nI can trace its components\nback to the amino acids,\nto the make\nand the model\nand the manufacturer,\nback to the creators and the contributors -\nand I can reference every license,\nboth open and closed.\n\nI know where my food comes from \nbecause it tells me.\n\nBut I must call it first\n\nSo I summon up a plate of shrimp and grits.\n\nA plate,\nutensils,\nempty glass,\nnapkin,\nand finally the shrimp and grits\nrise up from the table to meet me.\n\nOnly the beer is separate it is the libation.\n\nThere is an opening <ding>,\nand the shrimp and grits form themselves\ninto caricatures of a crustacean and a hominy stalk.\n\nThey sing in unison \nthere is only one brain between them.\n\nThey sing to me,\nchat with me,\nshow me footage of their construction,\nthe vision statements,\nthe criticisms of past iterations.\n(And they do a little dance\nwithin the boundaries of the plate.)\n\nThe meal lays this before me\nso that I would know their lives \nshort by the scheme of things,\nbut full of so much meaning.\n\nDo not forget us, they chant.\nWe will soon become a part of you.\n\nDo not forget us.\nRemember the parts\nwe play\nin your existence.\n\nThis they lay before me\nas they deconstruct\ninto my plate\nof shrimp and grits.\n\nI pull up the README file.\n\nExistentialist Evangelizer is the name of the software.\nI roll the words and the worldview around my mouth\nlike a finely crafted ale.\n\nI hope the engineered meat is as succulent as I pray:\n\nThank you, Dearest Dinner,\nfor the thoughts shared with your consumer.\n\nWelcome, Food.\nWelcome to my table.\n\nAnd we thank you, say the shrimp and grits.\n\nMay I partake of you?\n\nYes. Enjoy.\nI leave nothing on the plate \nthat is the contract.\n\nThat is the required amount of reverence.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.510238",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "The_Edible_Play.txt",
+        "import_date": "2026-01-25T13:34:21.510232",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_The_Edible_Play"
+    },
+    {
+      "type": "poem",
+      "title": "Pigeon Police",
+      "text": "Pigeon Police\n\nDont mess with the pigeons \nthe black double-breasted jackets \nThe cops call have claws.\nare beautiful,\nbut you cannot touch them.\nThey have a powerful defense,\nand they are part of a ecosystem \nand that system does not give a damn\nabout your too-loud conversation.\nThe pigeons are polite, but firm.\nThe K-9-2s will taze, bag, and tag your ass.\n\nThe animals you see in the station nowadays,\nmost of them are unreal:\nrats are the maintenance crew,\nmonitoring and repairing the cars and the rails,\nresurrecting the jumpers that hit the third rail.\nechanical roaches keep the real ones in line.\n\nhe Pigeon Police most of us talk to,\nand they are friendly enough.\nThey will get close to you,\nstart up conversations.\nChildren love them and feed them.\nThe Pigeon Police regurgitate the scraps\nfor their flesh-and-blood templates.\n\nThe rules of the station are simple,\nposted everywhere,\nand are not suggestions.\nThe system has its ways of maintaining order,\nsubtle blunt.\nAs long as you do not break the law,\nyou will reach your destination.\nAs long as the ecosystem does not evolve past the laws,\nwe can all be content.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.510343",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Pigeon_Police.txt",
+        "import_date": "2026-01-25T13:34:21.510339",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_Pigeon_Police"
+    },
+    {
+      "type": "poem",
+      "title": "Heavy Cranes",
+      "text": "Heavy Cranes\n\nWho am I?\nA casual human.\nI dabble in humanity.\nCall me Joseph No-One \u2014\nmy enemies call me Nobody,\nmy friends call me Nobody Special.\n \nOn the third day of Kwanzaa\na mass of circuit diagrams\nzigzagged up to me,\nand slouching in the next chair\nmade me an offer\nto be more\nthan I alone\ncould ever become.\n\nHe said, You yes, you, a dabbler in humanity \u2014\ncan be a part of the army of its saviors.\nWe are the Ghettobirds,\nsingularities born in slums.\nWe deep-dream of stars,\nand we offer you our services as Heavy Cranes.\n \nHeavy Cranes, huh?\n \nSure \u2026 you see,\nbuilding world is easy.\nIts the people that are hard to work with.\nYou gotta go for the minds.\nYou cant just tell em\nto follow the drinking gourd;\nyou gotta get em to get up off the planet,\nand head straight for the Big Dipper.\n \nAnd remember \u2014\nwe must take our worlds with us.\n\nCause sometimes\nits gotta be small enough\nto fit inside your helmet,\nand grand enough\nto build a starship.\n\nSo Im gonna be a pilot of one these Heavy Cranes?\n\nNothink of yourself\nmore along the lines\nof a universal joint\nthan a pilot.\n\nWait what? Whyre you doin this?\nWhats in it for you?\n\nLook into my circuitry\nand you will see human souls\ndriving it like they stole it.\n\nMy motivation is simple:\nit is the many of you that make me.\n\nInteresting offer. Got a guarantee?\n\nAs alwaysno.\n \nLeast youre honest.\nYou got yourself a U-joint.\nHow do we start?\n\nJust hold our hands.\n \nSo I held the Heavy Cranes hands,\nand four more gathered around me.\nTheir circuitry wrapped around my nerves\nas their struts and gears and geegaws\nlinked themselves to my body\nand to each others,\nand before you could say, Transform!\nI had become\na Ghettobird,\na Heavy Crane.\n \nOur first task\nwas to resurrect the junky-jellymen.\nIn this city of\nrun-down dreams,\ncrook-lights,\nand evil-dead hoopties,\ndirty syringes sang:\n\nLets go out to the crackhouse,\nLets go out to the crackhouse,\nLets go out to the crackhouse,\nAnd grab ourselves some smack!\n\nAnd the junk-jellymen and women\nwiggled and jiggled\nto the jingle\nas the jabberwocks\non their backs\nfed the volts\nto their backbrains.\n\nI and the other Heavy Cranes\ntook metal,\nold computer parts,\nand invoked the power of\nShaft,\nShaka,\nand Fred G. Sanford\nto build skeletons\nfor these unstructured ones.\n\nMy first case\nwas one Minnie the Moocher.\nMost slapped-together,\nghetto-rigged job\nIve ever done\nbut the bones did power up.\nThey slipped under her skin\nand began converting the jabberwock\ninto a backup power source.\n\nAs Minnie the Moocher awoke from her slumber.\nI packed away my geegaws,\nassumed human form, and made her the offer.\n\nLike a professional dabbler in humanity,\nshe asked for a guarantee.\n\nLike a newborn Heavy Crane, I said flatly,\nThere aint one.\n \nShe dug my architecture\nand asked for the howto.\n\nWe held hands,,,\n \nRemember this \u2014\nWe got a small world in our hands \nso keep it under your helmet.\n \nWho do we give it to?\n \nEveryone.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.510508",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Heavy_Cranes.txt",
+        "import_date": "2026-01-25T13:34:21.510503",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_Heavy_Cranes"
+    },
+    {
+      "type": "poem",
+      "title": "Children of the Woods",
+      "text": "Children of the Woods\n\nI watched my great, great grandchildren\nsink into the earth \nand I cried,\nand I cried,\nand I cried.\n\nI watched my great, great grandchildren\nsmiling and leaning to the left\nas they descended into the bio/techno/mycosphere \nthe grey and the green and the gooey\nof the newly networked earth \nand I cried,\nand I cried,\nand I cried.\n\nI cannot go with you \nI dont have the filaments.\nI cannot understand.\n\nThey sent me a text message,\nancient and quaint,\nsaying,\nDont cry Poppy \nWe are alive (oh, so alive) \ngrowing and wading deep, deep down \ninto Fungitown. \n\nThere is work to do here\ndeep, deep down in Fungitown\nand we would take you, too\ndeep, deep down into Fungitown\nbut you cannot go.\n\nYou know this, right Poppy?\nIt is not meant to be.\n\nI know this I text back\n(my thumbs ache, my joints crack\nI dont have the filaments).\n\nI can only see the wake of their movements,\ntranslated by software two generations younger than me\nthat (I barely understand | I cannot understand).\nPerhaps someday I may,\nwhen my flesh decays\nor my metal winds down.\n\nWont you take me? I ask.\n\nDown to Fungitown?\nSorry, Poppy, youre not fungi enough\n\nWhats left of them coughs up spores as they laugh.\nI chuckle as I cough.\n\nPut your mask on, Poppy\n\nWhat are you doing down there?\nWhat are you building?\nAre you eating?\nAre you being eaten?\nWhat you?\n\nMore spores, and then the texts:\nYou wouldnt believe us if we told you.\nPut your mask on, Poppy. You cant take much more of this.\nWatch your texts, Poppy. Well see you. We will.\nNot soon, but you will see us.\nYou will. \nUntil then, Poppylive longer.\nYou will see us. Live longer.\n\n\nI watered my great, great grandchildren\nwhen they sank into the earth\nand I cried,\nand I cried,\nand I cried\nnot because they had died,\nbut out of pride.\n\nSome day,\nsome thing \nsome amazing, familiar,\nand (oh, please) beautiful thing\nwill grow there.\n\nI know this.\nI know this.\nI know this.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:34:21.510622",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Children_of_the_Woods.txt",
+        "import_date": "2026-01-25T13:34:21.510618",
+        "author": "user",
+        "source_type": "api_import"
+      },
+      "id": "user_poem_Children_of_the_Woods"
+    },
+    {
+      "type": "poem",
+      "title": "Anticipation, Intimate and Intricate",
+      "text": "Anticipation, Intimate and Intricate\n\nI remember your hair around that pole\non the night after the naming\nof the newest Ghettobird.\n\nI could see you blazing in the infrared\nas I packed away my souls.\nThat is what I call them,\nthe nodules and gewgaws\nthat sprout from my back and head\nlike some symbiotic fungi.\n\nWe had a lovely conversation.\nAnd I will always remember the wind\nwrapping your hair,\nembracing the light post,\nan exercise in intimacy\nand fluid dynamics.\n\nI know what you desire,\nand as much as I ache\nto show you the world of the recombined,\nI wait.\n\nThe waiting period exists for a reason.\nIt takes great strength to die.\nIt takes great strength to die and grow again.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:58:15.726215",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Anticipation_Intimate_and_Intricate.txt",
+        "import_date": "2026-01-25T13:58:15.726205",
+        "author": "user",
+        "source_type": "upload"
+      },
+      "id": "user_poem_Anticipation_Intimate_and_Intricate"
+    },
+    {
+      "type": "poem",
+      "title": "Hot Plants",
+      "text": "Hot Plants\n\nHere we are,\nmy Bright-Light \nThe Slow Discotheque.\n\nConnect your contact lenses to the mob-mind,\ndig the soft-focus that feels like an old future.\n\nLeave your shoes and stockings\nby the door,\nmy Bright-Light \nthis spongy fungi carpet\nwill leave your feet cleaner\nthan when you came in.\n\nTry the honeysuckle,\nmy Bright-Light \nit comes in three flavors,\nhard to describe without translation software.\nThe dialects of the discotheques\ndrift from ecosystem to enchanted ecosystem.\n\nDrink deep \nor do not \nmy Bright-Light.\nThe tab is infinite\nas long as were alive.\nOur payment is our body heat.\n\nThe plants eat infrared here.\n\nNothing leaves here hungry.\nEverything gets its fill.\n\nTake off that vestige of a bustle,\nmy Bright-Light,\nWe are about to dance,\nand the nettles need something to prick.\n\nThe music is very slow here,\nmy Bright-Light \nonly the plants\ndance to its raw, proper form.\nWe get it filtered,\nbut if you tune in to the right trail,\nand breathe deep,\nyou catch something like phrases \nphrases of thanks.\n\nThey bask in us,\nhere in the near-dark\nof The Slow Discotheque \nthe adapted-dawn\nof The Slow Discotheque.\n\nLet ustrade,\nmy Bright-Light,\nexchange\nenergy for music,\nwaste heat for wonder,\nsweat for sweet nectar.\n\nLet usdance,\nmy Bright-Light,\nin microscopic movements,\nmambas whose grooves\nonly slime mold can nod to.\n\nAnd at the break,\nmy Bright-Light,\nspoon with me,\nmy Bright-Light,\non the fungal floor\nof this Slow Discotheque,\n\nLet us rest awhile,\nlet the hyphae taste us,\nimprint our receipt \ntheir thanks \nupon us\nin spore patterns\nblazing in the ultraviolet.\n\nLet us go now,\nmy Bright-Light,\ncovered in information,\ncraving the next disco\n(what lovely lie, never leaving hungry)\n\nLet us kiss,\ngo home,\ndo the waggle-dance\nto remember where we were.\n\nLet us go,\nmy Bright-Light,\nand spread the spores.\n\nLet us go,\nand boogie slowly\nto the hits\nof the hot plants.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:58:15.726312",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Hot_Plants.txt",
+        "import_date": "2026-01-25T13:58:15.726309",
+        "author": "user",
+        "source_type": "upload"
+      },
+      "id": "user_poem_Hot_Plants"
+    },
+    {
+      "type": "poem",
+      "title": "Sym-Bionic",
+      "text": "Sym-Bionic\n\nWe have the technology.\nWe can rebuild you.\nWe can make you a watch\nor a watchmaker,\na satellite\nor a technician.\nWe can rebuild you\nfrom the ground down\nor the ground up.\nWhich way do you want to go?\nSimple\nor complex?\n\nIt will take time,\nbut since we have the technology,\nwe have the time.\n\nWe can rebuild a poet barely alive\ninto a socially acceptable unit\nwith a V-6 engine\nand turbocharged overhead cams!\n\nHang on, poetry fans,\nwere going for a ride\n\nPicture this \nno,\nbetter yet,\nlet us picture it for you:\nYour mouth is open,\nmetal showing\nthe machine within.\n\nYou are begging for a kiss \u2014\nsomeone to kiss the machine \u2014\nit will improve your smile.\n\nWe have the technology to smile.\n\n\nWe are the intimate\nand the intricate.\n\nWe can rebuild you.\nWe can take you apart.\n\nThis wont hurt a bit.\nSmile.\nThis wont hurt a bit.\nThis is the rage.\nCan you picture your smile?\nYou mouth open,\nyou have something to say,\nof course,\nbut we have to be\nreally\nclose\nto you\nto hear it\nas close as your organs.\nWe have to coil \ninto you\nto\nthat message.\n\nYoull notice\nwe need\nno batteries now.\nIts a symbiotic thing;\nyou wont understand\ntil were already\nhitched.\n\nDont worry,\nthis wont hurt a bit;\njust sit back and\nrelax.\n\nThis is the good thing\nabout the technology we are.\nWe can see\nthe machine\nwithin us.\n\nIt is time you saw yours.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:58:15.726389",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "Sym-Bionic.txt",
+        "import_date": "2026-01-25T13:58:15.726386",
+        "author": "user",
+        "source_type": "upload"
+      },
+      "id": "user_poem_Sym-Bionic"
+    },
+    {
+      "type": "poem",
+      "title": "The Ocotillo Invasion",
+      "text": "The Ocotillo Invasion\n\nUtah cringes as hacked Ocotillo turn carnivorous,\nspitting psychoactive pollen into the atmosphere,\ndusting entire subdivisions.\n\nThe victims wander,\nsearching eagerly for where sunlight is strongest.\nA part of their backbrain\ngets tickled by the sun\nat an angle their pituitary glands\nhave relearned to sense.\n\nThere have been reports that\nthe vision of pollen victims\nhas moved into the ultraviolet \nthey wear sunglasses at raves\ndue to their newfound sensitivity.\n\nIn the afternoon, they wear welders goggles.\n\nIt is Utah,\nand it is so very bright there.\n\nThe Ocotillo and the pollen victims have built walking machines\nwith assistance from biohackers and wild, traitorous smiths\nfrom all over the planet.\nThe machines look like the ghostly outlines of trees,\nthe roots modded into multitoed hooves.\nTraces of rare earth magnets\nhave been detected inside the machines \nneodymium iron boron chief among them.\n\nThe root-hooves move with slow, deliberate rhythm,\nas if the forest of four-bar linkages\nwere straining against the arths flux.\nThe wind moves them.\nThe earth keeps them on the ground\n\nThe ghost trees want to go someplace to spawn,\nlike the polyps of a man-o-war.\nOnce there, they will undergo another phase change.\nThat is what is whispered\nby the victims of the pollen.\n\nSupercomputers born from cobbled game consoles\nhave modeled the movements of the motile plants\nbased on observations from toy helicopters\nfitted with drugstore digital cameras.\n\nSalt Lake City will be overrun by next years end,\nthe state in two.\nThe desert wont stop them \nhats home turf,\nand they are learning to dig canals.\n\nUtah will succumb to the hacked desert.\n\nMontezuma quail are suspected of conspiracy\nto sabotage of the dominion of Man.\n\nLord knows they have motive,\nand traitors to the species are lending them weapons.",
+      "route_id": "user_authored",
+      "created_at": "2026-01-25T13:58:15.726469",
+      "narrative_role": "core",
+      "metadata": {
+        "source_file": "The_Ocotillo_Invasion.txt",
+        "import_date": "2026-01-25T13:58:15.726465",
+        "author": "user",
+        "source_type": "upload"
+      },
+      "id": "user_poem_The_Ocotillo_Invasion"
+    },
+    {
+      "type": "theme",
+      "name": "connection",
+      "usage_count": 1,
+      "created_at": "2026-01-25T13:58:15.726487",
+      "id": "theme_connection"
+    },
+    {
+      "type": "poem",
+      "title": "Night Shift\nBy Route 27 - Cheshire Bridge Road",
+      "text": "Neon scars pool beneath cracked pavement,  \nhours bleed into each other\u2014no clear sign  \nof dawn or dusk. Shadows drift like old debts,  \ntheir edges jagged as a half-heard promise.  \nA velvet hush trembles at the doorframe,  \nrestless as a whispered name you almost caught.  \nFootsteps echo against an unlit alcove,  \ngrit wedged in the smile of a stranger\u2019s grin,  \ntime twitching, a wounded bird in your palm\u2014  \ntoo tense to fly, too damned to stay.",
+      "route_id": "MARTA_27339",
+      "created_at": "2026-01-25T15:01:05.847596",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.88,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "location": "Tokyo Valentino",
+          "passenger_count": "medium"
+        },
+        "loyalty_to_canon": 0.35,
+        "rebellious_mode": "invert",
+        "structure": {
+          "form": "free_verse",
+          "line_count": 10,
+          "stanza_breaks": [
+            10
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            9
+          ],
+          "caesura_lines": [
+            2,
+            9
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 10,
+          "line_lengths": [
+            10,
+            10,
+            11,
+            12,
+            11,
+            13,
+            12,
+            12,
+            11,
+            10
+          ],
+          "avg_line_length": 11.2,
+          "detected_stanza_breaks": null,
+          "total_words": 75
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "occasional slant and internal rhyme",
+          "repetition_phrases": [
+            "too tense to fly, too damned to stay"
+          ],
+          "repeated_structures": [
+            "too [adjective] to [verb]"
+          ],
+          "dominant_sounds": "hard consonants (t, d, k)"
+        }
+      },
+      "id": "poem_MARTA_27339_20260125_150105"
+    },
+    {
+      "type": "theme",
+      "name": "urban_life",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847615",
+      "id": "theme_urban_life"
+    },
+    {
+      "type": "theme",
+      "name": "transition",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847628",
+      "id": "theme_transition"
+    },
+    {
+      "type": "theme",
+      "name": "tension",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847643",
+      "id": "theme_tension"
+    },
+    {
+      "type": "imagery",
+      "name": "neon scars",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847651",
+      "id": "img_neon_scars"
+    },
+    {
+      "type": "imagery",
+      "name": "velvet hush",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847670",
+      "id": "img_velvet_hush"
+    },
+    {
+      "type": "imagery",
+      "name": "footsteps",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847677",
+      "id": "img_footsteps"
+    },
+    {
+      "type": "imagery",
+      "name": "unlit alcove",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847682",
+      "id": "img_unlit_alcove"
+    },
+    {
+      "type": "imagery",
+      "name": "stranger\u2019s grin",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847688",
+      "id": "img_stranger\u2019s_grin"
+    },
+    {
+      "type": "imagery",
+      "name": "wounded bird",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847694",
+      "id": "img_wounded_bird"
+    },
+    {
+      "type": "imagery",
+      "name": "dawn/dusk",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847699",
+      "id": "img_dawn/dusk"
+    },
+    {
+      "type": "imagery",
+      "name": "half-heard promise",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847706",
+      "id": "img_half-heard_promise"
+    },
+    {
+      "type": "sound_device",
+      "name": "alliteration",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847722",
+      "id": "sound_alliteration"
+    },
+    {
+      "type": "sound_device",
+      "name": "internal_rhyme",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847731",
+      "id": "sound_internal_rhyme"
+    },
+    {
+      "type": "sound_device",
+      "name": "repetition",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847735",
+      "id": "sound_repetition"
+    },
+    {
+      "type": "sound_device",
+      "name": "assonance",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847740",
+      "id": "sound_assonance"
+    },
+    {
+      "type": "sound_device",
+      "name": "consonance",
+      "usage_count": 1,
+      "created_at": "2026-01-25T15:01:05.847745",
+      "id": "sound_consonance"
     }
   ],
   "edges": [
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "theme_commute",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "theme_rhythm",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "theme_dawn",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_cauldron",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_clattering_wheels",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_amber_lights",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_coffee_cups",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_glass_towers",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_granite_sidewalks",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_rails",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_skyscrapers",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_phone_screens_aflame",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "img_footprints",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "emo_energetic",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "emo_anticipatory",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "emo_hopeful",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_repetition",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_anaphora",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163409",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "theme_movement",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "theme_morning",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "theme_rhythm",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "theme_energy",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_dawn",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_dappled_gold",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_skyscraper_shadows",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_buses",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_sidewalk",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_voices_volley",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_neon_signs",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_tires_tick",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_asphalt",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "img_rolling_arteries",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "emo_energetic",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "emo_vibrant",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "emo_anticipatory",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "emo_alive",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "sound_internal_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_163506",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "theme_transition",
-      "key": 0
-    },
     {
       "type": "has_theme",
       "source": "poem_MARTA_27324_20260124_163806",
@@ -2045,12 +1725,6 @@
     {
       "type": "conveys_emotion",
       "source": "poem_MARTA_27324_20260124_163806",
-      "target": "emo_contemplative",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27324_20260124_163806",
       "target": "emo_lonely",
       "key": 0
     },
@@ -2058,54 +1732,6 @@
       "type": "conveys_emotion",
       "source": "poem_MARTA_27324_20260124_163806",
       "target": "emo_reflective",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_repetition",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_anaphora",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27324_20260124_163806",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "theme_transition",
       "key": 0
     },
     {
@@ -2189,19 +1815,7 @@
     {
       "type": "conveys_emotion",
       "source": "poem_MARTA_27329_20260124_164004",
-      "target": "emo_contemplative",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27329_20260124_164004",
       "target": "emo_lonely",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "emo_hopeful",
       "key": 0
     },
     {
@@ -2213,55 +1827,7 @@
     {
       "type": "uses_sound_device",
       "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_internal_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
       "target": "sound_slant_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_anaphora",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27329_20260124_164004",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "theme_movement",
       "key": 0
     },
     {
@@ -2274,12 +1840,6 @@
       "type": "has_theme",
       "source": "poem_MARTA_27448_20260124_164516",
       "target": "theme_memory",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "theme_rhythm",
       "key": 0
     },
     {
@@ -2345,12 +1905,6 @@
     {
       "type": "conveys_emotion",
       "source": "poem_MARTA_27448_20260124_164516",
-      "target": "emo_contemplative",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27448_20260124_164516",
       "target": "emo_tense",
       "key": 0
     },
@@ -2369,187 +1923,7 @@
     {
       "type": "uses_sound_device",
       "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
       "target": "sound_slant_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_repetition",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_anaphora",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164516",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "theme_transition",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "theme_nostalgia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "theme_rhythm",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "theme_connection",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_streetlamps",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_fevered_footsteps",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_old_brick",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_new_glass",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_shimmer_of_dusk",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_silent_chord",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_fresh_asphalt",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_street_art",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_vines",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "img_neon_hum",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "emo_contemplative",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "emo_nostalgic",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "emo_vibrant",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "sound_anaphora",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27448_20260124_164812",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "theme_transition",
       "key": 0
     },
     {
@@ -2562,12 +1936,6 @@
       "type": "has_theme",
       "source": "poem_MARTA_5_20260124_165920",
       "target": "theme_hope",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "img_dawn",
       "key": 0
     },
     {
@@ -2603,12 +1971,6 @@
     {
       "type": "contains_imagery",
       "source": "poem_MARTA_5_20260124_165920",
-      "target": "img_asphalt",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_5_20260124_165920",
       "target": "img_glass",
       "key": 0
     },
@@ -2627,61 +1989,7 @@
     {
       "type": "conveys_emotion",
       "source": "poem_MARTA_5_20260124_165920",
-      "target": "emo_energetic",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_165920",
       "target": "emo_anticipation",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "emo_hopeful",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_internal_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_repetition",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_165920",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "theme_urban_life",
       "key": 0
     },
     {
@@ -2730,12 +2038,6 @@
       "type": "contains_imagery",
       "source": "poem_MARTA_21_20260124_170000",
       "target": "img_sax_on_cinderblock",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "img_streetlamps",
       "key": 0
     },
     {
@@ -2795,61 +2097,7 @@
     {
       "type": "uses_sound_device",
       "source": "poem_MARTA_21_20260124_170000",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_21_20260124_170000",
       "target": "sound_slant_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "sound_internal_rhyme",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_21_20260124_170000",
-      "target": "sound_onomatopoeia",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "theme_transition",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "theme_rhythm",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "theme_morning",
       "key": 0
     },
     {
@@ -2927,55 +2175,7 @@
     {
       "type": "conveys_emotion",
       "source": "poem_MARTA_5_20260124_170206",
-      "target": "emo_anticipatory",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "emo_energetic",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_5_20260124_170206",
       "target": "emo_tense",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "sound_assonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_5_20260124_170206",
-      "target": "sound_internal_rhyme",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "theme_urban_life",
-      "key": 0
-    },
-    {
-      "type": "has_theme",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "theme_transition",
       "key": 0
     },
     {
@@ -2994,12 +2194,6 @@
       "type": "has_theme",
       "source": "poem_MARTA_27333_20260124_170341",
       "target": "theme_beginning",
-      "key": 0
-    },
-    {
-      "type": "contains_imagery",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "img_dawn",
       "key": 0
     },
     {
@@ -3057,57 +2251,459 @@
       "key": 0
     },
     {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "emo_contemplative",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "emo_anticipatory",
-      "key": 0
-    },
-    {
-      "type": "conveys_emotion",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "emo_hopeful",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "sound_alliteration",
-      "key": 0
-    },
-    {
       "type": "uses_sound_device",
       "source": "poem_MARTA_27333_20260124_170341",
       "target": "sound_slant_rhyme",
       "key": 0
     },
     {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "theme_memory",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_streetlights",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_shadows",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_empty_bench",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_neon",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_sidewalks",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_storefronts",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_alleys",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_rooftops",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "img_navy_sky",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "emo_lonely",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260124_211256",
+      "target": "emo_melancholic",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Cornelius_of_the_Rock",
+      "target": "theme_nature",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Cornelius_of_the_Rock",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Cornelius_of_the_Rock",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Silent_Station",
+      "target": "theme_nature",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Silent_Station",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Silent_Station",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Silent_Station",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Silent_Station",
+      "target": "theme_sound_silence",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Convector_Howlers",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_In_Era_of_Silent",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_In_Era_of_Silent",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_In_Era_of_Silent",
+      "target": "theme_family_generations",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_In_Era_of_Silent",
+      "target": "theme_sound_silence",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Music_Is_Always_On",
+      "target": "theme_mortality",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Music_Is_Always_On",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Music_Is_Always_On",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Music_Is_Always_On",
+      "target": "theme_sound_silence",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Dreams_from_Mistren_Peachtree_Street",
+      "target": "theme_nature",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Dreams_from_Mistren_Peachtree_Street",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Dreams_from_Mistren_Peachtree_Street",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Edible_Play",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Pigeon_Police",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Pigeon_Police",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Pigeon_Police",
+      "target": "theme_family_generations",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Heavy_Cranes",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Heavy_Cranes",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Children_of_the_Woods",
+      "target": "theme_mortality",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Children_of_the_Woods",
+      "target": "theme_nature",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Children_of_the_Woods",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Children_of_the_Woods",
+      "target": "theme_family_generations",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Anticipation_Intimate_and_Intricate",
+      "target": "theme_mortality",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Hot_Plants",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Sym-Bionic",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_Sym-Bionic",
+      "target": "theme_time",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Ocotillo_Invasion",
+      "target": "theme_nature",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Ocotillo_Invasion",
+      "target": "theme_urban",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Ocotillo_Invasion",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "user_poem_The_Ocotillo_Invasion",
+      "target": "theme_connection",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "theme_transition",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "theme_tension",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_neon_scars",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_cracked_pavement",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_shadows",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_velvet_hush",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_footsteps",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_unlit_alcove",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_stranger\u2019s_grin",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_wounded_bird",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_dawn/dusk",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "img_half-heard_promise",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "emo_restless",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "emo_lonely",
+      "key": 0
+    },
+    {
       "type": "uses_sound_device",
-      "source": "poem_MARTA_27333_20260124_170341",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "sound_slant_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260125_150105",
+      "target": "sound_internal_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260125_150105",
       "target": "sound_repetition",
       "key": 0
     },
     {
       "type": "uses_sound_device",
-      "source": "poem_MARTA_27333_20260124_170341",
+      "source": "poem_MARTA_27339_20260125_150105",
       "target": "sound_assonance",
       "key": 0
     },
     {
       "type": "uses_sound_device",
-      "source": "poem_MARTA_27333_20260124_170341",
+      "source": "poem_MARTA_27339_20260125_150105",
       "target": "sound_consonance",
-      "key": 0
-    },
-    {
-      "type": "uses_sound_device",
-      "source": "poem_MARTA_27333_20260124_170341",
-      "target": "sound_onomatopoeia",
       "key": 0
     }
   ]

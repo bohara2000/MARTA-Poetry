@@ -46,5 +46,24 @@
       "truth": 0.8,
       "isolation": 0.7
     }
+  },
+  "MARTA_27339": {
+    "name": "Route 27 - Cheshire Bridge Road",
+    "description": "Gritty, remembers the old underbelly despite the gentrification. It is not fooled.",
+    "loyalty_to_canon": 0.35,
+    "rebellious_mode": "invert",
+    "sound_preferences": {
+      "slant_rhyme": 0.8,
+      "repetition": 0.5,
+      "alliteration": 0.85,
+      "anaphora": 0.35
+    },
+    "theme_affinities": {
+      "transition": 0.75,
+      "devious": 0.85,
+      "evening": 0.65,
+      "truth": 0.9,
+      "darkness": 0.5
+    }
   }
 }

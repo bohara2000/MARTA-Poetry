@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from poetry.graph import initialize_graph, get_poetry_graph, ExtendedPoetryGraph, PoemAnalyzer
 from poetry.prompt_builder import PromptBuilder, load_route_personality
 from poetry.personality_routes import router as personality_router
+from admin_api import router as admin_router
 from openai import AzureOpenAI
 import csv
 import os
@@ -139,6 +140,7 @@ app.add_middleware(
 )
 
 app.include_router(personality_router)
+app.include_router(admin_router)
 
 async def generate_poem_for_route(
     route_id: str,
@@ -293,10 +295,10 @@ async def generate_poem_for_route(
 async def get_poetry(
     route: str, 
     story_influence: float = Query(0.7, ge=0.0, le=1.0), 
-    route_type: str = Query('bus', regex='^(bus|train)$'),
-    time_of_day: Optional[str] = Query(None, regex='^(morning_rush|afternoon|evening_rush|late_night)$'),
+    route_type: str = Query('bus', pattern='^(bus|train)$'),
+    time_of_day: Optional[str] = Query(None, pattern='^(morning_rush|afternoon|evening_rush|late_night)$'),
     location: Optional[str] = None,
-    passenger_count: Optional[str] = Query(None, regex='^(low|medium|high)$')
+    passenger_count: Optional[str] = Query(None, pattern='^(low|medium|high)$')
 ):
     """
     Generate a poem based on the route, route type, and story influence.
