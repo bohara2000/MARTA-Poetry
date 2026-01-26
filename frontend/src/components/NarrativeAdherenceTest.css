@@ -63,6 +63,24 @@
   cursor: not-allowed;
 }
 
+.loading-routes {
+  padding: 8px 12px;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.no-routes-message {
+  padding: 8px 12px;
+  background-color: #fff3cd;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 13px;
+}
+
 .range-labels {
   display: flex;
   justify-content: space-between;

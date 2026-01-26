@@ -78,5 +78,13 @@
             "refuses to stop for geese",
             "compulsively syncopates"
         ]
+    },
+    "MARTA_27339": {
+        "alignment": "neutral",
+        "tone": "gritty",
+        "quirks": [
+            "refuses to stop for geese",
+            "prefers left turns"
+        ]
     }
 }

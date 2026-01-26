@@ -1,17 +1,61 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './NarrativeAdherenceTest.css';
+import { getApiUrl } from '../utils/api';
 
 const NarrativeAdherenceTest = () => {
   const [routeId, setRouteId] = useState('');
+  const [availableRoutes, setAvailableRoutes] = useState([]);
+  const [loadingRoutes, setLoadingRoutes] = useState(true);
   const [storyInfluence, setStoryInfluence] = useState(0.5);
   const [testType, setTestType] = useState('single'); // 'single' or 'comprehensive'
   const [testResults, setTestResults] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Fetch available routes on component mount
+  useEffect(() => {
+    fetchAvailableRoutes();
+  }, []);
+
+  const fetchAvailableRoutes = async () => {
+    setLoadingRoutes(true);
+    setError('');
+    try {
+      console.log('Fetching routes from /api/available-routes');
+      const url = getApiUrl('/api/available-routes');
+      console.log('Fetch URL:', url);
+      const response = await fetch(url);
+      console.log('Response status:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log('Routes data:', data);
+      // Convert from object format to array
+      const routesArray = Object.entries(data.routes || {}).map(([routeId, routeInfo]) => ({
+        route_id: routeId,
+        friendly_name: routeInfo.name || routeId,
+        ...routeInfo
+      }));
+      console.log('Routes array:', routesArray);
+      setAvailableRoutes(routesArray);
+      
+      // Auto-select first route if none selected
+      if (routesArray && routesArray.length > 0 && !routeId) {
+        console.log('Auto-selecting first route:', routesArray[0].route_id);
+        setRouteId(routesArray[0].route_id);
+      }
+    } catch (err) {
+      console.error('Error fetching routes:', err);
+      setError(`Failed to load available routes: ${err.message}`);
+    } finally {
+      setLoadingRoutes(false);
+    }
+  };
+
   const handleRunTest = async () => {
-    if (!routeId.trim()) {
-      setError('Please enter a route ID');
+    if (!routeId) {
+      setError('Please select a route');
       return;
     }
 
@@ -21,7 +65,7 @@ const NarrativeAdherenceTest = () => {
 
     try {
       const requestData = {
-        route_id: routeId.trim(),
+        route_id: routeId,
         comprehensive: testType === 'comprehensive'
       };
 
@@ -29,7 +73,7 @@ const NarrativeAdherenceTest = () => {
         requestData.story_influence = storyInfluence;
       }
 
-      const response = await fetch('/api/admin/narrative/test-adherence', {
+      const response = await fetch(getApiUrl('/api/narrative/test-adherence'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -52,8 +96,8 @@ const NarrativeAdherenceTest = () => {
   };
 
   const handleGenerateReport = async () => {
-    if (!routeId.trim()) {
-      setError('Please enter a route ID');
+    if (!routeId) {
+      setError('Please select a route');
       return;
     }
 
@@ -61,12 +105,12 @@ const NarrativeAdherenceTest = () => {
     setError('');
 
     try {
-      const response = await fetch('/api/admin/narrative/generate-adherence-report', {
+      const response = await fetch(getApiUrl('/api/narrative/generate-adherence-report'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ route_id: routeId.trim() })
+        body: JSON.stringify({ route_id: routeId })
       });
 
       if (!response.ok) {
@@ -278,15 +322,24 @@ const NarrativeAdherenceTest = () => {
       <div className="test-controls">
         <div className="control-row">
           <div className="control-group">
-            <label htmlFor="routeId">Route ID:</label>
-            <input
-              type="text"
-              id="routeId"
-              value={routeId}
-              onChange={(e) => setRouteId(e.target.value)}
-              placeholder="e.g., MARTA_5"
-              disabled={loading}
-            />
+            <label htmlFor="routeId">Route:</label>
+            {loadingRoutes ? (
+              <div className="loading-routes">Loading routes...</div>
+            ) : (
+              <select
+                id="routeId"
+                value={routeId}
+                onChange={(e) => setRouteId(e.target.value)}
+                disabled={loading}
+              >
+                <option value="">Select a route...</option>
+                {availableRoutes.map((route) => (
+                  <option key={route.route_id} value={route.route_id}>
+                    {route.friendly_name}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
 
           <div className="control-group">

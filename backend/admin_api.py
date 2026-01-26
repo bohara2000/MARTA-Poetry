@@ -380,6 +380,72 @@ async def merge_themes(
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to merge themes: {e}")
 
+@router.get("/available-routes")
+async def get_available_routes():
+    """Get all available routes from GTFS data with human-friendly names."""
+    try:
+        from poetry.personality_routes import load_available_routes
+        
+        available_routes = load_available_routes()
+        
+        return {
+            "routes": available_routes,
+            "total_available": len(available_routes)
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to load available routes: {e}")
+
+@router.get("/routes/with-poems")
+async def get_routes_with_poems(graph: ExtendedPoetryGraph = Depends(get_graph)):
+    """Get all routes that have poems with human-friendly names and poem counts."""
+    try:
+        # Import the function to load human-friendly route names
+        from poetry.personality_routes import load_available_routes
+        
+        # Load human-friendly names
+        gtfs_routes = load_available_routes()
+        
+        route_stats = {}
+        
+        # Count poems per route
+        for node_id, node_data in graph.graph.nodes(data=True):
+            if node_data.get("type") == "poem":
+                route_id = node_data.get("route_id")
+                if route_id:
+                    if route_id not in route_stats:
+                        # Get human-friendly name from GTFS, fallback to route_id
+                        friendly_name = gtfs_routes.get(route_id, {}).get("name", route_id)
+                        
+                        route_stats[route_id] = {
+                            "route_id": route_id,
+                            "friendly_name": friendly_name,
+                            "poem_count": 0,
+                            "latest_poem": None
+                        }
+                    route_stats[route_id]["poem_count"] += 1
+                    
+                    # Track latest poem
+                    created_at = node_data.get("created_at", "")
+                    if not route_stats[route_id]["latest_poem"] or created_at > route_stats[route_id]["latest_poem"]["created_at"]:
+                        route_stats[route_id]["latest_poem"] = {
+                            "id": node_id,
+                            "title": node_data.get("title", "Untitled"),
+                            "created_at": created_at
+                        }
+        
+        # Convert to sorted list
+        routes_list = list(route_stats.values())
+        routes_list.sort(key=lambda x: x["poem_count"], reverse=True)
+        
+        return {
+            "routes": routes_list,
+            "total_routes": len(routes_list),
+            "total_poems": sum(route["poem_count"] for route in routes_list)
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get routes with poems: {e}")
+
 @router.get("/system/status")
 async def get_system_status(graph: ExtendedPoetryGraph = Depends(get_graph)):
     """Get overall system status and statistics."""
@@ -852,68 +918,3 @@ async def upload_multiple_poems(
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to upload poems: {e}")
-
-@router.get("/available-routes")
-async def get_available_routes():
-    """
-    Get all available routes from GTFS data with human-friendly names.
-    """
-    try:
-        from pathlib import Path
-        
-        # Path to GTFS routes file
-        routes_file = Path(__file__).parent / "data" / "gtfs" / "routes.txt"
-        personalities_file = Path(__file__).parent / "data" / "route_personalities.json"
-        
-        routes = {}
-        existing_personalities = {}
-        
-        # Load existing personalities
-        if personalities_file.exists():
-            import json
-            with open(personalities_file, 'r') as f:
-                existing_personalities = json.load(f)
-        
-        # Load routes from GTFS
-        if routes_file.exists():
-            with open(routes_file, 'r', encoding='utf-8') as f:
-                lines = f.readlines()
-                headers = lines[0].strip().split(',')
-                
-                for line in lines[1:]:
-                    values = line.strip().split(',')
-                    if len(values) >= len(headers):
-                        route_data = dict(zip(headers, values))
-                        route_id = f"MARTA_{route_data.get('route_id', '')}"
-                        route_short = route_data.get('route_short_name', '')
-                        route_long = route_data.get('route_long_name', '')
-                        
-                        # Create human-friendly name
-                        if route_short and route_long:
-                            friendly_name = f"Route {route_short} - {route_long}"
-                        elif route_short:
-                            friendly_name = f"Route {route_short}"
-                        elif route_long:
-                            friendly_name = route_long
-                        else:
-                            friendly_name = route_id
-                        
-                        routes[route_id] = {
-                            "id": route_id,
-                            "name": friendly_name,
-                            "short_name": route_short,
-                            "long_name": route_long,
-                            "has_personality": route_id in existing_personalities
-                        }
-        
-        return {
-            "routes": routes,
-            "total_available": len(routes),
-            "total_with_personalities": len(existing_personalities)
-        }
-        
-    except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Failed to load available routes: {e}"
-        )

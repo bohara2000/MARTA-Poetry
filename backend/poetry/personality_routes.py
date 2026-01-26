@@ -172,6 +172,30 @@ def get_available_themes() -> List[str]:
 
 # ==================== API ENDPOINTS ====================
 
+@router.get("/available-routes")
+async def get_available_routes():
+    """
+    Get all available routes from GTFS data with human-friendly names.
+    """
+    try:
+        available_routes = load_available_routes()
+        existing_personalities = load_personalities()
+        
+        # Mark which routes already have personalities
+        for route_id in available_routes:
+            available_routes[route_id]["has_personality"] = route_id in existing_personalities
+        
+        return {
+            "routes": available_routes,
+            "total_available": len(available_routes),
+            "total_with_personalities": len(existing_personalities)
+        }
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to load available routes: {e}"
+        )
+
 @router.get("/", response_model=PersonalitiesResponse)
 async def list_personalities():
     """
@@ -395,30 +419,6 @@ def _get_personality_type(personality: RoutePersonality) -> str:
     else:
         return "Balanced"
 
-
-@router.get("/available-routes")
-async def get_available_routes():
-    """
-    Get all available routes from GTFS data with human-friendly names.
-    """
-    try:
-        available_routes = load_available_routes()
-        existing_personalities = load_personalities()
-        
-        # Mark which routes already have personalities
-        for route_id in available_routes:
-            available_routes[route_id]["has_personality"] = route_id in existing_personalities
-        
-        return {
-            "routes": available_routes,
-            "total_available": len(available_routes),
-            "total_with_personalities": len(existing_personalities)
-        }
-    except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Failed to load available routes: {e}"
-        )
 
 @router.get("/test-routes")
 async def test_routes():
