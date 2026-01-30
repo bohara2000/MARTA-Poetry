@@ -42,11 +42,13 @@ The goal is to create a system that interacts with a core canon of poems that se
    AZURE_OPENAI_API_KEY=your_AZURE_OPENAI_API_KEY_here
    ```
 
-5. **Download GTFS data (optional):**
+5. **Download GTFS data (required for automatic stop extraction):**
    ```bash
    chmod +x get_gtfs.sh
    ./get_gtfs.sh
    ```
+   
+   The GTFS data enables automatic extraction of real transit stops when creating new route personalities. Without it, routes will use placeholder stops.
 
 ### Frontend Setup
 

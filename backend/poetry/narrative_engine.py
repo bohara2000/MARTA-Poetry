@@ -1,25 +1,42 @@
-# Mock poetry collection - replace with actual source later
+# Canonical Poetry Collection extracted from core poems
+# These are actual themes, imagery, and emotions that the analyzer detects
 MOCK_POETRY_COLLECTION = {
     "central_themes": [
-        "urban surveillance and observation",
-        "movement as freedom and control", 
-        "community formation in transit spaces",
-        "technology mediating human connection",
-        "the politics of public space"
+        "surveillance",
+        "urban_life",
+        "control_and_authority",
+        "isolation",
+        "the_uncanny",
+        "interconnected_ecosystem",
+        "order_vs_disorder",
+        "commodification",
+        "data_technology",
+        "silence_vs_noise"
     ],
     "core_motifs": [
-        "watching eyes", "mechanical birds", "voices in motion", 
-        "windows as frames", "rhythmic cycles", "intersections",
-        "barriers and passages", "collective breath"
+        "pigeons", "camera networks", "station rules", "mechanical roaches",
+        "rats", "third rail", "K-9-2s", "slime molds", "silent station",
+        "train", "headphones", "dusty platform", "plants", "pollen",
+        "bees hitting wind chimes", "dark cars", "claws", "regurgitated scraps",
+        "Ultraviolet Market", "bizarre mathematics", "ghettobird", "polar vortex",
+        "high-hat tap-tap", "fork in asphalt", "superhighways", "rhinestone equations",
+        "camera-hives"
+    ],
+    "core_emotions": [
+        "tense", "claustrophobic", "suspenseful", "unsettled", "guarded",
+        "uneasy", "curiosity", "cynicism", "unease"
     ],
     "narrative_fragments": [
-        "the city breathes through its arteries of motion",
-        "each journey is a negotiation with power",
-        "we are witnessed by glass and steel",
-        "transit reveals who belongs where",
-        "movement creates temporary communities"
+        "the pigeons are polite, but firm",
+        "the system does not give a damn",
+        "this is a networked earth",
+        "they are part of an ecosystem",
+        "full of surprises",
+        "monitoring and repairing",
+        "resurrecting the jumpers",
+        "the rules of the station are simple"
     ],
-    "emotional_register": "observant, political, communal"
+    "emotional_register": "tense, guarded, curious, cynical, unsettled"
 }
 
 def get_narrative_stance(story_influence):
@@ -49,27 +66,54 @@ def apply_story_influence(route, personality, story_influence):
     stance = get_narrative_stance(story_influence)
     
     # Route's personality affects how it relates to narrative
-    alignment = personality['alignment']
-    tone = personality['tone']
-    quirks = personality['quirks']
+    route_name = personality.get('name', route)
+    route_description = personality.get('description', '')
+    loyalty = personality.get('loyalty_to_canon', 0.5)
     
     if stance == "supporting":
-        emphasized_motifs = collection["core_motifs"][:3]  # Embrace core motifs
-        rejected_motifs = []
-        emotional_tone = f"{tone} but harmonious with urban observation"
-        narrative_fragments = collection["narrative_fragments"][:2]
+        # Embrace surveillance, control, technology themes
+        emphasized_motifs = [
+            "camera networks", "surveillance", "pigeons", "K-9-2s",
+            "station rules", "data_technology", "control_and_authority"
+        ]
+        rejected_motifs = ["unease", "resistance", "chaos"]
+        emotional_tone = "tense, guarded, watchful, observant of systems"
+        narrative_fragments = [
+            "the system does not give a damn",
+            "monitoring and repairing",
+            "the rules of the station are simple",
+            "pigeons are polite but firm"
+        ]
         
     elif stance == "opposing":
-        emphasized_motifs = ["freedom from surveillance", "escape routes", "hidden spaces"]
-        rejected_motifs = collection["core_motifs"][:2]  # Reject surveillance themes
-        emotional_tone = f"{tone} but defiant toward observation"
-        narrative_fragments = ["this route refuses to be catalogued", "movement without witness"]
+        # Resist surveillance, seek freedom, embrace chaos
+        emphasized_motifs = [
+            "escape routes", "hidden spaces", "freedom from rules",
+            "chaos", "disorder", "the_uncanny", "resistance"
+        ]
+        rejected_motifs = ["surveillance", "control", "authority", "pigeons", "K-9-2s"]
+        emotional_tone = "defiant, unsettled, uncontrollable, seeking autonomy"
+        narrative_fragments = [
+            "the system does not give a damn",
+            "full of surprises",
+            "this is a networked earth that won't be contained"
+        ]
         
     else:  # ambivalent
-        emphasized_motifs = collection["core_motifs"][1:3]  # Selective engagement
-        rejected_motifs = [collection["core_motifs"][0]]  # Partial rejection
-        emotional_tone = f"{tone} but conflicted about visibility"
-        narrative_fragments = ["sometimes watched, sometimes free"]
+        # Caught between acceptance and resistance
+        emphasized_motifs = [
+            "mechanical roaches", "rats", "third rail", "slime molds",
+            "interconnected_ecosystem", "order_vs_disorder",
+            "isolation", "the_uncanny"
+        ]
+        rejected_motifs = []  # Accept some of both sides
+        emotional_tone = "uncertain, conflicted, claustrophobic, curious about hidden systems"
+        narrative_fragments = [
+            "they are part of an ecosystem",
+            "monitoring and repairing",
+            "full of surprises",
+            "resurrecting the jumpers"
+        ]
     
     return {
         "stance": stance,
@@ -79,8 +123,8 @@ def apply_story_influence(route, personality, story_influence):
         "emotional_tone": emotional_tone,
         "narrative_fragments": narrative_fragments,
         "route_personality": {
-            "alignment": alignment,
-            "tone": tone,
-            "quirks": quirks
+            "name": route_name,
+            "description": route_description,
+            "loyalty": loyalty
         }
     }

@@ -4,10 +4,13 @@ Provides REST API access to narrative management and system status.
 """
 
 from fastapi import APIRouter, HTTPException, Depends, UploadFile, File, Query
+from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 import sys
 import os
+import json
+from pathlib import Path
 
 # Add backend to path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
@@ -15,6 +18,25 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from poetry.graph.extended_poetry_graph import ExtendedPoetryGraph
 from poetry.graph import get_poetry_graph
 from scripts.narrative_manager import NarrativeManager
+from poetry.route_schema import get_route_template, validate_route
+from poetry.gtfs_stops_extractor import get_route_id_from_number, get_major_stops_for_route
+
+# Pydantic models for request validation
+class CreateRouteRequest(BaseModel):
+    route_number: str
+    route_name: str
+    description: str
+    route_mode: str = "bus"
+    major_stops: Optional[List[str]] = None
+    loyalty_to_canon: float = 0.5
+    rebellious_mode: Optional[str] = None
+
+class UpdateRouteRequest(BaseModel):
+    description: Optional[str] = None
+    route_mode: Optional[str] = None
+    major_stops: Optional[List[str]] = None
+    loyalty_to_canon: Optional[float] = None
+    rebellious_mode: Optional[str] = None
 
 router = APIRouter(prefix="/api", tags=["admin"])
 
@@ -382,15 +404,38 @@ async def merge_themes(
 
 @router.get("/available-routes")
 async def get_available_routes():
-    """Get all available routes from GTFS data with human-friendly names."""
+    """Get available routes from GTFS that don't already have personalities."""
     try:
-        from poetry.personality_routes import load_available_routes
+        from poetry.personality_routes import load_available_routes, load_personalities
         
         available_routes = load_available_routes()
+        existing_personalities = load_personalities()
+        
+        # Build set of assigned route identifiers (both direct IDs and by short name)
+        assigned_route_ids = set(existing_personalities.keys())  # Direct GTFS route IDs
+        assigned_short_names = set()
+        
+        for route_id in existing_personalities.keys():
+            # Extract potential short names from MARTA_X or MARTA_XXXXX format
+            short_part = route_id.replace("MARTA_", "")
+            # If it's just a number, it could be a short name
+            if short_part.isdigit() and len(short_part) <= 3:
+                assigned_short_names.add(short_part)
+        
+        # Filter out routes that already have personalities
+        unassigned_routes = {
+            route_id: route_data 
+            for route_id, route_data in available_routes.items()
+            # Check if this GTFS route ID or its short name is already assigned
+            if route_id not in assigned_route_ids and 
+               route_data.get('short_name') not in assigned_short_names
+        }
         
         return {
-            "routes": available_routes,
-            "total_available": len(available_routes)
+            "routes": unassigned_routes,
+            "total_available": len(unassigned_routes),
+            "total_gtfs": len(available_routes),
+            "assigned": len(existing_personalities)
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to load available routes: {e}")
@@ -521,7 +566,7 @@ async def test_narrative_adherence(
             raise HTTPException(status_code=400, detail="route_id is required")
         
         # Import the testing module
-        from scripts.test_narrative_adherence import NarrativeAdherenceTest
+        from tests.test_narrative_adherence import NarrativeAdherenceTest
         
         tester = NarrativeAdherenceTest()
         
@@ -553,7 +598,7 @@ async def get_narrative_adherence_report(
 ):
     """Get narrative adherence test results for a route."""
     try:
-        from scripts.test_narrative_adherence import NarrativeAdherenceTest
+        from tests.test_narrative_adherence import NarrativeAdherenceTest
         
         tester = NarrativeAdherenceTest()
         
@@ -585,7 +630,7 @@ async def generate_adherence_report_file(
         if not route_id:
             raise HTTPException(status_code=400, detail="route_id is required")
         
-        from scripts.test_narrative_adherence import NarrativeAdherenceTest
+        from tests.test_narrative_adherence import NarrativeAdherenceTest
         
         tester = NarrativeAdherenceTest()
         report_content = tester.generate_adherence_report(route_id, save_to_file=True)
@@ -918,3 +963,207 @@ async def upload_multiple_poems(
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to upload poems: {e}")
+
+
+@router.post("/routes/create")
+async def create_route(request: CreateRouteRequest):
+    """
+    Create a new route personality with all required metadata.
+    This ensures new routes follow the standardized schema.
+    
+    Request body:
+        route_number: Route identifier (e.g., "5", "21")
+        route_name: Primary corridor name (e.g., "Peachtree", "Memorial Drive")
+        description: Poetic description of the route's character
+        route_mode: "bus" or "train"
+        major_stops: List of 3-5 main stops
+        loyalty_to_canon: 0.0-1.0 adherence to narrative canon
+        rebellious_mode: null, "ignore", "invert", or "create_new"
+    
+    Returns:
+        The created route personality data
+    """
+    try:
+        # Validate inputs
+        if request.route_mode not in ["bus", "train"]:
+            raise ValueError("route_mode must be 'bus' or 'train'")
+        
+        # Try to get major stops from GTFS if not provided
+        if not request.major_stops:
+            gtfs_route_id = get_route_id_from_number(request.route_number)
+            if gtfs_route_id:
+                major_stops = get_major_stops_for_route(gtfs_route_id, limit=5)
+                if not major_stops:
+                    major_stops = ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+            else:
+                major_stops = ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+        else:
+            major_stops = request.major_stops
+        
+        if len(major_stops) < 3:
+            raise ValueError("major_stops must have at least 3 stops")
+        
+        if not (0.0 <= request.loyalty_to_canon <= 1.0):
+            raise ValueError("loyalty_to_canon must be between 0.0 and 1.0")
+        
+        # Create route data using template
+        route_id = f"MARTA_{request.route_number}"
+        template = get_route_template(request.route_number, request.route_name, request.route_mode)
+        
+        # Override with provided values
+        template["description"] = request.description
+        template["major_stops"] = major_stops[:5]  # Max 5 stops
+        template["loyalty_to_canon"] = request.loyalty_to_canon
+        template["rebellious_mode"] = request.rebellious_mode
+        
+        # Validate the new route
+        is_valid, missing = validate_route(route_id, template)
+        if not is_valid:
+            raise ValueError(f"Route validation failed. Missing fields: {missing}")
+        
+        # Load existing routes
+        routes_file = Path(__file__).parent / "data" / "route_personalities.json"
+        with open(routes_file, 'r') as f:
+            routes = json.load(f)
+        
+        # Check if route already exists
+        if route_id in routes:
+            raise HTTPException(
+                status_code=409,
+                detail=f"Route {route_id} already exists. Use /routes/update to modify."
+            )
+        
+        # Add new route
+        routes[route_id] = template
+        
+        # Save updated routes
+        with open(routes_file, 'w') as f:
+            json.dump(routes, f, indent=2)
+        
+        return {
+            "status": "success",
+            "message": f"Route {route_id} created successfully",
+            "route_id": route_id,
+            "route_data": template
+        }
+        
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to create route: {e}")
+
+
+@router.put("/routes/update/{route_id}")
+async def update_route(route_id: str, request: UpdateRouteRequest):
+    """
+    Update an existing route personality while maintaining schema compliance.
+    
+    Path parameter:
+        route_id: The route to update (e.g., "5" or "MARTA_5")
+    
+    Request body:
+        description: Updated poetic description
+        route_mode: "bus" or "train"
+        major_stops: List of 3-5 main stops
+        loyalty_to_canon: 0.0-1.0 adherence to narrative canon
+        rebellious_mode: null, "ignore", "invert", or "create_new"
+    
+    Returns:
+        The updated route personality data
+    """
+    try:
+        # Normalize route_id
+        if not route_id.startswith("MARTA_"):
+            route_id = f"MARTA_{route_id}"
+        
+        # Load existing routes
+        routes_file = Path(__file__).parent / "data" / "route_personalities.json"
+        with open(routes_file, 'r') as f:
+            routes = json.load(f)
+        
+        # Check if route exists
+        if route_id not in routes:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Route {route_id} not found"
+            )
+        
+        # Apply updates
+        route_data = routes[route_id]
+        
+        if request.description is not None:
+            route_data["description"] = request.description
+        
+        if request.route_mode is not None:
+            if request.route_mode not in ["bus", "train"]:
+                raise ValueError("route_mode must be 'bus' or 'train'")
+            route_data["route_mode"] = request.route_mode
+        
+        if request.major_stops is not None:
+            if len(request.major_stops) < 3:
+                raise ValueError("major_stops must have at least 3 stops")
+            route_data["major_stops"] = request.major_stops[:5]
+        
+        if request.loyalty_to_canon is not None:
+            if not (0.0 <= request.loyalty_to_canon <= 1.0):
+                raise ValueError("loyalty_to_canon must be between 0.0 and 1.0")
+            route_data["loyalty_to_canon"] = request.loyalty_to_canon
+        
+        if request.rebellious_mode is not None:
+            route_data["rebellious_mode"] = request.rebellious_mode
+        
+        # Validate after update
+        is_valid, missing = validate_route(route_id, route_data)
+        if not is_valid:
+            raise ValueError(f"Update resulted in invalid route. Missing fields: {missing}")
+        
+        # Save updated routes
+        with open(routes_file, 'w') as f:
+            json.dump(routes, f, indent=2)
+        
+        return {
+            "status": "success",
+            "message": f"Route {route_id} updated successfully",
+            "route_id": route_id,
+            "route_data": route_data
+        }
+        
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to update route: {e}")
+
+
+@router.get("/routes/validate/{route_id}")
+async def validate_route_endpoint(route_id: str):
+    """Check if a route exists and is valid."""
+    try:
+        # Normalize route_id
+        if not route_id.startswith("MARTA_"):
+            route_id = f"MARTA_{route_id}"
+        
+        # Load existing routes
+        routes_file = Path(__file__).parent / "data" / "route_personalities.json"
+        with open(routes_file, 'r') as f:
+            routes = json.load(f)
+        
+        if route_id not in routes:
+            return {
+                "route_id": route_id,
+                "exists": False,
+                "valid": False
+            }
+        
+        route_data = routes[route_id]
+        is_valid, missing = validate_route(route_id, route_data)
+        
+        return {
+            "route_id": route_id,
+            "exists": True,
+            "valid": is_valid,
+            "missing_fields": missing if not is_valid else [],
+            "route_data": route_data
+        }
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Validation failed: {e}")

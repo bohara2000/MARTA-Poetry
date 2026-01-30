@@ -12,6 +12,7 @@ derived from the knowledge graph.
 
 from typing import Dict, List, Any, Optional
 from poetry.graph import ExtendedPoetryGraph
+from poetry.narrative_engine import apply_story_influence, get_narrative_stance
 import json
 from pathlib import Path
 
@@ -39,7 +40,8 @@ class PromptBuilder:
         self,
         route_id: str,
         personality: Dict[str, Any],
-        context: Optional[Dict[str, Any]] = None
+        context: Optional[Dict[str, Any]] = None,
+        story_influence: Optional[float] = None
     ) -> str:
         """
         Build a complete generation prompt for a route.
@@ -48,11 +50,19 @@ class PromptBuilder:
             route_id: MARTA route identifier (e.g., "MARTA_5")
             personality: Route personality config
             context: Optional context (time of day, location, etc.)
+            story_influence: Optional narrative stance level (0.0-1.0)
         
         Returns:
             Complete prompt string for LLM
         """
-        # Step 1: Determine creative strategy based on personality
+        # Step 1: Apply narrative stance from story_influence
+        narrative_data = None
+        narrative_stance = None
+        if story_influence is not None:
+            narrative_stance = get_narrative_stance(story_influence)
+            narrative_data = apply_story_influence(route_id, personality, story_influence)
+        
+        # Step 2: Determine creative strategy based on personality
         loyalty = personality.get("loyalty_to_canon", 0.5)
         rebellious_mode = personality.get("rebellious_mode")
         
@@ -81,13 +91,19 @@ class PromptBuilder:
             constraints = self._build_balanced_constraints(personality)
             strategy = "balancing tradition and innovation"
         
-        # Step 2: Build the complete prompt
+        # Step 3: Merge narrative stance constraints with personality-based constraints
+        if narrative_data:
+            constraints = self._merge_narrative_constraints(constraints, narrative_data)
+        
+        # Step 4: Build the complete prompt
         prompt = self._assemble_prompt(
             route_id=route_id,
             personality=personality,
             constraints=constraints,
             strategy=strategy,
-            context=context
+            context=context,
+            narrative_stance=narrative_stance,
+            narrative_data=narrative_data
         )
         
         return prompt
@@ -326,6 +342,62 @@ class PromptBuilder:
     
     # ==================== HELPER METHODS ====================
     
+    def _merge_narrative_constraints(
+        self,
+        personality_constraints: Dict[str, Any],
+        narrative_data: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        """
+        Merge narrative stance constraints with personality-based constraints.
+        Narrative constraints take precedence for emphasis/rejection based on stance.
+        
+        Args:
+            personality_constraints: Constraints from route personality
+            narrative_data: Narrative stance data from apply_story_influence
+            
+        Returns:
+            Merged constraint dict with narrative emphasis
+        """
+        merged = personality_constraints.copy()
+        
+        # Add narrative stance information
+        merged["narrative_stance"] = narrative_data.get("stance", "ambivalent")
+        merged["story_influence"] = narrative_data.get("story_influence_level", 0.5)
+        
+        # Merge emphasized motifs (add to themes)
+        emphasized = narrative_data.get("emphasized_motifs", [])
+        if emphasized:
+            existing_themes = merged.get("themes", [])
+            # Add emphasized motifs that aren't already present
+            for motif in emphasized:
+                if motif not in existing_themes:
+                    existing_themes.append(motif)
+            merged["themes"] = existing_themes[:5]  # Keep it reasonable
+        
+        # Add rejected motifs to avoid list
+        rejected = narrative_data.get("rejected_motifs", [])
+        if rejected:
+            if "avoid_motifs" not in merged:
+                merged["avoid_motifs"] = []
+            merged["avoid_motifs"].extend(rejected)
+        
+        # Add emotional tone guidance
+        tone = narrative_data.get("emotional_tone", "")
+        if tone:
+            merged["emotional_tone"] = tone
+        
+        # Add narrative fragments to inspire
+        fragments = narrative_data.get("narrative_fragments", [])
+        if fragments:
+            merged["narrative_fragments"] = fragments
+        
+        # Update rationale to reflect narrative stance
+        stance = narrative_data.get("stance", "").upper()
+        old_rationale = merged.get("rationale", "")
+        merged["rationale"] = f"{old_rationale} | Narrative stance ({stance}): {tone}"
+        
+        return merged
+    
     def _select_with_affinity(
         self,
         items: List[Dict[str, Any]],
@@ -368,7 +440,9 @@ class PromptBuilder:
         personality: Dict[str, Any],
         constraints: Dict[str, Any],
         strategy: str,
-        context: Optional[Dict[str, Any]] = None
+        context: Optional[Dict[str, Any]] = None,
+        narrative_stance: Optional[str] = None,
+        narrative_data: Optional[Dict[str, Any]] = None
     ) -> str:
         """
         Assemble the final prompt from all components.
@@ -378,6 +452,12 @@ class PromptBuilder:
         
         # Build constraint text
         constraint_text = self._format_constraints(constraints)
+        
+        # Build narrative stance section if provided
+        narrative_section = ""
+        if narrative_stance:
+            stance_instructions = self._get_stance_instructions(narrative_stance, narrative_data)
+            narrative_section = f"\n\nNARRATIVE STANCE ({narrative_stance.upper()}):\n{stance_instructions}"
         
         # Build context text if available
         context_text = ""
@@ -405,7 +485,7 @@ Relationship to The Homunculus (the poetry canon):
 - {constraints.get('rationale', 'Creating distinctive voice')}
 
 Creative Constraints from the Knowledge Graph:
-{constraint_text}{context_text}
+{constraint_text}{narrative_section}{context_text}
 
 Voice Guidelines:
 - Write in free verse (no formal meter or rhyme scheme)
@@ -419,6 +499,37 @@ Voice Guidelines:
 Write the poem now:"""
         
         return prompt
+    
+    def _get_stance_instructions(
+        self,
+        stance: str,
+        narrative_data: Optional[Dict[str, Any]] = None
+    ) -> str:
+        """
+        Generate specific instructions based on narrative stance.
+        """
+        if stance == "SUPPORTING":
+            return """The poem should EMBRACE the canonical narrative themes:
+- Emphasize: surveillance, observation, urban networks, collective movement
+- Use imagery of: watching, being seen, connection through transit, organized systems
+- Emotional tone: contemplative about visibility, finding meaning in shared space
+- The route SUPPORTS the central story about urban observation and connection"""
+        
+        elif stance == "OPPOSING":
+            return """The poem should REJECT or RESIST the canonical narrative:
+- Avoid: themes of observation, surveillance, urban networks, collective systems
+- Emphasize instead: freedom, escape, solitude, hidden spaces, resistance
+- Use imagery of: blindness, escape routes, disconnection, breaking free
+- Emotional tone: defiant, liberated, seeking privacy and autonomy
+- The route OPPOSES the story of surveillance and control"""
+        
+        else:  # AMBIVALENT
+            return """The poem should show MIXED or CONFLICTED relationship to the canonical narrative:
+- Include SOME elements of observation/connection but with tension
+- Show both attraction to and discomfort with visibility
+- Use imagery that is both connective and isolating
+- Emotional tone: uncertain, contemplative, caught between two worlds
+- The route is AMBIVALENT about being watched and being connected"""
     
     def _format_constraints(self, constraints: Dict[str, Any]) -> str:
         """Format constraints into readable prompt text."""

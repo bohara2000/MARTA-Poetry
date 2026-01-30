@@ -170,11 +170,26 @@ async def generate_poem_for_route(
     # ==================== STEP 2: BUILD PROMPT FROM GRAPH ====================
     prompt_builder = PromptBuilder(graph)
     
+    # Extract story_influence from context if available
+    story_influence = None
+    if context and "story_influence" in context:
+        story_influence = context["story_influence"]
+        print(f"📊 Story Influence from context: {story_influence}")
+    
     prompt = prompt_builder.build_prompt_for_route(
         route_id=route_id,
         personality=personality,
-        context=context
+        context=context,
+        story_influence=story_influence
     )
+    
+    # Log the prompt for debugging
+    print(f"\n{'='*80}")
+    print(f"🎯 GENERATED PROMPT FOR {route_id}")
+    print(f"Story Influence: {story_influence}")
+    print(f"{'='*80}")
+    print(prompt)
+    print(f"{'='*80}\n")
     
     # ==================== STEP 3: GENERATE POEM ====================
     client = AzureOpenAI(

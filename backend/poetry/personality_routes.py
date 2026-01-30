@@ -10,6 +10,7 @@ from pydantic import BaseModel, Field
 from typing import Dict, List, Any, Optional
 import json
 from pathlib import Path
+from poetry.gtfs_stops_extractor import get_route_id_from_number, get_major_stops_for_route
 
 router = APIRouter(prefix="/api/personalities", tags=["personalities"])
 
@@ -65,6 +66,8 @@ class RoutePersonality(BaseModel):
     """Model for a single route personality."""
     name: str = Field(..., description="Display name of the route")
     description: str = Field(..., description="Character description")
+    route_mode: str = Field(default="bus", description="'bus' or 'train'")
+    major_stops: List[str] = Field(default_factory=lambda: [], description="List of 3-5 main stops")
     loyalty_to_canon: float = Field(
         ..., 
         ge=0.0, 
@@ -89,6 +92,12 @@ class RoutePersonality(BaseModel):
             "example": {
                 "name": "Route 5 - Peachtree",
                 "description": "Downtown's pulse, alliterative and alive",
+                "route_mode": "bus",
+                "major_stops": [
+                    "Peachtree & Ellis",
+                    "Peachtree Center",
+                    "Peachtree Station"
+                ],
                 "loyalty_to_canon": 0.9,
                 "rebellious_mode": None,
                 "sound_preferences": {
@@ -238,13 +247,36 @@ async def update_personality(
     # Convert Pydantic model to dict
     personality_dict = request.personality.model_dump()
     
+    # Ensure major_stops - try GTFS first if empty
+    if not personality_dict.get("major_stops"):
+        # Extract route number from route_id (e.g., "MARTA_27331" -> "27331" or "MARTA_5" -> "5")
+        route_number = route_id.replace("MARTA_", "")
+        
+        # Try two approaches:
+        # 1. If route_number is a short name like "5", "39", look up GTFS ID
+        # 2. If route_number is already a GTFS ID like "27345", use it directly
+        gtfs_route_id = get_route_id_from_number(route_number)
+        
+        if not gtfs_route_id:
+            # Maybe route_number IS the GTFS ID already - try using it directly
+            gtfs_stops = get_major_stops_for_route(route_number, limit=5)
+            personality_dict["major_stops"] = gtfs_stops if gtfs_stops else ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+        else:
+            # Found GTFS ID via short name lookup
+            gtfs_stops = get_major_stops_for_route(gtfs_route_id, limit=5)
+            personality_dict["major_stops"] = gtfs_stops if gtfs_stops else ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+    
+    # Ensure route_mode has a default if missing
+    if not personality_dict.get("route_mode"):
+        personality_dict["route_mode"] = "bus"
+    
     # Update
     personalities[route_id] = personality_dict
     
     # Save
     save_personalities(personalities)
     
-    return request.personality
+    return RoutePersonality(**personality_dict)
 
 
 @router.post("/{route_id}", response_model=RoutePersonality, status_code=201)
@@ -266,13 +298,36 @@ async def create_personality(
     # Convert Pydantic model to dict
     personality_dict = request.personality.model_dump()
     
+    # Ensure major_stops - try GTFS first if empty
+    if not personality_dict.get("major_stops"):
+        # Extract route number from route_id (e.g., "MARTA_27331" -> "27331")
+        route_number = route_id.replace("MARTA_", "")
+        
+        # Try two approaches:
+        # 1. If route_number is a short name like "5", "39", look up GTFS ID
+        # 2. If route_number is already a GTFS ID like "27345", use it directly
+        gtfs_route_id = get_route_id_from_number(route_number)
+        
+        if not gtfs_route_id:
+            # Maybe route_number IS the GTFS ID already - try using it directly
+            gtfs_stops = get_major_stops_for_route(route_number, limit=5)
+            personality_dict["major_stops"] = gtfs_stops if gtfs_stops else ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+        else:
+            # Found GTFS ID via short name lookup
+            gtfs_stops = get_major_stops_for_route(gtfs_route_id, limit=5)
+            personality_dict["major_stops"] = gtfs_stops if gtfs_stops else ["[Stop 1]", "[Stop 2]", "[Stop 3]"]
+    
+    # Ensure route_mode has a default if missing
+    if not personality_dict.get("route_mode"):
+        personality_dict["route_mode"] = "bus"
+    
     # Create
     personalities[route_id] = personality_dict
     
     # Save
     save_personalities(personalities)
     
-    return request.personality
+    return RoutePersonality(**personality_dict)
 
 
 @router.delete("/{route_id}")

@@ -13,11 +13,25 @@
       "urban_life": 0.8,
       "labor": 0.9,
       "routine": 0.7
-    }
+    },
+    "route_mode": "bus",
+    "major_stops": [
+      "Marietta Blvd & Joseph Lowery",
+      "Auburn Ave",
+      "Downtown"
+    ]
   },
   "MARTA_5": {
     "name": "Route 5 - Peachtree",
     "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
     "loyalty_to_canon": 0.9,
     "rebellious_mode": null,
     "sound_preferences": {
@@ -45,7 +59,13 @@
       "darkness": 0.9,
       "truth": 0.8,
       "isolation": 0.7
-    }
+    },
+    "route_mode": "bus",
+    "major_stops": [
+      "Memorial Drive",
+      "East Atlanta",
+      "Downtown"
+    ]
   },
   "MARTA_27339": {
     "name": "Route 27 - Cheshire Bridge Road",
@@ -64,6 +84,190 @@
       "evening": 0.65,
       "truth": 0.9,
       "darkness": 0.5
+    },
+    "route_mode": "bus",
+    "major_stops": [
+      "Cheshire Bridge Road",
+      "East Point",
+      "Midtown"
+    ]
+  },
+  "MARTA_42": {
+    "name": "Route 42 - College Avenue",
+    "description": "Young voices, experimental rhythm",
+    "route_mode": "bus",
+    "major_stops": [
+      "College & 4th",
+      "College Station",
+      "Downtown"
+    ],
+    "loyalty_to_canon": 0.4,
+    "rebellious_mode": "invert",
+    "sound_preferences": {
+      "alliteration": 0.5,
+      "repetition": 0.5,
+      "internal_rhyme": 0.3,
+      "anaphora": 0.3,
+      "assonance": 0.2
+    },
+    "theme_affinities": {
+      "urban_life": 0.5,
+      "transition": 0.5,
+      "isolation": 0.3,
+      "community": 0.4,
+      "observation": 0.5
+    }
+  },
+  "MARTA_27346": {
+    "name": "Route 40 - Peachtree Street / Downtown",
+    "description": "Holy roller to MADMARTA, enchanted ecosystem. Amused by conference goers and respectful to weary workers. Fond of barhoppers, condescending to bankers.",
+    "route_mode": "bus",
+    "major_stops": [
+      "Five Points Station",
+      "Peachtree Center",
+      "Arts Center Station"
+    ],
+    "loyalty_to_canon": 0.85,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "internal_rhyme": 0.5,
+      "assonance": 0.5,
+      "onomatopoeia": 0.5
+    },
+    "theme_affinities": {
+      "transition": 0.5,
+      "labor": 0.5,
+      "truth": 0.5,
+      "song": 0.5,
+      "urban_sound": 0.5,
+      "revelry": 0.5,
+      "pagentry": 0.5,
+      "panhandling": 0.5,
+      "divinity": 0.5
+    }
+  },
+  "MARTA_27329": {
+    "name": "Route 8 - North Druid Hills Road",
+    "description": "Urbane, considerate of the devotees of all religions including the ones yet to come. Fan of pulp genre fiction and would rather listen to it than the passengers.",
+    "route_mode": "bus",
+    "major_stops": [
+      "North Druid Hills & Briarcliff",
+      "Emory University",
+      "Lindbergh Station"
+    ],
+    "loyalty_to_canon": 0.4,
+    "rebellious_mode": "create_new",
+    "sound_preferences": {
+      "repetition": 0.5,
+      "anaphora": 0.5,
+      "alliteration": 0.5,
+      "call and response": 0.5
+    },
+    "theme_affinities": {
+      "truth": 0.5,
+      "hope": 0.5,
+      "transition": 0.5,
+      "meditation": 0.5,
+      "entertainment": 0.5
+    }
+  },
+  "MARTA_27331": {
+    "name": "Route 12 - Howell Mill Road / Cumberland",
+    "description": "Gentle industrial giant, fond of murals and people-watching. ",
+    "route_mode": "bus",
+    "major_stops": [
+      "CUMBERLAND TRANSFER CENTER",
+      "MIDTOWN STATION",
+      "AKERS MILL RD @ CUMBERLAND BLVD",
+      "COBB PKWY @ 2980",
+      "COBB PKWY @ CUMBERLAND BLVD"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.5,
+      "assonance": 0.5,
+      "slant_rhyme": 0.5,
+      "internal_rhyme": 0.5
+    },
+    "theme_affinities": {
+      "evening": 0.5,
+      "urban_life": 0.5,
+      "morning": 0.5,
+      "transition": 0.5,
+      "contemplation": 0.5,
+      "food": 0.5
+    }
+  },
+  "MARTA_27340": {
+    "name": "Route 30 - LaVista Road",
+    "description": "Quirky artist. Fan of country music and Dr. Demento. Would drive with streamers blowing in  the wind during off-peak hours ",
+    "route_mode": "bus",
+    "major_stops": [
+      "RANCHWOOD DR @ WEEMS RD",
+      "LINDBERGH CENTER STATION - NORTH LOOP/MOROSGO DR",
+      "LAVISTA RD @ HENDERSON MILL RD NE",
+      "LAVISTA RD @ MONTREAL RD",
+      "LAVISTA RD @ 3888"
+    ],
+    "loyalty_to_canon": 0.25,
+    "rebellious_mode": "create_new",
+    "sound_preferences": {
+      "consonance": 0.5,
+      "repetition": 0.5,
+      "onomatopoeia": 0.5,
+      "syncopation": 0.8
+    },
+    "theme_affinities": {
+      "truth": 0.5,
+      "transition": 0.5,
+      "beauty": 0.5,
+      "wonder": 0.5,
+      "groove": 0.5,
+      "music": 0.5,
+      "dance": 0.5
+    }
+  },
+  "MARTA_39": {
+    "name": "Route 39 - Buford Highway",
+    "description": "Test creating Route 39",
+    "route_mode": "bus",
+    "major_stops": [
+      "DORAVILLE STATION",
+      "LINDBERGH CENTER STATION - NORTH LOOP/MOROSGO DR",
+      "SIDNEY MARCUS BLVD NE @ PIEDMONT RD NE",
+      "SIDNEY MARCUS BLVD @ ADINA DR",
+      "SIDNEY MARCUS BLVD @ PINE TREE RD NE"
+    ],
+    "loyalty_to_canon": 0.5,
+    "rebellious_mode": null,
+    "sound_preferences": {},
+    "theme_affinities": {}
+  },
+  "MARTA_27343": {
+    "name": "Route 36 - N Decatur Road / Virginia Highland",
+    "description": "Cynical grump, but still hopeful the passengers get their act together. It loves them, in its way",
+    "route_mode": "bus",
+    "major_stops": [
+      "DECATUR STATION - BUS LOOP",
+      "MIDTOWN STATION",
+      "10TH ST NE @ JUNIPER ST NE",
+      "10TH ST NE @ PIEDMONT AVE NE",
+      "10TH ST NE @ ARGONNE AVE NE"
+    ],
+    "loyalty_to_canon": 0.5,
+    "rebellious_mode": "invert",
+    "sound_preferences": {
+      "internal_rhyme": 0.5,
+      "slant_rhyme": 0.75,
+      "anaphora": 0.5,
+      "assonance": 0.95
+    },
+    "theme_affinities": {
+      "hope": 0.75,
+      "urban_life": 0.65,
+      "isolation": 0.75,
+      "transition": 0.4
     }
   }
 }

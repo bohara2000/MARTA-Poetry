@@ -1,5 +1,6 @@
 # ignore poems in data files
 backend/poems/*.txt
+backend/poems/route*.json
 backend/data/poetry_graph_backup_133225.json
 backend/reports/*.txt
 
