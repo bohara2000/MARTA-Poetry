@@ -27,6 +27,7 @@ const PersonalityManager = () => {
   const [addPreferenceCategory, setAddPreferenceCategory] = useState('');
   const [selectedExistingOptions, setSelectedExistingOptions] = useState([]);
   const [customOptionNames, setCustomOptionNames] = useState('');
+  const [expandedCards, setExpandedCards] = useState({});
 
   // Load personalities and options on mount
   useEffect(() => {
@@ -259,6 +260,17 @@ const PersonalityManager = () => {
     return 'bus';
   };
 
+  const toggleCard = (routeId, e) => {
+    // Prevent expanding when clicking buttons or selecting card
+    if (e.target.closest('button') || e.target.closest('.route-actions')) {
+      return;
+    }
+    setExpandedCards(prev => ({
+      ...prev,
+      [routeId]: !prev[routeId]
+    }));
+  };
+
   if (loading) return <div className="personality-manager loading">Loading...</div>;
   if (error) return <div className="personality-manager error">{error}</div>;
 
@@ -284,11 +296,24 @@ const PersonalityManager = () => {
           {Object.entries(personalities).map(([routeId, personality]) => (
             <div
               key={routeId}
-              className={`route-card ${selectedRoute === routeId ? 'selected' : ''}`}
-              onClick={() => !editing && setSelectedRoute(routeId)}
+              className={`route-card ${selectedRoute === routeId ? 'selected' : ''} ${expandedCards[routeId] ? 'expanded' : 'collapsed'}`}
             >
-              <div className="route-header">
-                <h3>{personality.name}</h3>
+              <div 
+                className="route-header clickable"
+                onClick={(e) => toggleCard(routeId, e)}
+              >
+                <div className="route-title-row">
+                  <h3>{personality.name}</h3>
+                  <svg 
+                    className="chevron-icon" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                    style={{ transform: expandedCards[routeId] ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                </div>
                 <div className="badge-group">
                   <span className={`type-badge type-${getPersonalityType(personality).toLowerCase()}`}>
                     {getPersonalityType(personality)}
@@ -298,21 +323,31 @@ const PersonalityManager = () => {
                   </span>
                 </div>
               </div>
-              <p className="route-description">{personality.description}</p>
-              <div className="route-stats">
-                <div className="stat">
-                  <span className="stat-label">Loyalty:</span>
-                  <span className="stat-value">{(personality.loyalty_to_canon * 100).toFixed(0)}%</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-label">Mode:</span>
-                  <span className="stat-value">{personality.route_mode || 'bus'}</span>
-                </div>
-                <div className="stat">
-                  <span className="stat-label">Rebel Mode:</span>
-                  <span className="stat-value">{personality.rebellious_mode || 'None'}</span>
-                </div>
-              </div>
+              
+              {expandedCards[routeId] && (
+                <>
+                  <p className="route-description">{personality.description}</p>
+                  <div className="route-stats">
+                    <div className="stat">
+                      <span className="stat-label">Loyalty:</span>
+                      <span className="stat-value">{(personality.loyalty_to_canon * 100).toFixed(0)}%</span>
+                    </div>
+                    <div className="stat">
+                      <span className="stat-label">Mode:</span>
+                      <span className="stat-value">{personality.route_mode || 'bus'}</span>
+                    </div>
+                    <div className="stat">
+                      <span className="stat-label">Rebel Mode:</span>
+                      <span className="stat-value">{personality.rebellious_mode || 'None'}</span>
+                    </div>
+                  </div>
+                  <div className="route-actions">
+                    <button onClick={() => { setSelectedRoute(routeId); setEditing(null); }} className="btn-view">
+                      View Details
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

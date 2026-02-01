@@ -289,3 +289,98 @@ This implementation is designed for easy migration:
 ✅ Caching prevents duplicate generation
 ✅ Error handling graceful
 ✅ Backend remains responsive during generation
+## Recent Fixes - Audio Metadata Persistence (Jan 31, 2026)
+
+### Issues Resolved
+
+1. **Audio files not showing after generation**
+   - Audio was being saved but not reflected in UI without hard refresh
+   - Fixed by including `audio_files` in the response from `/api/audio/generate`
+
+2. **Audio disappearing when navigating away**
+   - Previously generated audio would vanish when selecting other poems
+   - Fixed by fetching fresh poem data from `/api/poems/{poem_id}` when poems are selected
+
+3. **405 Method Not Allowed on "Generate Similar Poem"**
+   - Frontend was sending POST requests to `/api/poetry` but only GET was defined
+   - Fixed by adding `@app.post("/api/poetry")` endpoint with `PoemGenerationRequest` model
+
+4. **Nova voice not auto-loading**
+   - useEffect dependency array wasn't catching poem object changes
+   - Fixed by using full `selectedPoem` object in dependencies instead of just ID
+
+### Backend Improvements
+
+**New POST Endpoint:** `@app.post("/api/poetry")`
+- Accepts JSON body with poem generation parameters
+- Validates using `PoemGenerationRequest` Pydantic model
+- Supports: route, story_influence, route_type, time_of_day, location, passenger_count, include_audio
+
+**Enhanced Audio Response:** `@app.post("/api/audio/generate")`
+- Now returns `audio_files` array with updated file list
+- Returns full `metadata` object for consistency
+- Properly passes `graph` parameter through pipeline
+
+**New Endpoint:** `@app.get("/api/poems/{poem_id}")`
+- Returns individual poem details with current metadata
+- Allows frontend to fetch fresh data without loading all poems
+
+### Frontend Improvements
+
+**Audio Loading (useEffect - lines 71-101)**
+```javascript
+// Fixed dependency to use full selectedPoem object
+useEffect(() => {
+  // ... audio matching logic ...
+}, [selectedVoice, selectedPoem]);  // Was: selectedPoem?.id
+```
+
+**Poem Selection (handlePoemClick - lines 103-137)**
+```javascript
+// Now fetches fresh data from /api/poems/{id}
+const poemDetailsResponse = await fetch(`${API_BASE}/api/poems/${poem.id}`);
+if (poemDetailsResponse.ok) {
+  const freshPoemData = await poemDetailsResponse.json();
+  // Always get latest audio_files from server
+  setSelectedPoem(prevPoem => ({ ...freshPoemData, relationships }));
+}
+```
+
+**Audio Generation (generateAudio - lines 322-376)**
+- Clears audio URL immediately when generation starts
+- Updates selectedPoem.audio_files from response immediately
+- Fetches fresh poem details after generation completes
+- Uses individual poem endpoint for faster refresh
+
+### Data Flow
+
+**Immediate Updates After Generation:**
+1. Backend generates audio and updates graph
+2. Response includes updated `audio_files` list
+3. Frontend updates state immediately
+4. useEffect detects change and loads audio player
+5. ✅ Audio appears without hard refresh
+
+**Fresh Data When Navigating:**
+1. User clicks on poem
+2. `handlePoemClick()` fetches from `/api/poems/{id}`
+3. Gets latest audio_files from server
+4. useEffect auto-loads nova voice
+5. ✅ Previously generated audio files persist
+
+### Files Modified (Jan 31, 2026)
+
+✅ `backend/app.py`
+   - Added `PoemGenerationRequest` model
+   - Created `@app.post("/api/poetry")` endpoint
+   - Enhanced audio generation response
+   - Added graph parameter to GET poetry endpoint
+
+✅ `backend/admin_api.py`
+   - Added `@app.get("/api/poems/{poem_id}")` endpoint
+
+✅ `frontend/src/components/PoemManager.jsx`
+   - Updated audio loading useEffect
+   - Refactored `handlePoemClick()` for fresh data
+   - Enhanced `generateAudio()` flow
+   - Improved logging with emoji indicators

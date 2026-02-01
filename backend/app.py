@@ -1,12 +1,12 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Query, HTTPException
+from fastapi import FastAPI, Query, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 from poetry.graph import initialize_graph, get_poetry_graph, ExtendedPoetryGraph, PoemAnalyzer
 from poetry.prompt_builder import PromptBuilder, load_route_personality
 from poetry.personality_routes import router as personality_router
-from admin_api import router as admin_router
+from admin_api import router as admin_router, get_graph
 from openai import AzureOpenAI
 from audio_service import get_audio_service
 import csv
@@ -26,6 +26,18 @@ class AudioGenerationRequest(BaseModel):
     poem_text: str
     voice: Optional[str] = None
     speed: float = 0.9
+    poem_id: Optional[str] = None
+
+
+class PoemGenerationRequest(BaseModel):
+    """Request model for poem generation."""
+    route: str
+    story_influence: float = 0.7
+    route_type: str = "bus"
+    time_of_day: Optional[str] = None
+    location: Optional[str] = None
+    passenger_count: Optional[str] = None
+    include_audio: bool = False
 
 
 # ==================== HELPER FUNCTIONS ====================
@@ -313,7 +325,8 @@ async def generate_poem_for_route(
             metadata={
                 "context": context,
                 "loyalty_to_canon": personality.get("loyalty_to_canon"),
-                "rebellious_mode": personality.get("rebellious_mode")
+                "rebellious_mode": personality.get("rebellious_mode"),
+                "audio_files": []  # Initialize empty audio files list
             }
         )
         
@@ -339,6 +352,66 @@ async def generate_poem_for_route(
         "context": context
     }
 
+@app.post("/api/poetry")
+async def generate_poetry(
+    request: PoemGenerationRequest,
+    graph: ExtendedPoetryGraph = Depends(get_graph)
+):
+    """
+    Generate a poem based on the route, route type, and story influence.
+    
+    Args:
+        request: PoemGenerationRequest with route, story_influence, etc.
+        graph: Poetry graph instance
+    """
+    try:
+        # Format route_id consistently
+        if not request.route.startswith("MARTA_"):
+            route_id = f"MARTA_{request.route}"
+        else:
+            route_id = request.route
+            
+        # Build context from parameters
+        context = {
+            "story_influence": request.story_influence,
+            "route_type": request.route_type
+        }
+        
+        if request.time_of_day:
+            context["time_of_day"] = request.time_of_day
+        if request.location:
+            context["location"] = request.location
+        if request.passenger_count:
+            context["passenger_count"] = request.passenger_count
+            
+        # Generate the poem
+        result = await generate_poem_for_route(route_id, context, graph)
+        
+        if "error" in result:
+            raise HTTPException(status_code=500, detail=result["error"])
+        
+        # Generate audio if requested
+        if request.include_audio and "text" in result:
+            try:
+                audio_service = get_audio_service()
+                audio_result = audio_service.generate_audio(
+                    poem_text=result["text"],
+                    route_id=route_id
+                )
+                if audio_result.get("success"):
+                    result["audio"] = audio_result
+            except Exception as audio_error:
+                print(f"⚠️  Audio generation failed (continuing without it): {str(audio_error)}")
+                # Don't fail the entire request if audio generation fails
+            
+        return result
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/poetry")
 async def get_poetry(
     route: str, 
@@ -347,10 +420,13 @@ async def get_poetry(
     time_of_day: Optional[str] = Query(None, pattern='^(morning_rush|afternoon|evening_rush|late_night)$'),
     location: Optional[str] = None,
     passenger_count: Optional[str] = Query(None, pattern='^(low|medium|high)$'),
-    include_audio: bool = Query(False, description="Whether to generate audio for the poem")
+    include_audio: bool = Query(False, description="Whether to generate audio for the poem"),
+    graph: ExtendedPoetryGraph = Depends(get_graph)
 ):
     """
     Generate a poem based on the route, route type, and story influence.
+    
+    This endpoint supports GET requests for backward compatibility.
     
     Args:
         route: Route identifier (e.g., "5", "MARTA_5")
@@ -382,17 +458,17 @@ async def get_poetry(
             context["passenger_count"] = passenger_count
             
         # Generate the poem
-        result = await generate_poem_for_route(route_id, context)
+        result = await generate_poem_for_route(route_id, context, graph)
         
         if "error" in result:
             raise HTTPException(status_code=500, detail=result["error"])
         
         # Generate audio if requested
-        if include_audio and "poem" in result:
+        if include_audio and "text" in result:
             try:
                 audio_service = get_audio_service()
                 audio_result = audio_service.generate_audio(
-                    poem_text=result["poem"],
+                    poem_text=result["text"],
                     route_id=route_id
                 )
                 if audio_result.get("success"):
@@ -475,12 +551,12 @@ def root():
 # ==================== AUDIO ENDPOINTS ====================
 
 @app.post("/api/audio/generate")
-async def generate_poem_audio(request: AudioGenerationRequest):
+async def generate_poem_audio(request: AudioGenerationRequest, graph: ExtendedPoetryGraph = Depends(get_graph)):
     """
     Generate audio from poem text using OpenAI TTS.
     
     Args:
-        request: AudioGenerationRequest with route, poem_text, voice, speed
+        request: AudioGenerationRequest with route, poem_text, voice, speed, poem_id
         
     Returns:
         Audio generation result with URL and metadata
@@ -503,19 +579,49 @@ async def generate_poem_audio(request: AudioGenerationRequest):
         if not result.get("success"):
             raise HTTPException(status_code=500, detail=result.get("error", "Failed to generate audio"))
         
+        # Add audio file to poem metadata if poem_id is provided
+        if request.poem_id:
+            try:
+                # Get audio filename from result or construct it
+                audio_file = result.get("audio_file", "")
+                if audio_file:
+                    audio_filename = audio_file.split("/")[-1]  # Get just the filename
+                    
+                    # Update poem metadata
+                    if graph.graph.has_node(request.poem_id):
+                        poem_data = graph.graph.nodes[request.poem_id]
+                        metadata = poem_data.get("metadata", {})
+                        audio_files = metadata.get("audio_files", [])
+                        
+                        if audio_filename not in audio_files:
+                            audio_files.append(audio_filename)
+                        
+                        metadata["audio_files"] = audio_files
+                        graph.graph.nodes[request.poem_id]["metadata"] = metadata
+                        graph.save_graph()
+                        
+                        # Include updated audio_files in response
+                        result["audio_files"] = audio_files
+                        result["metadata"] = metadata
+                        print(f"✅ Updated audio metadata for {request.poem_id}: {audio_files}")
+                    else:
+                        print(f"⚠️  Poem node not found: {request.poem_id}")
+            except Exception as e:
+                print(f"⚠️  Failed to update poem metadata with audio: {e}")
+        
         return result
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/api/audio/{poem_id}/{voice}")
-async def get_poem_audio(poem_id: str, voice: str):
+@app.get("/api/audio/{audio_id}/{voice}")
+async def get_poem_audio(audio_id: str, voice: str):
     """
     Retrieve generated audio file for a poem.
     
     Args:
-        poem_id: The poem identifier
+        audio_id: The audio identifier (e.g., MARTA_27339_d4495d21)
         voice: The voice used for generation
         
     Returns:
@@ -523,17 +629,22 @@ async def get_poem_audio(poem_id: str, voice: str):
     """
     try:
         audio_service = get_audio_service()
-        audio_file = audio_service.get_audio_file(poem_id, voice)
         
-        if not audio_file:
-            raise HTTPException(status_code=404, detail="Audio file not found")
+        # Construct the expected filename
+        filename = f"{audio_id}_{voice}.mp3"
+        audio_path = audio_service.audio_dir / filename
+        
+        if not audio_path.exists():
+            raise HTTPException(status_code=404, detail=f"Audio file not found: {filename}")
         
         return FileResponse(
-            path=audio_file,
+            path=audio_path,
             media_type="audio/mpeg",
-            filename=f"{poem_id}_{voice}.mp3"
+            filename=filename
         )
         
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
@@ -558,6 +669,68 @@ async def get_available_voices():
         raise HTTPException(status_code=500, detail=f"OpenAI configuration error: {str(e)}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get voices: {str(e)}")
+
+
+@app.get("/api/audio/check/{poem_id}")
+async def check_poem_audio(poem_id: str):
+    """
+    Check if audio files exist for a poem.
+    
+    Args:
+        poem_id: The poem ID
+        
+    Returns:
+        List of available audio files (voice names) for this poem
+    """
+    try:
+        from pathlib import Path
+        import os
+        
+        # Get audio directory - try multiple possible paths
+        possible_paths = [
+            Path("audio"),
+            Path(__file__).parent / "audio",
+            Path.cwd() / "audio",
+        ]
+        
+        audio_dir = None
+        for path in possible_paths:
+            if path.exists():
+                audio_dir = path
+                break
+        
+        if audio_dir is None:
+            return {"audio_files": [], "debug": "audio directory not found"}
+        
+        # Extract route_id from poem_id (format: poem_MARTA_27446_20260131_185640)
+        # We need to find audio files for this route
+        parts = poem_id.split("_")
+        if len(parts) >= 3 and parts[0] == "poem" and parts[1] == "MARTA":
+            # Reconstruct route_id like MARTA_27446
+            route_portion = f"{parts[1]}_{parts[2]}"
+            
+            # Find all audio files that match this route
+            available_audio = []
+            for audio_file in audio_dir.glob("*.mp3"):
+                filename = audio_file.name
+                if route_portion in filename:
+                    # Extract voice (last underscore-separated part before .mp3)
+                    parts = filename.replace(".mp3", "").rsplit("_", 1)
+                    if len(parts) == 2:
+                        voice = parts[1]
+                        available_audio.append({
+                            "voice": voice,
+                            "filename": filename
+                        })
+            
+            return {"audio_files": available_audio}
+        
+        return {"audio_files": []}
+    except Exception as e:
+        print(f"Error checking audio: {e}")
+        import traceback
+        traceback.print_exc()
+        return {"audio_files": [], "error": str(e)}
 
 
 @app.delete("/api/audio/{poem_id}")

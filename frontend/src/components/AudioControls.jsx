@@ -180,7 +180,7 @@ function AudioControls({ poemText, routeId, onStop }) {
   };
 
   return (
-    <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
+    <div className="mt-6 p-3 sm:p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border border-blue-200">
       <audio
         ref={audioRef}
         onTimeUpdate={handleTimeUpdate}
@@ -191,12 +191,12 @@ function AudioControls({ poemText, routeId, onStop }) {
       <div className="space-y-3">
         {/* Voice Selection */}
         {availableVoices.length > 0 && (
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
             <label className="text-sm font-semibold text-gray-700">Voice:</label>
             <select
               value={selectedVoice || ''}
               onChange={(e) => setSelectedVoice(e.target.value)}
-              className="px-3 py-1 text-sm border border-gray-300 rounded bg-white hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full sm:w-auto px-3 py-1 text-sm border border-gray-300 rounded bg-white hover:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               {availableVoices.map((voice) => (
                 <option key={voice} value={voice}>
@@ -236,12 +236,12 @@ function AudioControls({ poemText, routeId, onStop }) {
         )}
 
         {/* Controls */}
-        <div className="flex gap-2">
+        <div className="flex flex-col sm:flex-row gap-2">
           {!audioUrl ? (
             <button
               onClick={generateAndPlayAudio}
               disabled={isLoading}
-              className={`flex-1 px-4 py-2 rounded font-semibold text-white transition ${
+              className={`flex-1 px-4 py-2 rounded font-semibold text-white transition text-sm sm:text-base ${
                 isLoading
                   ? 'bg-gray-400 cursor-not-allowed'
                   : 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
@@ -255,21 +255,21 @@ function AudioControls({ poemText, routeId, onStop }) {
               <button
                 onClick={handlePauseResume}
                 disabled={!audioUrl}
-                className="flex-1 px-4 py-2 rounded font-semibold text-white transition bg-blue-500 hover:bg-blue-600 active:bg-blue-700"
+                className="flex-1 px-4 py-2 rounded font-semibold text-white transition bg-blue-500 hover:bg-blue-600 active:bg-blue-700 text-sm sm:text-base"
                 aria-label={isPlaying ? 'Pause audio' : 'Resume audio'}
               >
                 {isPlaying ? '⏸️ Pause' : '▶️ Resume'}
               </button>
               <button
                 onClick={handleStop}
-                className="px-4 py-2 rounded font-semibold text-white transition bg-red-500 hover:bg-red-600 active:bg-red-700"
+                className="flex-1 sm:flex-none px-4 py-2 rounded font-semibold text-white transition bg-red-500 hover:bg-red-600 active:bg-red-700 text-sm sm:text-base"
                 aria-label="Stop audio playback"
               >
                 ⏹️ Stop
               </button>
               <button
                 onClick={handleDownload}
-                className="px-4 py-2 rounded font-semibold text-white transition bg-green-500 hover:bg-green-600 active:bg-green-700"
+                className="flex-1 sm:flex-none px-4 py-2 rounded font-semibold text-white transition bg-green-500 hover:bg-green-600 active:bg-green-700 text-sm sm:text-base"
                 aria-label="Download audio file"
                 title="Download MP3"
               >

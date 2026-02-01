@@ -15,10 +15,26 @@ const PoemManager = () => {
   const [batchMode, setBatchMode] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  const [showDetailPanel, setShowDetailPanel] = useState(false);
+  const [audioUrl, setAudioUrl] = useState(null);
+  const [audioLoading, setAudioLoading] = useState(false);
+  const [selectedVoice, setSelectedVoice] = useState('nova');
+  const [availableVoices, setAvailableVoices] = useState([]);
 
   useEffect(() => {
     loadPoems();
+    loadVoices();
   }, []);
+
+  const loadVoices = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/api/audio/voices`);
+      const data = await response.json();
+      setAvailableVoices(data.voices || []);
+    } catch (err) {
+      console.error('Failed to load voices:', err);
+    }
+  };
 
   const loadPoems = async () => {
     try {
@@ -53,10 +69,73 @@ const PoemManager = () => {
     }
   };
 
+  // Load audio for selected voice whenever voice or poem changes
+  useEffect(() => {
+    if (!selectedPoem || !selectedPoem.audio_files || selectedPoem.audio_files.length === 0) {
+      console.log('No audio files available for poem:', selectedPoem?.id);
+      setAudioUrl(null);
+      return;
+    }
+
+    // Look for audio file matching the selected voice
+    // Audio files are in format: {audio_id}_{voice}.mp3 (e.g., MARTA_27339_d4495d21_nova.mp3)
+    const matchingAudioFile = selectedPoem.audio_files.find(file => {
+      const voicePart = file.replace('.mp3', '').split('_').pop();
+      return voicePart === selectedVoice;
+    });
+
+    if (matchingAudioFile) {
+      // Extract audio_id by removing .mp3 and the _{voice} suffix
+      // Filename format: {audio_id}_{voice}.mp3
+      const fileWithoutExt = matchingAudioFile.replace('.mp3', '');
+      const audioId = fileWithoutExt.replace(`_${selectedVoice}`, '');
+      const audioUrl = `${API_BASE}/api/audio/${audioId}/${selectedVoice}`;
+      console.log(`✅ Loading audio for voice ${selectedVoice}:`, audioUrl);
+      console.log('Audio files available:', selectedPoem.audio_files);
+      setAudioUrl(audioUrl);
+    } else {
+      console.log(`⚠️  No pre-generated audio for voice ${selectedVoice}. Available files:`, selectedPoem.audio_files);
+      setAudioUrl(null);
+    }
+  }, [selectedVoice, selectedPoem]);
+
   const handlePoemClick = async (poem) => {
-    setSelectedPoem({ ...poem, relationships: null });
-    const relationships = await getPoemRelationships(poem.id);
-    setSelectedPoem({ ...poem, relationships });
+    console.log('📖 Poem selected:', poem.id, poem.title);
+    
+    // Initial state with poem and placeholder relationships
+    const initialPoemState = { ...poem, relationships: null };
+    setSelectedPoem(initialPoemState);
+    setSelectedVoice('nova');  // Reset to default voice (nova) when selecting new poem
+    setShowDetailPanel(true);
+    
+    // Fetch fresh poem details and relationships async
+    try {
+      const poemDetailsResponse = await fetch(`${API_BASE}/api/poems/${poem.id}`);
+      if (poemDetailsResponse.ok) {
+        const freshPoemData = await poemDetailsResponse.json();
+        console.log('📦 Fresh poem data with audio_files:', freshPoemData.audio_files);
+        
+        // Fetch relationships
+        const relationships = await getPoemRelationships(poem.id);
+        console.log('Fetched relationships:', relationships);
+        
+        // Update with fresh data and relationships
+        setSelectedPoem(prevPoem => ({ 
+          ...freshPoemData, 
+          relationships 
+        }));
+      } else {
+        // Fallback if individual endpoint fails
+        const relationships = await getPoemRelationships(poem.id);
+        console.log('Fetched relationships:', relationships);
+        setSelectedPoem(prevPoem => ({ ...prevPoem, relationships }));
+      }
+    } catch (err) {
+      console.error('Error fetching fresh poem data:', err);
+      // Try fetching relationships at least
+      const relationships = await getPoemRelationships(poem.id);
+      setSelectedPoem(prevPoem => ({ ...prevPoem, relationships }));
+    }
   };
 
   const generateNewPoem = async (routeId) => {
@@ -241,6 +320,89 @@ const PoemManager = () => {
     setDragOver(false);
   };
 
+  const generateAudio = async () => {
+    if (!selectedPoem || !selectedPoem.content) {
+      console.warn('Cannot generate audio: selectedPoem or content missing', { selectedPoem });
+      alert('No poem content available');
+      return;
+    }
+    
+    setAudioLoading(true);
+    // Clear audio URL immediately to show "No audio generated" state during generation
+    setAudioUrl(null);
+    
+    try {
+      const response = await fetch(`${API_BASE}/api/audio/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          poem_text: selectedPoem.content,
+          route: selectedPoem.route_id,
+          poem_id: selectedPoem.id,
+          voice: selectedVoice,
+          speed: 0.9
+        })
+      });
+      
+      console.log('Audio generation response status:', response.status);
+      
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Audio generation success:', data);
+        
+        // Immediately update the selected poem with new audio_files from response
+        if (data.audio_files) {
+          const updatedAudioFiles = data.audio_files;
+          console.log('Updated audio_files immediately from response:', updatedAudioFiles);
+          
+          // Update selected poem state - this will trigger the useEffect to load audio
+          setSelectedPoem(prev => ({
+            ...prev,
+            audio_files: updatedAudioFiles
+          }));
+        }
+        
+        if (data.audio_url) {
+          const fullAudioUrl = `${API_BASE}${data.audio_url}`;
+          console.log('Setting audio URL:', fullAudioUrl);
+          setAudioUrl(fullAudioUrl);
+        }
+        
+        // Also refresh poem data to ensure consistency - try individual endpoint first
+        try {
+          const poemDetailsResponse = await fetch(`${API_BASE}/api/poems/${selectedPoem.id}`);
+          if (poemDetailsResponse.ok) {
+            const updatedPoem = await poemDetailsResponse.json();
+            setSelectedPoem(prev => ({ ...prev, ...updatedPoem, relationships: prev.relationships }));
+            console.log('Refreshed poem details with audio_files:', updatedPoem.audio_files);
+          } else {
+            // Fallback to fetching all poems
+            const poemResponse = await fetch(`${API_BASE}/api/poems?skip=0&limit=100`);
+            if (poemResponse.ok) {
+              const poemData = await poemResponse.json();
+              const updatedPoem = poemData.poems.find(p => p.id === selectedPoem.id);
+              if (updatedPoem) {
+                setSelectedPoem(prev => ({ ...prev, ...updatedPoem, relationships: prev.relationships }));
+                console.log('Refreshed poem metadata with audio_files:', updatedPoem.audio_files);
+              }
+            }
+          }
+        } catch (err) {
+          console.warn('Failed to refresh poem data:', err);
+        }
+      } else {
+        const errorText = await response.text();
+        console.error('Audio generation failed:', response.status, errorText);
+        alert('Failed to generate audio');
+      }
+    } catch (err) {
+      console.error('Audio generation error:', err);
+      alert('Error generating audio: ' + err.message);
+    } finally {
+      setAudioLoading(false);
+    }
+  };
+
   const handleDrop = (e) => {
     e.preventDefault();
     setDragOver(false);
@@ -259,6 +421,202 @@ const PoemManager = () => {
 
   if (loading) return <div className="p-4">Loading poems...</div>;
   if (error) return <div className="p-4 text-red-600">{error}</div>;
+
+  const renderDetailContent = () => (
+    selectedPoem ? (
+      <div className="space-y-4">
+        <div>
+          <h2 className="text-lg font-semibold text-gray-900">
+            {selectedPoem.title || 'Untitled Poem'}
+          </h2>
+          <p className="text-sm text-gray-500">
+            {selectedPoem.id}
+          </p>
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex justify-between">
+            <span className="text-sm font-medium text-gray-500">Route:</span>
+            <span className="text-sm text-gray-900">{selectedPoem.route_name || selectedPoem.route_id}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-sm font-medium text-gray-500">Role:</span>
+            <span className={`text-sm px-2 py-1 rounded ${
+              selectedPoem.narrative_role === 'core' ? 'bg-green-100 text-green-800' :
+              selectedPoem.narrative_role === 'extension' ? 'bg-purple-100 text-purple-800' :
+              selectedPoem.narrative_role === 'route_generated' ? 'bg-blue-100 text-blue-800' :
+              selectedPoem.narrative_role === 'variation' ? 'bg-orange-100 text-orange-800' :
+              'bg-gray-100 text-gray-800'
+            }`}>
+              {selectedPoem.narrative_role || 'unassigned'}
+            </span>
+          </div>
+          {selectedPoem.created_at && (
+            <div className="flex justify-between">
+              <span className="text-sm font-medium text-gray-500">Created:</span>
+              <span className="text-sm text-gray-900">
+                {new Date(selectedPoem.created_at).toLocaleDateString()}
+              </span>
+            </div>
+          )}
+        </div>
+
+        {selectedPoem.content && (
+          <div>
+            <h3 className="text-sm font-medium text-gray-500 mb-2">Content:</h3>
+            <div className="bg-gray-50 p-3 rounded text-sm whitespace-pre-wrap max-h-64 overflow-y-auto">
+              {selectedPoem.content}
+            </div>
+          </div>
+        )}
+
+        {/* Audio Section */}
+        <div className="border-t border-gray-200 pt-4">
+          <h3 className="text-sm font-medium text-gray-500 mb-3">Audio Narration</h3>
+          <div className="space-y-2">
+            {audioUrl ? (
+              <div className="bg-blue-50 p-3 rounded">
+                <audio controls className="w-full" src={audioUrl} />
+              </div>
+            ) : (
+              <div className="text-sm text-gray-600">
+                No audio generated yet
+              </div>
+            )}
+            
+            <div className="flex gap-2">
+              <select
+                value={selectedVoice}
+                onChange={(e) => setSelectedVoice(e.target.value)}
+                disabled={audioLoading}
+                className="flex-1 px-2 py-1 text-sm border border-gray-300 rounded"
+              >
+                {availableVoices.map(voice => (
+                  <option key={voice} value={voice}>{voice}</option>
+                ))}
+              </select>
+              <button
+                onClick={generateAudio}
+                disabled={audioLoading || !selectedPoem.content}
+                className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
+              >
+                {audioLoading ? 'Generating...' : 'Generate Audio'}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {selectedPoem.relationships && (
+          <div>
+            <h3 className="text-sm font-medium text-gray-500 mb-2">Relationships:</h3>
+            <div className="space-y-2">
+              {selectedPoem.relationships.themes?.length > 0 && (
+                <div>
+                  <span className="text-xs font-medium text-gray-400">Themes:</span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {selectedPoem.relationships.themes.map(theme => (
+                      <span key={theme} className="group relative px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded flex items-center">
+                        {theme}
+                        <button
+                          onClick={() => removeThemeFromPoem(selectedPoem.id, theme)}
+                          className="ml-1 opacity-0 group-hover:opacity-100 text-blue-600 hover:text-red-600 transition-opacity"
+                          title="Remove theme"
+                        >
+                          ×
+                        </button>
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-2 flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Add themes (comma-separated)"
+                      value={newTheme}
+                      onChange={(e) => setNewTheme(e.target.value)}
+                      className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded"
+                      onKeyPress={(e) => e.key === 'Enter' && handleAddThemes()}
+                    />
+                    <button
+                      onClick={handleAddThemes}
+                      disabled={!newTheme.trim() || addingTheme}
+                      className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
+                    >
+                      {addingTheme ? '...' : '+'}
+                    </button>
+                  </div>
+                </div>
+              )}
+              
+              {(!selectedPoem.relationships.themes || selectedPoem.relationships.themes.length === 0) && (
+                <div>
+                  <span className="text-xs font-medium text-gray-400">Add Themes:</span>
+                  <div className="mt-1 flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Enter themes (comma-separated)"
+                      value={newTheme}
+                      onChange={(e) => setNewTheme(e.target.value)}
+                      className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded"
+                      onKeyPress={(e) => e.key === 'Enter' && handleAddThemes()}
+                    />
+                    <button
+                      onClick={handleAddThemes}
+                      disabled={!newTheme.trim() || addingTheme}
+                      className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
+                    >
+                      {addingTheme ? '...' : 'Add'}
+                    </button>
+                  </div>
+                </div>
+              )}
+              
+              {selectedPoem.relationships.emotions?.length > 0 && (
+                <div>
+                  <span className="text-xs font-medium text-gray-400">Emotions:</span>
+                  <div className="flex flex-wrap gap-1 mt-1">
+                    {selectedPoem.relationships.emotions.map(emotion => (
+                      <span key={emotion} className="px-2 py-1 text-xs bg-pink-100 text-pink-800 rounded">
+                        {emotion}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        <div className="pt-4 border-t border-gray-200 space-y-2">
+          <button
+            onClick={() => generateNewPoem(selectedPoem.route_id)}
+            className="w-full px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+          >
+            Generate Similar Poem
+          </button>
+          <button
+            onClick={() => {
+              setSelectedPoem(null);
+              setShowDetailPanel(false);
+            }}
+            className="w-full px-3 py-2 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    ) : (
+      <div className="text-center text-gray-500">
+        <p className="mb-4">Select a poem to view details</p>
+        <button
+          onClick={loadPoems}
+          className="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+        >
+          Refresh Poems
+        </button>
+      </div>
+    )
+  );
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -437,7 +795,7 @@ const PoemManager = () => {
                   </div>
                   
                   <div className="mt-1 text-sm text-gray-500">
-                    <span>Route: {poem.route_id}</span>
+                    <span>Route: {poem.route_name || poem.route_id}</span>
                     {poem.created_at && (
                       <span className="ml-3">
                         {new Date(poem.created_at).toLocaleDateString()}
@@ -478,165 +836,30 @@ const PoemManager = () => {
         </div>
       </div>
 
-      {/* Poem Detail Panel */}
-      <div className="lg:col-span-1">
+      {/* Poem Detail Panel (Desktop) */}
+      <div className="lg:col-span-1 hidden lg:block">
         <div className="bg-white border border-gray-200 rounded-lg p-6 sticky top-4">
-          {selectedPoem ? (
-            <div className="space-y-4">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-900">
-                  {selectedPoem.title || 'Untitled Poem'}
-                </h2>
-                <p className="text-sm text-gray-500">
-                  {selectedPoem.id}
-                </p>
-              </div>
+          {renderDetailContent()}
+        </div>
+      </div>
 
-              <div className="space-y-2">
-                <div className="flex justify-between">
-                  <span className="text-sm font-medium text-gray-500">Route:</span>
-                  <span className="text-sm text-gray-900">{selectedPoem.route_id}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-sm font-medium text-gray-500">Role:</span>
-                  <span className={`text-sm px-2 py-1 rounded ${
-                    selectedPoem.narrative_role === 'core' ? 'bg-green-100 text-green-800' :
-                    selectedPoem.narrative_role === 'extension' ? 'bg-purple-100 text-purple-800' :
-                    selectedPoem.narrative_role === 'route_generated' ? 'bg-blue-100 text-blue-800' :
-                    selectedPoem.narrative_role === 'variation' ? 'bg-orange-100 text-orange-800' :
-                    'bg-gray-100 text-gray-800'
-                  }`}>
-                    {selectedPoem.narrative_role || 'unassigned'}
-                  </span>
-                </div>
-                {selectedPoem.created_at && (
-                  <div className="flex justify-between">
-                    <span className="text-sm font-medium text-gray-500">Created:</span>
-                    <span className="text-sm text-gray-900">
-                      {new Date(selectedPoem.created_at).toLocaleDateString()}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {selectedPoem.content && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500 mb-2">Content:</h3>
-                  <div className="bg-gray-50 p-3 rounded text-sm whitespace-pre-wrap max-h-64 overflow-y-auto">
-                    {selectedPoem.content}
-                  </div>
-                </div>
-              )}
-
-              {selectedPoem.relationships && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500 mb-2">Relationships:</h3>
-                  <div className="space-y-2">
-                    {selectedPoem.relationships.themes?.length > 0 && (
-                      <div>
-                        <span className="text-xs font-medium text-gray-400">Themes:</span>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {selectedPoem.relationships.themes.map(theme => (
-                            <span key={theme} className="group relative px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded flex items-center">
-                              {theme}
-                              <button
-                                onClick={() => removeThemeFromPoem(selectedPoem.id, theme)}
-                                className="ml-1 opacity-0 group-hover:opacity-100 text-blue-600 hover:text-red-600 transition-opacity"
-                                title="Remove theme"
-                              >
-                                ×
-                              </button>
-                            </span>
-                          ))}
-                        </div>
-                        
-                        {/* Add Theme Input */}
-                        <div className="mt-2 flex gap-2">
-                          <input
-                            type="text"
-                            placeholder="Add themes (comma-separated)"
-                            value={newTheme}
-                            onChange={(e) => setNewTheme(e.target.value)}
-                            className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded"
-                            onKeyPress={(e) => e.key === 'Enter' && handleAddThemes()}
-                          />
-                          <button
-                            onClick={handleAddThemes}
-                            disabled={!newTheme.trim() || addingTheme}
-                            className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
-                          >
-                            {addingTheme ? '...' : '+'}
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {/* Add Theme Section for poems without themes */}
-                    {(!selectedPoem.relationships.themes || selectedPoem.relationships.themes.length === 0) && (
-                      <div>
-                        <span className="text-xs font-medium text-gray-400">Add Themes:</span>
-                        <div className="mt-1 flex gap-2">
-                          <input
-                            type="text"
-                            placeholder="Enter themes (comma-separated)"
-                            value={newTheme}
-                            onChange={(e) => setNewTheme(e.target.value)}
-                            className="flex-1 px-2 py-1 text-xs border border-gray-300 rounded"
-                            onKeyPress={(e) => e.key === 'Enter' && handleAddThemes()}
-                          />
-                          <button
-                            onClick={handleAddThemes}
-                            disabled={!newTheme.trim() || addingTheme}
-                            className="px-2 py-1 text-xs bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400"
-                          >
-                            {addingTheme ? '...' : 'Add'}
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                    
-                    {selectedPoem.relationships.emotions?.length > 0 && (
-                      <div>
-                        <span className="text-xs font-medium text-gray-400">Emotions:</span>
-                        <div className="flex flex-wrap gap-1 mt-1">
-                          {selectedPoem.relationships.emotions.map(emotion => (
-                            <span key={emotion} className="px-2 py-1 text-xs bg-pink-100 text-pink-800 rounded">
-                              {emotion}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-
-              <div className="pt-4 border-t border-gray-200 space-y-2">
-                <button
-                  onClick={() => generateNewPoem(selectedPoem.route_id)}
-                  className="w-full px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
-                >
-                  Generate Similar Poem
-                </button>
-                <button
-                  onClick={() => setSelectedPoem(null)}
-                  className="w-full px-3 py-2 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center text-gray-500">
-              <p className="mb-4">Select a poem to view details</p>
-              <button
-                onClick={loadPoems}
-                className="px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
-              >
-                Refresh Poems
-              </button>
-            </div>
-          )}
+      {/* Poem Detail Panel (Mobile Drawer) */}
+      <div className={`lg:hidden fixed inset-0 z-30 ${showDetailPanel ? 'block' : 'hidden'}`}>
+        <div
+          className="absolute inset-0 bg-black/40"
+          onClick={() => setShowDetailPanel(false)}
+        />
+        <div className="absolute bottom-0 left-0 right-0 max-h-[85vh] bg-white rounded-t-2xl border border-gray-200 p-4 overflow-y-auto">
+          <div className="flex items-center justify-between mb-2">
+            <div className="h-1.5 w-10 bg-gray-300 rounded-full mx-auto" />
+            <button
+              onClick={() => setShowDetailPanel(false)}
+              className="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Close
+            </button>
+          </div>
+          {renderDetailContent()}
         </div>
       </div>
     </div>

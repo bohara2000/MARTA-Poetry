@@ -187,17 +187,28 @@ async def clear_narrative_role(poem_id: str, graph: ExtendedPoetryGraph = Depend
 async def get_all_poems(graph: ExtendedPoetryGraph = Depends(get_graph)):
     """Get all poems with their metadata."""
     try:
+        from poetry.personality_routes import load_available_routes, load_personalities
+        personalities = load_personalities()
+        available_routes = load_available_routes()
         poems = []
         
         for node_id, node_data in graph.graph.nodes(data=True):
             if node_data.get("type") == "poem":
+                route_id = node_data.get("route_id")
+                route_name = None
+                if route_id and route_id in personalities:
+                    route_name = personalities[route_id].get("name")
+                if not route_name and route_id and route_id in available_routes:
+                    route_name = available_routes[route_id].get("name")
                 poem_info = {
                     "id": node_id,
                     "title": node_data.get("title"),
-                    "content": node_data.get("content", ""),
-                    "route_id": node_data.get("route_id"),
+                    "content": node_data.get("content") or node_data.get("text", ""),
+                    "route_id": route_id,
+                    "route_name": route_name or route_id,
                     "narrative_role": node_data.get("narrative_role"),
-                    "created_at": node_data.get("created_at")
+                    "created_at": node_data.get("created_at"),
+                    "audio_files": node_data.get("metadata", {}).get("audio_files", [])
                 }
                 poems.append(poem_info)
         
@@ -207,6 +218,45 @@ async def get_all_poems(graph: ExtendedPoetryGraph = Depends(get_graph)):
         return {"poems": poems, "total": len(poems)}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to get poems: {e}")
+
+@router.get("/poems/{poem_id}")
+async def get_poem_details(poem_id: str, graph: ExtendedPoetryGraph = Depends(get_graph)):
+    """Get details for a specific poem including current metadata."""
+    try:
+        if not graph.graph.has_node(poem_id):
+            raise HTTPException(status_code=404, detail=f"Poem {poem_id} not found")
+        
+        node_data = graph.graph.nodes[poem_id]
+        if node_data.get("type") != "poem":
+            raise HTTPException(status_code=404, detail=f"Node {poem_id} is not a poem")
+        
+        from poetry.personality_routes import load_personalities, load_available_routes
+        personalities = load_personalities()
+        available_routes = load_available_routes()
+        
+        route_id = node_data.get("route_id")
+        route_name = None
+        if route_id and route_id in personalities:
+            route_name = personalities[route_id].get("name")
+        if not route_name and route_id and route_id in available_routes:
+            route_name = available_routes[route_id].get("name")
+        
+        poem_info = {
+            "id": poem_id,
+            "title": node_data.get("title"),
+            "content": node_data.get("content") or node_data.get("text", ""),
+            "route_id": route_id,
+            "route_name": route_name or route_id,
+            "narrative_role": node_data.get("narrative_role"),
+            "created_at": node_data.get("created_at"),
+            "audio_files": node_data.get("metadata", {}).get("audio_files", [])
+        }
+        
+        return poem_info
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get poem: {e}")
 
 @router.get("/poems/{poem_id}/relationships")
 async def get_poem_relationships(poem_id: str, graph: ExtendedPoetryGraph = Depends(get_graph)):

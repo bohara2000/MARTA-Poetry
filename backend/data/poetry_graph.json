@@ -68,28 +68,32 @@
             "anaphora of 'I' at line beginnings"
           ],
           "dominant_sounds": "sibilant consonants (s, l)"
-        }
+        },
+        "audio_files": [
+          "MARTA_5_ba164931_nova.mp3",
+          "MARTA_5_f2f5a0dc_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_27324_20260124_163806"
     },
     {
       "type": "theme",
       "name": "isolation",
-      "usage_count": 18,
+      "usage_count": 22,
       "created_at": "2026-01-24T16:38:06.602217",
       "id": "theme_isolation"
     },
     {
       "type": "theme",
       "name": "memory",
-      "usage_count": 10,
+      "usage_count": 12,
       "created_at": "2026-01-24T16:38:06.602221",
       "id": "theme_memory"
     },
     {
       "type": "theme",
       "name": "routine",
-      "usage_count": 6,
+      "usage_count": 7,
       "created_at": "2026-01-24T16:38:06.602223",
       "id": "theme_routine"
     },
@@ -166,7 +170,7 @@
     {
       "type": "emotion",
       "name": "lonely",
-      "usage_count": 8,
+      "usage_count": 10,
       "created_at": "2026-01-24T16:38:06.602262",
       "id": "emo_lonely"
     },
@@ -264,7 +268,7 @@
     {
       "type": "imagery",
       "name": "cracked sidewalks",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T16:40:04.876137",
       "id": "img_cracked_sidewalks"
     },
@@ -334,7 +338,7 @@
     {
       "type": "sound_device",
       "name": "slant_rhyme",
-      "usage_count": 13,
+      "usage_count": 14,
       "created_at": "2026-01-24T16:40:04.876343",
       "id": "sound_slant_rhyme"
     },
@@ -422,7 +426,7 @@
     {
       "type": "theme",
       "name": "technology",
-      "usage_count": 11,
+      "usage_count": 13,
       "created_at": "2026-01-24T16:45:16.687102",
       "id": "theme_technology"
     },
@@ -457,7 +461,7 @@
     {
       "type": "imagery",
       "name": "glowing windows",
-      "usage_count": 1,
+      "usage_count": 3,
       "created_at": "2026-01-24T16:45:16.687228",
       "id": "img_glowing_windows"
     },
@@ -471,14 +475,14 @@
     {
       "type": "imagery",
       "name": "homunculus",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T16:45:16.687263",
       "id": "img_homunculus"
     },
     {
       "type": "imagery",
       "name": "streetlight",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-24T16:45:16.687276",
       "id": "img_streetlight"
     },
@@ -499,7 +503,7 @@
     {
       "type": "emotion",
       "name": "tense",
-      "usage_count": 19,
+      "usage_count": 24,
       "created_at": "2026-01-24T16:45:16.687331",
       "id": "emo_tense"
     },
@@ -1170,7 +1174,7 @@
     {
       "type": "imagery",
       "name": "neon",
-      "usage_count": 4,
+      "usage_count": 5,
       "created_at": "2026-01-24T21:12:56.592255",
       "id": "img_neon"
     },
@@ -1184,7 +1188,7 @@
     {
       "type": "imagery",
       "name": "alleys",
-      "usage_count": 3,
+      "usage_count": 4,
       "created_at": "2026-01-24T21:12:56.592297",
       "id": "img_alleys"
     },
@@ -1533,7 +1537,7 @@
     {
       "type": "theme",
       "name": "urban_life",
-      "usage_count": 16,
+      "usage_count": 21,
       "created_at": "2026-01-25T15:01:05.847615",
       "id": "theme_urban_life"
     },
@@ -1547,7 +1551,7 @@
     {
       "type": "theme",
       "name": "tension",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-25T15:01:05.847643",
       "id": "theme_tension"
     },
@@ -1610,35 +1614,35 @@
     {
       "type": "sound_device",
       "name": "alliteration",
-      "usage_count": 18,
+      "usage_count": 22,
       "created_at": "2026-01-25T15:01:05.847722",
       "id": "sound_alliteration"
     },
     {
       "type": "sound_device",
       "name": "internal_rhyme",
-      "usage_count": 5,
+      "usage_count": 6,
       "created_at": "2026-01-25T15:01:05.847731",
       "id": "sound_internal_rhyme"
     },
     {
       "type": "sound_device",
       "name": "repetition",
-      "usage_count": 16,
+      "usage_count": 20,
       "created_at": "2026-01-25T15:01:05.847735",
       "id": "sound_repetition"
     },
     {
       "type": "sound_device",
       "name": "assonance",
-      "usage_count": 18,
+      "usage_count": 23,
       "created_at": "2026-01-25T15:01:05.847740",
       "id": "sound_assonance"
     },
     {
       "type": "sound_device",
       "name": "consonance",
-      "usage_count": 18,
+      "usage_count": 23,
       "created_at": "2026-01-25T15:01:05.847745",
       "id": "sound_consonance"
     },
@@ -1801,7 +1805,7 @@
     {
       "type": "sound_device",
       "name": "onomatopoeia",
-      "usage_count": 15,
+      "usage_count": 19,
       "created_at": "2026-01-25T20:50:46.450302",
       "id": "sound_onomatopoeia"
     },
@@ -1932,7 +1936,7 @@
     {
       "type": "emotion",
       "name": "anxious",
-      "usage_count": 4,
+      "usage_count": 5,
       "created_at": "2026-01-25T20:52:39.502661",
       "id": "emo_anxious"
     },
@@ -2094,7 +2098,7 @@
     {
       "type": "emotion",
       "name": "contemplative",
-      "usage_count": 5,
+      "usage_count": 6,
       "created_at": "2026-01-25T20:54:28.766538",
       "id": "emo_contemplative"
     },
@@ -2468,7 +2472,7 @@
     {
       "type": "theme",
       "name": "surveillance",
-      "usage_count": 11,
+      "usage_count": 15,
       "created_at": "2026-01-25T21:19:33.342802",
       "id": "theme_surveillance"
     },
@@ -2656,7 +2660,7 @@
     {
       "type": "emotion",
       "name": "uneasy",
-      "usage_count": 8,
+      "usage_count": 9,
       "created_at": "2026-01-25T21:24:15.457951",
       "id": "emo_uneasy"
     },
@@ -2874,7 +2878,10 @@
             "noun_phrase_openings"
           ],
           "dominant_sounds": "sibilant and plosive consonants (s, t, p)"
-        }
+        },
+        "audio_files": [
+          "MARTA_27345_b6b80243_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_27345_20260131_164724"
     },
@@ -3039,7 +3046,10 @@
             "pixel by pixel"
           ],
           "dominant_sounds": "sibilant /s/ sounds"
-        }
+        },
+        "audio_files": [
+          "MARTA_8_ecda46b6_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_8_20260131_165131"
     },
@@ -3116,7 +3126,7 @@
     {
       "type": "emotion",
       "name": "alienated",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-01-31T16:51:31.352559",
       "id": "emo_alienated"
     },
@@ -3193,7 +3203,10 @@
             "breached and beseeched"
           ],
           "dominant_sounds": "sibilant 's' and hard consonants (t, k)"
-        }
+        },
+        "audio_files": [
+          "MARTA_27329_3323c01d_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_27329_20260131_171922"
     },
@@ -3221,7 +3234,7 @@
     {
       "type": "imagery",
       "name": "pigeons",
-      "usage_count": 3,
+      "usage_count": 6,
       "created_at": "2026-01-31T17:19:22.283385",
       "id": "img_pigeons"
     },
@@ -3263,14 +3276,14 @@
     {
       "type": "emotion",
       "name": "watchful",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-01-31T17:19:22.283443",
       "id": "emo_watchful"
     },
     {
       "type": "emotion",
       "name": "isolated",
-      "usage_count": 5,
+      "usage_count": 7,
       "created_at": "2026-01-31T17:19:22.283450",
       "id": "emo_isolated"
     },
@@ -3358,7 +3371,7 @@
     {
       "type": "theme",
       "name": "longing",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T17:25:57.907191",
       "id": "theme_longing"
     },
@@ -3639,7 +3652,10 @@
             "half tethered \u2026 half drifting"
           ],
           "dominant_sounds": "s and t consonants"
-        }
+        },
+        "audio_files": [
+          "MARTA_27446_93b221fc_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_27446_20260131_185302"
     },
@@ -3777,7 +3793,11 @@
             "wanting to [verb] [object]"
           ],
           "dominant_sounds": "sibilant consonants (s, sh) and nasals (n)"
-        }
+        },
+        "audio_files": [
+          "MARTA_27446_71be999d_nova.mp3",
+          "MARTA_27446_71be999d_shimmer.mp3"
+        ]
       },
       "id": "poem_MARTA_27446_20260131_185438"
     },
@@ -3847,7 +3867,7 @@
     {
       "type": "sound_device",
       "name": "anaphora",
-      "usage_count": 1,
+      "usage_count": 5,
       "created_at": "2026-01-31T18:54:38.148595",
       "id": "sound_anaphora"
     },
@@ -3906,7 +3926,10 @@
           ],
           "repeated_structures": [],
           "dominant_sounds": "s and t consonants with short e vowel sounds"
-        }
+        },
+        "audio_files": [
+          "MARTA_27446_14c25912_nova.mp3"
+        ]
       },
       "id": "poem_MARTA_27446_20260131_185640"
     },
@@ -4052,7 +4075,12 @@
             "noun + third_person_singular_verb"
           ],
           "dominant_sounds": "sibilant 's' and plosive 'd/t'"
-        }
+        },
+        "audio_files": [
+          "MARTA_27448_0f3772a8_nova.mp3",
+          "MARTA_27448_0f3772a8_shimmer.mp3",
+          "MARTA_27448_0f3772a8_echo.mp3"
+        ]
       },
       "id": "poem_MARTA_27448_20260131_185945"
     },
@@ -4118,6 +4146,737 @@
       "usage_count": 1,
       "created_at": "2026-01-31T18:59:45.863086",
       "id": "img_drifting_dark"
+    },
+    {
+      "type": "poem",
+      "title": "Lone Journey\nBy Route 27 - Cheshire Bridge Road",
+      "text": "When the night camera\u2019s red eye stutters above the neon spine,  \nWhen pigeons scatter like static across cracked sidewalks,  \nWhen K-9-2 units drift in dogged patrols through vacant plazas,  \nthe fractured clock in every glass pane whispers of years unraveled.  \n\nBeyond Tokyo Valentino\u2019s silent marquee, light and shadow bargain for truth.  \nA net of surveillance hums\u2014its wires caress brick and bone alike.  \nInfrared tracings blur the silhouette you hoped would dissolve.  \nIn every glossy corner, time crouches, longing for a witness.  \n\nThe streets tremble under their own stories, half-sung and half-concealed.  \nHere, being seen tastes like ash, yet craving the lens is harder still.  \nLight fractures the night\u2019s skin, then recoils at its own reflection.  \nSuspended between recall and erasure, the pulse of the underbelly endures.",
+      "route_id": "MARTA_27339",
+      "created_at": "2026-01-31T20:06:16.190136",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.86,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "location": "Tokyo Valentino",
+          "passenger_count": "low"
+        },
+        "loyalty_to_canon": 0.35,
+        "rebellious_mode": "invert",
+        "structure": {
+          "form": "free_verse",
+          "line_count": 12,
+          "stanza_breaks": [
+            4,
+            4,
+            4
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3
+          ],
+          "caesura_lines": [
+            6
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 12,
+          "line_lengths": [
+            17,
+            16,
+            14,
+            20,
+            19,
+            20,
+            17,
+            18,
+            17,
+            18,
+            16,
+            24
+          ],
+          "avg_line_length": 18.0,
+          "detected_stanza_breaks": [
+            4,
+            4,
+            4
+          ],
+          "total_words": 126
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "sporadic internal and slant rhymes, no end rhyme scheme",
+          "repetition_phrases": [
+            "When"
+          ],
+          "repeated_structures": [
+            "Anaphoric dependent clauses starting with 'When'"
+          ],
+          "dominant_sounds": "sibilant sounds (s, st) and hard consonants"
+        },
+        "audio_files": [
+          "MARTA_27339_d4495d21_nova.mp3",
+          "MARTA_27339_d4495d21_shimmer.mp3",
+          "MARTA_27339_d4495d21_echo.mp3"
+        ]
+      },
+      "id": "poem_MARTA_27339_20260131_200616"
+    },
+    {
+      "type": "theme",
+      "name": "visibility_vs_invisibility",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190243",
+      "id": "theme_visibility_vs_invisibility"
+    },
+    {
+      "type": "theme",
+      "name": "temporal_decay",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190264",
+      "id": "theme_temporal_decay"
+    },
+    {
+      "type": "imagery",
+      "name": "night camera\u2019s red eye",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190286",
+      "id": "img_night_camera\u2019s_red_eye"
+    },
+    {
+      "type": "imagery",
+      "name": "neon spine",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190301",
+      "id": "img_neon_spine"
+    },
+    {
+      "type": "imagery",
+      "name": "pigeons scattering like static",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190316",
+      "id": "img_pigeons_scattering_like_static"
+    },
+    {
+      "type": "imagery",
+      "name": "K-9-2 patrol units",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190350",
+      "id": "img_k-9-2_patrol_units"
+    },
+    {
+      "type": "imagery",
+      "name": "fractured clock in glass pane",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190363",
+      "id": "img_fractured_clock_in_glass_pane"
+    },
+    {
+      "type": "imagery",
+      "name": "surveillance wires",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190376",
+      "id": "img_surveillance_wires"
+    },
+    {
+      "type": "imagery",
+      "name": "infrared tracings",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190393",
+      "id": "img_infrared_tracings"
+    },
+    {
+      "type": "imagery",
+      "name": "blurred silhouette",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190407",
+      "id": "img_blurred_silhouette"
+    },
+    {
+      "type": "imagery",
+      "name": "pulse of the underbelly",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:06:16.190420",
+      "id": "img_pulse_of_the_underbelly"
+    },
+    {
+      "type": "poem",
+      "title": "After Hours\nBy Route 8 - North Druid Hills Road",
+      "content": "Remember the glowing windows  \nRemember the lantern-like breath of streetlamps  \nRemember the homunculus scribbled in margins  \nRemember the hush that blooms  \nA restless hush  \nIt fans new escape routes behind brick walls  \nIt murmurs chaos in every alley\u2014  \nlike a pulp detective tracking an unseen culprit  \nRemember the skin of memory  \nRemember the weight of unspoken prayers  \nBecause freedom trembles here  \nBecause visibility is a double-edged blade  \nSo we linger in shadow and light, unsettled  \nSo we shape our own hidden spaces",
+      "route_id": "MARTA_27329",
+      "created_at": "2026-01-31T20:58:09.360026",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.24,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "location": "The Beltline",
+          "passenger_count": "medium"
+        },
+        "loyalty_to_canon": 0.4,
+        "rebellious_mode": "create_new",
+        "audio_files": [
+          "MARTA_27329_61c2710b_nova.mp3",
+          "MARTA_27329_61c2710b_shimmer.mp3"
+        ],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 14,
+          "stanza_breaks": [
+            4,
+            4,
+            2,
+            2,
+            2
+          ],
+          "enjambment_lines": [
+            7
+          ],
+          "caesura_lines": [
+            13
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 14,
+          "line_lengths": [
+            8,
+            12,
+            13,
+            7,
+            4,
+            12,
+            10,
+            15,
+            9,
+            10,
+            9,
+            15,
+            12,
+            10
+          ],
+          "avg_line_length": 10.428571428571429,
+          "detected_stanza_breaks": null,
+          "total_words": 82
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [
+            "Remember the",
+            "Because",
+            "So we"
+          ],
+          "repeated_structures": [
+            "Remember the [noun phrase]",
+            "Because [clause]",
+            "So we [verb phrase]"
+          ],
+          "dominant_sounds": "sibilant /s/ and plosive consonants (/t/, /k/, /p/)"
+        }
+      },
+      "id": "poem_MARTA_27329_20260131_205809"
+    },
+    {
+      "type": "theme",
+      "name": "freedom",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360197",
+      "id": "theme_freedom"
+    },
+    {
+      "type": "theme",
+      "name": "duality",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360216",
+      "id": "theme_duality"
+    },
+    {
+      "type": "imagery",
+      "name": "lantern-like breath of streetlamps",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360251",
+      "id": "img_lantern-like_breath_of_streetlamps"
+    },
+    {
+      "type": "imagery",
+      "name": "homunculus scribbled in margins",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360265",
+      "id": "img_homunculus_scribbled_in_margins"
+    },
+    {
+      "type": "imagery",
+      "name": "hush that blooms",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360278",
+      "id": "img_hush_that_blooms"
+    },
+    {
+      "type": "imagery",
+      "name": "brick walls",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360295",
+      "id": "img_brick_walls"
+    },
+    {
+      "type": "imagery",
+      "name": "pulp detective",
+      "usage_count": 2,
+      "created_at": "2026-01-31T20:58:09.360315",
+      "id": "img_pulp_detective"
+    },
+    {
+      "type": "imagery",
+      "name": "skin of memory",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360325",
+      "id": "img_skin_of_memory"
+    },
+    {
+      "type": "imagery",
+      "name": "unspoken prayers",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360336",
+      "id": "img_unspoken_prayers"
+    },
+    {
+      "type": "imagery",
+      "name": "shadow and light",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360346",
+      "id": "img_shadow_and_light"
+    },
+    {
+      "type": "emotion",
+      "name": "unsettled",
+      "usage_count": 1,
+      "created_at": "2026-01-31T20:58:09.360371",
+      "id": "emo_unsettled"
+    },
+    {
+      "type": "poem",
+      "title": "Midnight Runner\nBy Route 8 - North Druid Hills Road",
+      "content": "Again the glow of windows arcs across empty streets\u2014  \nAgain the camera-net hum coils under late-night streetlamps  \nAgain the K-9-2s sidestep shadows, lantern-like breath trapped in metal throats  \n\nBetween cloisters of surveillance  \nand the hush of Congregation Or VeShalom\u2019s prayers  \npigeons wheel like borrowed secrets  \n\nthe homunculus etches timid glyphs onto concrete  \nA pulse\u2014part welcome, part accusation\u2014vibrates in every lens  \nRoutine feels like a spine, both sturdy and brittle  \n\nvisibility tastes of connection and of a knife\u2019s edge  \nA detective\u2019s typewriter rattles behind the false quiet  \nUnder this networked sky, the route stands  \nboth keeper and trespasser of the watch",
+      "route_id": "MARTA_27329",
+      "created_at": "2026-01-31T21:13:18.313588",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.7,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "location": "Congregation Or VeShalom",
+          "passenger_count": "low"
+        },
+        "loyalty_to_canon": 0.4,
+        "rebellious_mode": "create_new",
+        "audio_files": [
+          "MARTA_27329_5c011c1e_nova.mp3",
+          "MARTA_27329_5c011c1e_shimmer.mp3"
+        ],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 13,
+          "stanza_breaks": [
+            3,
+            3,
+            3,
+            4
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "caesura_lines": [
+            3,
+            8
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 13,
+          "line_lengths": [
+            13,
+            16,
+            19,
+            9,
+            13,
+            10,
+            15,
+            20,
+            15,
+            18,
+            17,
+            11,
+            10
+          ],
+          "avg_line_length": 14.307692307692308,
+          "detected_stanza_breaks": [
+            3,
+            3,
+            3,
+            4
+          ],
+          "total_words": 100
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [
+            "Again"
+          ],
+          "repeated_structures": [
+            "line-initial 'Again'"
+          ],
+          "dominant_sounds": "sibilant 's' sounds and hard consonants"
+        }
+      },
+      "id": "poem_MARTA_27329_20260131_211318"
+    },
+    {
+      "type": "theme",
+      "name": "watchfulness",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313671",
+      "id": "theme_watchfulness"
+    },
+    {
+      "type": "imagery",
+      "name": "windows glow",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313689",
+      "id": "img_windows_glow"
+    },
+    {
+      "type": "imagery",
+      "name": "empty streets",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313703",
+      "id": "img_empty_streets"
+    },
+    {
+      "type": "imagery",
+      "name": "camera-net hum",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313720",
+      "id": "img_camera-net_hum"
+    },
+    {
+      "type": "imagery",
+      "name": "streetlamps",
+      "usage_count": 2,
+      "created_at": "2026-01-31T21:13:18.313730",
+      "id": "img_streetlamps"
+    },
+    {
+      "type": "imagery",
+      "name": "K-9-2s",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313740",
+      "id": "img_k-9-2s"
+    },
+    {
+      "type": "imagery",
+      "name": "glyphs",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313763",
+      "id": "img_glyphs"
+    },
+    {
+      "type": "imagery",
+      "name": "concrete",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313771",
+      "id": "img_concrete"
+    },
+    {
+      "type": "imagery",
+      "name": "typewriter",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:13:18.313780",
+      "id": "img_typewriter"
+    },
+    {
+      "type": "poem",
+      "title": "Night Shift\nBy Route 8 - North Druid Hills Road",
+      "content": "Again, the streetlight holds the vigil\u2014its glow a hesitant promise  \nAgain, the camera net hums beneath the neon flicker  \nAgain, the pigeons  \n    trace the arcs of surveillance, wings folding secrets  \n\nLantern-like breath spills from glowing windows  \nghostly fingerprints on the glass  \nTemple bells murmur in the electric hum,  \neach prayer a silent pixel in the network  \n\nUnder the Steak & Shake sign,  \na pulp detective flickers on a battered screen,  \nspinning tales the hushed tables cannot hold  \n\nDrawn to the glare, yet craving  \nthe soft dark between each frame.",
+      "route_id": "MARTA_27329",
+      "created_at": "2026-01-31T21:22:45.816140",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.7,
+          "route_type": "bus",
+          "time_of_day": "late_night",
+          "location": "Steak and Shake",
+          "passenger_count": "low"
+        },
+        "loyalty_to_canon": 0.4,
+        "rebellious_mode": "create_new",
+        "audio_files": [
+          "MARTA_27329_2903be62_nova.mp3",
+          "MARTA_27329_2903be62_shimmer.mp3"
+        ],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 13,
+          "stanza_breaks": [
+            4,
+            4,
+            3,
+            2
+          ],
+          "enjambment_lines": [
+            2,
+            3,
+            5,
+            6,
+            9,
+            10,
+            12
+          ],
+          "caesura_lines": [
+            1,
+            4
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 13,
+          "line_lengths": [
+            18,
+            14,
+            5,
+            14,
+            11,
+            8,
+            11,
+            11,
+            7,
+            14,
+            12,
+            8,
+            7
+          ],
+          "avg_line_length": 10.76923076923077,
+          "detected_stanza_breaks": [
+            4,
+            4,
+            3,
+            2
+          ],
+          "total_words": 89
+        },
+        "sound_patterns": {
+          "alliteration_density": "low",
+          "rhyme_type": "none",
+          "repetition_phrases": [
+            "Again"
+          ],
+          "repeated_structures": [
+            "line beginnings with 'Again,'"
+          ],
+          "dominant_sounds": "s, n, h fricatives and nasals"
+        }
+      },
+      "id": "poem_MARTA_27329_20260131_212245"
+    },
+    {
+      "type": "imagery",
+      "name": "camera net",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816243",
+      "id": "img_camera_net"
+    },
+    {
+      "type": "imagery",
+      "name": "neon flicker",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816260",
+      "id": "img_neon_flicker"
+    },
+    {
+      "type": "imagery",
+      "name": "ghostly fingerprints",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816291",
+      "id": "img_ghostly_fingerprints"
+    },
+    {
+      "type": "imagery",
+      "name": "Temple bells",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816304",
+      "id": "img_temple_bells"
+    },
+    {
+      "type": "imagery",
+      "name": "Steak & Shake sign",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816322",
+      "id": "img_steak_&_shake_sign"
+    },
+    {
+      "type": "imagery",
+      "name": "soft dark",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816330",
+      "id": "img_soft_dark"
+    },
+    {
+      "type": "emotion",
+      "name": "yearning",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816352",
+      "id": "emo_yearning"
+    },
+    {
+      "type": "sound_device",
+      "name": "alliteration (light)",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:22:45.816363",
+      "id": "sound_alliteration_(light)"
+    },
+    {
+      "type": "poem",
+      "title": "Northern Routes\nBy Route 8 - North Druid Hills Road",
+      "content": "Under the lantern-like breath of streetlamps  \nan invisible seam splits night and neon  \nwatchful wires whisk  \ndowntown\u2019s pulse  \n\ncameras cling in rusted cages\u2014  \ntheir circuits seduce even the war-weary  \nyet suffocate whispered prayers of pigeons  \n\nK-9-2 growls echo  \nlike puzzled static  \nmemory murmurs in pixelated haze  \nconnected yet stranded in glare  \n\na gumshoe shadow ghosts these corridors  \ntorn between seduction  \nand solitude",
+      "route_id": "MARTA_27329",
+      "created_at": "2026-01-31T21:36:35.686894",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "story_influence": 0.7,
+          "route_type": "bus"
+        },
+        "loyalty_to_canon": 0.4,
+        "rebellious_mode": "create_new",
+        "audio_files": [
+          "MARTA_27329_bf1e427c_nova.mp3",
+          "MARTA_27329_bf1e427c_shimmer.mp3"
+        ],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 14,
+          "stanza_breaks": [
+            4,
+            3,
+            4,
+            3
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3,
+            5,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13
+          ],
+          "caesura_lines": [
+            5
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 14,
+          "line_lengths": [
+            11,
+            10,
+            5,
+            4,
+            9,
+            12,
+            12,
+            3,
+            6,
+            12,
+            9,
+            11,
+            6,
+            4
+          ],
+          "avg_line_length": 8.142857142857142,
+          "detected_stanza_breaks": [
+            4,
+            3,
+            4,
+            3
+          ],
+          "total_words": 62
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [],
+          "repeated_structures": [],
+          "dominant_sounds": "sibilant and plosive consonants (s, p, w)"
+        }
+      },
+      "id": "poem_MARTA_27329_20260131_213635"
+    },
+    {
+      "type": "imagery",
+      "name": "wires",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687012",
+      "id": "img_wires"
+    },
+    {
+      "type": "imagery",
+      "name": "cameras",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687027",
+      "id": "img_cameras"
+    },
+    {
+      "type": "imagery",
+      "name": "static",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687046",
+      "id": "img_static"
+    },
+    {
+      "type": "imagery",
+      "name": "pixelated haze",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687058",
+      "id": "img_pixelated_haze"
+    },
+    {
+      "type": "imagery",
+      "name": "shadow",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687068",
+      "id": "img_shadow"
+    },
+    {
+      "type": "imagery",
+      "name": "corridors",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687079",
+      "id": "img_corridors"
+    },
+    {
+      "type": "imagery",
+      "name": "cages",
+      "usage_count": 1,
+      "created_at": "2026-01-31T21:36:35.687089",
+      "id": "img_cages"
     }
   ],
   "edges": [
@@ -7652,6 +8411,726 @@
     {
       "type": "uses_sound_device",
       "source": "poem_MARTA_27448_20260131_185945",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "theme_visibility_vs_invisibility",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "theme_temporal_decay",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_night_camera\u2019s_red_eye",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_neon_spine",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_pigeons_scattering_like_static",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_cracked_sidewalks",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_k-9-2_patrol_units",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_fractured_clock_in_glass_pane",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_surveillance_wires",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_infrared_tracings",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_blurred_silhouette",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "img_pulse_of_the_underbelly",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "emo_lonely",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "emo_anxious",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_internal_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_slant_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_anaphora",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27339_20260131_200616",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "theme_memory",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "theme_freedom",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "theme_duality",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "theme_tension",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_glowing_windows",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_lantern-like_breath_of_streetlamps",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_homunculus_scribbled_in_margins",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_hush_that_blooms",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_brick_walls",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_alleys",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_pulp_detective",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_skin_of_memory",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_unspoken_prayers",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "img_shadow_and_light",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "emo_contemplative",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "emo_unsettled",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "sound_anaphora",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_205809",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "theme_routine",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "theme_watchfulness",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_windows_glow",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_empty_streets",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_camera-net_hum",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_streetlamps",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_k-9-2s",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_pigeons",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_homunculus",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_glyphs",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_concrete",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "img_typewriter",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "emo_uneasy",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "emo_watchful",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "emo_isolated",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_anaphora",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_211318",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "theme_longing",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_streetlight",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_camera_net",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_neon_flicker",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_pigeons",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_glowing_windows",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_ghostly_fingerprints",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_temple_bells",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_pulp_detective",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_steak_&_shake_sign",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "img_soft_dark",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "emo_isolated",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "emo_yearning",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_alliteration_(light)",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_anaphora",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_212245",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "theme_technology",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "theme_memory",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_streetlamps",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_neon",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_wires",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_cameras",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_pigeons",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_static",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_pixelated_haze",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_shadow",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_corridors",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "img_cages",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "emo_lonely",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "emo_alienated",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_213635",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27329_20260131_213635",
       "target": "sound_onomatopoeia",
       "key": 0
     }

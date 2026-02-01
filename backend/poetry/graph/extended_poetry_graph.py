@@ -98,7 +98,7 @@ class ExtendedPoetryGraph:
             poem_id,
             type="poem",
             title=title,
-            text=text,
+            content=text,
             route_id=route_id,
             created_at=datetime.now().isoformat(),
             narrative_role=narrative_role,
