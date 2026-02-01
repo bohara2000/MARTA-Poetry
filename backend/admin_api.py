@@ -163,11 +163,51 @@ async def mark_poems_as_extension(
 async def remove_poem(poem_id: str, graph: ExtendedPoetryGraph = Depends(get_graph)):
     """Remove a poem from the graph."""
     try:
+        if not graph.graph.has_node(poem_id):
+            raise HTTPException(status_code=404, detail=f"Poem {poem_id} not found")
+
+        node_data = graph.graph.nodes[poem_id]
+        if node_data.get("type") != "poem":
+            raise HTTPException(status_code=404, detail=f"Node {poem_id} is not a poem")
+
+        audio_deleted = 0
+        audio_missing = 0
+        audio_errors = []
+
+        audio_files = node_data.get("metadata", {}).get("audio_files", [])
+        if audio_files:
+            possible_audio_dirs = [
+                Path("audio"),
+                Path(__file__).parent / "audio",
+                Path.cwd() / "audio",
+            ]
+            audio_dir = next((path for path in possible_audio_dirs if path.exists()), Path("audio"))
+
+            for filename in audio_files:
+                try:
+                    file_path = Path(filename)
+                    if not file_path.is_absolute():
+                        file_path = audio_dir / filename
+
+                    if file_path.exists():
+                        file_path.unlink()
+                        audio_deleted += 1
+                    else:
+                        audio_missing += 1
+                except Exception as audio_error:
+                    audio_errors.append(str(audio_error))
+
         if graph.remove_poem(poem_id, cleanup_orphaned_entities=True):
             graph.save_graph()
-            return {"message": f"Successfully removed poem {poem_id}"}
-        else:
-            raise HTTPException(status_code=404, detail=f"Poem {poem_id} not found")
+            response = {
+                "message": f"Successfully removed poem {poem_id}",
+                "audio_deleted": audio_deleted,
+                "audio_missing": audio_missing
+            }
+            if audio_errors:
+                response["audio_errors"] = audio_errors
+            return response
+        raise HTTPException(status_code=500, detail=f"Failed to remove poem {poem_id}")
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to remove poem: {e}")
 

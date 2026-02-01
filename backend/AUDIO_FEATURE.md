@@ -90,6 +90,21 @@ Delete audio file(s) for a poem.
 **Query Parameters:**
 - `voice` (optional): Specific voice to delete. If omitted, deletes all voices.
 
+## Integrated Poem Deletion
+
+When you delete a poem via the admin interface or API, all associated audio files are automatically removed. For details, see [Poem Deletion Feature](../../DELETE_POEMS_FEATURE.md).
+
+**Endpoint**: `DELETE /api/narrative/remove-poem/{poem_id}`
+
+**Response includes**:
+```json
+{
+  "message": "Successfully removed poem poem_id",
+  "audio_deleted": 3,
+  "audio_missing": 0
+}
+```
+
 ## Integrated Poetry Generation
 
 The `/api/poetry` endpoint now supports an optional `include_audio` parameter:
@@ -178,6 +193,11 @@ To upgrade to ElevenLabs for even better quality:
 - Occasionally Azure OpenAI returns empty content with `finish_reason=length`
 - Retry logic automatically handles this
 - If persistent, check prompt length and token limits
+
+### Audio files not deleted when poem deleted
+- Audio files are automatically cleaned up via the delete endpoint
+- If files remain, check the `backend/audio/` directory permissions
+- Manual cleanup: `rm backend/audio/{poem_id}_*.mp3`
 
 ### Frontend receives HTML instead of JSON
 - Ensure Vite proxy is configured in `vite.config.js`

@@ -57,10 +57,13 @@ Knowledge graph representing:
 
 ### User Interface
 Responsive web interface built with React/Vite:
-- Poetry browser and explorer
+- Poetry browser and explorer with search and filtering
 - Route visualization
 - Real-time poetry generation with customizable parameters
 - Admin interface for managing core poems and route personalities
+- Batch operations (delete, mark as core/extension)
+- Audio generation and playback controls
+- Poem deletion with automatic audio cleanup
 
 ---
 
@@ -108,9 +111,10 @@ The project uses a Python-based backend with Flask/FastAPI serving a React front
 
 ## Next Steps
 1. Expand narrative constraints and story threads for richer poetry generation.
-2. Implement audio generation (text-to-speech) for spoken poetry.
+2. Implement audio generation (text-to-speech) for spoken poetry. ✓ **DONE** - See [Audio Feature](../backend/AUDIO_FEATURE.md)
 3. Optimize AI API costs through response caching and batch processing.
 4. Deploy to Azure with containerization (Docker).
 5. Add user authentication and poem favorites/collections.
 6. Implement real-time GTFS updates to trigger new poetry generation.
-7. Create admin dashboard for narrative management and route personality tuning.
+7. Create admin dashboard for narrative management and route personality tuning. ✓ **DONE** - See PoemManager UI
+8. Implement poem deletion with automatic audio cleanup. ✓ **DONE** - See [Poem Deletion Feature](../DELETE_POEMS_FEATURE.md)

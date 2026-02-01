@@ -129,6 +129,32 @@ MARTA-Poetry/
 └── bicep/           # Azure infrastructure
 ```
 
+## Key Features
+
+### Poem Management
+- **Generate Poems**: Create AI-generated poetry for MARTA routes based on personality and narrative
+- **Audio Generation**: Convert poems to engaging audio narration with multiple voice options
+- **Batch Operations**: Mark multiple poems as core, extensions, or delete them
+- **Search and Filter**: Find poems by title, route, content, or narrative role
+
+### Narrative Framework
+- **Core Narrative**: Designate canonical poems that form the core narrative
+- **Extensions**: Create narrative extensions that build on core poems
+- **Relationships**: Track thematic connections between poems
+- **Entity Tracking**: Manage themes, imagery, emotions, and sound devices
+
+### Admin Interface
+- Poetry Manager for viewing and organizing poems
+- Audio controls for playback and regeneration
+- Narrative status monitoring
+- Batch delete functionality with audio cleanup
+
+## Documentation
+
+- [Audio Generation Feature](backend/AUDIO_FEATURE.md) - Text-to-speech implementation details
+- [Poem Deletion Feature](DELETE_POEMS_QUICKSTART.md) - How to delete poems and audio files
+- [Technical Details](DELETE_POEMS_FEATURE.md) - Architecture and API details
+
 ## TODO
 * Add core poems, potentially as a knowledge graph 
 

@@ -20,6 +20,8 @@ const PoemManager = () => {
   const [audioLoading, setAudioLoading] = useState(false);
   const [selectedVoice, setSelectedVoice] = useState('nova');
   const [availableVoices, setAvailableVoices] = useState([]);
+  const [deleting, setDeleting] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
     loadPoems();
@@ -272,6 +274,84 @@ const PoemManager = () => {
       }
     } catch (err) {
       alert('Failed to mark poems as extensions');
+    }
+  };
+
+  const deletePoem = async (poemId) => {
+    try {
+      setDeleting(true);
+      const response = await fetch(`${API_BASE}/api/narrative/remove-poem/${poemId}`, {
+        method: 'DELETE'
+      });
+      
+      if (response.ok) {
+        const result = await response.json();
+        const message = `Deleted poem. Audio files removed: ${result.audio_deleted}`;
+        if (result.audio_missing > 0) {
+          alert(`${message} (${result.audio_missing} files not found)`);
+        } else {
+          alert(message);
+        }
+        await loadPoems();
+        setSelectedPoem(null);
+        setShowDetailPanel(false);
+      } else {
+        const error = await response.json();
+        alert(`Error: ${error.detail}`);
+      }
+    } catch (err) {
+      alert('Failed to delete poem: ' + err.message);
+    } finally {
+      setDeleting(false);
+      setShowDeleteConfirm(false);
+    }
+  };
+
+  const batchDeletePoems = async () => {
+    if (selectedPoems.length === 0) return;
+    
+    if (!window.confirm(`Are you sure you want to delete ${selectedPoems.length} poem(s)? This will also remove all associated audio files.`)) {
+      return;
+    }
+    
+    try {
+      setDeleting(true);
+      let deletedCount = 0;
+      let totalAudioDeleted = 0;
+      const errors = [];
+      
+      for (const poemId of selectedPoems) {
+        try {
+          const response = await fetch(`${API_BASE}/api/narrative/remove-poem/${poemId}`, {
+            method: 'DELETE'
+          });
+          
+          if (response.ok) {
+            const result = await response.json();
+            deletedCount++;
+            totalAudioDeleted += result.audio_deleted || 0;
+          } else {
+            const error = await response.json();
+            errors.push(`${poemId}: ${error.detail}`);
+          }
+        } catch (err) {
+          errors.push(`${poemId}: ${err.message}`);
+        }
+      }
+      
+      let message = `Deleted ${deletedCount} of ${selectedPoems.length} poems. Audio files removed: ${totalAudioDeleted}`;
+      if (errors.length > 0) {
+        message += `\n\nErrors: ${errors.join(', ')}`;
+      }
+      alert(message);
+      
+      await loadPoems();
+      setSelectedPoems([]);
+      setBatchMode(false);
+    } catch (err) {
+      alert('Error during batch deletion: ' + err.message);
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -595,15 +675,52 @@ const PoemManager = () => {
             Generate Similar Poem
           </button>
           <button
+            onClick={() => setShowDeleteConfirm(true)}
+            disabled={deleting}
+            className="w-full px-3 py-2 bg-red-600 text-white text-sm rounded hover:bg-red-700 disabled:bg-gray-400"
+          >
+            {deleting ? 'Deleting...' : 'Delete Poem'}
+          </button>
+          <button
             onClick={() => {
               setSelectedPoem(null);
               setShowDetailPanel(false);
+              setShowDeleteConfirm(false);
             }}
             className="w-full px-3 py-2 bg-gray-100 text-gray-700 text-sm rounded hover:bg-gray-200"
           >
             Close
           </button>
         </div>
+        
+        {/* Delete Confirmation */}
+        {showDeleteConfirm && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div className="bg-white rounded-lg p-6 max-w-sm shadow-lg">
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                Delete Poem?
+              </h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Are you sure you want to delete <span className="font-medium">{selectedPoem.title}</span>? This will also remove all associated audio files. This action cannot be undone.
+              </p>
+              <div className="flex gap-3 justify-end">
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="px-4 py-2 bg-gray-200 text-gray-800 text-sm rounded hover:bg-gray-300"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => deletePoem(selectedPoem.id)}
+                  disabled={deleting}
+                  className="px-4 py-2 bg-red-600 text-white text-sm rounded hover:bg-red-700 disabled:bg-gray-400"
+                >
+                  {deleting ? 'Deleting...' : 'Delete'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     ) : (
       <div className="text-center text-gray-500">
@@ -728,18 +845,27 @@ const PoemManager = () => {
                   Selected: {selectedPoems.length} poems
                 </span>
                 {selectedPoems.length > 0 && (
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-2 flex-wrap gap-2">
                     <button
                       onClick={batchMarkAsCore}
-                      className="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700"
+                      disabled={deleting}
+                      className="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700 disabled:bg-gray-400"
                     >
                       Mark as Core
                     </button>
                     <button
                       onClick={batchMarkAsExtension}
-                      className="px-3 py-1 bg-purple-600 text-white text-sm rounded hover:bg-purple-700"
+                      disabled={deleting}
+                      className="px-3 py-1 bg-purple-600 text-white text-sm rounded hover:bg-purple-700 disabled:bg-gray-400"
                     >
                       Mark as Extension
+                    </button>
+                    <button
+                      onClick={batchDeletePoems}
+                      disabled={deleting}
+                      className="px-3 py-1 bg-red-600 text-white text-sm rounded hover:bg-red-700 disabled:bg-gray-400"
+                    >
+                      {deleting ? 'Deleting...' : 'Delete'}
                     </button>
                   </div>
                 )}
