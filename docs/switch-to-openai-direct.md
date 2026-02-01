@@ -34,12 +34,16 @@ This guide provides step-by-step instructions for switching from Azure OpenAI AP
 
 ### Step 2: Update `config.py`
 
-**Current state**: Loads Azure OpenAI credentials
+**Current state**: Loads Azure OpenAI credentials (including optional titles deployment)
 ```python
 AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 AZURE_OPENAI_DEPLOYMENT_NAME = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME")
 AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-12-01-preview")
+AZURE_OPENAI_API_KEY_TITLES = os.getenv("AZURE_OPENAI_API_KEY_TITLES", AZURE_OPENAI_API_KEY)
+AZURE_OPENAI_ENDPOINT_TITLES = os.getenv("AZURE_OPENAI_ENDPOINT_TITLES", AZURE_OPENAI_ENDPOINT)
+AZURE_OPENAI_DEPLOYMENT_NAME_TITLES = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME_TITLES", "gpt-4o")
+AZURE_OPENAI_API_VERSION_TITLES = os.getenv("AZURE_OPENAI_API_VERSION_TITLES", AZURE_OPENAI_API_VERSION)
 ```
 
 **After migration**: Will use OpenAI direct credentials

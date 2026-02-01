@@ -40,6 +40,14 @@ The goal is to create a system that interacts with a core canon of poems that se
    DEFAULT_STORY_INFLUENCE=0.7
    OPENAI_API_KEY=your_OPENAI_API_KEY_here
    AZURE_OPENAI_API_KEY=your_AZURE_OPENAI_API_KEY_here
+   AZURE_OPENAI_ENDPOINT=your_AZURE_OPENAI_ENDPOINT_here
+   AZURE_OPENAI_DEPLOYMENT_NAME=your_poem_generation_deployment
+   AZURE_OPENAI_API_VERSION=2024-12-01-preview
+   # Optional: separate deployment for title generation (recommended)
+   AZURE_OPENAI_API_KEY_TITLES=your_AZURE_OPENAI_API_KEY_for_titles
+   AZURE_OPENAI_ENDPOINT_TITLES=your_AZURE_OPENAI_ENDPOINT_for_titles
+   AZURE_OPENAI_DEPLOYMENT_NAME_TITLES=gpt-4o
+   AZURE_OPENAI_API_VERSION_TITLES=2024-12-01-preview
    ```
 
 5. **Download GTFS data (required for automatic stop extraction):**

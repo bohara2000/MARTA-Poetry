@@ -14,7 +14,16 @@ import os
 import asyncio
 from datetime import datetime
 from typing import Dict, Any, Optional
-from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION
+from config import (
+    AZURE_OPENAI_API_KEY,
+    AZURE_OPENAI_ENDPOINT,
+    AZURE_OPENAI_DEPLOYMENT_NAME,
+    AZURE_OPENAI_API_VERSION,
+    AZURE_OPENAI_API_KEY_TITLES,
+    AZURE_OPENAI_ENDPOINT_TITLES,
+    AZURE_OPENAI_DEPLOYMENT_NAME_TITLES,
+    AZURE_OPENAI_API_VERSION_TITLES,
+)
 import random
 
 
@@ -44,7 +53,7 @@ class PoemGenerationRequest(BaseModel):
 
 def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, Any] = None) -> str:
     """
-    Generate a creative title for a poem based on its content, route, and context.
+    Generate a creative title for a poem using AI analysis of the poem's content.
     
     Args:
         poem_text: The generated poem text
@@ -54,82 +63,67 @@ def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, 
     Returns:
         Formatted title string in the format "Title\nBy [Route Name]"
     """
-    # Extract key imagery and themes from the first few lines of the poem
-    lines = poem_text.strip().split('\n')[:3]  # Use first 3 lines for inspiration
-    
-    # Time-based title templates
-    time_titles = {
-        'morning_rush': [
-            "Dawn's Commute", "First Light Journey", "Morning Pulse", "Sunrise Transit",
-            "Early Hours", "Coffee & Rails", "Awakening Streets"
-        ],
-        'afternoon': [
-            "Midday Rhythms", "Afternoon Flow", "Sunlit Passages", "Noon Journey",
-            "Between Hours", "City at Rest", "Quiet Transit"
-        ],
-        'evening_rush': [
-            "Homeward Bound", "Evening Exodus", "Twilight Routes", "After Work",
-            "Golden Hour Transit", "End of Day", "Dusk Journey"
-        ],
-        'late_night': [
-            "Midnight Runner", "Night Shift", "After Hours", "Nocturne",
-            "City Sleeps", "Lone Journey", "Night Transit"
-        ]
-    }
-    
-    # Context-based titles
-    passenger_titles = {
-        'high': ['Crowded Car', 'Rush Hour Symphony', 'Packed Journey', 'Full House'],
-        'medium': ['Steady Flow', 'Regular Route', 'Balanced Journey', 'Even Pace'],
-        'low': ['Empty Seats', 'Quiet Ride', 'Solitary Journey', 'Sparse Transit']
-    }
-    
-    # Route-specific inspiration (based on route name keywords)
-    route_keywords = {
-        'peachtree': ['Urban Pulse', 'City Heartbeat', 'Downtown Dreams', 'Concrete Poetry'],
-        'memorial': ['Memory Lane', 'Remembered Routes', 'Historical Journey', 'Past & Present'],
-        'downtown': ['Metro Pulse', 'City Center', 'Urban Core', 'Central Lines'],
-        'airport': ['Sky Connector', 'Terminal Journey', 'Flight Path', 'Departure Point'],
-        'north': ['Northbound', 'Upward Journey', 'Northern Routes', 'Heading North'],
-        'south': ['Southward', 'Southern Trail', 'Downward Journey', 'Southern Routes'],
-        'east': ['Eastbound', 'Rising Sun Route', 'Eastern Trail', 'Morning Path'],
-        'west': ['Westbound', 'Setting Sun Route', 'Western Trail', 'Evening Path']
-    }
-    
-    # Try to pick a contextual title first
-    title = None
-    
-    # Time-based title
-    if context and context.get('time_of_day'):
-        time_key = context['time_of_day']
-        if time_key in time_titles:
-            title = random.choice(time_titles[time_key])
-    
-    # If no time-based title, try passenger count
-    if not title and context and context.get('passenger_count'):
-        passenger_key = context['passenger_count']
-        if passenger_key in passenger_titles:
-            title = random.choice(passenger_titles[passenger_key])
-    
-    # If no context title, try route-based
-    if not title and route_name:
-        route_lower = route_name.lower()
-        for keyword, titles in route_keywords.items():
-            if keyword in route_lower:
-                title = random.choice(titles)
-                break
-    
-    # Fallback to generic poetic titles
-    if not title:
-        generic_titles = [
+    try:
+        # Initialize Azure OpenAI client for title generation
+        client = AzureOpenAI(
+            azure_endpoint=AZURE_OPENAI_ENDPOINT_TITLES,
+            api_key=AZURE_OPENAI_API_KEY_TITLES,
+            api_version=AZURE_OPENAI_API_VERSION_TITLES
+        )
+        
+        # Create a prompt to analyze the poem and generate a title
+        analysis_prompt = f"""Analyze this MARTA transit poem and generate ONE short, evocative title that captures its essence and themes.
+
+POEM:
+{poem_text}
+
+Requirements:
+- Title should be 2-4 words maximum
+- Must reflect the actual content, imagery, and emotions of the poem
+- Should feel poetic and memorable
+- Can reference specific imagery or themes from the poem
+- Must work as a standalone title (not dependent on knowing it's about transit)
+
+Respond with ONLY the title, nothing else. No quotes, no explanation."""
+        
+        # Call the API to generate the title
+        response = client.chat.completions.create(
+            model=AZURE_OPENAI_DEPLOYMENT_NAME_TITLES,
+            messages=[
+                {
+                    "role": "user",
+                    "content": analysis_prompt
+                }
+            ],
+            max_completion_tokens=50
+        )
+        
+        # Extract the title from the response
+        title = response.choices[0].message.content.strip()
+        
+        # Clean up the title (remove quotes if present)
+        title = title.strip('"\'')
+        
+        # Check if title is empty and raise error if so
+        if not title or title.isspace():
+            raise ValueError("AI returned empty title")
+        
+        # Format as "Title\nBy [Route Name]"
+        return f"{title}\nBy {route_name}"
+        
+    except Exception as e:
+        # Fallback to template-based approach if AI generation fails
+        print(f"⚠ AI title generation failed: {type(e).__name__}: {e}")
+        
+        # Fallback generic titles
+        fallback_titles = [
             'Transit Dreams', 'Urban Journey', 'City Lines', 'Moving Forward',
             'Route Poetry', 'Street Symphony', 'Public Transit', 'City Pulse',
-            'Metro Musings', 'Transit Tales', 'Urban Rhythms', 'Journey Song'
+            'Metro Musings', 'Transit Tales', 'Urban Rhythms', 'Journey Song',
+            'Rails & Reverie', 'Metro Pulse', "Commuter's Song", 'Urban Poetry'
         ]
-        title = random.choice(generic_titles)
-    
-    # Format as "Title\nBy [Route Name]"
-    return f"{title}\nBy {route_name}"
+        title = random.choice(fallback_titles)
+        return f"{title}\nBy {route_name}"
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
