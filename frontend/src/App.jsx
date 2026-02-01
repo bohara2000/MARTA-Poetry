@@ -137,7 +137,10 @@ function App() {
       </button>
 
       <PoetryDisplay poemData={poemData} />
-      <AudioControls />
+      <AudioControls 
+        poemText={poemData?.poem || poemData?.text}
+        routeId={selectedRoute}
+      />
     </div>
   );
 }

@@ -4,6 +4,9 @@ backend/poems/route*.json
 backend/data/poetry_graph_backup_133225.json
 backend/reports/*.txt
 
+# Ignore generated audio files
+backend/audio/*.mp3
+
 # Ignore the entire virtual environment directory
 backend/venv/
 

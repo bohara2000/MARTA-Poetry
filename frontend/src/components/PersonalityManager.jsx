@@ -125,9 +125,12 @@ const PersonalityManager = () => {
     }
 
     const routeData = availableRoutes[selectedNewRoute];
+    const routeMode = getRouteMode(routeData);
     setEditing({
       name: routeData ? routeData.name : `Route ${selectedNewRoute}`,
       description: 'New route description',
+      route_mode: routeMode,
+      major_stops: [],
       loyalty_to_canon: 0.5,
       rebellious_mode: null,
       sound_preferences: {},
@@ -246,6 +249,16 @@ const PersonalityManager = () => {
     return 'Very Low (Extreme Rebel)';
   };
 
+  const getRouteMode = (route) => {
+    if (!route) return 'bus';
+    if (route.route_mode) return route.route_mode;
+    const routeType = String(route.route_type || '').trim();
+    if (['0', '1', '2'].includes(routeType)) return 'train';
+    const shortName = String(route.short_name || '').toUpperCase();
+    if (['RED', 'BLUE', 'GREEN', 'GOLD'].includes(shortName)) return 'train';
+    return 'bus';
+  };
+
   if (loading) return <div className="personality-manager loading">Loading...</div>;
   if (error) return <div className="personality-manager error">{error}</div>;
 
@@ -276,9 +289,14 @@ const PersonalityManager = () => {
             >
               <div className="route-header">
                 <h3>{personality.name}</h3>
-                <span className={`type-badge type-${getPersonalityType(personality).toLowerCase()}`}>
-                  {getPersonalityType(personality)}
-                </span>
+                <div className="badge-group">
+                  <span className={`type-badge type-${getPersonalityType(personality).toLowerCase()}`}>
+                    {getPersonalityType(personality)}
+                  </span>
+                  <span className={`mode-badge mode-${(personality.route_mode || 'bus').toLowerCase()}`}>
+                    {personality.route_mode || 'bus'}
+                  </span>
+                </div>
               </div>
               <p className="route-description">{personality.description}</p>
               <div className="route-stats">
@@ -288,6 +306,10 @@ const PersonalityManager = () => {
                 </div>
                 <div className="stat">
                   <span className="stat-label">Mode:</span>
+                  <span className="stat-value">{personality.route_mode || 'bus'}</span>
+                </div>
+                <div className="stat">
+                  <span className="stat-label">Rebel Mode:</span>
                   <span className="stat-value">{personality.rebellious_mode || 'None'}</span>
                 </div>
               </div>
@@ -320,6 +342,11 @@ const PersonalityManager = () => {
               <div className="detail-section">
                 <h3>Rebellious Mode</h3>
                 <p>{personalities[selectedRoute].rebellious_mode || 'None (Balanced)'}</p>
+              </div>
+
+              <div className="detail-section">
+                <h3>Route Mode</h3>
+                <p>{personalities[selectedRoute].route_mode || 'bus'}</p>
               </div>
 
               <div className="detail-section">
@@ -398,6 +425,17 @@ const PersonalityManager = () => {
                       {mode.label} - {mode.description}
                     </option>
                   ))}
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label>Route Mode</label>
+                <select
+                  value={editing.route_mode || 'bus'}
+                  onChange={(e) => updateEditing('route_mode', e.target.value)}
+                >
+                  <option value="bus">Bus</option>
+                  <option value="train">Train</option>
                 </select>
               </div>
 
@@ -497,7 +535,7 @@ const PersonalityManager = () => {
                   .filter(([routeId, route]) => !route.has_personality)
                   .map(([routeId, route]) => (
                     <option key={routeId} value={routeId}>
-                      {route.name}
+                      {route.name} ({getRouteMode(route)})
                     </option>
                   ))
                 }

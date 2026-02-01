@@ -38,22 +38,31 @@ def load_available_routes():
                         route_id = f"MARTA_{route_data.get('route_id', '')}"
                         route_short = route_data.get('route_short_name', '')
                         route_long = route_data.get('route_long_name', '')
+                        route_type = str(route_data.get('route_type', '')).strip()
                         
                         # Create human-friendly name
                         if route_short and route_long:
-                            friendly_name = f"Route {route_short} - {route_long}"
+                            if route_short == route_long:
+                                friendly_name = f"{route_short} Line"
+                            else:
+                                friendly_name = f"Route {route_short} - {route_long}"
                         elif route_short:
                             friendly_name = f"Route {route_short}"
                         elif route_long:
                             friendly_name = route_long
                         else:
                             friendly_name = route_id
+
+                        # Derive mode (GTFS: 3 = bus, 1 = subway/metro, 0/2 = rail/tram)
+                        route_mode = "train" if route_type in {"0", "1", "2"} else "bus"
                         
                         routes[route_id] = {
                             "id": route_id,
                             "name": friendly_name,
                             "short_name": route_short,
-                            "long_name": route_long
+                            "long_name": route_long,
+                            "route_type": route_type,
+                            "route_mode": route_mode
                         }
     except Exception as e:
         print(f"Error loading routes: {e}")

@@ -269,5 +269,24 @@
       "isolation": 0.75,
       "transition": 0.4
     }
+  },
+  "MARTA_27448": {
+    "name": "Route BLUE - BLUE",
+    "description": "Lovecraftian comedian - loves to make the hairs on the back of passengers necks stand on end. It will take them where they need to go, but they may be changed for it.",
+    "route_mode": "train",
+    "major_stops": [
+      "FIVE POINTS STATION",
+      "HAMILTON E HOLMES STATION",
+      "WEST LAKE STATION",
+      "ASHBY STATION",
+      "VINE CITY STATION"
+    ],
+    "loyalty_to_canon": 0.8,
+    "rebellious_mode": "create_new",
+    "sound_preferences": {
+      "repetition": 0.85,
+      "alliteration": 0.45
+    },
+    "theme_affinities": {}
   }
 }

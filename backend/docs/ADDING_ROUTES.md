@@ -66,7 +66,7 @@ Each route needs a complete personality profile with these fields:
 
 **Automatic GTFS Integration:** When creating a route through the UI or API, the system automatically:
 - Fetches the 5 most frequently-served stops from GTFS data
-- Sets `route_mode` to "bus" (or "train" if applicable)
+- Sets `route_mode` to "bus" or "train" based on GTFS route type (train lines are labeled as train in the dropdown)
 - Validates all required fields
 
 No need to manually specify stops - they're extracted from real transit data!

@@ -103,6 +103,12 @@
   margin-bottom: 0.5rem;
 }
 
+.badge-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .route-header h3 {
   margin: 0;
   font-size: 1rem;
@@ -115,6 +121,25 @@
   border-radius: 0.25rem;
   font-weight: 600;
   text-transform: uppercase;
+}
+
+.mode-badge {
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.mode-bus {
+  background: #e0f2fe;
+  color: #075985;
+}
+
+.mode-train {
+  background: #ede9fe;
+  color: #5b21b6;
 }
 
 .type-traditionalist {

@@ -1,12 +1,14 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI, Query, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse
+from pydantic import BaseModel
 from poetry.graph import initialize_graph, get_poetry_graph, ExtendedPoetryGraph, PoemAnalyzer
 from poetry.prompt_builder import PromptBuilder, load_route_personality
 from poetry.personality_routes import router as personality_router
 from admin_api import router as admin_router
 from openai import AzureOpenAI
+from audio_service import get_audio_service
 import csv
 import os
 import asyncio
@@ -14,6 +16,19 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 from config import AZURE_OPENAI_API_KEY, AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_DEPLOYMENT_NAME, AZURE_OPENAI_API_VERSION
 import random
+
+
+# ==================== PYDANTIC MODELS ====================
+
+class AudioGenerationRequest(BaseModel):
+    """Request model for audio generation."""
+    route: str
+    poem_text: str
+    voice: Optional[str] = None
+    speed: float = 0.9
+
+
+# ==================== HELPER FUNCTIONS ====================
 
 def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, Any] = None) -> str:
     """
@@ -199,42 +214,60 @@ async def generate_poem_for_route(
     )
     
     try:
-        # For reasoning models like o1-mini, we need different parameters
-        if "o1" in AZURE_OPENAI_DEPLOYMENT_NAME.lower():
-            response = client.chat.completions.create(
-                model=AZURE_OPENAI_DEPLOYMENT_NAME,
-                messages=[
-                    {
-                        "role": "user",
-                        "content": f"You are a poet creating distinctive voices for MARTA transit routes. {prompt}"
-                    }
-                ]
-            )
-        else:
-            response = client.chat.completions.create(
-                model=AZURE_OPENAI_DEPLOYMENT_NAME,
-                messages=[
-                    {
-                        "role": "system",
-                        "content": "You are a poet creating distinctive voices for MARTA transit routes. Follow the constraints provided exactly."
-                    },
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ],
-                max_completion_tokens=2000  # Increased to allow for reasoning + content
-            )
-        
-        poem_text = response.choices[0].message.content
-        if poem_text:
-            poem_text = poem_text.strip()
-        else:
-            poem_text = ""
-            
+        poem_text = ""
+        for attempt in range(2):
+            print(f"🧮 Prompt length (chars): {len(prompt)}")
+            # For reasoning models like o1-mini, we need different parameters
+            if "o1" in AZURE_OPENAI_DEPLOYMENT_NAME.lower():
+                response = client.chat.completions.create(
+                    model=AZURE_OPENAI_DEPLOYMENT_NAME,
+                    messages=[
+                        {
+                            "role": "user",
+                            "content": f"You are a poet creating distinctive voices for MARTA transit routes. {prompt}"
+                        }
+                    ],
+                    max_completion_tokens=2000
+                )
+            else:
+                response = client.chat.completions.create(
+                    model=AZURE_OPENAI_DEPLOYMENT_NAME,
+                    messages=[
+                        {
+                            "role": "system",
+                            "content": "You are a poet creating distinctive voices for MARTA transit routes. Follow the constraints provided exactly."
+                        },
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
+                    max_completion_tokens=2000
+                )
+
+            choice = response.choices[0]
+            poem_text = choice.message.content
+            if poem_text:
+                poem_text = poem_text.strip()
+            else:
+                poem_text = ""
+
+            if poem_text:
+                break
+
+            finish_reason = getattr(choice, "finish_reason", None)
+            print("⚠️ Empty poem response, retrying...")
+            print(f"🔎 Empty response details: finish_reason={finish_reason}")
+            print(f"🔎 Raw choice keys: {list(choice.model_dump().keys()) if hasattr(choice, 'model_dump') else 'unavailable'}")
+            try:
+                print(f"🔎 Choice dump: {choice.model_dump() if hasattr(choice, 'model_dump') else str(choice)}")
+            except Exception as dump_error:
+                print(f"🔎 Choice dump failed: {dump_error}")
+            await asyncio.sleep(0.5)
+
         if not poem_text:
             return {"error": "Generated poem is empty"}
-        
+
     except Exception as e:
         return {"error": str(e)}
     
@@ -313,7 +346,8 @@ async def get_poetry(
     route_type: str = Query('bus', pattern='^(bus|train)$'),
     time_of_day: Optional[str] = Query(None, pattern='^(morning_rush|afternoon|evening_rush|late_night)$'),
     location: Optional[str] = None,
-    passenger_count: Optional[str] = Query(None, pattern='^(low|medium|high)$')
+    passenger_count: Optional[str] = Query(None, pattern='^(low|medium|high)$'),
+    include_audio: bool = Query(False, description="Whether to generate audio for the poem")
 ):
     """
     Generate a poem based on the route, route type, and story influence.
@@ -325,6 +359,7 @@ async def get_poetry(
         time_of_day: Optional context for time
         location: Optional context for location
         passenger_count: Optional context for passenger density
+        include_audio: Whether to generate audio for the poem
     """
     try:
         # Format route_id consistently
@@ -351,6 +386,20 @@ async def get_poetry(
         
         if "error" in result:
             raise HTTPException(status_code=500, detail=result["error"])
+        
+        # Generate audio if requested
+        if include_audio and "poem" in result:
+            try:
+                audio_service = get_audio_service()
+                audio_result = audio_service.generate_audio(
+                    poem_text=result["poem"],
+                    route_id=route_id
+                )
+                if audio_result.get("success"):
+                    result["audio"] = audio_result
+            except Exception as audio_error:
+                print(f"⚠️  Audio generation failed (continuing without it): {str(audio_error)}")
+                # Don't fail the entire request if audio generation fails
             
         return result
         
@@ -421,3 +470,116 @@ def get_routes(type: str = Query('bus', enum=['bus', 'train'])):
 @app.get("/")
 def root():
     return {"message": "MARTA Poetry API is running."}
+
+
+# ==================== AUDIO ENDPOINTS ====================
+
+@app.post("/api/audio/generate")
+async def generate_poem_audio(request: AudioGenerationRequest):
+    """
+    Generate audio from poem text using OpenAI TTS.
+    
+    Args:
+        request: AudioGenerationRequest with route, poem_text, voice, speed
+        
+    Returns:
+        Audio generation result with URL and metadata
+    """
+    try:
+        # Format route_id consistently
+        if not request.route.startswith("MARTA_"):
+            route_id = f"MARTA_{request.route}"
+        else:
+            route_id = request.route
+        
+        audio_service = get_audio_service()
+        result = audio_service.generate_audio(
+            poem_text=request.poem_text,
+            route_id=route_id,
+            voice=request.voice,
+            speed=request.speed
+        )
+        
+        if not result.get("success"):
+            raise HTTPException(status_code=500, detail=result.get("error", "Failed to generate audio"))
+        
+        return result
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/audio/{poem_id}/{voice}")
+async def get_poem_audio(poem_id: str, voice: str):
+    """
+    Retrieve generated audio file for a poem.
+    
+    Args:
+        poem_id: The poem identifier
+        voice: The voice used for generation
+        
+    Returns:
+        Audio file (MP3) or error response
+    """
+    try:
+        audio_service = get_audio_service()
+        audio_file = audio_service.get_audio_file(poem_id, voice)
+        
+        if not audio_file:
+            raise HTTPException(status_code=404, detail="Audio file not found")
+        
+        return FileResponse(
+            path=audio_file,
+            media_type="audio/mpeg",
+            filename=f"{poem_id}_{voice}.mp3"
+        )
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.get("/api/audio/voices")
+async def get_available_voices():
+    """
+    Get list of available voices for audio generation.
+    
+    Returns:
+        List of available voice names
+    """
+    try:
+        audio_service = get_audio_service()
+        return {
+            "voices": audio_service.list_available_voices(),
+            "default": audio_service.default_voice,
+            "description": "Select engaging voices for poetry narration"
+        }
+    except ValueError as e:
+        # OPENAI_API_KEY not set
+        raise HTTPException(status_code=500, detail=f"OpenAI configuration error: {str(e)}")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Failed to get voices: {str(e)}")
+
+
+@app.delete("/api/audio/{poem_id}")
+async def delete_poem_audio(poem_id: str, voice: Optional[str] = Query(None)):
+    """
+    Delete audio file(s) for a poem.
+    
+    Args:
+        poem_id: The poem identifier
+        voice: Optional specific voice. If None, deletes all voices
+        
+    Returns:
+        Deletion status
+    """
+    try:
+        audio_service = get_audio_service()
+        result = audio_service.delete_audio(poem_id, voice)
+        
+        if not result.get("success"):
+            raise HTTPException(status_code=400, detail=result.get("error"))
+        
+        return result
+        
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
