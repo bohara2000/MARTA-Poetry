@@ -288,5 +288,30 @@
       "alliteration": 0.45
     },
     "theme_affinities": {}
+  },
+  "MARTA_27334": {
+    "name": "Route 19 - Clairmont Road / Howard Avenue",
+    "description": "New route description",
+    "route_mode": "bus",
+    "major_stops": [
+      "DECATUR STATION - BUS LOOP",
+      "VA HOSPITAL",
+      "CHAMBLEE STATION - EAST LOOP",
+      "EAST LAKE STATION - SOUTH LOOP",
+      "NEW PEACHTREE RD @ HARDEE AVE"
+    ],
+    "loyalty_to_canon": 0.95,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "onomatopoeia": 0.5,
+      "alliteration": 0.8,
+      "assonance": 0.7
+    },
+    "theme_affinities": {
+      "truth": 0.5,
+      "books": 0.5,
+      "reading": 0.5,
+      "devotion": 0.5
+    }
   }
 }

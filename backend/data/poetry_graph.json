@@ -5074,7 +5074,9 @@
         },
         "loyalty_to_canon": 0.35,
         "rebellious_mode": "invert",
-        "audio_files": [],
+        "audio_files": [
+          "MARTA_27339_c28ff88e_nova.mp3"
+        ],
         "structure": {
           "form": "free_verse",
           "line_count": 12,
