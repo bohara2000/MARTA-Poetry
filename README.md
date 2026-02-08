@@ -48,6 +48,20 @@ The goal is to create a system that interacts with a core canon of poems that se
    AZURE_OPENAI_ENDPOINT_TITLES=your_AZURE_OPENAI_ENDPOINT_for_titles
    AZURE_OPENAI_DEPLOYMENT_NAME_TITLES=gpt-4o
    AZURE_OPENAI_API_VERSION_TITLES=2024-12-01-preview
+   # Route awareness + live context services (optional)
+   GTFS_RT_ENABLED=false
+   GTFS_RT_VEHICLE_POSITIONS_URL=your_gtfs_rt_vehicle_positions_url
+   GTFS_RT_API_KEY=your_gtfs_rt_api_key
+   RAIL_RT_ENABLED=false
+   RAIL_RT_URL=your_marta_rail_rt_url
+   RAIL_RT_API_KEY=your_rail_rt_api_key
+   MAPBOX_ENABLED=false
+   MAPBOX_ACCESS_TOKEN=your_mapbox_token
+   MAPBOX_TRAFFIC_ENABLED=false
+   NWS_ENABLED=false
+   SOLAR_EVENTS_ENABLED=false
+   HISTORY_CONTEXT_ENABLED=false
+   HISTORY_CONTEXT_LOCATION_HINT=Atlanta, GA
    ```
 
 5. **Download GTFS data (required for automatic stop extraction):**
@@ -136,12 +150,19 @@ MARTA-Poetry/
 - **Audio Generation**: Convert poems to engaging audio narration with multiple voice options
 - **Batch Operations**: Mark multiple poems as core, extensions, or delete them
 - **Search and Filter**: Find poems by title, route, content, or narrative role
+- **Prompt Review**: View the stored prompt used to generate a poem
 
 ### Narrative Framework
 - **Core Narrative**: Designate canonical poems that form the core narrative
 - **Extensions**: Create narrative extensions that build on core poems
 - **Relationships**: Track thematic connections between poems
 - **Entity Tracking**: Manage themes, imagery, emotions, and sound devices
+
+### Route Awareness + Live Context
+- **Context Service**: `GET /api/context?route_id=MARTA_5` returns live anchors, signals, history, and cache metadata
+- **Live Anchors**: GTFS-Realtime + Mapbox reverse geocoding (neighborhood/place/POI)
+- **Signals**: Weather (NWS), traffic (GTFS-RT congestion or Mapbox), solar events (sunrise/sunset), service alerts
+- **History Layer**: Wikipedia/Wikidata snippets with a persistent SQLite cache
 
 ### Admin Interface
 - Poetry Manager for viewing and organizing poems
@@ -154,6 +175,7 @@ MARTA-Poetry/
 - [Audio Generation Feature](backend/AUDIO_FEATURE.md) - Text-to-speech implementation details
 - [Poem Deletion Feature](DELETE_POEMS_QUICKSTART.md) - How to delete poems and audio files
 - [Technical Details](DELETE_POEMS_FEATURE.md) - Architecture and API details
+- [Route Awareness Spec](docs/route-awareness-spec.md) - Live context and prompt-level constraints
 
 ## TODO
 * Add core poems, potentially as a knowledge graph 

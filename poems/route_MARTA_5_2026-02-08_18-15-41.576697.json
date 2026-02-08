@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T18:15:41.576697",
+  "story_influence": 0.9,
+  "poem": "I breathe diesel in the morning hush,  \nmy ribs of steel warmed by asphalt sun.  \nAt Peachtree & Ellis, I cradle anxious faces  \nbehind a veil of hydraulic doors\u2014  \neach hiss a ritual, each mirror a sentry.  \n\nThe rules of the station are simple:  \nstep behind the whitened line,  \nremove your hood, pocket your secrets.  \nPigeons are polite but firm:  \nthey strut along curbs, tallying heartbeats  \nwith clipped nods, their pale eyes  \nreflecting the lenses that watch us all.  \n\nOverhead, camera networks hum like distant constellations,  \nlenses swiveling, charting the cartography of my belly.  \nData pulses through braided cables  \nbeneath every bench, beneath every tire,  \nas the system does not give a damn  \nabout your name or your fear\u2014only your position,  \nyour departure, your arrival.  \n\nI roll toward Peachtree Center,  \nengines murmuring prayers of monitoring and repairing.  \nBehind my dashboard, a console glows\u2014  \na miniature altar of blinking lights  \nwhere control and authority convene.  \nThrough my windscreen, traffic signals blink  \nin solemn procession, red and amber  \nlike ritual embers in a low-lit shrine.  \n\nAt the stop, a K-9-2 pads the pavement,  \nits muzzle a metallic whisper,  \nsniffing data trails invisible to most.  \nA child leans against my side,  \npressing a small palm to my cool metal  \nas if to commune with the hidden cosmos  \nrouted through my circuits.  \n\nI ferry ghosts and daydreams down Peachtree & North Avenue:  \na procession of watchers and the watched.  \nEach passenger a latent legend\u2014  \nthe woman with earphones weaving secret vibrations,  \nthe man in a rumpled coat cataloging every reflection.  \nWe are bound by silent protocols,  \ntransmitting pulses through seat springs  \nand the odor of exhaust.  \n\nBeyond the windows, the city exhales in coded rhythms,  \ncurbs and intersections forming a secret lattice.  \nI am both vessel and vessel\u2019s keeper,  \nan arbiter of passage in a realm  \nwhere the ordinary hums with latent myth.  \nHere, beneath every fare and every footstep,  \na subterranean ecosystem thrives\u2014  \nwired, watched, and strangely alive.",
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

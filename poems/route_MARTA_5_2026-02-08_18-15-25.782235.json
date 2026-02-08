@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T18:15:25.782235",
+  "story_influence": 0.1,
+  "poem": "I am a diesel-breathing serpent coiled at Peachtree & Ellis,  \nhydraulic doors hissing like hidden incantations.  \nMy rubber soles grip asphalt runes,  \neach curb a threshold to undercity realms  \nwhere commuters become exiles of gravity.\n\nYou board beneath the flicker of a tired streetlamp,  \nflesh and bone pressed to vinyl seats that hide secret hollows\u2014  \nescape routes inscribed in the metal ribs underneath.  \nYour mirror reflects a world slipping sideways:  \nfaces etched with stories of flight,  \neyes that have learned to sing of disorder.\n\nAt Peachtree Center, the steering wheel is a wand  \nwreathed in diesel mist.  \nI carve intersections into a map of escape tunnels,  \na labyrinth of pavement whispers.  \nThe system does not give a damn\u2014  \nso we wage our freedom in each stoplight\u2019s amber glare.  \nFull of surprises, my engine growls a manifesto  \nagainst the gray handshake of predictability.\n\nAround Peachtree & North Avenue, beneath traffic signals\u2019 blinking watch,  \nconcrete fractures bloom with bioluminescent moss\u2014  \nan uncanny forest breathing between tire grooves.  \nHere, chaos is law, and every reflection in my side mirror  \nis a gateway to a hidden cosmos.  \n\nYou lean close, press your palm to cold metal;  \nyou sense the revolt pulsing under my chassis.  \nThis is a networked earth that won\u2019t be contained\u2014  \na riot of wheels forging freedom  \non curbs, in cracks, in the heartbeat of the city.",
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

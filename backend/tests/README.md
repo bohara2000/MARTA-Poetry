@@ -52,6 +52,122 @@ python3 tests/test_realtime_adherence.py
 - Validates dynamic story influence behavior
 - Integration testing with full context stack
 
+### test_context_contract.py
+Context service contract validation.
+
+**Usage:**
+```bash
+cd backend
+python3 tests/test_context_contract.py
+```
+
+**Purpose:**
+- Validates context-service response schema
+- Provides sample payload coverage
+
+### test_context_endpoint.py
+Integration tests for the `/api/context` endpoint.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_context_endpoint.py
+```
+
+**Purpose:**
+- Validates endpoint response schema
+- Ensures missing params return validation errors
+
+### test_history_context_service.py
+Historical context fetcher tests.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_history_context_service.py
+```
+
+**Purpose:**
+- Validates Wikipedia/Wikidata parsing and result combination
+
+### test_weather_service.py
+Unit tests for the NWS weather fetcher.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_weather_service.py
+```
+
+**Purpose:**
+- Validates NWS point and forecast fetch flow
+- Verifies error handling for bad responses
+
+### test_gtfs_realtime_service.py
+Unit tests for GTFS-Realtime vehicle positions.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_gtfs_realtime_service.py
+```
+
+**Purpose:**
+- Validates parsing of a GTFS-RT vehicle positions feed
+- Ensures missing URL returns None
+
+### test_rail_realtime_service.py
+Unit tests for rail realtime REST service.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_rail_realtime_service.py
+```
+
+**Purpose:**
+- Validates rail realtime response handling
+- Ensures missing URL returns None
+
+### test_mapbox_geocode_service.py
+Unit tests for Mapbox reverse geocoding.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_mapbox_geocode_service.py
+```
+
+**Purpose:**
+- Validates Mapbox feature parsing
+- Ensures missing token returns None
+
+### test_mapbox_traffic_service.py
+Unit tests for Mapbox traffic congestion.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_mapbox_traffic_service.py
+```
+
+**Purpose:**
+- Validates traffic congestion parsing
+- Ensures missing token returns None
+
+### test_solar_events_service.py
+Unit tests for solar events (sunrise/sunset) service.
+
+**Usage:**
+```bash
+cd backend
+python3 -m pytest tests/test_solar_events_service.py
+```
+
+**Purpose:**
+- Validates solar events parsing
+- Ensures bad API status returns None
+
 ## Running Tests
 
 ### Run All Tests

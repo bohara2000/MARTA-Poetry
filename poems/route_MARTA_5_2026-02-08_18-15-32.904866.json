@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T18:15:32.904866",
+  "story_influence": 0.5,
+  "poem": null,
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

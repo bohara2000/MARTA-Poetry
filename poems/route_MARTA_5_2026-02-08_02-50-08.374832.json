@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T02:50:08.374832",
+  "story_influence": 0.5,
+  "poem": "I breathe in diesel dreams at Peachtree & Ellis,  \nsteel lungs pulsing beneath a morning haze.  \nRubber heartbeats echo on asphalt arteries,  \neach roll a question: am I carriage or creature?\n\nWithin my underbelly, mechanical roaches scuttle  \nalong fuel lines\u2014gleaming steel carapaces  \nsurveying valves, monitoring and repairing  \nthe silent machinery of weight and motion.\n\nAt Peachtree Center, you board under hydraulic sighs,  \nyour fingertips grazing cold handrails  \nthat glow with slimy mold\u2014biofilm networks  \nwhispering of fungi that stitch me to the street.\n\nBetween curb and curb, rats hold counsel  \nwith the third rail\u2019s distant hum\u2014  \nan uncanny duet of order vs disorder,  \none wire singing in tunnels I will never taste.\n\nInside, cameras blink cyclopean eyes,  \ncounting bodies in the claustrophobic hush.  \nYou wear isolation like your jacket,  \nyet we glide together through this hidden system.\n\nI carry confessions in my mirrors,  \nfractured faces pressed to glass,  \ntheir breath ghosting shapes  \nthat shimmer with uncertain longing.\n\nAt Peachtree & North Avenue, the turn signals  \nflare like ancient beacons\u2014  \nsummoning lost souls, resurrecting the jumpers  \ninto the traffic\u2019s pulsing living web.\n\nHere, the streets are veins of invisible slime molds  \nspreading nutrients to forgotten corners,  \neach intersection a node in our interconnected ecosystem,  \nfull of surprises lurking in plain sight.\n\nI am more than diesel and steel,  \nI am the liminal beast of the boulevard,  \ntracing lines between order and chaos,  \nbearing your secrets in every mile.",
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

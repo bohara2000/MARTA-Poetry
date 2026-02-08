@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T02:50:20.010731",
+  "story_influence": 0.9,
+  "poem": "I breathe the city\u2019s diaphragm through diesel lungs,  \neach shudder of my engine a heartbeat against asphalt veins.  \nMirrors swivel like sentinels;  \nhydraulic joints sigh under the weight of concrete gravity.  \n\nAt Peachtree & Ellis, sodium lamps flicker in coded pulses.  \nLenses elsewhere\u2014camera networks\u2014track your outline,  \nstitch your posture into a tapestry of data_technology.  \nThe rules of the station are simple:  \nstand behind the yellow stripe, surrender your pass, move on.  \nBut beyond the hush of glass and wire, the system does not give a damn.  \n\nUnder Peachtree Center\u2019s canopy, my doors exhale in metal relief.  \nPigeons circle above the curb\u2014polite but firm\u2014  \npecking at discarded fragments of encrypted receipts.  \nK-9-2 units trot the pavement, tails high as mechanical totems,  \nsniffing for anomalies in the air, charged with control_and_authority.  \n\nAt Peachtree & North Avenue, traffic signals compose a liturgy of green and red.  \nI idle, monitoring and repairing my own friction\u2014steering wheel tuned  \nto the secrets whispered by rubber against tar.  \nOverhead, the surveillance grid hums like a distant storm,  \nmapping your heartbeat, cataloging your pause.  \n\nI carry you through hidden ecosystems:  \nunderneath surveillance towers lie corridors of humming circuits,  \nbeneath each curb a scroll of rules written in scuffed paint.  \nI am both vessel and witness,  \nsuspended between diesel breath and data pulse,  \nguarding the silent myth that thrives just beneath the city\u2019s skin.",
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

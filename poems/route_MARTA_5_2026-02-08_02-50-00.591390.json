@@ -1,0 +1,30 @@
+{
+  "route": "MARTA_5",
+  "timestamp": "2026-02-08T02:50:00.591390",
+  "story_influence": 0.1,
+  "poem": "I rumble awake on diesel breath,  \nopening my hydraulic jaws at Peachtree & Ellis\u2014  \na secret gateway where asphalt petals crack open  \nand a chorus of footsteps spills like water.  \n\nYou climb aboard, carried in my rubber ribcage,  \nfaces pressed close enough to hear heartbeats  \nclanging against steering wheels and mirrors that tremble  \nwith uncanny reflections of a city unbound.  \n\nI know hidden veins beneath the curb\u2014escape routes  \netched in oil stains and graffiti-scratched steel.  \nHere, chaos is a companion: traffic lights stutter  \nas if surprised by their own colors,  \nand the pavement hums rebellion.  \n\nAt Peachtree Center, I breathe in neon haze,  \nmy underfloor belly alive with secret circuits  \nwhere commuters shed rules like old skin  \nand slip into hidden spaces between stops\u2014  \na networked earth that won\u2019t be contained.  \n\nThe system does not give a damn,  \nso I twist through intersections with wild intent,  \neach turn a defiant rune carved in concrete.  \nFull of surprises, I carry your unrest,  \nyour hunger for disorder, your silent plea for freedom.  \n\nBy Peachtree & North Avenue,  \nmy doors close on possibility and revolt.  \nIn the mirror\u2019s edge you glimpse another world\u2014  \na gleaming mosaic of escape,  \nwhere even diesel can taste like dawn.",
+  "traits": {
+    "name": "Route 5 - Peachtree",
+    "description": "Downtown's pulse, alliterative and alive",
+    "route_mode": "bus",
+    "major_stops": [
+      "Peachtree & Ellis",
+      "Peachtree Center",
+      "Peachtree & North Avenue",
+      "Peachtree & 5th",
+      "Peachtree Station"
+    ],
+    "loyalty_to_canon": 0.9,
+    "rebellious_mode": null,
+    "sound_preferences": {
+      "alliteration": 0.95,
+      "repetition": 0.8,
+      "internal_rhyme": 0.4
+    },
+    "theme_affinities": {
+      "urban_life": 0.95,
+      "morning": 0.8,
+      "transition": 0.7
+    }
+  }
+}

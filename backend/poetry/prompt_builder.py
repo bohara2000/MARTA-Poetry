@@ -94,6 +94,10 @@ class PromptBuilder:
         # Step 3: Merge narrative stance constraints with personality-based constraints
         if narrative_data:
             constraints = self._merge_narrative_constraints(constraints, narrative_data)
+
+        # Step 3b: Ensure affinities and preferences are represented
+        constraints = self._apply_theme_affinities(constraints, personality)
+        constraints = self._apply_sound_preferences(constraints, personality)
         
         # Step 4: Build the complete prompt
         prompt = self._assemble_prompt(
@@ -397,6 +401,62 @@ class PromptBuilder:
         merged["rationale"] = f"{old_rationale} | Narrative stance ({stance}): {tone}"
         
         return merged
+
+    def _apply_sound_preferences(
+        self,
+        constraints: Dict[str, Any],
+        personality: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        sound_preferences = personality.get("sound_preferences", {})
+        if not isinstance(sound_preferences, dict) or not sound_preferences:
+            return constraints
+
+        preferred = [
+            name for name, _score in sorted(
+                sound_preferences.items(), key=lambda x: x[1], reverse=True
+            )
+        ]
+
+        merged = constraints.copy()
+        existing = merged.get("sound_devices", [])
+        if not isinstance(existing, list):
+            existing = []
+
+        combined = list(existing)
+        for name in preferred:
+            if name not in combined:
+                combined.append(name)
+
+        merged["sound_devices"] = combined[:3]
+        return merged
+
+    def _apply_theme_affinities(
+        self,
+        constraints: Dict[str, Any],
+        personality: Dict[str, Any]
+    ) -> Dict[str, Any]:
+        theme_affinities = personality.get("theme_affinities", {})
+        if not isinstance(theme_affinities, dict) or not theme_affinities:
+            return constraints
+
+        preferred = [
+            name for name, _score in sorted(
+                theme_affinities.items(), key=lambda x: x[1], reverse=True
+            )
+        ]
+
+        merged = constraints.copy()
+        existing = merged.get("themes", [])
+        if not isinstance(existing, list):
+            existing = []
+
+        combined = list(existing)
+        for name in preferred:
+            if name not in combined:
+                combined.append(name)
+
+        merged["themes"] = combined[:5]
+        return merged
     
     def _select_with_affinity(
         self,
@@ -458,6 +518,10 @@ class PromptBuilder:
         if narrative_stance:
             stance_instructions = self._get_stance_instructions(narrative_stance, narrative_data)
             narrative_section = f"\n\nNARRATIVE STANCE ({narrative_stance.upper()}):\n{stance_instructions}"
+
+        route_awareness_section = ""
+        if context:
+            route_awareness_section = self._build_route_awareness_section(context)
         
         # Build context text if available
         context_text = ""
@@ -485,7 +549,7 @@ Relationship to The Homunculus (the poetry canon):
 - {constraints.get('rationale', 'Creating distinctive voice')}
 
 Creative Constraints from the Knowledge Graph:
-{constraint_text}{narrative_section}{context_text}
+{constraint_text}{narrative_section}{route_awareness_section}{context_text}
 
 Voice Guidelines:
 - Write in free verse (no formal meter or rhyme scheme)
@@ -499,6 +563,150 @@ Voice Guidelines:
 Write the poem now:"""
         
         return prompt
+
+    def _build_route_awareness_section(self, context: Dict[str, Any]) -> str:
+        live_anchor = context.get("live_anchor") if isinstance(context.get("live_anchor"), dict) else {}
+        fallback_anchors = context.get("fallback_anchors") if isinstance(context.get("fallback_anchors"), list) else []
+        history = context.get("history") if isinstance(context.get("history"), list) else []
+        signals = context.get("signals") if isinstance(context.get("signals"), dict) else {}
+
+        anchor_lines = self._build_anchor_lines(live_anchor, fallback_anchors)
+        history_lines = self._build_history_lines(history)
+        signal_lines = self._build_signal_lines(signals)
+
+        if not anchor_lines and not history_lines and not signal_lines:
+            return ""
+
+        lines = ["\n\nRoute Awareness Context:"]
+
+        if anchor_lines:
+            lines.append("Anchors (use 2–3, mostly metaphorical; 1 explicit max):")
+            lines.extend(anchor_lines)
+
+        if history_lines:
+            lines.append("Historical memory (paraphrase 1–2 cues):")
+            lines.extend(history_lines)
+
+        if signal_lines:
+            lines.append("Live style modulation (do not mention data sources):")
+            lines.extend(signal_lines)
+
+        lines.append("Guardrails:")
+        lines.append("- No route IDs.")
+        lines.append("- At least one concrete place cue.")
+        lines.append("- Mode fidelity (bus vs rail imagery).")
+        lines.append("- Live data changes style, not literal facts.")
+
+        return "\n".join(lines)
+
+    def _build_anchor_lines(
+        self,
+        live_anchor: Dict[str, Any],
+        fallback_anchors: List[str]
+    ) -> List[str]:
+        lines: List[str] = []
+
+        labeled = [
+            ("Neighborhood", live_anchor.get("neighborhood")),
+            ("Place", live_anchor.get("place")),
+            ("POI", live_anchor.get("poi")),
+        ]
+
+        for label, value in labeled:
+            if isinstance(value, str) and value.strip():
+                lines.append(f"- {label}: {value}")
+
+        for anchor in fallback_anchors:
+            if len(lines) >= 3:
+                break
+            if not isinstance(anchor, str) or not anchor.strip():
+                continue
+            lines.append(f"- Anchor: {anchor}")
+
+        return lines
+
+    def _build_history_lines(self, history: List[Dict[str, Any]]) -> List[str]:
+        lines: List[str] = []
+        for item in history[:2]:
+            if not isinstance(item, dict):
+                continue
+            title = item.get("title")
+            snippet = item.get("snippet")
+            if isinstance(title, str) and isinstance(snippet, str) and title.strip() and snippet.strip():
+                lines.append(f"- {title}: {snippet}")
+        return lines
+
+    def _build_signal_lines(self, signals: Dict[str, Any]) -> List[str]:
+        lines: List[str] = []
+
+        weather_summary = self._summarize_weather_signal(signals.get("weather"))
+        if weather_summary:
+            lines.append(
+                f"- Weather tone: {weather_summary} → rain = internal rhyme/assonance; clear = sharper consonants/alliteration; wind = breathy cadence"
+            )
+
+        traffic_summary = self._summarize_traffic_signal(signals.get("traffic"))
+        if traffic_summary:
+            lines.append(
+                f"- Traffic rhythm: {traffic_summary} → congested = tighter, clipped lines; smooth/light = longer, flowing lines"
+            )
+
+        solar_summary = self._summarize_solar_signal(signals.get("solar"))
+        if solar_summary:
+            lines.append(
+                f"- Solar tone: {solar_summary} → dawn = bright/anticipatory; night = hushed/ritual"
+            )
+
+        alerts_summary = self._summarize_alerts_signal(signals.get("alerts"))
+        if alerts_summary:
+            lines.append(f"- Alerts: {alerts_summary} → add fragmentation/abrupt turns")
+
+        return lines
+
+    def _summarize_weather_signal(self, weather: Any) -> Optional[str]:
+        if not isinstance(weather, dict):
+            return None
+        forecast = weather.get("forecast", {})
+        if isinstance(forecast, dict):
+            periods = forecast.get("properties", {}).get("periods", [])
+            if isinstance(periods, list) and periods:
+                period = periods[0]
+                if isinstance(period, dict):
+                    short_forecast = period.get("shortForecast") or period.get("name")
+                    if isinstance(short_forecast, str) and short_forecast.strip():
+                        return short_forecast
+        return None
+
+    def _summarize_traffic_signal(self, traffic: Any) -> Optional[str]:
+        if isinstance(traffic, str) and traffic.strip():
+            return traffic
+        if isinstance(traffic, dict):
+            level = traffic.get("level") or traffic.get("congestion") or traffic.get("summary")
+            if isinstance(level, str) and level.strip():
+                return level
+        return None
+
+    def _summarize_solar_signal(self, solar: Any) -> Optional[str]:
+        if not isinstance(solar, dict):
+            return None
+        phase = solar.get("phase")
+        if isinstance(phase, str) and phase.strip():
+            return phase
+        sunrise = solar.get("sunrise")
+        sunset = solar.get("sunset")
+        if isinstance(sunrise, str) or isinstance(sunset, str):
+            parts = []
+            if isinstance(sunrise, str):
+                parts.append(f"sunrise {sunrise}")
+            if isinstance(sunset, str):
+                parts.append(f"sunset {sunset}")
+            return ", ".join(parts)
+        return None
+
+    def _summarize_alerts_signal(self, alerts: Any) -> Optional[str]:
+        if isinstance(alerts, list) and alerts:
+            return f"{len(alerts)} active alert(s)"
+        return None
     
     def _get_stance_instructions(
         self,

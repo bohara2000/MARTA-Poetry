@@ -289,7 +289,8 @@ async def get_poem_details(poem_id: str, graph: ExtendedPoetryGraph = Depends(ge
             "route_name": route_name or route_id,
             "narrative_role": node_data.get("narrative_role"),
             "created_at": node_data.get("created_at"),
-            "audio_files": node_data.get("metadata", {}).get("audio_files", [])
+            "audio_files": node_data.get("metadata", {}).get("audio_files", []),
+            "prompt": node_data.get("metadata", {}).get("prompt")
         }
         
         return poem_info

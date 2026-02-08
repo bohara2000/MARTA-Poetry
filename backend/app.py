@@ -5,6 +5,8 @@ from fastapi.responses import JSONResponse, FileResponse
 from pydantic import BaseModel
 from poetry.graph import initialize_graph, get_poetry_graph, ExtendedPoetryGraph, PoemAnalyzer
 from poetry.prompt_builder import PromptBuilder, load_route_personality
+from services.context_service import ContextService
+from services.context_contract import validate_context_payload
 from poetry.personality_routes import router as personality_router
 from admin_api import router as admin_router, get_graph
 from openai import AzureOpenAI
@@ -51,7 +53,12 @@ class PoemGenerationRequest(BaseModel):
 
 # ==================== HELPER FUNCTIONS ====================
 
-def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, Any] = None) -> str:
+def generate_creative_title(
+    poem_text: str,
+    route_name: str,
+    context: Dict[str, Any] = None,
+    metadata: Dict[str, Any] = None
+) -> str:
     """
     Generate a creative title for a poem using AI analysis of the poem's content.
     
@@ -63,6 +70,50 @@ def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, 
     Returns:
         Formatted title string in the format "Title\nBy [Route Name]"
     """
+    def _format_token(value: str) -> str:
+        return value.replace("_", " ").strip().title()
+
+    def _best_anchor(ctx: Dict[str, Any]) -> Optional[str]:
+        if not ctx:
+            return None
+        live_anchor = ctx.get("live_anchor") if isinstance(ctx.get("live_anchor"), dict) else {}
+        for key in ("neighborhood", "place", "poi"):
+            value = live_anchor.get(key)
+            if isinstance(value, str) and value.strip():
+                return value
+        fallback_anchors = ctx.get("fallback_anchors") if isinstance(ctx.get("fallback_anchors"), list) else []
+        for anchor in fallback_anchors:
+            if isinstance(anchor, str) and anchor.strip():
+                return anchor
+        return None
+
+    def _fallback_title(meta: Dict[str, Any], ctx: Dict[str, Any]) -> str:
+        imagery = [_format_token(i) for i in (meta or {}).get("imagery", []) if isinstance(i, str)]
+        themes = [_format_token(t) for t in (meta or {}).get("themes", []) if isinstance(t, str)]
+        emotions = [_format_token(e) for e in (meta or {}).get("emotions", []) if isinstance(e, str)]
+        anchor = _best_anchor(ctx)
+
+        primary = imagery[0] if imagery else (themes[0] if themes else None)
+        secondary = None
+        if anchor:
+            secondary = _format_token(anchor)
+        elif emotions:
+            secondary = emotions[0]
+        elif len(themes) > 1:
+            secondary = themes[1]
+
+        if primary and secondary:
+            title = f"{primary} {secondary}"
+        elif primary:
+            title = primary
+        else:
+            title = "City Echo"
+
+        words = title.split()
+        if len(words) > 5:
+            title = " ".join(words[:5])
+        return title
+
     try:
         # Initialize Azure OpenAI client for title generation
         client = AzureOpenAI(
@@ -71,20 +122,29 @@ def generate_creative_title(poem_text: str, route_name: str, context: Dict[str, 
             api_version=AZURE_OPENAI_API_VERSION_TITLES
         )
         
-        # Create a prompt to analyze the poem and generate a title
-        analysis_prompt = f"""Analyze this MARTA transit poem and generate ONE short, evocative title that captures its essence and themes.
+        themes_hint = ", ".join((metadata or {}).get("themes", [])[:4]) if metadata else ""
+        imagery_hint = ", ".join((metadata or {}).get("imagery", [])[:4]) if metadata else ""
+        emotions_hint = ", ".join((metadata or {}).get("emotions", [])[:3]) if metadata else ""
+        anchor_hint = _best_anchor(context)
 
-POEM:
-{poem_text}
+        analysis_prompt = f"""Generate ONE short, evocative title that matches this poem.
 
-Requirements:
-- Title should be 2-4 words maximum
-- Must reflect the actual content, imagery, and emotions of the poem
-- Should feel poetic and memorable
-- Can reference specific imagery or themes from the poem
-- Must work as a standalone title (not dependent on knowing it's about transit)
+    POEM:
+    {poem_text}
 
-Respond with ONLY the title, nothing else. No quotes, no explanation."""
+    Helpful hints (use at least one concrete noun if present):
+    - Anchors: {anchor_hint or 'none'}
+    - Themes: {themes_hint or 'none'}
+    - Imagery: {imagery_hint or 'none'}
+    - Emotions: {emotions_hint or 'none'}
+
+    Requirements:
+    - 2-5 words max
+    - Must reflect actual content, imagery, or mood
+    - Avoid generic transit words (route, transit, metro, city, journey, urban)
+    - Must stand alone as a title
+
+    Respond with ONLY the title, nothing else. No quotes, no explanation."""
         
         # Call the API to generate the title
         response = client.chat.completions.create(
@@ -107,6 +167,23 @@ Respond with ONLY the title, nothing else. No quotes, no explanation."""
         # Check if title is empty and raise error if so
         if not title or title.isspace():
             raise ValueError("AI returned empty title")
+
+        generic_markers = {
+            "route",
+            "transit",
+            "metro",
+            "city",
+            "urban",
+            "journey",
+            "lines",
+            "poetry",
+            "pulse",
+            "musings",
+            "tales",
+            "song",
+        }
+        if any(marker in title.lower() for marker in generic_markers):
+            title = _fallback_title(metadata or {}, context or {})
         
         # Format as "Title\nBy [Route Name]"
         return f"{title}\nBy {route_name}"
@@ -122,7 +199,7 @@ Respond with ONLY the title, nothing else. No quotes, no explanation."""
             'Metro Musings', 'Transit Tales', 'Urban Rhythms', 'Journey Song',
             'Rails & Reverie', 'Metro Pulse', "Commuter's Song", 'Urban Poetry'
         ]
-        title = random.choice(fallback_titles)
+        title = _fallback_title(metadata or {}, context or {})
         return f"{title}\nBy {route_name}"
 
 @asynccontextmanager
@@ -163,6 +240,17 @@ app.add_middleware(
 app.include_router(personality_router)
 app.include_router(admin_router)
 
+context_service = ContextService()
+
+
+@app.get("/api/context")
+async def get_context(route_id: str = Query(...)):
+    payload = context_service.build_context(route_id)
+    is_valid, errors = validate_context_payload(payload)
+    if not is_valid:
+        raise HTTPException(status_code=500, detail={"errors": errors})
+    return JSONResponse(payload)
+
 async def generate_poem_for_route(
     route_id: str,
     context: Dict[str, Any] = None,
@@ -190,7 +278,20 @@ async def generate_poem_for_route(
     
     # ==================== STEP 2: BUILD PROMPT FROM GRAPH ====================
     prompt_builder = PromptBuilder(graph)
-    
+
+    # Always include live context for route awareness
+    base_context: Dict[str, Any] = context or {}
+    try:
+        live_context = context_service.build_context(route_id)
+    except Exception as e:
+        print(f"⚠️ Failed to build live context: {e}")
+        live_context = {}
+
+    if live_context:
+        context = {**live_context, **base_context}
+    else:
+        context = base_context
+
     # Extract story_influence from context if available
     story_influence = None
     if context and "story_influence" in context:
@@ -221,7 +322,8 @@ async def generate_poem_for_route(
     
     try:
         poem_text = ""
-        for attempt in range(2):
+        for attempt in range(3):
+            max_completion_tokens = 2000 if attempt == 0 else 4000
             print(f"🧮 Prompt length (chars): {len(prompt)}")
             # For reasoning models like o1-mini, we need different parameters
             if "o1" in AZURE_OPENAI_DEPLOYMENT_NAME.lower():
@@ -233,7 +335,7 @@ async def generate_poem_for_route(
                             "content": f"You are a poet creating distinctive voices for MARTA transit routes. {prompt}"
                         }
                     ],
-                    max_completion_tokens=2000
+                    max_completion_tokens=max_completion_tokens
                 )
             else:
                 response = client.chat.completions.create(
@@ -248,7 +350,7 @@ async def generate_poem_for_route(
                             "content": prompt
                         }
                     ],
-                    max_completion_tokens=2000
+                    max_completion_tokens=max_completion_tokens
                 )
 
             choice = response.choices[0]
@@ -279,17 +381,11 @@ async def generate_poem_for_route(
     
     # ==================== STEP 4: ANALYZE POEM ====================
     analyzer = PoemAnalyzer()
-    
-    # Generate creative title
+
     route_name = personality.get('name', route_id)
-    creative_title = generate_creative_title(poem_text, route_name, context)
-    
+
     try:
-        metadata = analyzer.analyze_poem(
-            poem_text,
-            title=creative_title
-        )
-        
+        metadata = analyzer.analyze_poem(poem_text)
     except Exception as e:
         print(f"Analysis failed: {e}, using defaults")
         metadata = {
@@ -300,6 +396,9 @@ async def generate_poem_for_route(
             "structure_metadata": {},
             "sound_metadata": {}
         }
+
+    # Generate creative title using analysis hints
+    creative_title = generate_creative_title(poem_text, route_name, context, metadata)
     
     # ==================== STEP 5: ADD TO GRAPH ====================
     poem_id = f"poem_{route_id}_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
@@ -318,6 +417,7 @@ async def generate_poem_for_route(
             sound_metadata=metadata["sound_metadata"],
             metadata={
                 "context": context,
+                "prompt": prompt,
                 "loyalty_to_canon": personality.get("loyalty_to_canon"),
                 "rebellious_mode": personality.get("rebellious_mode"),
                 "audio_files": []  # Initialize empty audio files list
@@ -337,6 +437,7 @@ async def generate_poem_for_route(
         "route_name": personality.get("name", route_id),
         "title": creative_title,
         "text": poem_text,
+        "prompt": prompt,
         "metadata": metadata,
         "personality": {
             "loyalty_to_canon": personality.get("loyalty_to_canon"),

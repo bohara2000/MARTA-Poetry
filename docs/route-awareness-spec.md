@@ -56,6 +56,26 @@ Live signals modify style, not content:
 - **No detached abstraction**: at least one concrete place cue must appear.
 - **Mode fidelity**: bus imagery for bus routes, rail imagery for rail routes.
 
+## Context Sourcing Decisions
+- **Live anchor precedence**: use live anchor when available; fall back to static anchors when not.
+- **Live location source**: GTFS-Realtime vehicle positions.
+- **Location context**: Mapbox reverse geocoding (temporary).
+- **Historical context**: separate source (Wikipedia/Wikidata preferred).
+- **Quality control**: manual review of historical snippets at start.
+- **Refresh cadence**: once per poem.
+- **Latency target**: under 5 seconds total for lookups.
+- **Caching**:
+	- Reverse-geocode: cache to keep latency under target.
+	- Historical context: persistent cache across restarts.
+	- Re-fetch per poem with cache as the first lookup layer.
+- **Live anchor fields**: capture neighborhood, place name, and POI (use all three with filtering).
+	- **POI filtering**: leave open initially; evaluate later.
+- **Live signals selected**: vehicle positions and service alerts (alerts emphasized for rail modes).
+- **Weather source**: NWS; weather-to-style mapping should be configurable.
+- **Time-of-day source**: solar events (sunrise/sunset).
+- **Traffic source**: use GTFS-RT `congestion_level` if provided; otherwise Mapbox traffic.
+- **Traffic impact**: modulates rhythm and density only.
+
 ## Recommended Route Metadata Extension
 Add to each route personality:
 - `neighborhood_anchors`: list of 6–10 real anchors

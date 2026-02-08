@@ -6,7 +6,7 @@ Add this to your backend.
 """
 
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 from typing import Dict, List, Any, Optional
 import json
 from pathlib import Path
@@ -96,8 +96,8 @@ class RoutePersonality(BaseModel):
         description="Theme affinities (0.0 to 1.0)"
     )
     
-    class Config:
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "name": "Route 5 - Peachtree",
                 "description": "Downtown's pulse, alliterative and alive",
@@ -120,6 +120,7 @@ class RoutePersonality(BaseModel):
                 }
             }
         }
+    )
 
 
 class PersonalitiesResponse(BaseModel):

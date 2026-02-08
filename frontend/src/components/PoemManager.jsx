@@ -22,6 +22,7 @@ const PoemManager = () => {
   const [availableVoices, setAvailableVoices] = useState([]);
   const [deleting, setDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [showPromptDialog, setShowPromptDialog] = useState(false);
 
   useEffect(() => {
     loadPoems();
@@ -550,6 +551,23 @@ const PoemManager = () => {
           </div>
         )}
 
+        <div>
+          <h3 className="text-sm font-medium text-gray-500 mb-2">Prompt:</h3>
+          {selectedPoem.prompt ? (
+            <div className="flex items-center justify-between gap-3 bg-gray-50 p-3 rounded">
+              <span className="text-xs text-gray-600">Stored prompt available</span>
+              <button
+                onClick={() => setShowPromptDialog(true)}
+                className="px-3 py-1 text-xs bg-gray-900 text-white rounded hover:bg-gray-800"
+              >
+                View Prompt
+              </button>
+            </div>
+          ) : (
+            <div className="text-sm text-gray-500 italic">Prompt not available for this poem.</div>
+          )}
+        </div>
+
         {/* Audio Section */}
         <div className="border-t border-gray-200 pt-4">
           <h3 className="text-sm font-medium text-gray-500 mb-3">Audio Narration</h3>
@@ -717,6 +735,25 @@ const PoemManager = () => {
                 >
                   {deleting ? 'Deleting...' : 'Delete'}
                 </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {showPromptDialog && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div className="bg-white rounded-lg p-6 max-w-3xl w-full shadow-lg max-h-[80vh] overflow-hidden">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">Prompt</h3>
+                <button
+                  onClick={() => setShowPromptDialog(false)}
+                  className="text-sm text-gray-500 hover:text-gray-700"
+                >
+                  Close
+                </button>
+              </div>
+              <div className="bg-gray-50 p-4 rounded text-xs whitespace-pre-wrap max-h-[65vh] overflow-y-auto">
+                {selectedPoem.prompt}
               </div>
             </div>
           </div>
