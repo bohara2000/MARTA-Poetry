@@ -23,6 +23,7 @@ const PoemManager = () => {
   const [deleting, setDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showPromptDialog, setShowPromptDialog] = useState(false);
+  const [generating, setGenerating] = useState(false);
 
   useEffect(() => {
     loadPoems();
@@ -141,15 +142,33 @@ const PoemManager = () => {
     }
   };
 
-  const generateNewPoem = async (routeId) => {
+  const generateNewPoem = async (routeId, sourcePoem = null) => {
     try {
+      setGenerating(true);
+      
+      const payload = {
+        route: routeId,
+        story_influence: 0.7
+      };
+      
+      // If generating from a source poem, include its metadata
+      if (sourcePoem) {
+        payload.source_poem_id = sourcePoem.id;
+        if (sourcePoem.relationships?.themes?.length > 0) {
+          payload.source_themes = sourcePoem.relationships.themes;
+        }
+        if (sourcePoem.relationships?.imagery?.length > 0) {
+          payload.source_imagery = sourcePoem.relationships.imagery;
+        }
+        if (sourcePoem.relationships?.emotions?.length > 0) {
+          payload.source_emotions = sourcePoem.relationships.emotions;
+        }
+      }
+      
       const response = await fetch(`${API_BASE}/api/poetry`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          route: routeId,
-          story_influence: 0.7
-        })
+        body: JSON.stringify(payload)
       });
       
       if (response.ok) {
@@ -160,6 +179,8 @@ const PoemManager = () => {
       }
     } catch (err) {
       alert('Failed to generate poem');
+    } finally {
+      setGenerating(false);
     }
   };
 
@@ -177,7 +198,10 @@ const PoemManager = () => {
         // Refresh the selected poem's relationships
         const relationships = await getPoemRelationships(poemId);
         setSelectedPoem(prev => ({ ...prev, relationships }));
+        // Clear the input field
         setNewTheme('');
+        // Also refresh the full poem list to ensure everything is in sync
+        await loadPoems();
         return result;
       } else {
         const error = await response.json();
@@ -185,6 +209,7 @@ const PoemManager = () => {
       }
     } catch (err) {
       alert(`Error adding themes: ${err.message}`);
+
     } finally {
       setAddingTheme(false);
     }
@@ -687,10 +712,11 @@ const PoemManager = () => {
 
         <div className="pt-4 border-t border-gray-200 space-y-2">
           <button
-            onClick={() => generateNewPoem(selectedPoem.route_id)}
-            className="w-full px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700"
+            onClick={() => generateNewPoem(selectedPoem.route_id, selectedPoem)}
+            disabled={generating}
+            className="w-full px-3 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
           >
-            Generate Similar Poem
+            {generating ? 'Generating...' : 'Generate Similar Poem'}
           </button>
           <button
             onClick={() => setShowDeleteConfirm(true)}

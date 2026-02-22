@@ -12,10 +12,11 @@ from admin_api import router as admin_router, get_graph
 from openai import AzureOpenAI
 from audio_service import get_audio_service
 import csv
+import json
 import os
 import asyncio
 from datetime import datetime
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, List
 from config import (
     AZURE_OPENAI_API_KEY,
     AZURE_OPENAI_ENDPOINT,
@@ -49,6 +50,11 @@ class PoemGenerationRequest(BaseModel):
     location: Optional[str] = None
     passenger_count: Optional[str] = None
     include_audio: bool = False
+    # Source poem metadata for "Generate Similar Poem" feature
+    source_poem_id: Optional[str] = None
+    source_themes: Optional[List[str]] = None
+    source_imagery: Optional[List[str]] = None
+    source_emotions: Optional[List[str]] = None
 
 
 # ==================== HELPER FUNCTIONS ====================
@@ -323,10 +329,12 @@ async def generate_poem_for_route(
     try:
         poem_text = ""
         for attempt in range(3):
-            max_completion_tokens = 2000 if attempt == 0 else 4000
+            # Start with 3000 tokens for reasoning models, increase to 5000 on retries
+            max_completion_tokens = 3000 if attempt == 0 else 5000
+            print(f"🧮 Attempt {attempt + 1}/3: max_completion_tokens={max_completion_tokens}")
             print(f"🧮 Prompt length (chars): {len(prompt)}")
-            # For reasoning models like o1-mini, we need different parameters
-            if "o1" in AZURE_OPENAI_DEPLOYMENT_NAME.lower():
+            # For reasoning models like o1-mini or o4, we need different parameters
+            if "o1" in AZURE_OPENAI_DEPLOYMENT_NAME.lower() or "o4" in AZURE_OPENAI_DEPLOYMENT_NAME.lower():
                 response = client.chat.completions.create(
                     model=AZURE_OPENAI_DEPLOYMENT_NAME,
                     messages=[
@@ -360,18 +368,24 @@ async def generate_poem_for_route(
             else:
                 poem_text = ""
 
+            # Log token usage for reasoning models
+            if hasattr(response, 'usage'):
+                usage = response.usage
+                print(f"📊 Token usage - Prompt: {usage.prompt_tokens}, Completion: {usage.completion_tokens}")
+                if hasattr(usage, 'completion_tokens_details') and usage.completion_tokens_details:
+                    details = usage.completion_tokens_details
+                    if hasattr(details, 'reasoning_tokens') and details.reasoning_tokens:
+                        print(f"📊 Reasoning tokens: {details.reasoning_tokens}")
+
             if poem_text:
+                print(f"✅ Poem generated successfully on attempt {attempt + 1}")
                 break
 
             finish_reason = getattr(choice, "finish_reason", None)
-            print("⚠️ Empty poem response, retrying...")
+            print(f"⚠️ Empty poem response on attempt {attempt + 1}/3, retrying...")
             print(f"🔎 Empty response details: finish_reason={finish_reason}")
-            print(f"🔎 Raw choice keys: {list(choice.model_dump().keys()) if hasattr(choice, 'model_dump') else 'unavailable'}")
-            try:
-                print(f"🔎 Choice dump: {choice.model_dump() if hasattr(choice, 'model_dump') else str(choice)}")
-            except Exception as dump_error:
-                print(f"🔎 Choice dump failed: {dump_error}")
-            await asyncio.sleep(0.5)
+            if attempt < 2:  # Don't sleep on last attempt
+                await asyncio.sleep(0.5)
 
         if not poem_text:
             return {"error": "Generated poem is empty"}
@@ -478,6 +492,16 @@ async def generate_poetry(
             context["location"] = request.location
         if request.passenger_count:
             context["passenger_count"] = request.passenger_count
+        
+        # Add source poem metadata if provided (for "Generate Similar Poem")
+        if request.source_poem_id:
+            context["source_poem_id"] = request.source_poem_id
+        if request.source_themes:
+            context["source_themes"] = request.source_themes
+        if request.source_imagery:
+            context["source_imagery"] = request.source_imagery
+        if request.source_emotions:
+            context["source_emotions"] = request.source_emotions
             
         # Generate the poem
         result = await generate_poem_for_route(route_id, context, graph)
@@ -610,8 +634,21 @@ async def get_route_personality(route_id: str):
 @app.get("/api/routes")
 def get_routes(type: str = Query('bus', enum=['bus', 'train'])):
     """
-    Return a list of available bus or train routes from the GTFS feed.
+    Return a list of available bus or train routes from the GTFS feed that have personalities configured.
+    Only routes with personality configurations are eligible for poem generation.
     """
+    # Load configured personalities
+    personalities_path = os.path.join(os.path.dirname(__file__), "data", "route_personalities.json")
+    try:
+        if os.path.exists(personalities_path):
+            with open(personalities_path, 'r') as f:
+                personalities = json.load(f)
+                # Build a set of personality keys for quick lookup
+                personality_keys = set(personalities.keys())
+    except Exception as e:
+        print(f"Warning: Failed to load personalities: {e}")
+        personality_keys = set()
+    
     base_dir = os.path.join(os.path.dirname(__file__), "data", "gtfs")
     routes_path = os.path.join(base_dir, "routes.txt")
     routes = []
@@ -619,18 +656,30 @@ def get_routes(type: str = Query('bus', enum=['bus', 'train'])):
         with open(routes_path, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                gtfs_route_id = row.get("route_id")
+                short_name = row.get("route_short_name")
+                
+                # Check if either MARTA_<gtfs_id> or MARTA_<short_name> is in personalities
+                has_personality = (
+                    f"MARTA_{gtfs_route_id}" in personality_keys or
+                    f"MARTA_{short_name}" in personality_keys
+                )
+                
+                if not has_personality:
+                    continue
+                
                 # GTFS: route_type 0=tram, 1=subway, 2=rail, 3=bus, 4=ferry, 5=cable, 6=gondola, 7=funicular
                 route_type = row.get("route_type", "3")
                 if type == 'bus' and route_type == '3':
                     routes.append({
-                        "route_id": row.get("route_id"),
-                        "route_short_name": row.get("route_short_name"),
+                        "route_id": gtfs_route_id,
+                        "route_short_name": short_name,
                         "route_long_name": row.get("route_long_name")
                     })
                 elif type == 'train' and route_type in ['1', '2', '0']:
                     routes.append({
-                        "route_id": row.get("route_id"),
-                        "route_short_name": row.get("route_short_name"),
+                        "route_id": gtfs_route_id,
+                        "route_short_name": short_name,
                         "route_long_name": row.get("route_long_name")
                     })
     except Exception as e:

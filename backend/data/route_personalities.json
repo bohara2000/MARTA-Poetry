@@ -19,7 +19,27 @@
       "Marietta Blvd & Joseph Lowery",
       "Auburn Ave",
       "Downtown"
-    ]
+    ],
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.7,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "exhaustion",
+        "efficiency",
+        "shared_burden",
+        "momentum",
+        "survival",
+        "solidarity"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.29,
+      "address_mode": "complicit"
+    }
   },
   "MARTA_5": {
     "name": "Route 5 - Peachtree",
@@ -43,6 +63,26 @@
       "urban_life": 0.95,
       "morning": 0.8,
       "transition": 0.7
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.75,
+      "extraction_visibility": 0.25,
+      "preferred_currencies": [
+        "joy",
+        "hope",
+        "anticipation",
+        "momentum",
+        "connection",
+        "beauty"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.3,
+      "address_mode": "intimate"
     }
   },
   "MARTA_21": {
@@ -65,7 +105,29 @@
       "Memorial Drive",
       "East Atlanta",
       "Downtown"
-    ]
+    ],
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.35,
+      "extraction_visibility": 0.65,
+      "preferred_currencies": [
+        "vulnerability",
+        "isolation",
+        "truth",
+        "desperation",
+        "heartbreak",
+        "midnight_confessions"
+      ],
+      "currency_avoidance": [
+        "superficial_joy"
+      ],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.5,
+      "address_mode": "revealing"
+    }
   },
   "MARTA_27339": {
     "name": "Route 27 - Cheshire Bridge Road",
@@ -90,7 +152,29 @@
       "Cheshire Bridge Road",
       "East Point",
       "Midtown"
-    ]
+    ],
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.6,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "contradiction",
+        "memory",
+        "resistance",
+        "survival",
+        "nostalgia",
+        "truth"
+      ],
+      "currency_avoidance": [
+        "naive_optimism"
+      ],
+      "preferred_metaphor_systems": [
+        "economic",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.35,
+      "address_mode": "complicit"
+    }
   },
   "MARTA_42": {
     "name": "Route 42 - College Avenue",
@@ -116,6 +200,26 @@
       "isolation": 0.3,
       "community": 0.4,
       "observation": 0.5
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.4,
+      "extraction_visibility": 0.6,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.38,
+      "address_mode": "revealing"
     }
   },
   "MARTA_27346": {
@@ -144,6 +248,26 @@
       "pagentry": 0.5,
       "panhandling": 0.5,
       "divinity": 0.5
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.85,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.25,
+      "address_mode": "revealing"
     }
   },
   "MARTA_27329": {
@@ -169,6 +293,26 @@
       "transition": 0.5,
       "meditation": 0.5,
       "entertainment": 0.5
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.4,
+      "extraction_visibility": 0.5,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.38,
+      "address_mode": "revealing"
     }
   },
   "MARTA_27331": {
@@ -194,9 +338,31 @@
       "evening": 0.5,
       "urban_life": 0.5,
       "morning": 0.5,
-      "transition": 0.5,
-      "contemplation": 0.5,
-      "food": 0.5
+      "transition": 0.2,
+      "contemplation": 0.2,
+      "food": 0.5,
+      "moss": 0.65,
+      "murals": 0.75
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.9,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "exhaustion",
+        "efficiency",
+        "shared_burden",
+        "momentum",
+        "survival",
+        "solidarity"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.23,
+      "address_mode": "complicit"
     }
   },
   "MARTA_27340": {
@@ -226,6 +392,26 @@
       "groove": 0.5,
       "music": 0.5,
       "dance": 0.5
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.25,
+      "extraction_visibility": 0.5,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.42,
+      "address_mode": "revealing"
     }
   },
   "MARTA_39": {
@@ -242,7 +428,27 @@
     "loyalty_to_canon": 0.5,
     "rebellious_mode": null,
     "sound_preferences": {},
-    "theme_affinities": {}
+    "theme_affinities": {},
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.5,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "attention",
+        "recognition",
+        "connection",
+        "presence",
+        "awareness",
+        "engagement"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.35,
+      "address_mode": "default"
+    }
   },
   "MARTA_27343": {
     "name": "Route 36 - N Decatur Road / Virginia Highland",
@@ -268,6 +474,26 @@
       "urban_life": 0.65,
       "isolation": 0.75,
       "transition": 0.4
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.5,
+      "extraction_visibility": 0.6,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.35,
+      "address_mode": "revealing"
     }
   },
   "MARTA_27448": {
@@ -287,7 +513,27 @@
       "repetition": 0.85,
       "alliteration": 0.45
     },
-    "theme_affinities": {}
+    "theme_affinities": {},
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.8,
+      "extraction_visibility": 0.5,
+      "preferred_currencies": [
+        "attention",
+        "recognition",
+        "connection",
+        "presence",
+        "awareness",
+        "engagement"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "organic"
+      ],
+      "direct_address_frequency": 0.26,
+      "address_mode": "default"
+    }
   },
   "MARTA_27334": {
     "name": "Route 19 - Clairmont Road / Howard Avenue",
@@ -312,6 +558,26 @@
       "books": 0.5,
       "reading": 0.5,
       "devotion": 0.5
+    },
+    "talent_economy": {
+      "enabled": true,
+      "sympathy_level": 0.95,
+      "extraction_visibility": 0.3,
+      "preferred_currencies": [
+        "vulnerability",
+        "honesty",
+        "existential_weight",
+        "midnight_truth",
+        "solitude",
+        "recognition"
+      ],
+      "currency_avoidance": [],
+      "preferred_metaphor_systems": [
+        "natural",
+        "architectural"
+      ],
+      "direct_address_frequency": 0.22,
+      "address_mode": "revealing"
     }
   }
 }

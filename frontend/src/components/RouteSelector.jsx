@@ -27,6 +27,10 @@ function RouteSelector({ onSelectRoute, routeType = 'bus' }) {
         <div>Loading routes...</div>
       ) : error ? (
         <div className="text-red-500">{error}</div>
+      ) : routes.length === 0 ? (
+        <div className="text-gray-600 italic">
+          No routes available. Routes must have personality configurations enabled.
+        </div>
       ) : (
         <select id="route" onChange={(e) => onSelectRoute(e.target.value)} className="border p-2 rounded">
           <option value="">-- Choose a Route --</option>

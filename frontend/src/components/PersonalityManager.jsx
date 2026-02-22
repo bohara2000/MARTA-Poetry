@@ -408,6 +408,44 @@ const PersonalityManager = () => {
                 </div>
               </div>
 
+              {personalities[selectedRoute].talent_economy && (
+                <div className="detail-section talent-economy-section">
+                  <h3>💰 Talent Economy</h3>
+                  <div className="talent-economy-display">
+                    <div className="talent-stat">
+                      <span className="stat-label">Status:</span>
+                      <span className="stat-value">{personalities[selectedRoute].talent_economy?.enabled ? '✓ Enabled' : '✗ Disabled'}</span>
+                    </div>
+                    <div className="talent-stat">
+                      <span className="stat-label">Sympathy Level:</span>
+                      <span className="stat-value">{(((personalities[selectedRoute].talent_economy?.sympathy_level) ?? 0) * 100).toFixed(0)}%</span>
+                    </div>
+                    <div className="talent-stat">
+                      <span className="stat-label">Extraction Visibility:</span>
+                      <span className="stat-value">{(((personalities[selectedRoute].talent_economy?.extraction_visibility) ?? 0) * 100).toFixed(0)}%</span>
+                    </div>
+                    <div className="talent-stat">
+                      <span className="stat-label">Address Mode:</span>
+                      <span className="stat-value">{personalities[selectedRoute].talent_economy?.address_mode || 'default'}</span>
+                    </div>
+                    <div className="talent-stat">
+                      <span className="stat-label">Direct Address Frequency:</span>
+                      <span className="stat-value">{(((personalities[selectedRoute].talent_economy?.direct_address_frequency) ?? 0) * 100).toFixed(0)}%</span>
+                    </div>
+                    {personalities[selectedRoute].talent_economy?.preferred_currencies && (
+                      <div className="talent-currencies">
+                        <span className="stat-label">Preferred Currencies:</span>
+                        <div className="currency-tags">
+                          {personalities[selectedRoute].talent_economy?.preferred_currencies?.map((currency) => (
+                            <span key={currency} className="currency-tag">{currency}</span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <button onClick={() => handleEdit(selectedRoute)} className="btn-edit">
                 Edit Personality
               </button>
@@ -521,6 +559,103 @@ const PersonalityManager = () => {
                   ))}
                 </div>
               </div>
+
+              {editing.talent_economy && (
+                <div className="form-group talent-economy-editor">
+                  <label>💰 Talent Economy Settings</label>
+                  
+                  <div className="talent-checkbox">
+                    <input
+                      type="checkbox"
+                      id="te-enabled"
+                      checked={editing.talent_economy.enabled || false}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        enabled: e.target.checked
+                      })}
+                    />
+                    <label htmlFor="te-enabled">Enabled</label>
+                  </div>
+
+                  <div className="talent-slider">
+                    <label>Sympathy Level: {(editing.talent_economy.sympathy_level * 100).toFixed(0)}%</label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.05"
+                      value={editing.talent_economy.sympathy_level || 0.5}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        sympathy_level: parseFloat(e.target.value)
+                      })}
+                    />
+                    <small>How much the route sympathizes with riders (0=exploitative, 1=benevolent)</small>
+                  </div>
+
+                  <div className="talent-slider">
+                    <label>Extraction Visibility: {(editing.talent_economy.extraction_visibility * 100).toFixed(0)}%</label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.05"
+                      value={editing.talent_economy.extraction_visibility || 0.5}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        extraction_visibility: parseFloat(e.target.value)
+                      })}
+                    />
+                    <small>How visible the extraction is (0=buried in metaphor, 1=explicit)</small>
+                  </div>
+
+                  <div className="talent-slider">
+                    <label>Direct Address Frequency: {(editing.talent_economy.direct_address_frequency * 100).toFixed(0)}%</label>
+                    <input
+                      type="range"
+                      min="0"
+                      max="1"
+                      step="0.05"
+                      value={editing.talent_economy.direct_address_frequency || 0.3}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        direct_address_frequency: parseFloat(e.target.value)
+                      })}
+                    />
+                    <small>How often the route directly addresses the rider (0=never, 1=always)</small>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Address Mode</label>
+                    <select
+                      value={editing.talent_economy.address_mode || 'default'}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        address_mode: e.target.value
+                      })}
+                    >
+                      <option value="default">Default</option>
+                      <option value="intimate">Intimate</option>
+                      <option value="revealing">Revealing</option>
+                      <option value="complicit">Complicit</option>
+                      <option value="clinical">Clinical</option>
+                    </select>
+                  </div>
+
+                  <div className="form-group">
+                    <label>Preferred Currencies (comma-separated)</label>
+                    <input
+                      type="text"
+                      value={(editing.talent_economy.preferred_currencies || []).join(', ')}
+                      onChange={(e) => updateEditing('talent_economy', {
+                        ...editing.talent_economy,
+                        preferred_currencies: e.target.value.split(',').map(s => s.trim())
+                      })}
+                      placeholder="e.g., joy, hope, anticipation"
+                    />
+                  </div>
+                </div>
+              )}
 
               <div className="button-group">
                 <button onClick={() => handleSave(selectedRoute)} className="btn-save">

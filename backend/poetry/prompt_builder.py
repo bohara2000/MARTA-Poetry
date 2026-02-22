@@ -13,7 +13,9 @@ derived from the knowledge graph.
 from typing import Dict, List, Any, Optional
 from poetry.graph import ExtendedPoetryGraph
 from poetry.narrative_engine import apply_story_influence, get_narrative_stance
+from poetry.talent_economy import TalentEconomyEngine
 import json
+import random
 from pathlib import Path
 
 
@@ -35,6 +37,39 @@ class PromptBuilder:
             graph: The poetry knowledge graph instance
         """
         self.graph = graph
+        self.talent_economy = TalentEconomyEngine()
+    
+    def _generate_varied_length_target(self) -> str:
+        """
+        Generate a varied length target for poems with a weighted distribution.
+        
+        Distribution (skewed toward shorter poems):
+        - Very short (2-5 lines): 18%
+        - Short (6-12 lines): 28%
+        - Medium (13-25 lines): 40%
+        - Long (26-40 lines): 12%
+        - Very long (41-60 lines): 2%
+        
+        Returns:
+            A length instruction string for the prompt
+        """
+        rand = random.random()
+        
+        if rand < 0.18:  # 18% - Very short
+            target = random.randint(2, 5)
+            return f"- Length: {target} lines (brief, condensed moment)"
+        elif rand < 0.46:  # 28% - Short
+            target = random.randint(6, 12)
+            return f"- Length: {target} lines"
+        elif rand < 0.86:  # 40% - Medium
+            target = random.randint(13, 25)
+            return f"- Length: {target} lines"
+        elif rand < 0.98:  # 12% - Long
+            target = random.randint(26, 40)
+            return f"- Length: {target} lines (explore the scene more fully)"
+        else:  # 2% - Very long
+            target = random.randint(41, 60)
+            return f"- Length: {target} lines (expansive, detailed exploration)"
     
     def build_prompt_for_route(
         self,
@@ -98,6 +133,14 @@ class PromptBuilder:
         # Step 3b: Ensure affinities and preferences are represented
         constraints = self._apply_theme_affinities(constraints, personality)
         constraints = self._apply_sound_preferences(constraints, personality)
+        
+        # Step 3c: Integrate talent economy guidance
+        market_conditions = self.talent_economy.assess_market_conditions(context)
+        extraction_guidance = self.talent_economy.build_extraction_guidance(
+            personality, market_conditions
+        )
+        if extraction_guidance:
+            constraints["talent_economy"] = extraction_guidance
         
         # Step 4: Build the complete prompt
         prompt = self._assemble_prompt(
@@ -518,6 +561,12 @@ class PromptBuilder:
         if narrative_stance:
             stance_instructions = self._get_stance_instructions(narrative_stance, narrative_data)
             narrative_section = f"\n\nNARRATIVE STANCE ({narrative_stance.upper()}):\n{stance_instructions}"
+        
+        # Build talent economy section if enabled
+        talent_economy_section = ""
+        talent_economy_data = constraints.get("talent_economy", {})
+        if talent_economy_data.get("extraction_enabled"):
+            talent_economy_section = self._build_talent_economy_section(talent_economy_data)
 
         route_awareness_section = ""
         if context:
@@ -537,6 +586,11 @@ class PromptBuilder:
             if context_parts:
                 context_text = f"\n\nCurrent Context:\n" + "\n".join(f"- {p}" for p in context_parts)
         
+        # Build source poem section if generating a similar poem
+        source_poem_section = ""
+        if context and context.get("source_poem_id"):
+            source_poem_section = self._build_source_poem_section(context)
+        
         # Assemble complete prompt
         prompt = f"""You are writing a poem for {route_name}.
 
@@ -549,11 +603,11 @@ Relationship to The Homunculus (the poetry canon):
 - {constraints.get('rationale', 'Creating distinctive voice')}
 
 Creative Constraints from the Knowledge Graph:
-{constraint_text}{narrative_section}{route_awareness_section}{context_text}
+{constraint_text}{narrative_section}{talent_economy_section}{route_awareness_section}{source_poem_section}{context_text}
 
 Voice Guidelines:
 - Write in free verse (no formal meter or rhyme scheme)
-- Length: 8-16 lines
+{self._generate_varied_length_target()}
 - Create a distinctive voice for this route
 - Do not reference MARTA, trains, or transportation directly
 - Routes should not reference themselves
@@ -563,6 +617,76 @@ Voice Guidelines:
 Write the poem now:"""
         
         return prompt
+    
+    def _build_talent_economy_section(self, talent_data: Dict[str, Any]) -> str:
+        """
+        Build the talent economy section of the prompt based on extraction guidance.
+        """
+        lines = ["\n\nTALENT ECONOMY (Emotional Extraction Framework):"]
+        
+        # Market conditions
+        market = talent_data.get("market_conditions", {})
+        pricing_tier = market.get("pricing_tier", "standard")
+        scarcity = market.get("scarcity_level", "moderate")
+        
+        lines.append(f"\nMarket Conditions:")
+        lines.append(f"- Current pricing tier: {pricing_tier}")
+        lines.append(f"- Emotional scarcity: {scarcity}")
+        
+        if market.get("market_commentary"):
+            commentary = market["market_commentary"][0]  # Use first commentary
+            lines.append(f"- Market note: {commentary}")
+        
+        if market.get("extraction_opportunities"):
+            lines.append(f"- Opportunities: {'; '.join(market['extraction_opportunities'][:2])}")
+        
+        # Preferred currencies
+        preferred = talent_data.get("preferred_currencies", [])
+        avoided = talent_data.get("avoided_currencies", [])
+        
+        if preferred:
+            lines.append(f"\nEmotional Currency Preferences:")
+            lines.append(f"- This route particularly values: {', '.join(preferred[:4])}")
+            lines.append(f"- But extracts ALL emotions opportunistically (joy, sorrow, hope, desperation, beauty, shame, etc.)")
+        
+        if avoided:
+            lines.append(f"- This route tends to overlook or dismiss: {', '.join(avoided)}")
+        
+        # Metaphor systems
+        metaphor_systems = talent_data.get("metaphor_systems", [])
+        if metaphor_systems:
+            lines.append(f"\nExtraction Metaphor Systems (use to bury extraction in imagery):")
+            lines.append(f"- Preferred metaphors: {', '.join(metaphor_systems)}")
+            
+            if "natural" in metaphor_systems:
+                lines.append("  - Natural: rainfall, current, tide, light, shadow, seasons, weather, river")
+            if "economic" in metaphor_systems:
+                lines.append("  - Economic: harvest, currency, weight, measure, trade, value, worth, account")
+            if "organic" in metaphor_systems:
+                lines.append("  - Organic: nutrients, growth, roots, absorption, feeding, exchange")
+            if "architectural" in metaphor_systems:
+                lines.append("  - Architectural: foundation, support, bearing weight, structure, load")
+        
+        # Voice instructions
+        voice_instructions = talent_data.get("voice_instructions", "")
+        if voice_instructions:
+            lines.append(f"\nExtraction Voice Guidelines:")
+            lines.append(voice_instructions)
+        
+        # Direct address guidance
+        direct_address = talent_data.get("direct_address", {})
+        if direct_address:
+            freq = direct_address.get("frequency", 0.3)
+            mode = direct_address.get("mode", "revealing")
+            guidance = direct_address.get("guidance", "")
+            
+            lines.append(f"\nDirect Address ('you') Guidance:")
+            lines.append(f"- Frequency: {'Sparse/rare' if freq < 0.3 else 'Moderate' if freq < 0.6 else 'Frequent'}")
+            lines.append(f"- Mode: {mode}")
+            if guidance:
+                lines.append(f"- {guidance}")
+        
+        return "\n".join(lines)
 
     def _build_route_awareness_section(self, context: Dict[str, Any]) -> str:
         live_anchor = context.get("live_anchor") if isinstance(context.get("live_anchor"), dict) else {}
@@ -597,6 +721,72 @@ Write the poem now:"""
         lines.append("- Mode fidelity (bus vs rail imagery).")
         lines.append("- Live data changes style, not literal facts.")
 
+        return "\n".join(lines)
+
+    def _build_source_poem_section(self, context: Dict[str, Any]) -> str:
+        """
+        Build a prompt section that steers the model to generate a poem
+        similar in spirit to a previous "source" poem without copying it.
+
+        This section encodes high‑level characteristics extracted from a
+        prior poem and asks the model to reuse those characteristics as
+        creative constraints for a new piece.
+
+        Args:
+            context: A dictionary that may contain the following optional keys
+                describing the source poem:
+                
+                - "source_themes": List[str]
+                    Core ideas, motifs, or conceptual themes present in the
+                    source poem (e.g., "night travel", "loneliness",
+                    "urban renewal"). The top 5 themes, if provided, are
+                    surfaced to the model as themes to explicitly emphasize.
+
+                - "source_imagery": List[str]
+                    Representative images or visual motifs from the source
+                    poem (e.g., "sodium‑lamp halos", "graffiti ghosts").
+                    The top 5 imagery items, if provided, are surfaced as
+                    the imagery style to echo.
+
+                - "source_emotions": List[str]
+                    Dominant emotions, moods, or affective tones of the
+                    source poem (e.g., "wistful", "defiant", "tender").
+                    The top 3 emotions, if provided, are surfaced as the
+                    emotional tone to match.
+
+        Returns:
+            A formatted string to be appended to the overall LLM prompt,
+            instructing the model to write a new poem that honors the
+            source poem's themes, imagery style, and emotional atmosphere
+            while remaining original.
+        """
+        lines = ["\n\nSource Poem Influence (Generate Similar):"]
+        lines.append("This poem should be inspired by and similar to a previous poem with these characteristics:")
+        
+        source_themes = context.get("source_themes", [])
+        if source_themes:
+            lines.append(f"\nThemes to emphasize (USE THESE):")
+            for theme in source_themes[:5]:  # Use top 5 themes
+                lines.append(f"  - {theme}")
+        
+        source_imagery = context.get("source_imagery", [])
+        if source_imagery:
+            lines.append(f"\nImagery style to echo:")
+            for image in source_imagery[:5]:  # Use top 5 images
+                lines.append(f"  - {image}")
+        
+        source_emotions = context.get("source_emotions", [])
+        if source_emotions:
+            lines.append(f"\nEmotional tone to match:")
+            for emotion in source_emotions[:3]:  # Use top 3 emotions
+                lines.append(f"  - {emotion}")
+        
+        lines.append("\nGuidance:")
+        lines.append("- Write a NEW poem (not a copy) that shares these thematic and stylistic elements")
+        lines.append("- Maintain the same emotional atmosphere and imagery style")
+        lines.append("- Use the specified themes as your primary focus")
+        lines.append("- Create fresh expressions while honoring the source poem's spirit")
+        
         return "\n".join(lines)
 
     def _build_anchor_lines(

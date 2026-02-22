@@ -95,6 +95,10 @@ class RoutePersonality(BaseModel):
         default_factory=dict,
         description="Theme affinities (0.0 to 1.0)"
     )
+    talent_economy: Optional[Dict[str, Any]] = Field(
+        default=None,
+        description="Talent economy configuration"
+    )
     
     model_config = ConfigDict(
         json_schema_extra={
@@ -117,6 +121,14 @@ class RoutePersonality(BaseModel):
                 "theme_affinities": {
                     "urban_life": 0.95,
                     "morning": 0.8
+                },
+                "talent_economy": {
+                    "enabled": True,
+                    "sympathy_level": 0.75,
+                    "extraction_visibility": 0.25,
+                    "preferred_currencies": ["joy", "hope", "anticipation"],
+                    "direct_address_frequency": 0.3,
+                    "address_mode": "intimate"
                 }
             }
         }
