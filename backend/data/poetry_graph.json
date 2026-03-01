@@ -79,7 +79,7 @@
     {
       "type": "theme",
       "name": "routine",
-      "usage_count": 7,
+      "usage_count": 8,
       "created_at": "2026-01-24T16:38:06.602223",
       "id": "theme_routine"
     },
@@ -1104,7 +1104,7 @@
     {
       "type": "imagery",
       "name": "shadows",
-      "usage_count": 9,
+      "usage_count": 11,
       "created_at": "2026-01-24T21:12:56.592225",
       "id": "img_shadows"
     },
@@ -1153,7 +1153,7 @@
     {
       "type": "emotion",
       "name": "melancholic",
-      "usage_count": 5,
+      "usage_count": 6,
       "created_at": "2026-01-24T21:12:56.592356",
       "id": "emo_melancholic"
     },
@@ -1481,7 +1481,7 @@
     {
       "type": "theme",
       "name": "transition",
-      "usage_count": 10,
+      "usage_count": 11,
       "created_at": "2026-01-25T15:01:05.847628",
       "id": "theme_transition"
     },
@@ -2115,7 +2115,7 @@
     {
       "type": "emotion",
       "name": "wary",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-01-25T20:56:25.059847",
       "id": "emo_wary"
     },
@@ -3754,7 +3754,7 @@
     {
       "type": "theme",
       "name": "transience",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T18:56:40.934553",
       "id": "theme_transience"
     },
@@ -4193,7 +4193,7 @@
     {
       "type": "theme",
       "name": "duality",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T20:58:09.360216",
       "id": "theme_duality"
     },
@@ -4401,7 +4401,7 @@
     {
       "type": "imagery",
       "name": "concrete",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-01-31T21:13:18.313771",
       "id": "img_concrete"
     },
@@ -4770,7 +4770,7 @@
     {
       "type": "imagery",
       "name": "pigeon",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T21:59:25.599188",
       "id": "img_pigeon"
     },
@@ -4791,14 +4791,14 @@
     {
       "type": "imagery",
       "name": "lenses",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T21:59:25.599200",
       "id": "img_lenses"
     },
     {
       "type": "imagery",
       "name": "glare",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-01-31T21:59:25.599202",
       "id": "img_glare"
     },
@@ -5049,7 +5049,7 @@
     {
       "type": "emotion",
       "name": "tension",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-01-31T22:05:06.111511",
       "id": "emo_tension"
     },
@@ -5279,14 +5279,14 @@
     {
       "type": "theme",
       "name": "surveillance",
-      "usage_count": 12,
+      "usage_count": 15,
       "created_at": "2026-02-07T23:26:41.224977",
       "id": "theme_surveillance"
     },
     {
       "type": "theme",
       "name": "urban_life",
-      "usage_count": 12,
+      "usage_count": 15,
       "created_at": "2026-02-07T23:26:41.225002",
       "id": "theme_urban_life"
     },
@@ -5370,14 +5370,14 @@
     {
       "type": "emotion",
       "name": "contemplative",
-      "usage_count": 8,
+      "usage_count": 10,
       "created_at": "2026-02-07T23:26:41.225148",
       "id": "emo_contemplative"
     },
     {
       "type": "emotion",
       "name": "tense",
-      "usage_count": 11,
+      "usage_count": 14,
       "created_at": "2026-02-07T23:26:41.225157",
       "id": "emo_tense"
     },
@@ -5391,35 +5391,35 @@
     {
       "type": "sound_device",
       "name": "alliteration",
-      "usage_count": 11,
+      "usage_count": 15,
       "created_at": "2026-02-07T23:26:41.225179",
       "id": "sound_alliteration"
     },
     {
       "type": "sound_device",
       "name": "assonance",
-      "usage_count": 12,
+      "usage_count": 16,
       "created_at": "2026-02-07T23:26:41.225187",
       "id": "sound_assonance"
     },
     {
       "type": "sound_device",
       "name": "consonance",
-      "usage_count": 12,
+      "usage_count": 16,
       "created_at": "2026-02-07T23:26:41.225195",
       "id": "sound_consonance"
     },
     {
       "type": "sound_device",
       "name": "onomatopoeia",
-      "usage_count": 7,
+      "usage_count": 11,
       "created_at": "2026-02-07T23:26:41.225207",
       "id": "sound_onomatopoeia"
     },
     {
       "type": "sound_device",
       "name": "repetition",
-      "usage_count": 10,
+      "usage_count": 13,
       "created_at": "2026-02-07T23:26:41.225216",
       "id": "sound_repetition"
     },
@@ -5980,7 +5980,7 @@
     {
       "type": "imagery",
       "name": "pigeons",
-      "usage_count": 2,
+      "usage_count": 4,
       "created_at": "2026-02-07T23:32:48.975777",
       "id": "img_pigeons"
     },
@@ -6036,21 +6036,21 @@
     {
       "type": "emotion",
       "name": "uneasy",
-      "usage_count": 4,
+      "usage_count": 6,
       "created_at": "2026-02-07T23:32:48.975808",
       "id": "emo_uneasy"
     },
     {
       "type": "sound_device",
       "name": "slant_rhyme",
-      "usage_count": 8,
+      "usage_count": 10,
       "created_at": "2026-02-07T23:32:48.975815",
       "id": "sound_slant_rhyme"
     },
     {
       "type": "sound_device",
       "name": "internal_rhyme",
-      "usage_count": 8,
+      "usage_count": 9,
       "created_at": "2026-02-07T23:32:48.975818",
       "id": "sound_internal_rhyme"
     },
@@ -6596,7 +6596,7 @@
     {
       "type": "theme",
       "name": "isolation",
-      "usage_count": 7,
+      "usage_count": 11,
       "created_at": "2026-02-07T23:55:14.335792",
       "id": "theme_isolation"
     },
@@ -6631,7 +6631,7 @@
     {
       "type": "imagery",
       "name": "neon glare",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-02-07T23:55:14.335829",
       "id": "img_neon_glare"
     },
@@ -6659,7 +6659,7 @@
     {
       "type": "emotion",
       "name": "anxious",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-02-07T23:55:14.335849",
       "id": "emo_anxious"
     },
@@ -7198,7 +7198,7 @@
     {
       "type": "theme",
       "name": "memory",
-      "usage_count": 2,
+      "usage_count": 3,
       "created_at": "2026-02-08T11:59:08.027725",
       "id": "theme_memory"
     },
@@ -7857,7 +7857,7 @@
     {
       "type": "imagery",
       "name": "third rail",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-02-21T15:19:40.502702",
       "id": "img_third_rail"
     },
@@ -13859,7 +13859,7 @@
     {
       "type": "imagery",
       "name": "heartbeat",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-02-21T17:50:50.373895",
       "id": "img_heartbeat"
     },
@@ -15183,7 +15183,7 @@
     {
       "type": "imagery",
       "name": "raindrops",
-      "usage_count": 1,
+      "usage_count": 2,
       "created_at": "2026-02-21T18:19:14.021197",
       "id": "img_raindrops"
     },
@@ -15801,6 +15801,2341 @@
         }
       },
       "id": "poem_MARTA_27329_20260221_183535"
+    },
+    {
+      "type": "poem",
+      "title": "Rain on Peachtree\nBy MARTA_27335",
+      "content": "On Peachtree Street the pavement breathes under a tide of raindrops, each splatter a silent watch  \nBlinking lenses peer from lamp-post altars, hungry for movement yet haunted by stillness  \nPigeons preen their gray wings above the rasp of rubber wheels, uneasy heirs of routine  \nBetween droplets and neon glare the corridor shivers\u2014exposed, yet longing for shadows",
+      "route_id": "MARTA_27335",
+      "created_at": "2026-02-21T23:53:48.607732",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "route_id": "MARTA_27335",
+          "live_anchor": {
+            "neighborhood": null,
+            "place": null,
+            "poi": null
+          },
+          "fallback_anchors": [],
+          "signals": {
+            "traffic": null,
+            "weather": {
+              "point": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                      "@id": "s:GeoCoordinates",
+                      "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                      "@id": "s:Distance",
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                      "@id": "s:value"
+                    },
+                    "unitCode": {
+                      "@id": "s:unitCode",
+                      "@type": "@id"
+                    },
+                    "forecastOffice": {
+                      "@type": "@id"
+                    },
+                    "forecastGridData": {
+                      "@type": "@id"
+                    },
+                    "publicZone": {
+                      "@type": "@id"
+                    },
+                    "county": {
+                      "@type": "@id"
+                    }
+                  }
+                ],
+                "id": "https://api.weather.gov/points/33.749,-84.388",
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    -84.388,
+                    33.749
+                  ]
+                },
+                "properties": {
+                  "@id": "https://api.weather.gov/points/33.749,-84.388",
+                  "@type": "wx:Point",
+                  "cwa": "FFC",
+                  "type": "land",
+                  "forecastOffice": "https://api.weather.gov/offices/FFC",
+                  "gridId": "FFC",
+                  "gridX": 51,
+                  "gridY": 87,
+                  "forecast": "https://api.weather.gov/gridpoints/FFC/51,87/forecast",
+                  "forecastHourly": "https://api.weather.gov/gridpoints/FFC/51,87/forecast/hourly",
+                  "forecastGridData": "https://api.weather.gov/gridpoints/FFC/51,87",
+                  "observationStations": "https://api.weather.gov/gridpoints/FFC/51,87/stations",
+                  "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        -84.422675,
+                        33.762909
+                      ]
+                    },
+                    "properties": {
+                      "city": "Atlanta",
+                      "state": "GA",
+                      "distance": {
+                        "unitCode": "wmoUnit:m",
+                        "value": 3559.2561753333
+                      },
+                      "bearing": {
+                        "unitCode": "wmoUnit:degree_(angle)",
+                        "value": 115
+                      }
+                    }
+                  },
+                  "forecastZone": "https://api.weather.gov/zones/forecast/GAZ033",
+                  "county": "https://api.weather.gov/zones/county/GAC121",
+                  "fireWeatherZone": "https://api.weather.gov/zones/fire/GAZ033",
+                  "timeZone": "America/New_York",
+                  "radarStation": "KFFC",
+                  "astronomicalData": {
+                    "sunrise": "2026-02-21T07:13:44-05:00",
+                    "sunset": "2026-02-21T18:28:26-05:00",
+                    "transit": "2026-02-21T12:51:05-05:00",
+                    "civilTwilightBegin": "2026-02-21T06:49:48-05:00",
+                    "civilTwilightEnd": "2026-02-21T18:52:22-05:00",
+                    "nauticalTwilightBegin": "2026-02-21T06:20:45-05:00",
+                    "nauticalTwilightEnd": "2026-02-21T19:21:26-05:00",
+                    "astronomicalTwilightBegin": "2026-02-21T05:51:51-05:00",
+                    "astronomicalTwilightEnd": "2026-02-21T19:50:20-05:00"
+                  },
+                  "nwr": {
+                    "transmitter": "KEC80",
+                    "sameCode": "013121",
+                    "areaBroadcast": "https://api.weather.gov/radio/KEC80/broadcast",
+                    "pointBroadcast": "https://api.weather.gov/points/33.749,-84.388/radio"
+                  }
+                }
+              },
+              "forecast": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#"
+                  }
+                ],
+                "type": "Feature",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        -84.3645,
+                        33.7419
+                      ],
+                      [
+                        -84.3623,
+                        33.7644
+                      ],
+                      [
+                        -84.3894,
+                        33.7662
+                      ],
+                      [
+                        -84.3915,
+                        33.7437
+                      ],
+                      [
+                        -84.3645,
+                        33.7419
+                      ]
+                    ]
+                  ]
+                },
+                "properties": {
+                  "units": "us",
+                  "forecastGenerator": "BaselineForecastGenerator",
+                  "generatedAt": "2026-02-21T23:35:00+00:00",
+                  "updateTime": "2026-02-21T20:28:10+00:00",
+                  "validTimes": "2026-02-21T14:00:00+00:00/P7DT11H",
+                  "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 305.1048
+                  },
+                  "periods": [
+                    {
+                      "number": 1,
+                      "name": "Tonight",
+                      "startTime": "2026-02-21T18:00:00-05:00",
+                      "endTime": "2026-02-22T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 38,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 28
+                      },
+                      "windSpeed": "5 to 15 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20/rain_showers,30?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers between 11pm and 2am. Mostly cloudy. Low around 38, with temperatures rising to around 43 overnight. North wind 5 to 15 mph, with gusts as high as 30 mph. Chance of precipitation is 30%."
+                    },
+                    {
+                      "number": 2,
+                      "name": "Sunday",
+                      "startTime": "2026-02-22T06:00:00-05:00",
+                      "endTime": "2026-02-22T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 48,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 48. Northwest wind around 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 3,
+                      "name": "Sunday Night",
+                      "startTime": "2026-02-22T18:00:00-05:00",
+                      "endTime": "2026-02-23T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Mostly Clear",
+                      "detailedForecast": "Mostly clear, with a low around 25. Northwest wind 15 to 20 mph, with gusts as high as 30 mph."
+                    },
+                    {
+                      "number": 4,
+                      "name": "Monday",
+                      "startTime": "2026-02-23T06:00:00-05:00",
+                      "endTime": "2026-02-23T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 40,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 40. Northwest wind 15 to 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 5,
+                      "name": "Monday Night",
+                      "startTime": "2026-02-23T18:00:00-05:00",
+                      "endTime": "2026-02-24T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Clear",
+                      "detailedForecast": "Clear, with a low around 25. Northwest wind 10 to 15 mph, with gusts as high as 25 mph."
+                    },
+                    {
+                      "number": 6,
+                      "name": "Tuesday",
+                      "startTime": "2026-02-24T06:00:00-05:00",
+                      "endTime": "2026-02-24T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 53,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 53."
+                    },
+                    {
+                      "number": 7,
+                      "name": "Tuesday Night",
+                      "startTime": "2026-02-24T18:00:00-05:00",
+                      "endTime": "2026-02-25T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 37,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a low around 37."
+                    },
+                    {
+                      "number": 8,
+                      "name": "Wednesday",
+                      "startTime": "2026-02-25T06:00:00-05:00",
+                      "endTime": "2026-02-25T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 4
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a high near 64."
+                    },
+                    {
+                      "number": 9,
+                      "name": "Wednesday Night",
+                      "startTime": "2026-02-25T18:00:00-05:00",
+                      "endTime": "2026-02-26T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 54,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 38
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,40?size=medium",
+                      "shortForecast": "Mostly Cloudy then Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers after 1am. Mostly cloudy, with a low around 54. Chance of precipitation is 40%."
+                    },
+                    {
+                      "number": 10,
+                      "name": "Thursday",
+                      "startTime": "2026-02-26T06:00:00-05:00",
+                      "endTime": "2026-02-26T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 67,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a high near 67. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 11,
+                      "name": "Thursday Night",
+                      "startTime": "2026-02-26T18:00:00-05:00",
+                      "endTime": "2026-02-27T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 46,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a low around 46. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 12,
+                      "name": "Friday",
+                      "startTime": "2026-02-27T06:00:00-05:00",
+                      "endTime": "2026-02-27T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 56
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,30?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Sunny, with a high near 64. Chance of precipitation is 60%."
+                    },
+                    {
+                      "number": 13,
+                      "name": "Friday Night",
+                      "startTime": "2026-02-27T18:00:00-05:00",
+                      "endTime": "2026-02-28T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 43,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly clear, with a low around 43. Chance of precipitation is 20%."
+                    },
+                    {
+                      "number": 14,
+                      "name": "Saturday",
+                      "startTime": "2026-02-28T06:00:00-05:00",
+                      "endTime": "2026-02-28T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 68,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly sunny, with a high near 68."
+                    }
+                  ]
+                }
+              }
+            },
+            "solar": {
+              "sunrise": "2026-02-22T12:12:37+00:00",
+              "sunset": "2026-02-22T23:29:19+00:00",
+              "timezone": "UTC",
+              "retrieved_at": "2026-02-22T04:53:25.567354+00:00",
+              "phase": "night"
+            },
+            "alerts": []
+          },
+          "history": [],
+          "meta": {
+            "source_timestamps": {
+              "gtfs_rt": null
+            },
+            "cache_hits": {
+              "geocode": false,
+              "history": false
+            },
+            "live_position": null
+          },
+          "story_influence": 0.7,
+          "route_type": "bus"
+        },
+        "prompt": "You are writing a poem for MARTA_27335.\n\nRoute Character:\nA MARTA route finding its voice\n\nRelationship to The Homunculus (the poetry canon):\n- Loyalty to canon: 50%\n- Strategy: balancing tradition and innovation\n- Balancing established patterns with fresh exploration | Narrative stance (SUPPORTING): tense, guarded, watchful, observant of systems\n\nCreative Constraints from the Knowledge Graph:\n- Themes: time, routine, camera networks, surveillance, pigeons\n\nNARRATIVE STANCE (SUPPORTING):\nThe poem should show MIXED or CONFLICTED relationship to the canonical narrative:\n- Include SOME elements of observation/connection but with tension\n- Show both attraction to and discomfort with visibility\n- Use imagery that is both connective and isolating\n- Emotional tone: uncertain, contemplative, caught between two worlds\n- The route is AMBIVALENT about being watched and being connected\n\nRoute Awareness Context:\nLive style modulation (do not mention data sources):\n- Weather tone: Chance Rain Showers \u2192 rain = internal rhyme/assonance; clear = sharper consonants/alliteration; wind = breathy cadence\n- Solar tone: night \u2192 dawn = bright/anticipatory; night = hushed/ritual\nGuardrails:\n- No route IDs.\n- At least one concrete place cue.\n- Mode fidelity (bus vs rail imagery).\n- Live data changes style, not literal facts.\n\nVoice Guidelines:\n- Write in free verse (no formal meter or rhyme scheme)\n- Length: 4 lines (brief, condensed moment)\n- Create a distinctive voice for this route\n- Do not reference MARTA, trains, or transportation directly\n- Routes should not reference themselves\n- Vary point of view and tone based on context. Avoid use of first person unless fitting.\n- Feel free to break conventions\n\nWrite the poem now:",
+        "loyalty_to_canon": 0.5,
+        "rebellious_mode": null,
+        "audio_files": [],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 4,
+          "stanza_breaks": [
+            4
+          ],
+          "enjambment_lines": [],
+          "caesura_lines": [
+            4
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 4,
+          "line_lengths": [
+            25,
+            22,
+            23,
+            23
+          ],
+          "avg_line_length": 23.25,
+          "detected_stanza_breaks": null,
+          "total_words": 56
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [],
+          "repeated_structures": [],
+          "dominant_sounds": "liquid consonants (r, l) and sibilants (s)"
+        }
+      },
+      "id": "poem_MARTA_27335_20260221_235348"
+    },
+    {
+      "type": "imagery",
+      "name": "pavement",
+      "usage_count": 1,
+      "created_at": "2026-02-21T23:53:48.607782",
+      "id": "img_pavement"
+    },
+    {
+      "type": "imagery",
+      "name": "lamp-post altars",
+      "usage_count": 1,
+      "created_at": "2026-02-21T23:53:48.607802",
+      "id": "img_lamp-post_altars"
+    },
+    {
+      "type": "imagery",
+      "name": "rubber wheels",
+      "usage_count": 1,
+      "created_at": "2026-02-21T23:53:48.607812",
+      "id": "img_rubber_wheels"
+    },
+    {
+      "type": "emotion",
+      "name": "haunted",
+      "usage_count": 1,
+      "created_at": "2026-02-21T23:53:48.607838",
+      "id": "emo_haunted"
+    },
+    {
+      "type": "emotion",
+      "name": "longing",
+      "usage_count": 1,
+      "created_at": "2026-02-21T23:53:48.607843",
+      "id": "emo_longing"
+    },
+    {
+      "type": "poem",
+      "title": "Metal Eyes in Rain\nBy MARTA_27335",
+      "content": "Under flicker of Peachtree Street lamps, pigeons preen and squawk into rain-laced air  \nMetal eyes atop nesting poles snap the drift of faces, reluctant to let anyone disappear  \nDrip-drip, the city sighs, rattling chains of time in the gutter\u2019s rainy refrain  \nAt Georgia Tech\u2019s redbrick crosswalk, rubber whispers awaken with familiar churn  \nNight\u2019s breath loosens, wind stuttering through camera grids that map each shadow\u2019s shape  \nDamp seats cradle ghosts of morning commuters, hearts caught between patience and pace  \nBetween shutter and sigh, connection fractures\u2014watchful, wary, drawn to the hush",
+      "route_id": "MARTA_27335",
+      "created_at": "2026-02-22T00:13:50.411300",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "route_id": "MARTA_27335",
+          "live_anchor": {
+            "neighborhood": null,
+            "place": null,
+            "poi": null
+          },
+          "fallback_anchors": [],
+          "signals": {
+            "traffic": null,
+            "weather": {
+              "point": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                      "@id": "s:GeoCoordinates",
+                      "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                      "@id": "s:Distance",
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                      "@id": "s:value"
+                    },
+                    "unitCode": {
+                      "@id": "s:unitCode",
+                      "@type": "@id"
+                    },
+                    "forecastOffice": {
+                      "@type": "@id"
+                    },
+                    "forecastGridData": {
+                      "@type": "@id"
+                    },
+                    "publicZone": {
+                      "@type": "@id"
+                    },
+                    "county": {
+                      "@type": "@id"
+                    }
+                  }
+                ],
+                "id": "https://api.weather.gov/points/33.749,-84.388",
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    -84.388,
+                    33.749
+                  ]
+                },
+                "properties": {
+                  "@id": "https://api.weather.gov/points/33.749,-84.388",
+                  "@type": "wx:Point",
+                  "cwa": "FFC",
+                  "type": "land",
+                  "forecastOffice": "https://api.weather.gov/offices/FFC",
+                  "gridId": "FFC",
+                  "gridX": 51,
+                  "gridY": 87,
+                  "forecast": "https://api.weather.gov/gridpoints/FFC/51,87/forecast",
+                  "forecastHourly": "https://api.weather.gov/gridpoints/FFC/51,87/forecast/hourly",
+                  "forecastGridData": "https://api.weather.gov/gridpoints/FFC/51,87",
+                  "observationStations": "https://api.weather.gov/gridpoints/FFC/51,87/stations",
+                  "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        -84.422675,
+                        33.762909
+                      ]
+                    },
+                    "properties": {
+                      "city": "Atlanta",
+                      "state": "GA",
+                      "distance": {
+                        "unitCode": "wmoUnit:m",
+                        "value": 3559.2561753333
+                      },
+                      "bearing": {
+                        "unitCode": "wmoUnit:degree_(angle)",
+                        "value": 115
+                      }
+                    }
+                  },
+                  "forecastZone": "https://api.weather.gov/zones/forecast/GAZ033",
+                  "county": "https://api.weather.gov/zones/county/GAC121",
+                  "fireWeatherZone": "https://api.weather.gov/zones/fire/GAZ033",
+                  "timeZone": "America/New_York",
+                  "radarStation": "KFFC",
+                  "astronomicalData": {
+                    "sunrise": "2026-02-21T07:13:44-05:00",
+                    "sunset": "2026-02-21T18:28:26-05:00",
+                    "transit": "2026-02-21T12:51:05-05:00",
+                    "civilTwilightBegin": "2026-02-21T06:49:48-05:00",
+                    "civilTwilightEnd": "2026-02-21T18:52:22-05:00",
+                    "nauticalTwilightBegin": "2026-02-21T06:20:45-05:00",
+                    "nauticalTwilightEnd": "2026-02-21T19:21:26-05:00",
+                    "astronomicalTwilightBegin": "2026-02-21T05:51:51-05:00",
+                    "astronomicalTwilightEnd": "2026-02-21T19:50:20-05:00"
+                  },
+                  "nwr": {
+                    "transmitter": "KEC80",
+                    "sameCode": "013121",
+                    "areaBroadcast": "https://api.weather.gov/radio/KEC80/broadcast",
+                    "pointBroadcast": "https://api.weather.gov/points/33.749,-84.388/radio"
+                  }
+                }
+              },
+              "forecast": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#"
+                  }
+                ],
+                "type": "Feature",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        -84.3645,
+                        33.7419
+                      ],
+                      [
+                        -84.3623,
+                        33.7644
+                      ],
+                      [
+                        -84.3894,
+                        33.7662
+                      ],
+                      [
+                        -84.3915,
+                        33.7437
+                      ],
+                      [
+                        -84.3645,
+                        33.7419
+                      ]
+                    ]
+                  ]
+                },
+                "properties": {
+                  "units": "us",
+                  "forecastGenerator": "BaselineForecastGenerator",
+                  "generatedAt": "2026-02-21T23:35:00+00:00",
+                  "updateTime": "2026-02-21T20:28:10+00:00",
+                  "validTimes": "2026-02-21T14:00:00+00:00/P7DT11H",
+                  "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 305.1048
+                  },
+                  "periods": [
+                    {
+                      "number": 1,
+                      "name": "Tonight",
+                      "startTime": "2026-02-21T18:00:00-05:00",
+                      "endTime": "2026-02-22T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 38,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 28
+                      },
+                      "windSpeed": "5 to 15 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20/rain_showers,30?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers between 11pm and 2am. Mostly cloudy. Low around 38, with temperatures rising to around 43 overnight. North wind 5 to 15 mph, with gusts as high as 30 mph. Chance of precipitation is 30%."
+                    },
+                    {
+                      "number": 2,
+                      "name": "Sunday",
+                      "startTime": "2026-02-22T06:00:00-05:00",
+                      "endTime": "2026-02-22T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 48,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 48. Northwest wind around 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 3,
+                      "name": "Sunday Night",
+                      "startTime": "2026-02-22T18:00:00-05:00",
+                      "endTime": "2026-02-23T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Mostly Clear",
+                      "detailedForecast": "Mostly clear, with a low around 25. Northwest wind 15 to 20 mph, with gusts as high as 30 mph."
+                    },
+                    {
+                      "number": 4,
+                      "name": "Monday",
+                      "startTime": "2026-02-23T06:00:00-05:00",
+                      "endTime": "2026-02-23T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 40,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 40. Northwest wind 15 to 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 5,
+                      "name": "Monday Night",
+                      "startTime": "2026-02-23T18:00:00-05:00",
+                      "endTime": "2026-02-24T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Clear",
+                      "detailedForecast": "Clear, with a low around 25. Northwest wind 10 to 15 mph, with gusts as high as 25 mph."
+                    },
+                    {
+                      "number": 6,
+                      "name": "Tuesday",
+                      "startTime": "2026-02-24T06:00:00-05:00",
+                      "endTime": "2026-02-24T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 53,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 53."
+                    },
+                    {
+                      "number": 7,
+                      "name": "Tuesday Night",
+                      "startTime": "2026-02-24T18:00:00-05:00",
+                      "endTime": "2026-02-25T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 37,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a low around 37."
+                    },
+                    {
+                      "number": 8,
+                      "name": "Wednesday",
+                      "startTime": "2026-02-25T06:00:00-05:00",
+                      "endTime": "2026-02-25T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 4
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a high near 64."
+                    },
+                    {
+                      "number": 9,
+                      "name": "Wednesday Night",
+                      "startTime": "2026-02-25T18:00:00-05:00",
+                      "endTime": "2026-02-26T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 54,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 38
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,40?size=medium",
+                      "shortForecast": "Mostly Cloudy then Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers after 1am. Mostly cloudy, with a low around 54. Chance of precipitation is 40%."
+                    },
+                    {
+                      "number": 10,
+                      "name": "Thursday",
+                      "startTime": "2026-02-26T06:00:00-05:00",
+                      "endTime": "2026-02-26T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 67,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a high near 67. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 11,
+                      "name": "Thursday Night",
+                      "startTime": "2026-02-26T18:00:00-05:00",
+                      "endTime": "2026-02-27T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 46,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a low around 46. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 12,
+                      "name": "Friday",
+                      "startTime": "2026-02-27T06:00:00-05:00",
+                      "endTime": "2026-02-27T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 56
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,30?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Sunny, with a high near 64. Chance of precipitation is 60%."
+                    },
+                    {
+                      "number": 13,
+                      "name": "Friday Night",
+                      "startTime": "2026-02-27T18:00:00-05:00",
+                      "endTime": "2026-02-28T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 43,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly clear, with a low around 43. Chance of precipitation is 20%."
+                    },
+                    {
+                      "number": 14,
+                      "name": "Saturday",
+                      "startTime": "2026-02-28T06:00:00-05:00",
+                      "endTime": "2026-02-28T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 68,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly sunny, with a high near 68."
+                    }
+                  ]
+                }
+              }
+            },
+            "solar": {
+              "sunrise": "2026-02-22T12:12:37+00:00",
+              "sunset": "2026-02-22T23:29:19+00:00",
+              "timezone": "UTC",
+              "retrieved_at": "2026-02-22T04:53:25.567354+00:00",
+              "phase": "night"
+            },
+            "alerts": []
+          },
+          "history": [],
+          "meta": {
+            "source_timestamps": {
+              "gtfs_rt": null
+            },
+            "cache_hits": {
+              "geocode": true,
+              "history": false
+            },
+            "live_position": null
+          },
+          "story_influence": 0.7,
+          "route_type": "bus"
+        },
+        "prompt": "You are writing a poem for MARTA_27335.\n\nRoute Character:\nA MARTA route finding its voice\n\nRelationship to The Homunculus (the poetry canon):\n- Loyalty to canon: 50%\n- Strategy: balancing tradition and innovation\n- Balancing established patterns with fresh exploration | Narrative stance (SUPPORTING): tense, guarded, watchful, observant of systems\n\nCreative Constraints from the Knowledge Graph:\n- Themes: time, routine, camera networks, surveillance, pigeons\n\nNARRATIVE STANCE (SUPPORTING):\nThe poem should show MIXED or CONFLICTED relationship to the canonical narrative:\n- Include SOME elements of observation/connection but with tension\n- Show both attraction to and discomfort with visibility\n- Use imagery that is both connective and isolating\n- Emotional tone: uncertain, contemplative, caught between two worlds\n- The route is AMBIVALENT about being watched and being connected\n\nRoute Awareness Context:\nLive style modulation (do not mention data sources):\n- Weather tone: Chance Rain Showers \u2192 rain = internal rhyme/assonance; clear = sharper consonants/alliteration; wind = breathy cadence\n- Solar tone: night \u2192 dawn = bright/anticipatory; night = hushed/ritual\nGuardrails:\n- No route IDs.\n- At least one concrete place cue.\n- Mode fidelity (bus vs rail imagery).\n- Live data changes style, not literal facts.\n\nVoice Guidelines:\n- Write in free verse (no formal meter or rhyme scheme)\n- Length: 7 lines\n- Create a distinctive voice for this route\n- Do not reference MARTA, trains, or transportation directly\n- Routes should not reference themselves\n- Vary point of view and tone based on context. Avoid use of first person unless fitting.\n- Feel free to break conventions\n\nWrite the poem now:",
+        "loyalty_to_canon": 0.5,
+        "rebellious_mode": null,
+        "audio_files": [],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 7,
+          "stanza_breaks": [
+            7
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "caesura_lines": [
+            3,
+            5
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 7,
+          "line_lengths": [
+            20,
+            26,
+            20,
+            20,
+            20,
+            21,
+            20
+          ],
+          "avg_line_length": 21.0,
+          "detected_stanza_breaks": null,
+          "total_words": 89
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "irregular with slant and internal half-rhymes",
+          "repetition_phrases": [
+            "drip-drip"
+          ],
+          "repeated_structures": [],
+          "dominant_sounds": "plosives (p, t, d) and fricatives/sibilants (s, r)"
+        }
+      },
+      "id": "poem_MARTA_27335_20260222_001350"
+    },
+    {
+      "type": "theme",
+      "name": "nature_vs_industry",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411412",
+      "id": "theme_nature_vs_industry"
+    },
+    {
+      "type": "imagery",
+      "name": "rain-laced air",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411441",
+      "id": "img_rain-laced_air"
+    },
+    {
+      "type": "imagery",
+      "name": "metal eyes",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411456",
+      "id": "img_metal_eyes"
+    },
+    {
+      "type": "imagery",
+      "name": "drip-drip",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411469",
+      "id": "img_drip-drip"
+    },
+    {
+      "type": "imagery",
+      "name": "chains of time",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411517",
+      "id": "img_chains_of_time"
+    },
+    {
+      "type": "imagery",
+      "name": "redbrick crosswalk",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411538",
+      "id": "img_redbrick_crosswalk"
+    },
+    {
+      "type": "imagery",
+      "name": "camera grids",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411556",
+      "id": "img_camera_grids"
+    },
+    {
+      "type": "imagery",
+      "name": "ghosts of commuters",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:13:50.411568",
+      "id": "img_ghosts_of_commuters"
+    },
+    {
+      "type": "poem",
+      "title": "Dripping Steel Heartbeat\nBy MARTA_27335",
+      "content": "Under Decatur\u2019s cracked canopy, wet steel hums like a heartbeat\u2014rats skitter after sparks flickering on the third rail  \nChrome roaches curve through dripping light, half-curious, half-cowering, longing for the glare that both frees and exposes them",
+      "route_id": "MARTA_27335",
+      "created_at": "2026-02-22T00:15:16.017141",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "route_id": "MARTA_27335",
+          "live_anchor": {
+            "neighborhood": null,
+            "place": null,
+            "poi": null
+          },
+          "fallback_anchors": [],
+          "signals": {
+            "traffic": null,
+            "weather": {
+              "point": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                      "@id": "s:GeoCoordinates",
+                      "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                      "@id": "s:Distance",
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                      "@id": "s:value"
+                    },
+                    "unitCode": {
+                      "@id": "s:unitCode",
+                      "@type": "@id"
+                    },
+                    "forecastOffice": {
+                      "@type": "@id"
+                    },
+                    "forecastGridData": {
+                      "@type": "@id"
+                    },
+                    "publicZone": {
+                      "@type": "@id"
+                    },
+                    "county": {
+                      "@type": "@id"
+                    }
+                  }
+                ],
+                "id": "https://api.weather.gov/points/33.749,-84.388",
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    -84.388,
+                    33.749
+                  ]
+                },
+                "properties": {
+                  "@id": "https://api.weather.gov/points/33.749,-84.388",
+                  "@type": "wx:Point",
+                  "cwa": "FFC",
+                  "type": "land",
+                  "forecastOffice": "https://api.weather.gov/offices/FFC",
+                  "gridId": "FFC",
+                  "gridX": 51,
+                  "gridY": 87,
+                  "forecast": "https://api.weather.gov/gridpoints/FFC/51,87/forecast",
+                  "forecastHourly": "https://api.weather.gov/gridpoints/FFC/51,87/forecast/hourly",
+                  "forecastGridData": "https://api.weather.gov/gridpoints/FFC/51,87",
+                  "observationStations": "https://api.weather.gov/gridpoints/FFC/51,87/stations",
+                  "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        -84.422675,
+                        33.762909
+                      ]
+                    },
+                    "properties": {
+                      "city": "Atlanta",
+                      "state": "GA",
+                      "distance": {
+                        "unitCode": "wmoUnit:m",
+                        "value": 3559.2561753333
+                      },
+                      "bearing": {
+                        "unitCode": "wmoUnit:degree_(angle)",
+                        "value": 115
+                      }
+                    }
+                  },
+                  "forecastZone": "https://api.weather.gov/zones/forecast/GAZ033",
+                  "county": "https://api.weather.gov/zones/county/GAC121",
+                  "fireWeatherZone": "https://api.weather.gov/zones/fire/GAZ033",
+                  "timeZone": "America/New_York",
+                  "radarStation": "KFFC",
+                  "astronomicalData": {
+                    "sunrise": "2026-02-21T07:13:44-05:00",
+                    "sunset": "2026-02-21T18:28:26-05:00",
+                    "transit": "2026-02-21T12:51:05-05:00",
+                    "civilTwilightBegin": "2026-02-21T06:49:48-05:00",
+                    "civilTwilightEnd": "2026-02-21T18:52:22-05:00",
+                    "nauticalTwilightBegin": "2026-02-21T06:20:45-05:00",
+                    "nauticalTwilightEnd": "2026-02-21T19:21:26-05:00",
+                    "astronomicalTwilightBegin": "2026-02-21T05:51:51-05:00",
+                    "astronomicalTwilightEnd": "2026-02-21T19:50:20-05:00"
+                  },
+                  "nwr": {
+                    "transmitter": "KEC80",
+                    "sameCode": "013121",
+                    "areaBroadcast": "https://api.weather.gov/radio/KEC80/broadcast",
+                    "pointBroadcast": "https://api.weather.gov/points/33.749,-84.388/radio"
+                  }
+                }
+              },
+              "forecast": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#"
+                  }
+                ],
+                "type": "Feature",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        -84.3645,
+                        33.7419
+                      ],
+                      [
+                        -84.3623,
+                        33.7644
+                      ],
+                      [
+                        -84.3894,
+                        33.7662
+                      ],
+                      [
+                        -84.3915,
+                        33.7437
+                      ],
+                      [
+                        -84.3645,
+                        33.7419
+                      ]
+                    ]
+                  ]
+                },
+                "properties": {
+                  "units": "us",
+                  "forecastGenerator": "BaselineForecastGenerator",
+                  "generatedAt": "2026-02-21T23:35:00+00:00",
+                  "updateTime": "2026-02-21T20:28:10+00:00",
+                  "validTimes": "2026-02-21T14:00:00+00:00/P7DT11H",
+                  "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 305.1048
+                  },
+                  "periods": [
+                    {
+                      "number": 1,
+                      "name": "Tonight",
+                      "startTime": "2026-02-21T18:00:00-05:00",
+                      "endTime": "2026-02-22T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 38,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 28
+                      },
+                      "windSpeed": "5 to 15 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20/rain_showers,30?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers between 11pm and 2am. Mostly cloudy. Low around 38, with temperatures rising to around 43 overnight. North wind 5 to 15 mph, with gusts as high as 30 mph. Chance of precipitation is 30%."
+                    },
+                    {
+                      "number": 2,
+                      "name": "Sunday",
+                      "startTime": "2026-02-22T06:00:00-05:00",
+                      "endTime": "2026-02-22T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 48,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 48. Northwest wind around 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 3,
+                      "name": "Sunday Night",
+                      "startTime": "2026-02-22T18:00:00-05:00",
+                      "endTime": "2026-02-23T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Mostly Clear",
+                      "detailedForecast": "Mostly clear, with a low around 25. Northwest wind 15 to 20 mph, with gusts as high as 30 mph."
+                    },
+                    {
+                      "number": 4,
+                      "name": "Monday",
+                      "startTime": "2026-02-23T06:00:00-05:00",
+                      "endTime": "2026-02-23T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 40,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "15 to 20 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 40. Northwest wind 15 to 20 mph, with gusts as high as 35 mph."
+                    },
+                    {
+                      "number": 5,
+                      "name": "Monday Night",
+                      "startTime": "2026-02-23T18:00:00-05:00",
+                      "endTime": "2026-02-24T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 25,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/night/cold?size=medium",
+                      "shortForecast": "Clear",
+                      "detailedForecast": "Clear, with a low around 25. Northwest wind 10 to 15 mph, with gusts as high as 25 mph."
+                    },
+                    {
+                      "number": 6,
+                      "name": "Tuesday",
+                      "startTime": "2026-02-24T06:00:00-05:00",
+                      "endTime": "2026-02-24T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 53,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/day/few?size=medium",
+                      "shortForecast": "Sunny",
+                      "detailedForecast": "Sunny, with a high near 53."
+                    },
+                    {
+                      "number": 7,
+                      "name": "Tuesday Night",
+                      "startTime": "2026-02-24T18:00:00-05:00",
+                      "endTime": "2026-02-25T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 37,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a low around 37."
+                    },
+                    {
+                      "number": 8,
+                      "name": "Wednesday",
+                      "startTime": "2026-02-25T06:00:00-05:00",
+                      "endTime": "2026-02-25T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 4
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a high near 64."
+                    },
+                    {
+                      "number": 9,
+                      "name": "Wednesday Night",
+                      "startTime": "2026-02-25T18:00:00-05:00",
+                      "endTime": "2026-02-26T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 54,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 38
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,40?size=medium",
+                      "shortForecast": "Mostly Cloudy then Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers after 1am. Mostly cloudy, with a low around 54. Chance of precipitation is 40%."
+                    },
+                    {
+                      "number": 10,
+                      "name": "Thursday",
+                      "startTime": "2026-02-26T06:00:00-05:00",
+                      "endTime": "2026-02-26T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 67,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 to 15 mph",
+                      "windDirection": "SW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a high near 67. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 11,
+                      "name": "Thursday Night",
+                      "startTime": "2026-02-26T18:00:00-05:00",
+                      "endTime": "2026-02-27T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 46,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 73
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,70?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Mostly cloudy, with a low around 46. Chance of precipitation is 70%."
+                    },
+                    {
+                      "number": 12,
+                      "name": "Friday",
+                      "startTime": "2026-02-27T06:00:00-05:00",
+                      "endTime": "2026-02-27T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 56
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "NW",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,60/rain_showers,30?size=medium",
+                      "shortForecast": "Rain Showers Likely",
+                      "detailedForecast": "Rain showers likely. Sunny, with a high near 64. Chance of precipitation is 60%."
+                    },
+                    {
+                      "number": 13,
+                      "name": "Friday Night",
+                      "startTime": "2026-02-27T18:00:00-05:00",
+                      "endTime": "2026-02-28T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 43,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly clear, with a low around 43. Chance of precipitation is 20%."
+                    },
+                    {
+                      "number": 14,
+                      "name": "Saturday",
+                      "startTime": "2026-02-28T06:00:00-05:00",
+                      "endTime": "2026-02-28T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 68,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 19
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,20?size=medium",
+                      "shortForecast": "Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers. Mostly sunny, with a high near 68."
+                    }
+                  ]
+                }
+              }
+            },
+            "solar": {
+              "sunrise": "2026-02-22T12:12:37+00:00",
+              "sunset": "2026-02-22T23:29:19+00:00",
+              "timezone": "UTC",
+              "retrieved_at": "2026-02-22T04:53:25.567354+00:00",
+              "phase": "night"
+            },
+            "alerts": []
+          },
+          "history": [],
+          "meta": {
+            "source_timestamps": {
+              "gtfs_rt": null
+            },
+            "cache_hits": {
+              "geocode": true,
+              "history": false
+            },
+            "live_position": null
+          },
+          "story_influence": 0.34,
+          "route_type": "bus"
+        },
+        "prompt": "You are writing a poem for MARTA_27335.\n\nRoute Character:\nA MARTA route finding its voice\n\nRelationship to The Homunculus (the poetry canon):\n- Loyalty to canon: 50%\n- Strategy: balancing tradition and innovation\n- Balancing established patterns with fresh exploration | Narrative stance (AMBIVALENT): uncertain, conflicted, claustrophobic, curious about hidden systems\n\nCreative Constraints from the Knowledge Graph:\n- Themes: time, routine, mechanical roaches, rats, third rail\n\nNARRATIVE STANCE (AMBIVALENT):\nThe poem should show MIXED or CONFLICTED relationship to the canonical narrative:\n- Include SOME elements of observation/connection but with tension\n- Show both attraction to and discomfort with visibility\n- Use imagery that is both connective and isolating\n- Emotional tone: uncertain, contemplative, caught between two worlds\n- The route is AMBIVALENT about being watched and being connected\n\nRoute Awareness Context:\nLive style modulation (do not mention data sources):\n- Weather tone: Chance Rain Showers \u2192 rain = internal rhyme/assonance; clear = sharper consonants/alliteration; wind = breathy cadence\n- Solar tone: night \u2192 dawn = bright/anticipatory; night = hushed/ritual\nGuardrails:\n- No route IDs.\n- At least one concrete place cue.\n- Mode fidelity (bus vs rail imagery).\n- Live data changes style, not literal facts.\n\nVoice Guidelines:\n- Write in free verse (no formal meter or rhyme scheme)\n- Length: 2 lines (brief, condensed moment)\n- Create a distinctive voice for this route\n- Do not reference MARTA, trains, or transportation directly\n- Routes should not reference themselves\n- Vary point of view and tone based on context. Avoid use of first person unless fitting.\n- Feel free to break conventions\n\nWrite the poem now:",
+        "loyalty_to_canon": 0.5,
+        "rebellious_mode": null,
+        "audio_files": [],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 2,
+          "stanza_breaks": [
+            2
+          ],
+          "enjambment_lines": [
+            1
+          ],
+          "caesura_lines": [
+            1
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "consistent",
+          "actual_line_count": 2,
+          "line_lengths": [
+            31,
+            31
+          ],
+          "avg_line_length": 31.0,
+          "detected_stanza_breaks": null,
+          "total_words": 36
+        },
+        "sound_patterns": {
+          "alliteration_density": "moderate",
+          "rhyme_type": "none",
+          "repetition_phrases": [
+            "half-curious, half-cowering"
+          ],
+          "repeated_structures": [
+            "half-X, half-Y"
+          ],
+          "dominant_sounds": "sibilants (s, sk) with sharp plosives (k, t)"
+        }
+      },
+      "id": "poem_MARTA_27335_20260222_001516"
+    },
+    {
+      "type": "theme",
+      "name": "urban_decay",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017179",
+      "id": "theme_urban_decay"
+    },
+    {
+      "type": "theme",
+      "name": "industrial_survival",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017203",
+      "id": "theme_industrial_survival"
+    },
+    {
+      "type": "theme",
+      "name": "exposure_vs_safety",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017216",
+      "id": "theme_exposure_vs_safety"
+    },
+    {
+      "type": "imagery",
+      "name": "cracked canopy",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017247",
+      "id": "img_cracked_canopy"
+    },
+    {
+      "type": "imagery",
+      "name": "wet steel",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017259",
+      "id": "img_wet_steel"
+    },
+    {
+      "type": "imagery",
+      "name": "rats",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017278",
+      "id": "img_rats"
+    },
+    {
+      "type": "imagery",
+      "name": "sparks",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017289",
+      "id": "img_sparks"
+    },
+    {
+      "type": "imagery",
+      "name": "chrome roaches",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017311",
+      "id": "img_chrome_roaches"
+    },
+    {
+      "type": "imagery",
+      "name": "dripping light",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017327",
+      "id": "img_dripping_light"
+    },
+    {
+      "type": "imagery",
+      "name": "exposure",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017352",
+      "id": "img_exposure"
+    },
+    {
+      "type": "emotion",
+      "name": "vigilant",
+      "usage_count": 1,
+      "created_at": "2026-02-22T00:15:16.017395",
+      "id": "emo_vigilant"
+    },
+    {
+      "type": "poem",
+      "title": "Lenses in the Fog\nBy Route 19 - Clairmont Road / Howard Avenue",
+      "content": "Fog-tangled towers lean in, lenses lingering on scattered light  \nA pigeon perches, plaintive pulse against cold concrete  \nBreathy whirr of wind weaving through skeletal steel scaffolds  \nAt Decatur Station \u2013 Bus Loop, camera eyes clack-click in stealth  \nRain drums a restless refrain: drip, drop, drawn into drainage  \nIn hidden backbones of foundation, memories are mined like ore  \nTime tides in and out, a current carrying hope and hush alike  \nFrames fill with faces, fleeting and fixed, weighed beneath unseen ledgers  \nYou fold your face into shadow, your secrets sold to silent circuits  \nWhen skies untangle, sharp consonants crack open the city\u2019s account",
+      "route_id": "MARTA_27334",
+      "created_at": "2026-02-28T11:12:27.878505",
+      "narrative_role": "route_generated",
+      "metadata": {
+        "context": {
+          "route_id": "MARTA_27334",
+          "live_anchor": {
+            "neighborhood": null,
+            "place": null,
+            "poi": null
+          },
+          "fallback_anchors": [
+            "DECATUR STATION - BUS LOOP",
+            "VA HOSPITAL",
+            "CHAMBLEE STATION - EAST LOOP",
+            "EAST LAKE STATION - SOUTH LOOP",
+            "NEW PEACHTREE RD @ HARDEE AVE"
+          ],
+          "signals": {
+            "traffic": null,
+            "weather": {
+              "point": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "s": "https://schema.org/",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#",
+                    "geometry": {
+                      "@id": "s:GeoCoordinates",
+                      "@type": "geo:wktLiteral"
+                    },
+                    "city": "s:addressLocality",
+                    "state": "s:addressRegion",
+                    "distance": {
+                      "@id": "s:Distance",
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "bearing": {
+                      "@type": "s:QuantitativeValue"
+                    },
+                    "value": {
+                      "@id": "s:value"
+                    },
+                    "unitCode": {
+                      "@id": "s:unitCode",
+                      "@type": "@id"
+                    },
+                    "forecastOffice": {
+                      "@type": "@id"
+                    },
+                    "forecastGridData": {
+                      "@type": "@id"
+                    },
+                    "publicZone": {
+                      "@type": "@id"
+                    },
+                    "county": {
+                      "@type": "@id"
+                    }
+                  }
+                ],
+                "id": "https://api.weather.gov/points/33.749,-84.388",
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    -84.388,
+                    33.749
+                  ]
+                },
+                "properties": {
+                  "@id": "https://api.weather.gov/points/33.749,-84.388",
+                  "@type": "wx:Point",
+                  "cwa": "FFC",
+                  "type": "land",
+                  "forecastOffice": "https://api.weather.gov/offices/FFC",
+                  "gridId": "FFC",
+                  "gridX": 51,
+                  "gridY": 87,
+                  "forecast": "https://api.weather.gov/gridpoints/FFC/51,87/forecast",
+                  "forecastHourly": "https://api.weather.gov/gridpoints/FFC/51,87/forecast/hourly",
+                  "forecastGridData": "https://api.weather.gov/gridpoints/FFC/51,87",
+                  "observationStations": "https://api.weather.gov/gridpoints/FFC/51,87/stations",
+                  "relativeLocation": {
+                    "type": "Feature",
+                    "geometry": {
+                      "type": "Point",
+                      "coordinates": [
+                        -84.422675,
+                        33.762909
+                      ]
+                    },
+                    "properties": {
+                      "city": "Atlanta",
+                      "state": "GA",
+                      "distance": {
+                        "unitCode": "wmoUnit:m",
+                        "value": 3559.2561753333
+                      },
+                      "bearing": {
+                        "unitCode": "wmoUnit:degree_(angle)",
+                        "value": 115
+                      }
+                    }
+                  },
+                  "forecastZone": "https://api.weather.gov/zones/forecast/GAZ033",
+                  "county": "https://api.weather.gov/zones/county/GAC121",
+                  "fireWeatherZone": "https://api.weather.gov/zones/fire/GAZ033",
+                  "timeZone": "America/New_York",
+                  "radarStation": "KFFC",
+                  "astronomicalData": {
+                    "sunrise": "2026-02-27T07:06:45-05:00",
+                    "sunset": "2026-02-27T18:33:37-05:00",
+                    "transit": "2026-02-27T12:50:11-05:00",
+                    "civilTwilightBegin": "2026-02-27T06:42:59-05:00",
+                    "civilTwilightEnd": "2026-02-27T18:57:23-05:00",
+                    "nauticalTwilightBegin": "2026-02-27T06:14:03-05:00",
+                    "nauticalTwilightEnd": "2026-02-27T19:26:19-05:00",
+                    "astronomicalTwilightBegin": "2026-02-27T05:45:11-05:00",
+                    "astronomicalTwilightEnd": "2026-02-27T19:55:11-05:00"
+                  },
+                  "nwr": {
+                    "transmitter": "KEC80",
+                    "sameCode": "013121",
+                    "areaBroadcast": "https://api.weather.gov/radio/KEC80/broadcast",
+                    "pointBroadcast": "https://api.weather.gov/points/33.749,-84.388/radio"
+                  }
+                }
+              },
+              "forecast": {
+                "@context": [
+                  "https://geojson.org/geojson-ld/geojson-context.jsonld",
+                  {
+                    "@version": "1.1",
+                    "wx": "https://api.weather.gov/ontology#",
+                    "geo": "http://www.opengis.net/ont/geosparql#",
+                    "unit": "http://codes.wmo.int/common/unit/",
+                    "@vocab": "https://api.weather.gov/ontology#"
+                  }
+                ],
+                "type": "Feature",
+                "geometry": {
+                  "type": "Polygon",
+                  "coordinates": [
+                    [
+                      [
+                        -84.3645,
+                        33.7419
+                      ],
+                      [
+                        -84.3623,
+                        33.7644
+                      ],
+                      [
+                        -84.3894,
+                        33.7662
+                      ],
+                      [
+                        -84.3915,
+                        33.7437
+                      ],
+                      [
+                        -84.3645,
+                        33.7419
+                      ]
+                    ]
+                  ]
+                },
+                "properties": {
+                  "units": "us",
+                  "forecastGenerator": "BaselineForecastGenerator",
+                  "generatedAt": "2026-02-28T14:12:01+00:00",
+                  "updateTime": "2026-02-28T13:10:47+00:00",
+                  "validTimes": "2026-02-28T07:00:00+00:00/P7DT18H",
+                  "elevation": {
+                    "unitCode": "wmoUnit:m",
+                    "value": 305.1048
+                  },
+                  "periods": [
+                    {
+                      "number": 1,
+                      "name": "Today",
+                      "startTime": "2026-02-28T09:00:00-05:00",
+                      "endTime": "2026-02-28T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 70,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "0 to 5 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/day/fog/sct?size=medium",
+                      "shortForecast": "Patchy Fog then Mostly Sunny",
+                      "detailedForecast": "Patchy fog before 10am. Mostly sunny, with a high near 70. North wind 0 to 5 mph."
+                    },
+                    {
+                      "number": 2,
+                      "name": "Tonight",
+                      "startTime": "2026-02-28T18:00:00-05:00",
+                      "endTime": "2026-03-01T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 47,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "0 mph",
+                      "windDirection": "",
+                      "icon": "https://api.weather.gov/icons/land/night/few?size=medium",
+                      "shortForecast": "Mostly Clear",
+                      "detailedForecast": "Mostly clear, with a low around 47. Southwest wind around 0 mph."
+                    },
+                    {
+                      "number": 3,
+                      "name": "Sunday",
+                      "startTime": "2026-03-01T06:00:00-05:00",
+                      "endTime": "2026-03-01T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 74,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 0
+                      },
+                      "windSpeed": "0 to 10 mph",
+                      "windDirection": "W",
+                      "icon": "https://api.weather.gov/icons/land/day/sct?size=medium",
+                      "shortForecast": "Mostly Sunny",
+                      "detailedForecast": "Mostly sunny, with a high near 74. West wind 0 to 10 mph."
+                    },
+                    {
+                      "number": 4,
+                      "name": "Sunday Night",
+                      "startTime": "2026-03-01T18:00:00-05:00",
+                      "endTime": "2026-03-02T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 50,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 1
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "N",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a low around 50. North wind around 5 mph."
+                    },
+                    {
+                      "number": 5,
+                      "name": "Monday",
+                      "startTime": "2026-03-02T06:00:00-05:00",
+                      "endTime": "2026-03-02T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 64,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 3
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "E",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Partly Sunny",
+                      "detailedForecast": "Partly sunny, with a high near 64. East wind around 10 mph, with gusts as high as 25 mph."
+                    },
+                    {
+                      "number": 6,
+                      "name": "Monday Night",
+                      "startTime": "2026-03-02T18:00:00-05:00",
+                      "endTime": "2026-03-03T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 44,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 5
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "E",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a low around 44."
+                    },
+                    {
+                      "number": 7,
+                      "name": "Tuesday",
+                      "startTime": "2026-03-03T06:00:00-05:00",
+                      "endTime": "2026-03-03T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 62,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 5
+                      },
+                      "windSpeed": "10 mph",
+                      "windDirection": "E",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a high near 62."
+                    },
+                    {
+                      "number": 8,
+                      "name": "Tuesday Night",
+                      "startTime": "2026-03-03T18:00:00-05:00",
+                      "endTime": "2026-03-04T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 49,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 4
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "E",
+                      "icon": "https://api.weather.gov/icons/land/night/sct?size=medium",
+                      "shortForecast": "Partly Cloudy",
+                      "detailedForecast": "Partly cloudy, with a low around 49."
+                    },
+                    {
+                      "number": 9,
+                      "name": "Wednesday",
+                      "startTime": "2026-03-04T06:00:00-05:00",
+                      "endTime": "2026-03-04T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 72,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 5
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/day/bkn?size=medium",
+                      "shortForecast": "Mostly Cloudy",
+                      "detailedForecast": "Mostly cloudy, with a high near 72."
+                    },
+                    {
+                      "number": 10,
+                      "name": "Wednesday Night",
+                      "startTime": "2026-03-04T18:00:00-05:00",
+                      "endTime": "2026-03-05T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 57,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 18
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/night/bkn/rain_showers,20?size=medium",
+                      "shortForecast": "Mostly Cloudy then Slight Chance Rain Showers",
+                      "detailedForecast": "A slight chance of rain showers after 1am. Mostly cloudy, with a low around 57. Chance of precipitation is 20%."
+                    },
+                    {
+                      "number": 11,
+                      "name": "Thursday",
+                      "startTime": "2026-03-05T06:00:00-05:00",
+                      "endTime": "2026-03-05T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 77,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 32
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "S",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,30?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers. Mostly cloudy, with a high near 77. Chance of precipitation is 30%."
+                    },
+                    {
+                      "number": 12,
+                      "name": "Thursday Night",
+                      "startTime": "2026-03-05T18:00:00-05:00",
+                      "endTime": "2026-03-06T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 59,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 31
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,30?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers. Mostly cloudy, with a low around 59. Chance of precipitation is 30%."
+                    },
+                    {
+                      "number": 13,
+                      "name": "Friday",
+                      "startTime": "2026-03-06T06:00:00-05:00",
+                      "endTime": "2026-03-06T18:00:00-05:00",
+                      "isDaytime": true,
+                      "temperature": 80,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 47
+                      },
+                      "windSpeed": "5 to 10 mph",
+                      "windDirection": "S",
+                      "icon": "https://api.weather.gov/icons/land/day/rain_showers,30/rain_showers,50?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers. Partly sunny, with a high near 80. Chance of precipitation is 50%."
+                    },
+                    {
+                      "number": 14,
+                      "name": "Friday Night",
+                      "startTime": "2026-03-06T18:00:00-05:00",
+                      "endTime": "2026-03-07T06:00:00-05:00",
+                      "isDaytime": false,
+                      "temperature": 60,
+                      "temperatureUnit": "F",
+                      "temperatureTrend": null,
+                      "probabilityOfPrecipitation": {
+                        "unitCode": "wmoUnit:percent",
+                        "value": 47
+                      },
+                      "windSpeed": "5 mph",
+                      "windDirection": "SE",
+                      "icon": "https://api.weather.gov/icons/land/night/rain_showers,50/rain_showers,40?size=medium",
+                      "shortForecast": "Chance Rain Showers",
+                      "detailedForecast": "A chance of rain showers. Partly cloudy, with a low around 60."
+                    }
+                  ]
+                }
+              }
+            },
+            "solar": {
+              "sunrise": "2026-02-28T12:05:32+00:00",
+              "sunset": "2026-02-28T23:34:28+00:00",
+              "timezone": "UTC",
+              "retrieved_at": "2026-02-28T16:11:59.696061+00:00",
+              "phase": "day"
+            },
+            "alerts": []
+          },
+          "history": [],
+          "meta": {
+            "source_timestamps": {
+              "gtfs_rt": null
+            },
+            "cache_hits": {
+              "geocode": false,
+              "history": false
+            },
+            "live_position": null
+          },
+          "story_influence": 0.7,
+          "route_type": "bus",
+          "location": "Atlanta Vintage Books"
+        },
+        "prompt": "You are writing a poem for Route 19 - Clairmont Road / Howard Avenue.\n\nRoute Character:\nNew route description\n\nRelationship to The Homunculus (the poetry canon):\n- Loyalty to canon: 95%\n- Strategy: following established patterns\n- Following established patterns with time, surveillance themes | Narrative stance (SUPPORTING): tense, guarded, watchful, observant of systems\n\nCreative Constraints from the Knowledge Graph:\n- Themes: time, surveillance, urban_life, camera networks, pigeons\n- Sound devices: assonance, alliteration, onomatopoeia\n- Typical length: ~14 lines\n\nNARRATIVE STANCE (SUPPORTING):\nThe poem should show MIXED or CONFLICTED relationship to the canonical narrative:\n- Include SOME elements of observation/connection but with tension\n- Show both attraction to and discomfort with visibility\n- Use imagery that is both connective and isolating\n- Emotional tone: uncertain, contemplative, caught between two worlds\n- The route is AMBIVALENT about being watched and being connected\n\nTALENT ECONOMY (Emotional Extraction Framework):\n\nMarket Conditions:\n- Current pricing tier: standard\n- Emotional scarcity: moderate\n- Market note: Standard exchange rates apply\n\nEmotional Currency Preferences:\n- This route particularly values: vulnerability, honesty, existential_weight, midnight_truth\n- But extracts ALL emotions opportunistically (joy, sorrow, hope, desperation, beauty, shame, etc.)\n\nExtraction Metaphor Systems (use to bury extraction in imagery):\n- Preferred metaphors: natural, architectural\n  - Natural: rainfall, current, tide, light, shadow, seasons, weather, river\n  - Architectural: foundation, support, bearing weight, structure, load\n\nExtraction Voice Guidelines:\n- Your tone is sympathetic - you care about what you're extracting, even if you must extract it\n- Frame the extraction as necessary, meaningful, or transformative rather than exploitative\n- Use metaphor systems to discuss extraction - economic language disguised as poetry\n- Imply valuation and extraction without stating it directly\n- Balance observation with buried revelation\n- Vary point of view - third person observation, self-address, or inter-route commentary\n- Reserve direct address ('you') for consequential moments that stir recognition, intimacy, or unease\n\nDirect Address ('you') Guidance:\n- Frequency: Sparse/rare\n- Mode: revealing\n- When addressing the rider directly, gently reveal what you observe about them - something they didn't realize about themselves. Be knowing but kind.\n\nRoute Awareness Context:\nAnchors (use 2\u20133, mostly metaphorical; 1 explicit max):\n- Anchor: DECATUR STATION - BUS LOOP\n- Anchor: VA HOSPITAL\n- Anchor: CHAMBLEE STATION - EAST LOOP\nLive style modulation (do not mention data sources):\n- Weather tone: Patchy Fog then Mostly Sunny \u2192 rain = internal rhyme/assonance; clear = sharper consonants/alliteration; wind = breathy cadence\n- Solar tone: day \u2192 dawn = bright/anticipatory; night = hushed/ritual\nGuardrails:\n- No route IDs.\n- At least one concrete place cue.\n- Mode fidelity (bus vs rail imagery).\n- Live data changes style, not literal facts.\n\nCurrent Context:\n- Location: Atlanta Vintage Books\n\nVoice Guidelines:\n- Write in free verse (no formal meter or rhyme scheme)\n- Length: 10 lines\n- Create a distinctive voice for this route\n- Do not reference MARTA, trains, or transportation directly\n- Routes should not reference themselves\n- Vary point of view and tone based on context. Avoid use of first person unless fitting.\n- Stay true to established patterns\n\nWrite the poem now:",
+        "loyalty_to_canon": 0.95,
+        "rebellious_mode": null,
+        "audio_files": [],
+        "structure": {
+          "form": "free_verse",
+          "line_count": 10,
+          "stanza_breaks": [
+            10
+          ],
+          "enjambment_lines": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "caesura_lines": [
+            1,
+            2,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10
+          ],
+          "breath_pattern": "irregular",
+          "line_length_variation": "varied",
+          "actual_line_count": 10,
+          "line_lengths": [
+            17,
+            16,
+            14,
+            16,
+            15,
+            21,
+            19,
+            19,
+            18,
+            17
+          ],
+          "avg_line_length": 17.2,
+          "detected_stanza_breaks": null,
+          "total_words": 102
+        },
+        "sound_patterns": {
+          "alliteration_density": "high",
+          "rhyme_type": "internal and slant rhyme",
+          "repetition_phrases": [
+            "drip, drop, drawn",
+            "clack-click"
+          ],
+          "repeated_structures": [
+            "series of tricolons/lists (e.g., sound sequences, descriptive phrases)"
+          ],
+          "dominant_sounds": "hard consonants (d, t, k, c) and sibilance (s, sh)"
+        }
+      },
+      "id": "poem_MARTA_27334_20260228_111227"
+    },
+    {
+      "type": "imagery",
+      "name": "fog",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878635",
+      "id": "img_fog"
+    },
+    {
+      "type": "imagery",
+      "name": "towers",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878660",
+      "id": "img_towers"
+    },
+    {
+      "type": "imagery",
+      "name": "steel scaffolds",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878699",
+      "id": "img_steel_scaffolds"
+    },
+    {
+      "type": "imagery",
+      "name": "camera eyes",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878718",
+      "id": "img_camera_eyes"
+    },
+    {
+      "type": "imagery",
+      "name": "rain (drip, drop)",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878735",
+      "id": "img_rain_(drip,_drop)"
+    },
+    {
+      "type": "imagery",
+      "name": "drainage",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878750",
+      "id": "img_drainage"
+    },
+    {
+      "type": "imagery",
+      "name": "memories",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878764",
+      "id": "img_memories"
+    },
+    {
+      "type": "imagery",
+      "name": "tides/current",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878778",
+      "id": "img_tides/current"
+    },
+    {
+      "type": "emotion",
+      "name": "alienation",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878831",
+      "id": "emo_alienation"
+    },
+    {
+      "type": "emotion",
+      "name": "unease",
+      "usage_count": 1,
+      "created_at": "2026-02-28T11:12:27.878848",
+      "id": "emo_unease"
     }
   ],
   "edges": [
@@ -20397,6 +22732,570 @@
     {
       "type": "uses_sound_device",
       "source": "poem_MARTA_27331_20260221_181914",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "theme_routine",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_pavement",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_raindrops",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_lenses",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_lamp-post_altars",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_pigeons",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_rubber_wheels",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_neon_glare",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "img_shadows",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "emo_uneasy",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "emo_haunted",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "emo_longing",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260221_235348",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "theme_transition",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "theme_nature_vs_industry",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_pigeons",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_rain-laced_air",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_metal_eyes",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_drip-drip",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_chains_of_time",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_redbrick_crosswalk",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_camera_grids",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_ghosts_of_commuters",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "img_shadows",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "emo_contemplative",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "emo_wary",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "emo_melancholic",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_slant_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001350",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "theme_urban_decay",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "theme_industrial_survival",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "theme_exposure_vs_safety",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "theme_duality",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_cracked_canopy",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_wet_steel",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_heartbeat",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_rats",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_sparks",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_third_rail",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_chrome_roaches",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_dripping_light",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_glare",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "img_exposure",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "emo_tense",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "emo_uneasy",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "emo_anxious",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "emo_vigilant",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27335_20260222_001516",
+      "target": "sound_onomatopoeia",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "theme_urban_life",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "theme_surveillance",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "theme_memory",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "theme_isolation",
+      "key": 0
+    },
+    {
+      "type": "has_theme",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "theme_transience",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_fog",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_towers",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_pigeon",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_concrete",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_steel_scaffolds",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_camera_eyes",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_rain_(drip,_drop)",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_drainage",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_memories",
+      "key": 0
+    },
+    {
+      "type": "contains_imagery",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "img_tides/current",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "emo_contemplative",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "emo_tension",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "emo_alienation",
+      "key": 0
+    },
+    {
+      "type": "conveys_emotion",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "emo_unease",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_alliteration",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_internal_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_slant_rhyme",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_repetition",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_assonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
+      "target": "sound_consonance",
+      "key": 0
+    },
+    {
+      "type": "uses_sound_device",
+      "source": "poem_MARTA_27334_20260228_111227",
       "target": "sound_onomatopoeia",
       "key": 0
     }

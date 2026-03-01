@@ -87,36 +87,43 @@
   },
   "MARTA_21": {
     "name": "Route 21 - Memorial Drive",
-    "description": "Night runner, rebellious voice",
-    "loyalty_to_canon": 0.3,
-    "rebellious_mode": "invert",
-    "sound_preferences": {
-      "alliteration": 0.2,
-      "anaphora": 0.9,
-      "repetition": 0.85
-    },
-    "theme_affinities": {
-      "darkness": 0.9,
-      "truth": 0.8,
-      "isolation": 0.7
-    },
+    "description": "Night runner, rebellious voice, friend to taxicabs, both automated and human-operated",
     "route_mode": "bus",
     "major_stops": [
       "Memorial Drive",
       "East Atlanta",
       "Downtown"
     ],
+    "loyalty_to_canon": 0.3,
+    "rebellious_mode": "invert",
+    "sound_preferences": {
+      "alliteration": 0.2,
+      "anaphora": 0.75,
+      "repetition": 0.85
+    },
+    "theme_affinities": {
+      "darkness": 0.4,
+      "truth": 0.6,
+      "isolation": 0.3,
+      "restaurants": 0.5,
+      "working class": 0.5,
+      "gentrification": 0.6,
+      "homelessness": 0.5,
+      "poverty": 0.35,
+      "assimilation": 0.5,
+      "cultural identity": 0.5,
+      "urban wildlife": 0.45
+    },
     "talent_economy": {
       "enabled": true,
       "sympathy_level": 0.35,
       "extraction_visibility": 0.65,
       "preferred_currencies": [
         "vulnerability",
-        "isolation",
         "truth",
         "desperation",
-        "heartbreak",
-        "midnight_confessions"
+        "comraderie",
+        "resolution"
       ],
       "currency_avoidance": [
         "superficial_joy"
