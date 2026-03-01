@@ -376,14 +376,14 @@ The frontend is deployed separately to **Azure Static Web Apps** (free tier avai
 
 Static Web Apps integrates with GitHub for automatic deployments.
 
-**Setup (one-time):**
+**One-time Setup:**
 
-1. **Create Static Web App resource:**
+1. **Create Static Web App resource** (if not already created):
    ```bash
    az staticwebapp create \
      --name marta-poetry-frontend \
      --resource-group MartaPoetryRG \
-     --location eastus \
+     --location eastus2 \
      --sku free
    ```
 
@@ -394,25 +394,32 @@ Static Web Apps integrates with GitHub for automatic deployments.
      --resource-group MartaPoetryRG \
      --query "properties.apiKey" -o tsv)
    
-   echo "Add this as GitHub secret:"
-   echo "Name: AZURE_STATIC_WEB_APPS_API_TOKEN"
-   echo "Value: $DEPLOYMENT_TOKEN"
+   echo "Deployment Token:"
+   echo $DEPLOYMENT_TOKEN
    ```
 
-3. **Add GitHub secret:**
-   - Go to GitHub Repo → Settings → Secrets and variables → Actions
+3. **Add GitHub secret** (one-time per repository):
+   - Go to: https://github.com/bohara2000/MARTA-Poetry/settings/secrets/actions
    - Click "New repository secret"
-   - Name: `AZURE_STATIC_WEB_APPS_API_TOKEN`
-   - Value: Paste the token from above
+   - Fill in:
+     - **Name:** `AZURE_STATIC_WEB_APPS_API_TOKEN`
+     - **Value:** (paste the token from step 2)
    - Click "Add secret"
 
-4. **Push to main:**
+4. **Push to main** to trigger first deployment:
    ```bash
    git push origin main
    ```
-   GitHub Actions automatically builds and deploys on push.
 
-**From now on:** Every push to `main` automatically deploys the frontend.
+**From now on:** Every push to `main` automatically:
+- Installs dependencies
+- Builds the React app
+- Deploys to Static Web Apps
+- Configures API endpoint
+
+Monitor the deployment in the **GitHub Actions** tab of your repository.
+
+**Note for team members:** The deployment token is stored as a GitHub secret, not in the repo. Only maintainers with repo access need to set it up once.
 
 ### Option B: Build and Deploy Locally
 
