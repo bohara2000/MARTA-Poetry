@@ -22,3 +22,4 @@ frontend/node_modules/
 *.env.*.local
 
 
+scripts/setup_github_secret.sh
