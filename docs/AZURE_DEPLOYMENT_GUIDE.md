@@ -10,8 +10,9 @@ Complete step-by-step instructions for deploying the MARTA-Poetry application to
 4. [Configuration & Secrets](#configuration--secrets)
 5. [Data Migration](#data-migration)
 6. [Application Deployment](#application-deployment)
-7. [Testing & Verification](#testing--verification)
-8. [Troubleshooting](#troubleshooting)
+7. [Frontend Deployment](#frontend-deployment)
+8. [Testing & Verification](#testing--verification)
+9. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -306,7 +307,30 @@ az storage blob upload-batch \
 
 ## Application Deployment
 
-### Option A: Deploy via Azure Portal (ZIP Deploy)
+### Option A: One-Command Deploy & Verify (Recommended)
+
+**Fastest option:** Zips code, deploys to App Service, and validates health in one command.
+
+```bash
+# From project root
+bash scripts/deploy_and_verify.sh
+```
+
+This script:
+- ✅ Creates deployment package (`backend/app.zip`)
+- ✅ Uploads to App Service
+- ✅ Waits for processing
+- ✅ Validates endpoints respond (up to 3 minutes)
+- ✅ Shows access URLs on success
+
+**With custom resource names:**
+```bash
+APP_NAME=my-app RESOURCE_GROUP=my-rg bash scripts/deploy_and_verify.sh
+```
+
+### Option B: Manual ZIP Deploy
+
+If you prefer step-by-step control:
 
 ```bash
 # Create deployment package
@@ -319,13 +343,16 @@ az webapp deployment source config-zip \
   --name marta-poetry-app \
   --resource-group MartaPoetryRG \
   --src app.zip
+
+# Verify health (in root directory)
+bash scripts/post_deploy_health_check.sh
 ```
 
-### Option B: Deploy via GitHub Actions (CI/CD)
+### Option C: Deploy via GitHub Actions (CI/CD)
 
 See `.github/workflows/deploy.yml` for automated deployment on push to main.
 
-### Option C: Deploy from VS Code
+### Option D: Deploy from VS Code
 
 ```bash
 # Install Azure App Service extension
@@ -335,21 +362,150 @@ See `.github/workflows/deploy.yml` for automated deployment on push to main.
 
 ---
 
+## Frontend Deployment
+
+The frontend is deployed separately to **Azure Static Web Apps** (free tier available).
+
+### Prerequisites for Frontend
+
+- Node.js 16+ installed locally
+- Frontend directory: `frontend/`
+- Backend already deployed (needed for API endpoint)
+
+### Option A: Automatic Deployment via GitHub Actions (Recommended)
+
+Static Web Apps integrates with GitHub for automatic deployments.
+
+**Setup (one-time):**
+
+1. **Create Static Web App resource:**
+   ```bash
+   az staticwebapp create \
+     --name marta-poetry-frontend \
+     --resource-group MartaPoetryRG \
+     --location eastus \
+     --sku free
+   ```
+
+2. **Get the deployment token:**
+   ```bash
+   DEPLOYMENT_TOKEN=$(az staticwebapp secrets list \
+     --name marta-poetry-frontend \
+     --resource-group MartaPoetryRG \
+     --query "properties.apiKey" -o tsv)
+   
+   echo "Add this as GitHub secret:"
+   echo "Name: AZURE_STATIC_WEB_APPS_API_TOKEN"
+   echo "Value: $DEPLOYMENT_TOKEN"
+   ```
+
+3. **Add GitHub secret:**
+   - Go to GitHub Repo → Settings → Secrets and variables → Actions
+   - Click "New repository secret"
+   - Name: `AZURE_STATIC_WEB_APPS_API_TOKEN`
+   - Value: Paste the token from above
+   - Click "Add secret"
+
+4. **Push to main:**
+   ```bash
+   git push origin main
+   ```
+   GitHub Actions automatically builds and deploys on push.
+
+**From now on:** Every push to `main` automatically deploys the frontend.
+
+### Option B: Build and Deploy Locally
+
+If you prefer to control deployment manually:
+
+```bash
+# Build the frontend
+cd frontend
+npm install
+npm run build
+
+# This creates optimized files in frontend/dist/
+
+# Deploy using Azure CLI
+az staticwebapp upload \
+  --name marta-poetry-frontend \
+  --source-path ./dist
+```
+
+### Option C: Use Deploy Script
+
+```bash
+# Builds frontend and shows deployment options
+bash scripts/deploy_frontend.sh
+```
+
+### Verify Frontend Deployment
+
+```bash
+# Get the Static Web App URL
+az staticwebapp show \
+  --name marta-poetry-frontend \
+  --resource-group MartaPoetryRG \
+  --query "properties.defaultHostname" -o tsv
+
+# Visit the URL in your browser
+# The app will automatically connect to the backend API
+```
+
+### Configure API Endpoint
+
+The frontend automatically connects to the backend:
+
+- **Development**: Uses `http://localhost:8000` (Vite dev server proxy)
+- **Production**: Uses the backend App Service URL
+
+Environment variables in `frontend/.env.local`:
+
+```bash
+# For local development
+VITE_API_URL=http://localhost:8000
+
+# For production (set automatically by Static Web Apps)
+# VITE_API_URL=https://marta-poetry-app.azurewebsites.net
+```
+
+---
+
 ## Testing & Verification
 
-### 1. Test App Service
+### 1. Automatic Health Validation
+
+After deployment, the app runs an automated health check:
+
+```bash
+# This runs automatically with Option A deployment
+# Or run manually anytime:
+bash scripts/post_deploy_health_check.sh
+```
+
+Validates:
+- ✅ `/openapi.json` endpoint returns 200 OK
+- ✅ `/` root endpoint returns 200 OK
+- ✅ App responded within 3 minutes (18 retries × 10s)
+
+On failure, displays diagnostics: app state, startup command, recent logs.
+
+### 2. Test App Service
 
 ```bash
 # Get the app URL
 APP_URL=$(az webapp show --name marta-poetry-app --resource-group MartaPoetryRG --query "hostNames[0]" -o tsv)
 
 # Test the health endpoint
-curl https://$APP_URL/health
+curl https://$APP_URL/
 
-# Expected response: 200 OK with status info
+# Test OpenAPI docs
+curl https://$APP_URL/docs
+
+# Expected response: 200 OK
 ```
 
-### 2. Test Cosmos DB Connection
+### 3. Test Cosmos DB Connection
 
 ```bash
 # SSH into App Service and test
@@ -361,7 +517,7 @@ az webapp remote-connection create \
 az webapp log tail --name marta-poetry-app --resource-group MartaPoetryRG
 ```
 
-### 3. Test Key Vault Access
+### 4. Test Key Vault Access
 
 ```bash
 # Get the managed identity object ID
@@ -376,7 +532,7 @@ az keyvault get-policy \
   --object-id $WEB_APP_IDENTITY
 ```
 
-### 4. Test API Endpoints
+### 5. Test API Endpoints
 
 ```bash
 # After deployment, test key endpoints:

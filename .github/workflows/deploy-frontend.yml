@@ -1,0 +1,80 @@
+name: Deploy Frontend to Azure Static Web Apps
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+      - '.github/workflows/deploy-frontend.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'frontend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build frontend
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Build
+        working-directory: frontend
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: frontend/dist
+          retention-days: 1
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    needs: build
+    name: Deploy to Azure Static Web Apps
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: frontend/dist
+
+      - name: Deploy to Static Web Apps
+        id: deploy
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          action: 'upload'
+          app_location: 'frontend'
+          api_location: ''
+          output_location: 'dist'
+          config_file_location: 'frontend'
+          skip_app_build: true
+
+      - name: Verify deployment
+        if: success()
+        run: |
+          echo "✓ Frontend deployed successfully"
+          echo "Static Web App URL: ${{ steps.deploy.outputs.static_web_app_url }}"

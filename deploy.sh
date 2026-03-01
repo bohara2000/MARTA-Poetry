@@ -108,6 +108,7 @@ if [ $? -eq 0 ]; then
     echo "2. Activate your Python virtual environment (e.g., 'source backend/venv/bin/activate')"
     echo "3. Update backend/services/cosmos_db_client.py with your Cosmos DB credentials"
     echo "4. Run database migration scripts to populate Cosmos DB with your graph data"
+    echo "5. After code deploy, run: bash scripts/post_deploy_health_check.sh"
     
 else
     echo -e "${RED}Deployment failed.${NC}"

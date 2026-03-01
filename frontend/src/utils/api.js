@@ -5,11 +5,19 @@
 
 /**
  * Get the API base URL
- * In development: uses http://localhost:8000
- * In production: uses the current origin (same as frontend)
+ * 
+ * Supports three scenarios:
+ * 1. Environment variable VITE_API_URL (set by build/deploy process)
+ * 2. Development: http://localhost:8000
+ * 3. Production: same origin as frontend (if backend served from same domain)
  */
 export function getApiBaseUrl() {
-  if (process.env.NODE_ENV === 'development') {
+  // Check for explicit environment variable (set during build)
+  if (import.meta.env.VITE_API_URL) {
+    return import.meta.env.VITE_API_URL;
+  }
+  
+  if (import.meta.env.DEV) {
     // In development, connect to the backend running on port 8000
     return 'http://localhost:8000';
   } else {

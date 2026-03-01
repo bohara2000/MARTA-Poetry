@@ -9,8 +9,11 @@ param resourceGroupName string = 'MartaPoetryRG'
 @description('The object ID of the service principal or user who will have access to the Key Vault.')
 param keyVaultObjectId string
 
-@description('Whether to deploy a new Azure OpenAI resource as part of this deployment. Set to true if this project should create and manage its own Azure OpenAI instance. Leave as false when you are using an existing AI Foundry (Azure AI Studio) project or shared Azure OpenAI resource to avoid creating duplicate or conflicting resources.')
-param deployOpenAi bool = false
+@description('GitHub repository URL for Static Web App (for CI/CD). Leave empty to deploy manually.')
+param githubRepoUrl string = ''
+
+@description('GitHub personal access token for Static Web App (required if githubRepoUrl is provided).')
+param githubToken string = ''
 
 module storage './storage.bicep' = {
   name: 'deployStorage'
@@ -67,4 +70,17 @@ module keyVault './keyvault.bicep' = {
   }
 }
 
+module staticWebApp './static-web-app.bicep' = {
+  name: 'deployStaticWebApp'
+  scope: resourceGroup(resourceGroupName)
+  params: {
+    location: location
+    repositoryUrl: githubRepoUrl
+    repositoryToken: githubToken
+    appServiceUrl: 'https://${appService.outputs.appServiceName}.azurewebsites.net'
+  }
+}
 
+output storageAccountName string = storage.outputs.storageAccountName
+output appServiceUrl string = 'https://${appService.outputs.appServiceName}.azurewebsites.net'
+output staticWebAppUrl string = staticWebApp.outputs.staticWebAppUrl

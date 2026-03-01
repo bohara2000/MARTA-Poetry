@@ -236,9 +236,15 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(lifespan=lifespan)
 
+# Configure CORS based on environment
+# Development: allow localhost dev server (port 5173)
+# Production: allow Static Web Apps frontend domain
+cors_origins = os.getenv("CORS_ORIGINS", "http://localhost:5173").split(",")
+cors_origins = [origin.strip() for origin in cors_origins]  # Remove whitespace
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -16,7 +16,9 @@ tqdm==4.66.1
 typing-inspection==0.4.1
 typing_extensions==4.13.2
 uvicorn==0.34.3
+gunicorn==22.0.0
 openai==1.59.3
+azure-cosmos==4.7.0
 networkx>=3.0
 python-multipart==0.0.6
 pytest==8.3.4
