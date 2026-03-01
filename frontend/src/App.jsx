@@ -4,6 +4,7 @@ import StorySlider from './components/StorySlider.jsx';
 import PoetryDisplay from './components/PoetryDisplay.jsx';
 import AudioControls from './components/AudioControls.jsx';
 import AdminPanel from './components/AdminPanel.jsx';
+import { getApiUrl } from './utils/api.js';
 
 function App() {
   const [selectedRoute, setSelectedRoute] = useState('');
@@ -37,7 +38,7 @@ function App() {
     if (passengerCount) params.append('passenger_count', passengerCount);
     if (location) params.append('location', location);
 
-    fetch(`http://localhost:8000/api/poetry?${params}`)
+    fetch(getApiUrl(`/api/poetry?${params.toString()}`))
       .then(res => res.json())
       .then(data => {
         if (data.text) {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { getApiUrl } from '../utils/api.js';
 
 function RouteSelector({ onSelectRoute, routeType = 'bus' }) {
   const [routes, setRoutes] = useState([]);
@@ -8,7 +9,7 @@ function RouteSelector({ onSelectRoute, routeType = 'bus' }) {
   useEffect(() => {
     setLoading(true);
     setError(null);
-    fetch(`http://localhost:8000/api/routes?type=${routeType}`)
+    fetch(getApiUrl(`/api/routes?type=${routeType}`))
       .then(res => res.json())
       .then(data => {
         setRoutes(data.routes || []);

@@ -65,7 +65,11 @@ zip -r -q app.zip \
     services/ \
     storage/ \
     tests/ \
-    __pycache__/ 2>/dev/null || true
+    scripts/ \
+    data/gtfs/ \
+    data/route_personalities.json \
+    data/character_profiles.json \
+    data/poetry_graph.json 2>/dev/null || true
 
 if [ ! -f "app.zip" ]; then
     echo -e "${RED}❌ Failed to create deployment package${NC}"

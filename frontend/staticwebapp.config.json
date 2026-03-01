@@ -1,23 +1,5 @@
 {
-  "routes": [
-    {
-      "route": "/api/*",
-      "allowedRoles": []
-    },
-    {
-      "route": "/*",
-      "serve": "/index.html",
-      "statusCode": 200
-    }
-  ],
   "navigationFallback": {
-    "rewrite": "/index.html",
-    "exclude": ["/images/*", "/*.css", "/*.js"]
-  },
-  "responseOverrides": {
-    "404": {
-      "rewrite": "/404.html"
-    }
-  },
-  "env": "production"
+    "rewrite": "/index.html"
+  }
 }
