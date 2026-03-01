@@ -39,18 +39,92 @@ class ExtendedPoetryGraph:
     Additionally, poems store detailed structural metadata for free verse metrics.
     """
     
-    def __init__(self, graph_path: Optional[str] = None):
+    def __init__(self, graph_path: Optional[str] = None, cosmos_db_mode: bool = False):
         """
         Initialize the extended poetry graph.
         
         Args:
             graph_path: Path to load existing graph from (JSON or pickle)
+            cosmos_db_mode: If True, load from Cosmos DB instead of JSON file
         """
         self.graph = nx.MultiDiGraph()
         self.graph_path = graph_path
+        self.cosmos_db_mode = cosmos_db_mode
         
-        if graph_path and Path(graph_path).exists():
+        if cosmos_db_mode:
+            # Load from Cosmos DB
+            self._load_from_cosmos_db()
+        elif graph_path and Path(graph_path).exists():
+            # Load from JSON/pickle file
             self.load_graph(graph_path)
+    
+    def _load_from_cosmos_db(self) -> None:
+        """Load graph data from Cosmos DB containers."""
+        try:
+            from services.cosmos_db_client import (
+                get_items,
+                COSMOS_CONTAINER_POEMS,
+                COSMOS_CONTAINER_GRAPH,
+            )
+            
+            print("Loading poems from Cosmos DB...")
+            poems = get_items("SELECT * FROM c", container_name=COSMOS_CONTAINER_POEMS)
+            for poem in poems:
+                self._add_poem_from_cosmos(poem)
+            print(f"  ✓ Loaded {len(poems)} poems")
+            
+            print("Loading graph nodes from Cosmos DB...")
+            graph_nodes = get_items("SELECT * FROM c", container_name=COSMOS_CONTAINER_GRAPH)
+            for node in graph_nodes:
+                self._add_node_from_cosmos(node)
+            print(f"  ✓ Loaded {len(graph_nodes)} graph nodes")
+            
+        except Exception as e:
+            print(f"⚠ Warning: Failed to load graph from Cosmos DB: {e}")
+            print("  Graph initialized but may be empty")
+    
+    def _add_poem_from_cosmos(self, poem: Dict[str, Any]) -> None:
+        """Add a poem loaded from Cosmos DB to the graph."""
+        poem_id = poem.get("id", "")
+        if not poem_id:
+            return
+        
+        self.graph.add_node(
+            poem_id,
+            type="poem",
+            title=poem.get("title", ""),
+            text=poem.get("text", ""),
+            route_id=poem.get("route_id", ""),
+            created_at=poem.get("created_at", ""),
+            **poem.get("metadata", {})
+        )
+        
+        # Add connections
+        connections = poem.get("connections", [])
+        for target_id in connections:
+            self.graph.add_edge(poem_id, target_id, relationship="connected")
+    
+    def _add_node_from_cosmos(self, node: Dict[str, Any]) -> None:
+        """Add a graph node loaded from Cosmos DB to the graph."""
+        node_id = node.get("id", "")
+        if not node_id:
+            return
+        
+        node_type = node.get("nodeType", "unknown")
+        
+        # Create node with all attributes except system fields
+        node_attrs = {
+            k: v for k, v in node.items() 
+            if k not in {"id", "nodeType", "connections", "_rid", "_self", "_etag", "_ts"}
+        }
+        node_attrs["type"] = node_type
+        
+        self.graph.add_node(node_id, **node_attrs)
+        
+        # Add connections
+        connections = node.get("connections", [])
+        for target_id in connections:
+            self.graph.add_edge(node_id, target_id, relationship="connected")
     
     # ==================== CORE CRUD OPERATIONS ====================
     

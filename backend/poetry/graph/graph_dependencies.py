@@ -3,6 +3,8 @@ FastAPI Integration for Poetry Knowledge Graph
 
 This module provides FastAPI dependencies and utilities for integrating
 the poetry graph into your API endpoints.
+
+Supports both Cosmos DB and JSON file-based graphs.
 """
 
 from typing import Optional
@@ -15,12 +17,16 @@ import os
 _graph_instance: Optional['ExtendedPoetryGraph'] = None
 
 
-def initialize_graph(graph_path: str) -> 'ExtendedPoetryGraph':
+def initialize_graph(graph_path: Optional[str] = None) -> 'ExtendedPoetryGraph':
     """
     Initialize the global graph instance.
     
+    Supports two modes:
+    1. Cosmos DB (if COSMOS_ENDPOINT env var is set): Loads from cloud
+    2. JSON file (if graph_path provided): Loads from local file
+    
     Args:
-        graph_path: Path to the graph JSON file
+        graph_path: Path to the graph JSON file (optional, for backward compatibility)
     
     Returns:
         The initialized graph instance
@@ -30,7 +36,22 @@ def initialize_graph(graph_path: str) -> 'ExtendedPoetryGraph':
     # Import here to avoid circular imports
     from .extended_poetry_graph import ExtendedPoetryGraph
     
-    _graph_instance = ExtendedPoetryGraph(graph_path)
+    # Check if we should use Cosmos DB
+    cosmos_endpoint = os.getenv("COSMOS_ENDPOINT")
+    
+    if cosmos_endpoint:
+        # Use Cosmos DB
+        print("Initializing graph from Cosmos DB...")
+        _graph_instance = ExtendedPoetryGraph(cosmos_db_mode=True)
+    elif graph_path:
+        # Fall back to JSON file
+        print(f"Initializing graph from {graph_path}...")
+        _graph_instance = ExtendedPoetryGraph(graph_path=graph_path)
+    else:
+        # Initialize empty graph
+        print("Initializing empty graph (no data source provided)...")
+        _graph_instance = ExtendedPoetryGraph()
+    
     return _graph_instance
 
 

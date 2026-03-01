@@ -213,6 +213,7 @@ async def lifespan(app: FastAPI):
     """Handle startup and shutdown events."""
     
     # STARTUP
+    # Try to initialize graph from Cosmos DB; fall back to JSON file
     graph_path = os.getenv("POETRY_GRAPH_PATH", "data/poetry_graph.json")
     
     try:
@@ -637,17 +638,32 @@ def get_routes(type: str = Query('bus', enum=['bus', 'train'])):
     Return a list of available bus or train routes from the GTFS feed that have personalities configured.
     Only routes with personality configurations are eligible for poem generation.
     """
-    # Load configured personalities
-    personalities_path = os.path.join(os.path.dirname(__file__), "data", "route_personalities.json")
-    try:
-        if os.path.exists(personalities_path):
-            with open(personalities_path, 'r') as f:
-                personalities = json.load(f)
-                # Build a set of personality keys for quick lookup
-                personality_keys = set(personalities.keys())
-    except Exception as e:
-        print(f"Warning: Failed to load personalities: {e}")
-        personality_keys = set()
+    # Load configured personalities from Cosmos DB or JSON file
+    personality_keys = set()
+    
+    # Try Cosmos DB first
+    cosmos_endpoint = os.getenv("COSMOS_ENDPOINT")
+    if cosmos_endpoint:
+        try:
+            from services.cosmos_db_client import (
+                get_items,
+                COSMOS_CONTAINER_ROUTES,
+            )
+            routes_docs = get_items("SELECT * FROM c", container_name=COSMOS_CONTAINER_ROUTES)
+            personality_keys = {route.get("id") for route in routes_docs if route.get("id")}
+        except Exception as e:
+            print(f"Warning: Failed to load personalities from Cosmos DB: {e}")
+    
+    # Fall back to JSON file if Cosmos DB not available
+    if not personality_keys:
+        personalities_path = os.path.join(os.path.dirname(__file__), "data", "route_personalities.json")
+        try:
+            if os.path.exists(personalities_path):
+                with open(personalities_path, 'r') as f:
+                    personalities = json.load(f)
+                    personality_keys = set(personalities.keys())
+        except Exception as e:
+            print(f"Warning: Failed to load personalities from JSON: {e}")
     
     base_dir = os.path.join(os.path.dirname(__file__), "data", "gtfs")
     routes_path = os.path.join(base_dir, "routes.txt")
