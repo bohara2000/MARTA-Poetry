@@ -21,5 +21,7 @@ frontend/node_modules/
 *.env.local
 *.env.*.local
 
+# Ignore deployment artifacts
+*.zip
 
 scripts/setup_github_secret.sh
