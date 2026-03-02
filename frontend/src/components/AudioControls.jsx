@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { apiFetch } from '../utils/api';
 
 function AudioControls({ poemText, routeId, onStop }) {
   const audioRef = useRef(null);
@@ -15,7 +16,7 @@ function AudioControls({ poemText, routeId, onStop }) {
   useEffect(() => {
     const fetchVoices = async () => {
       try {
-        const response = await fetch('/api/audio/voices');
+        const response = await apiFetch('/api/audio/voices');
         console.log('Voices response status:', response.status);
         console.log('Voices response headers:', response.headers);
         
@@ -91,7 +92,7 @@ function AudioControls({ poemText, routeId, onStop }) {
 
     try {
       // Generate audio
-      const generateResponse = await fetch('/api/audio/generate', {
+      const generateResponse = await apiFetch('/api/audio/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
