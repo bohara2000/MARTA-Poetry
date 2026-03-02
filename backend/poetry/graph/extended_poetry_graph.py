@@ -68,19 +68,25 @@ class ExtendedPoetryGraph:
             )
             
             print("Loading poems from Cosmos DB...")
+            print(f"  Container: {COSMOS_CONTAINER_POEMS}")
             poems = get_items("SELECT * FROM c", container_name=COSMOS_CONTAINER_POEMS)
+            print(f"  Retrieved {len(poems)} poems from Cosmos DB")
             for poem in poems:
                 self._add_poem_from_cosmos(poem)
             print(f"  ✓ Loaded {len(poems)} poems")
             
             print("Loading graph nodes from Cosmos DB...")
+            print(f"  Container: {COSMOS_CONTAINER_GRAPH}")
             graph_nodes = get_items("SELECT * FROM c", container_name=COSMOS_CONTAINER_GRAPH)
+            print(f"  Retrieved {len(graph_nodes)} graph nodes from Cosmos DB")
             for node in graph_nodes:
                 self._add_node_from_cosmos(node)
             print(f"  ✓ Loaded {len(graph_nodes)} graph nodes")
             
         except Exception as e:
+            import traceback
             print(f"⚠ Warning: Failed to load graph from Cosmos DB: {e}")
+            print(f"  Traceback: {traceback.format_exc()}")
             print("  Graph initialized but may be empty")
     
     def _add_poem_from_cosmos(self, poem: Dict[str, Any]) -> None:
