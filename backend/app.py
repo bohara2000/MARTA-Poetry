@@ -714,6 +714,26 @@ def root():
     return {"message": "MARTA Poetry API is running."}
 
 
+@app.get("/api/debug/graph-status")
+def debug_graph_status():
+    """Debug endpoint to check graph initialization status."""
+    try:
+        graph = get_poetry_graph()
+        summary = graph.get_summary()
+        return {
+            "status": "ok",
+            "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "...",
+            "graph_summary": summary,
+            "total_poems": summary.get("total_poems", 0)
+        }
+    except Exception as e:
+        return {
+            "status": "error",
+            "error": str(e),
+            "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "..."
+        }
+
+
 # ==================== AUDIO ENDPOINTS ====================
 
 @app.post("/api/audio/generate")
