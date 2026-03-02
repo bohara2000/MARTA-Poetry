@@ -214,11 +214,12 @@ async def lifespan(app: FastAPI):
     
     # STARTUP
     # Try to initialize graph from Cosmos DB; fall back to JSON file
-    graph_path = os.getenv("POETRY_GRAPH_PATH", "data/poetry_graph.json")
+    _default_graph_path = os.path.join(os.path.dirname(__file__), "data", "poetry_graph.json")
+    graph_path = os.getenv("POETRY_GRAPH_PATH", _default_graph_path)
     
     try:
         graph = initialize_graph(graph_path)
-        summary = graph.get_graph_summary()
+        summary = graph.get_summary()
         print(f"✓ Poetry graph initialized: {summary}")
     except Exception as e:
         print(f"⚠ Failed to initialize graph: {e}")

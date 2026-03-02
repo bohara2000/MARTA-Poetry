@@ -46,7 +46,8 @@ def initialize_graph(graph_path: Optional[str] = None) -> 'ExtendedPoetryGraph':
         # If Cosmos DB returned no poems, fall back to JSON file
         if _graph_instance.get_summary().get("total_poems", 0) == 0:
             print("⚠️  Cosmos DB returned no poems. Attempting fallback to JSON file...")
-            fallback_path = graph_path or "data/poetry_graph.json"
+            _default = os.path.join(os.path.dirname(__file__), "..", "..", "data", "poetry_graph.json")
+            fallback_path = graph_path or os.path.normpath(_default)
             try:
                 print(f"Initializing graph from fallback JSON: {fallback_path}...")
                 _graph_instance = ExtendedPoetryGraph(graph_path=fallback_path)
