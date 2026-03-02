@@ -219,7 +219,7 @@ async def lifespan(app: FastAPI):
     
     try:
         graph = initialize_graph(graph_path)
-        summary = graph.get_summary()
+        summary = graph.get_graph_summary()
         print(f"✓ Poetry graph initialized: {summary}")
     except Exception as e:
         print(f"⚠ Failed to initialize graph: {e}")
@@ -720,18 +720,34 @@ def debug_graph_status():
     """Debug endpoint to check graph initialization status."""
     try:
         graph = get_poetry_graph()
-        summary = graph.get_summary()
+        # Count poem nodes directly from graph
+        poem_nodes = [n for n, d in graph.graph.nodes(data=True) if d.get("type") == "poem"]
+        summary = graph.get_graph_summary()
         return {
             "status": "ok",
             "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "...",
             "graph_summary": summary,
-            "total_poems": summary.get("total_poems", 0)
+            "total_poems": summary.get("total_poems", 0),
+            "poem_nodes_count": len(poem_nodes),
+            "total_graph_nodes": graph.graph.number_of_nodes(),
         }
     except Exception as e:
+        import traceback
+        # Still try to get node count even if summary fails
+        try:
+            graph = get_poetry_graph()
+            poem_nodes = [n for n, d in graph.graph.nodes(data=True) if d.get("type") == "poem"]
+            node_count = graph.graph.number_of_nodes()
+        except Exception:
+            poem_nodes = []
+            node_count = -1
         return {
             "status": "error",
             "error": str(e),
-            "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "..."
+            "traceback": traceback.format_exc(),
+            "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "...",
+            "poem_nodes_count": len(poem_nodes),
+            "total_graph_nodes": node_count,
         }
 
 
