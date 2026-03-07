@@ -723,6 +723,13 @@ def debug_graph_status():
         # Count poem nodes directly from graph
         poem_nodes = [n for n, d in graph.graph.nodes(data=True) if d.get("type") == "poem"]
         summary = graph.get_graph_summary()
+        # Check audio/storage status
+        try:
+            audio_svc = get_audio_service()
+            storage_status = "blob" if audio_svc._blob_service else "local_fallback"
+        except Exception as ae:
+            storage_status = f"error: {ae}"
+        conn_str_raw = os.getenv("STORAGE_CONNECTION_STRING", "")
         return {
             "status": "ok",
             "cosmos_endpoint": os.getenv("COSMOS_ENDPOINT", "NOT SET")[:30] + "...",
@@ -730,6 +737,8 @@ def debug_graph_status():
             "total_poems": summary.get("total_poems", 0),
             "poem_nodes_count": len(poem_nodes),
             "total_graph_nodes": graph.graph.number_of_nodes(),
+            "audio_storage": storage_status,
+            "storage_conn_str_prefix": conn_str_raw[:40] if conn_str_raw else "NOT SET",
         }
     except Exception as e:
         import traceback

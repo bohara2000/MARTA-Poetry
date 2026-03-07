@@ -81,10 +81,13 @@ const PoemManager = () => {
       return;
     }
 
-    // Look for audio file matching the selected voice
-    // Audio files are in format: {audio_id}_{voice}.mp3 (e.g., MARTA_27339_d4495d21_nova.mp3)
+    // Look for audio file matching the selected voice.
+    // Handles two formats:
+    //   Blob URL:   https://....blob.core.windows.net/audio/MARTA_27339_d4495d21_nova.mp3
+    //   Proxy URL:  /api/audio/MARTA_27339_d4495d21/nova
     const matchingAudioFile = selectedPoem.audio_files.find(file => {
-      const voicePart = file.replace('.mp3', '').split('_').pop();
+      const lastSegment = file.split('/').pop(); // filename or voice name
+      const voicePart = lastSegment.replace('.mp3', '').split('_').pop();
       return voicePart === selectedVoice;
     });
 

@@ -8,7 +8,7 @@ import os
 import hashlib
 from pathlib import Path
 from openai import OpenAI
-from config import OPENAI_API_KEY, STORAGE_CONNECTION_STRING, AUDIO_CONTAINER_NAME
+from config import OPENAI_API_KEY, STORAGE_CONNECTION_STRING, AUDIO_CONTAINER_NAME, STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY
 
 # Azure Blob Storage (optional — falls back to local if not configured)
 try:
@@ -37,12 +37,28 @@ class AudioService:
                 container_client = self._blob_service.get_container_client(self.audio_container)
                 if not container_client.exists():
                     container_client.create_container(public_access="blob")
-                print(f"✅ Audio service using Azure Blob Storage (container: {self.audio_container})")
+                print(f"✅ Audio service using Azure Blob Storage via connection string (container: {self.audio_container})")
             except Exception as e:
-                print(f"⚠️  Blob Storage unavailable, falling back to local: {e}")
+                print(f"⚠️  Connection string init failed ({e}), trying account name+key...")
                 self._blob_service = None
-        else:
-            print("⚠️  No STORAGE_CONNECTION_STRING — audio will use local filesystem")
+
+        # Fallback: try STORAGE_ACCOUNT_NAME + STORAGE_ACCOUNT_KEY
+        if BLOB_AVAILABLE and self._blob_service is None:
+            if STORAGE_ACCOUNT_NAME and STORAGE_ACCOUNT_KEY:
+                try:
+                    from azure.storage.blob import StorageSharedKeyCredential
+                    credential = StorageSharedKeyCredential(STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY)
+                    account_url = f"https://{STORAGE_ACCOUNT_NAME}.blob.core.windows.net"
+                    self._blob_service = BlobServiceClient(account_url=account_url, credential=credential)
+                    container_client = self._blob_service.get_container_client(self.audio_container)
+                    if not container_client.exists():
+                        container_client.create_container(public_access="blob")
+                    print(f"✅ Audio service using Azure Blob Storage via account key (container: {self.audio_container})")
+                except Exception as e:
+                    print(f"⚠️  Account key init failed ({e}), falling back to local")
+                    self._blob_service = None
+            else:
+                print("⚠️  No STORAGE_CONNECTION_STRING or STORAGE_ACCOUNT_KEY — audio will use local filesystem")
 
         # Local fallback directory
         self.audio_dir = Path("audio")
