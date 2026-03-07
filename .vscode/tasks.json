@@ -6,6 +6,12 @@
 			"type": "shell",
 			"command": "cd ${workspaceFolder}/backend && rm -f app.zip && zip -r app.zip . -x \"venv/*\" \"__pycache__/*\" \"*.pyc\" \".env\" \"tests/*\" \"test_*.py\" >/dev/null && cd ${workspaceFolder} && az webapp deploy --resource-group MartaPoetryRG --name marta-poetry-app --src-path backend/app.zip --type zip --restart true --clean true --async true && echo '✓ Deployment submitted. Waiting for app to start...' && sleep 90 && echo '--- Health check ---' && curl -s --max-time 15 https://marta-poetry-app.azurewebsites.net/ && echo '' && curl -s --max-time 20 https://marta-poetry-app.azurewebsites.net/api/debug/graph-status | python3 -c \"import json,sys; d=json.load(sys.stdin); print(f\\\"Graph: {d.get(\\\\\\\"total_poems\\\\\\\",0)} poems\\\")\" 2>/dev/null || true && echo '' && echo '--- Audio endpoint check ---' && curl -s --max-time 20 -X POST https://marta-poetry-app.azurewebsites.net/api/audio/generate -H 'Content-Type: application/json' -d \"{\\\"route\\\":\\\"27323\\\",\\\"poem_text\\\":\\\"test\\\",\\\"voice\\\":\\\"nova\\\",\\\"speed\\\":0.9}\" | python3 -c \"import json,sys; d=json.load(sys.stdin); print('Audio OK' if d.get('success') else f\\\"Audio error: {d.get('detail') or d.get('error')}\\\")\" 2>/dev/null || true",
 			"isBackground": false
+		},
+		{
+			"label": "Deploy frontend to Static Web App",
+			"type": "shell",
+			"command": "cd ${workspaceFolder}/frontend && npm install --legacy-peer-deps && npm run build && SWA_CLI_DEPLOYMENT_TOKEN=$(az staticwebapp secrets list --name marta-poetry-frontend --resource-group MartaPoetryRG --query 'properties.apiKey' -o tsv) swa deploy ./dist --env production && echo '✓ Frontend deployed to https://icy-sky-01432f40f.6.azurestaticapps.net'",
+			"isBackground": false
 		}
 	]
 }
