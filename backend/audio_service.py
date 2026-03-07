@@ -108,7 +108,7 @@ class AudioService:
             
             # Generate unique ID for this audio
             content_hash = hashlib.md5(poem_text.encode()).hexdigest()
-            audio_id = self._generate_audio_filename(route_id, content_hash)
+            audio_id = self._generate_audio_id(route_id, content_hash)
             audio_path = self._get_audio_path(audio_id, voice)
             
             # Check if audio already exists (cache)
