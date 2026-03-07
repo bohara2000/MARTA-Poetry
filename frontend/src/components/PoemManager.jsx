@@ -82,26 +82,20 @@ const PoemManager = () => {
     }
 
     // Look for audio file matching the selected voice.
-    // Handles two formats:
-    //   Blob URL:   https://....blob.core.windows.net/audio/MARTA_27339_d4495d21_nova.mp3
-    //   Proxy URL:  /api/audio/MARTA_27339_d4495d21/nova
+    // audio_files entries are bare filenames: MARTA_27339_d4495d21_nova.mp3
     const matchingAudioFile = selectedPoem.audio_files.find(file => {
-      const lastSegment = file.split('/').pop(); // filename or voice name
-      const voicePart = lastSegment.replace('.mp3', '').split('_').pop();
-      return voicePart === selectedVoice;
+      const lastSegment = file.split('/').pop().replace('.mp3', '');
+      return lastSegment.split('_').pop() === selectedVoice;
     });
 
     if (matchingAudioFile) {
-      // matchingAudioFile may be a full blob URL or a bare filename
-      let resolvedUrl;
-      if (matchingAudioFile.startsWith('http')) {
-        resolvedUrl = matchingAudioFile;
-      } else {
-        // Legacy: reconstruct proxy URL from filename
-        const fileWithoutExt = matchingAudioFile.replace('.mp3', '');
-        const audioId = fileWithoutExt.replace(`_${selectedVoice}`, '');
-        resolvedUrl = `${API_BASE}/api/audio/${audioId}/${selectedVoice}`;
-      }
+      // Always use the backend proxy to serve audio (handles both blob and local)
+      const filename = matchingAudioFile.split('/').pop(); // bare filename
+      const fileWithoutExt = filename.replace('.mp3', '');
+      const parts = fileWithoutExt.split('_'); // [MARTA, routeNum, hash, voice]
+      const voice = parts.pop();
+      const audioId = parts.join('_');
+      const resolvedUrl = `${API_BASE}/api/audio/${audioId}/${voice}`;
       console.log(`✅ Loading audio for voice ${selectedVoice}:`, resolvedUrl);
       console.log('Audio files available:', selectedPoem.audio_files);
       setAudioUrl(resolvedUrl);

@@ -138,7 +138,7 @@ class AudioService:
                     print(f"✅ Audio cache hit (blob): {blob_name}")
                     return {
                         "success": True,
-                        "audio_url": blob_client.url,
+                        "audio_url": f"/api/audio/{audio_id}/{voice}",
                         "voice": voice,
                         "cached": True,
                         "duration_estimate": duration_estimate,
@@ -159,7 +159,7 @@ class AudioService:
                 print(f"✅ Audio uploaded to blob: {blob_name}")
                 return {
                     "success": True,
-                    "audio_url": blob_client.url,
+                    "audio_url": f"/api/audio/{audio_id}/{voice}",
                     "voice": voice,
                     "cached": False,
                     "duration_estimate": duration_estimate,
@@ -200,11 +200,28 @@ class AudioService:
             print(f"❌ Error generating audio: {str(e)}")
             return {"success": False, "error": str(e)}
     
+    def get_audio_bytes(self, audio_id: str, voice: str) -> bytes | None:
+        """
+        Retrieve audio content as bytes — from blob storage or local filesystem.
+        Returns None if not found.
+        """
+        blob_name = self._blob_name(audio_id, voice)
+        if self._blob_service:
+            try:
+                container_client = self._blob_service.get_container_client(self.audio_container)
+                blob_client = container_client.get_blob_client(blob_name)
+                if blob_client.exists():
+                    return blob_client.download_blob().readall()
+            except Exception as e:
+                print(f"⚠️  Blob download failed, trying local: {e}")
+        # Local fallback
+        local_path = self._local_path(audio_id, voice)
+        if local_path.exists():
+            return local_path.read_bytes()
+        return None
+
     def get_audio_file(self, audio_id: str, voice: str) -> Path | None:
-        """
-        Retrieve local audio file path (used only for local-fallback serving).
-        Returns None when using blob storage (the URL is served directly).
-        """
+        """Legacy: returns local path only (used as fallback)."""
         local_path = self._local_path(audio_id, voice)
         return local_path if local_path.exists() else None
     

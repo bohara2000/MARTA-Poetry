@@ -794,17 +794,18 @@ async def generate_poem_audio(request: AudioGenerationRequest, graph: ExtendedPo
         # Add audio file to poem metadata if poem_id is provided
         if request.poem_id:
             try:
-                # Get audio filename from result or construct it
-                audio_file = result.get("audio_file", "")
-                # audio_url is either a full blob URL or a relative /api/audio/... path
-                audio_url_to_store = result.get("audio_url", "")
-                audio_file = result.get("audio_file", "")
+                # Store the filename (e.g., MARTA_27323_b3ec2217_nova.mp3) in metadata
+                # The GET /api/audio/{id}/{voice} endpoint handles both blob and local serving
+                audio_url_val = result.get("audio_url", "")
+                audio_file_val = result.get("audio_file", "")
 
-                # Prefer the full URL (blob storage); fall back to bare filename for local dev
-                if audio_url_to_store:
-                    audio_entry = audio_url_to_store
-                elif audio_file:
-                    audio_entry = audio_file.split("/")[-1]  # bare filename fallback
+                # Derive a consistent bare filename regardless of source
+                if audio_url_val.startswith("/api/audio/"):
+                    # Proxy URL: /api/audio/MARTA_27323_b3ec2217/nova → MARTA_27323_b3ec2217_nova.mp3
+                    parts = audio_url_val.split("/")  # ['', 'api', 'audio', id, voice]
+                    audio_entry = f"{parts[-2]}_{parts[-1]}.mp3"
+                elif audio_file_val:
+                    audio_entry = audio_file_val.split("/")[-1]  # bare filename
                 else:
                     audio_entry = None
 
@@ -851,20 +852,20 @@ async def get_poem_audio(audio_id: str, voice: str):
     """
     try:
         audio_service = get_audio_service()
-        
-        # Construct the expected filename
         filename = f"{audio_id}_{voice}.mp3"
-        audio_path = audio_service.audio_dir / filename
-        
-        if not audio_path.exists():
-            raise HTTPException(status_code=404, detail=f"Audio file not found: {filename}")
-        
-        return FileResponse(
-            path=audio_path,
-            media_type="audio/mpeg",
-            filename=filename
-        )
-        
+
+        # Try blob storage first, then local filesystem
+        audio_bytes = audio_service.get_audio_bytes(audio_id, voice)
+        if audio_bytes:
+            from fastapi.responses import Response
+            return Response(
+                content=audio_bytes,
+                media_type="audio/mpeg",
+                headers={"Content-Disposition": f'inline; filename="{filename}"'}
+            )
+
+        raise HTTPException(status_code=404, detail=f"Audio file not found: {filename}")
+
     except HTTPException:
         raise
     except Exception as e:
