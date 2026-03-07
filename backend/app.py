@@ -787,22 +787,32 @@ async def generate_poem_audio(request: AudioGenerationRequest, graph: ExtendedPo
             try:
                 # Get audio filename from result or construct it
                 audio_file = result.get("audio_file", "")
-                if audio_file:
-                    audio_filename = audio_file.split("/")[-1]  # Get just the filename
-                    
+                # audio_url is either a full blob URL or a relative /api/audio/... path
+                audio_url_to_store = result.get("audio_url", "")
+                audio_file = result.get("audio_file", "")
+
+                # Prefer the full URL (blob storage); fall back to bare filename for local dev
+                if audio_url_to_store:
+                    audio_entry = audio_url_to_store
+                elif audio_file:
+                    audio_entry = audio_file.split("/")[-1]  # bare filename fallback
+                else:
+                    audio_entry = None
+
+                if audio_entry:
                     # Update poem metadata
                     if graph.graph.has_node(request.poem_id):
                         poem_data = graph.graph.nodes[request.poem_id]
                         metadata = poem_data.get("metadata", {})
                         audio_files = metadata.get("audio_files", [])
-                        
-                        if audio_filename not in audio_files:
-                            audio_files.append(audio_filename)
-                        
+
+                        if audio_entry not in audio_files:
+                            audio_files.append(audio_entry)
+
                         metadata["audio_files"] = audio_files
                         graph.graph.nodes[request.poem_id]["metadata"] = metadata
                         graph.save_graph()
-                        
+
                         # Include updated audio_files in response
                         result["audio_files"] = audio_files
                         result["metadata"] = metadata

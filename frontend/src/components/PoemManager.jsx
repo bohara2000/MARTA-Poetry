@@ -89,14 +89,19 @@ const PoemManager = () => {
     });
 
     if (matchingAudioFile) {
-      // Extract audio_id by removing .mp3 and the _{voice} suffix
-      // Filename format: {audio_id}_{voice}.mp3
-      const fileWithoutExt = matchingAudioFile.replace('.mp3', '');
-      const audioId = fileWithoutExt.replace(`_${selectedVoice}`, '');
-      const audioUrl = `${API_BASE}/api/audio/${audioId}/${selectedVoice}`;
-      console.log(`✅ Loading audio for voice ${selectedVoice}:`, audioUrl);
+      // matchingAudioFile may be a full blob URL or a bare filename
+      let resolvedUrl;
+      if (matchingAudioFile.startsWith('http')) {
+        resolvedUrl = matchingAudioFile;
+      } else {
+        // Legacy: reconstruct proxy URL from filename
+        const fileWithoutExt = matchingAudioFile.replace('.mp3', '');
+        const audioId = fileWithoutExt.replace(`_${selectedVoice}`, '');
+        resolvedUrl = `${API_BASE}/api/audio/${audioId}/${selectedVoice}`;
+      }
+      console.log(`✅ Loading audio for voice ${selectedVoice}:`, resolvedUrl);
       console.log('Audio files available:', selectedPoem.audio_files);
-      setAudioUrl(audioUrl);
+      setAudioUrl(resolvedUrl);
     } else {
       console.log(`⚠️  No pre-generated audio for voice ${selectedVoice}. Available files:`, selectedPoem.audio_files);
       setAudioUrl(null);
@@ -469,7 +474,10 @@ const PoemManager = () => {
         }
         
         if (data.audio_url) {
-          const fullAudioUrl = `${API_BASE}${data.audio_url}`;
+          // audio_url may be a full blob URL or a relative /api/audio/... path
+          const fullAudioUrl = data.audio_url.startsWith('http')
+            ? data.audio_url
+            : `${API_BASE}${data.audio_url}`;
           console.log('Setting audio URL:', fullAudioUrl);
           setAudioUrl(fullAudioUrl);
         }
