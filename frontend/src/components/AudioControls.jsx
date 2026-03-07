@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { apiFetch } from '../utils/api';
+import { apiFetch, getApiUrl } from '../utils/api';
 
 function AudioControls({ poemText, routeId, onStop }) {
   const audioRef = useRef(null);
@@ -116,8 +116,10 @@ function AudioControls({ poemText, routeId, onStop }) {
 
       // Play the generated audio
       if (audioRef.current) {
-        audioRef.current.src = audioData.audio_url;
-        setAudioUrl(audioData.audio_url);
+        // audio_url is a relative path like /api/audio/{id}/{voice} — make it absolute
+        const fullAudioUrl = getApiUrl(audioData.audio_url);
+        audioRef.current.src = fullAudioUrl;
+        setAudioUrl(fullAudioUrl);
         audioRef.current.play();
         setIsPlaying(true);
       }
