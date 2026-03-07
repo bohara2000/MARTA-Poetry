@@ -48,10 +48,12 @@ A complete text-to-speech audio generation system for poetry narration using Ope
 
 ### Infrastructure
 
-1. **Audio Storage: `backend/audio/`**
-   - Caches generated MP3 files
-   - .gitignore configured to exclude audio files
-   - Directory structure: `{route_id}_{poem_hash}_{voice}.mp3`
+1. **Audio Storage: Azure Blob Storage**
+   - Container: `audio` in storage account `martastorage53tflkign7mc`
+   - Files persist across App Service restarts (unlike ephemeral local disk)
+   - File naming: `{route_id}_{poem_hash}_{voice}.mp3`
+   - Local `backend/audio/` directory used as fallback when `STORAGE_CONNECTION_STRING` is not set (local dev)
+   - Audio served through the backend proxy — storage account has public access disabled
 
 ## Issues Encountered & Solutions
 
@@ -118,9 +120,13 @@ No new dependencies were added - OpenAI client already supports TTS!
 Ensure `.env` has:
 ```
 OPENAI_API_KEY=your_key_here
+
+# Optional — if set, audio is stored in Azure Blob Storage instead of local disk
+STORAGE_CONNECTION_STRING=DefaultEndpointsProtocol=https;AccountName=...;AccountKey=...;EndpointSuffix=core.windows.net
+AUDIO_CONTAINER_NAME=audio  # defaults to "audio" if not set
 ```
 
-Your existing OpenAI key will work (it already has TTS access).
+In production (Azure App Service), `STORAGE_CONNECTION_STRING` is set as an app setting and audio persists in blob storage across restarts. Without it, audio is saved to `backend/audio/` which is fine for local development.
 
 ### 3. Start the Backend
 ```bash
@@ -168,31 +174,36 @@ curl -X POST http://localhost:8000/api/audio/generate \
 │  │ AudioControls │───▶│  PlayButton │ VoiceSelect   │  │
 │  │ Component     │    │  Progress   │ StopButton    │  │
 │  └───────────────┘    └──────────────────────────────┘  │
+│  ┌───────────────┐                                      │
+│  │ PoemManager  │  (Admin UI — uses API_BASE directly)  │
+│  └───────────────┘                                      │
 └─────────────────────────────────────────────────────────┘
                             ▲
-                            │ HTTP
+                            │ HTTPS (absolute backend URL)
                             ▼
 ┌─────────────────────────────────────────────────────────┐
 │              Backend (Python/FastAPI)                    │
 │  ┌──────────────────────────────────────────────────┐   │
 │  │ app.py Routes:                                   │   │
 │  │ POST   /api/audio/generate                       │   │
-│  │ GET    /api/audio/{poem_id}/{voice}              │   │
+│  │ GET    /api/audio/{audio_id}/{voice}  ← proxy    │   │
 │  │ GET    /api/audio/voices                         │   │
-│  │ DELETE /api/audio/{poem_id}                      │   │
+│  │ DELETE /api/audio/{audio_id}                     │   │
 │  └──────────────────────────────────────────────────┘   │
 │               ▲                                          │
 │               │ Uses                                     │
 │  ┌────────────▼──────────────────────────────────────┐  │
 │  │ AudioService (audio_service.py)                  │  │
-│  │ - OpenAI TTS API calls                           │  │
-│  │ - Voice assignment logic                         │  │
-│  │ - Audio caching                                  │  │
+│  │ - OpenAI TTS API calls (tts-1-hd model)          │  │
+│  │ - Voice assignment logic (MD5 hash of route_id)  │  │
+│  │ - get_audio_bytes() streams from blob or local   │  │
 │  └────────────┬──────────────────────────────────────┘  │
-│               │ Stores                                   │
+│               │ Stores / Streams                         │
 │  ┌────────────▼──────────────────────────────────────┐  │
-│  │ backend/audio/                                   │  │
-│  │ Cache of generated MP3 files                     │  │
+│  │ Azure Blob Storage (production)                  │  │
+│  │ martastorage53tflkign7mc / container: audio      │  │
+│  │ ── OR ──                                         │  │
+│  │ backend/audio/ (local dev fallback)              │  │
 │  └──────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -216,9 +227,16 @@ Audio files are generated once and cached. File naming:
 
 Example: `MARTA_5_a1b2c3d4_nova.mp3`
 
-To clear cache:
+In production, `AudioService` checks if the blob already exists before calling OpenAI — no duplicate generation charges.
+
+To clear cache (local dev):
 ```bash
 rm backend/audio/*.mp3
+```
+
+To clear cache (production blob storage):
+```bash
+az storage blob delete-batch --account-name martastorage53tflkign7mc --source audio
 ```
 
 ## Migration Path
@@ -230,11 +248,10 @@ This implementation is designed for easy migration:
 2. Update `app.py` imports
 3. No frontend changes needed
 
-### To Azure Speech Service (for production):
-1. Create `azure_speech_service.py`
+### To Azure Speech Service (for higher quality/SSML):
+1. Create `azure_speech_service.py` with same interface as `AudioService`
 2. Update `app.py` imports
-3. Store audio in Azure Blob Storage
-4. Still compatible with existing API
+3. Blob storage layer is already in place — no other infrastructure changes needed
 
 ## Costs
 
@@ -265,9 +282,10 @@ This implementation is designed for easy migration:
 - Check OpenAI rate limits
 
 ### "Audio file not found"
-- Audio may still be generating
-- Try refreshing
-- Check file in `backend/audio/`
+- Audio may still be generating — try again
+- **Production**: Check blob container `audio` in `martastorage53tflkign7mc`; verify `STORAGE_CONNECTION_STRING` app setting is a valid full connection string (not just `BlobEndpoint=...`)
+- **Local dev**: Check file in `backend/audio/`
+- If `STORAGE_CONNECTION_STRING` is set but blob init fails, the service logs `⚠️ Blob Storage unavailable` on startup and falls back to local — check App Service logs
 
 ## Files Modified
 
