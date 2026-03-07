@@ -86,74 +86,103 @@ class AudioService:
         speed: float = 0.9
     ) -> dict:
         """
-        Generate audio from poem text and save it.
-        
+        Generate audio from poem text and persist it.
+
+        In production (STORAGE_CONNECTION_STRING set): uploads to Azure Blob Storage
+        and returns a public blob URL.
+        In development (no connection string): saves to local audio/ directory and
+        returns a /api/audio/{id}/{voice} URL served by the API.
+
         Args:
             poem_text: The poem text to convert to audio
             route_id: The route this poem is for (used for consistent voice selection)
             voice: Optional specific voice to use. If None, selects based on route_id
             speed: Playback speed (0.25 to 4.0, default 1.0)
-            
+
         Returns:
             Dictionary with audio_url and metadata
         """
         try:
-            # Select voice if not provided
             if voice is None:
                 voice = self.get_voice_for_route(route_id)
-            
-            # Validate voice
             if voice not in self.voice_options:
                 voice = self.default_voice
-            
-            # Generate unique ID for this audio
+
             content_hash = hashlib.md5(poem_text.encode()).hexdigest()
             audio_id = self._generate_audio_id(route_id, content_hash)
-            audio_path = self._get_audio_path(audio_id, voice)
-            
-            # Check if audio already exists (cache)
-            if audio_path.exists():
+            blob_name = self._blob_name(audio_id, voice)
+            duration_estimate = len(poem_text) / 150
+
+            # --- Azure Blob Storage path ---
+            if self._blob_service:
+                container_client = self._blob_service.get_container_client(self.audio_container)
+                blob_client = container_client.get_blob_client(blob_name)
+
+                if blob_client.exists():
+                    print(f"✅ Audio cache hit (blob): {blob_name}")
+                    return {
+                        "success": True,
+                        "audio_url": blob_client.url,
+                        "voice": voice,
+                        "cached": True,
+                        "duration_estimate": duration_estimate,
+                    }
+
+                print(f"🎙️  Generating audio for {route_id} using voice: {voice}")
+                response = self.client.audio.speech.create(
+                    model="tts-1-hd",
+                    voice=voice,
+                    input=poem_text,
+                    speed=speed
+                )
+                blob_client.upload_blob(
+                    response.content,
+                    overwrite=True,
+                    content_settings=ContentSettings(content_type="audio/mpeg")
+                )
+                print(f"✅ Audio uploaded to blob: {blob_name}")
+                return {
+                    "success": True,
+                    "audio_url": blob_client.url,
+                    "voice": voice,
+                    "cached": False,
+                    "duration_estimate": duration_estimate,
+                }
+
+            # --- Local filesystem fallback ---
+            local_path = self._local_path(audio_id, voice)
+            if local_path.exists():
+                print(f"✅ Audio cache hit (local): {local_path}")
                 return {
                     "success": True,
                     "audio_url": f"/api/audio/{audio_id}/{voice}",
-                    "audio_file": str(audio_path),
+                    "audio_file": str(local_path),
                     "voice": voice,
                     "cached": True,
-                    "duration_estimate": len(poem_text) / 150  # Rough estimate: ~150 chars per minute
+                    "duration_estimate": duration_estimate,
                 }
-            
-            # Generate audio using OpenAI TTS
-            print(f"🎙️  Generating audio for {route_id} using voice: {voice}")
-            
+
+            print(f"🎙️  Generating audio (local) for {route_id} using voice: {voice}")
             response = self.client.audio.speech.create(
-                model="tts-1-hd",  # High-definition model for better quality
+                model="tts-1-hd",
                 voice=voice,
                 input=poem_text,
                 speed=speed
             )
-            
-            # Save audio to file
-            audio_path.write_bytes(response.content)
-            print(f"✅ Audio saved to {audio_path}")
-            
-            # Calculate approximate duration
-            duration_estimate = len(poem_text) / 150  # ~150 chars per minute
-            
+            local_path.write_bytes(response.content)
+            print(f"✅ Audio saved locally: {local_path}")
             return {
                 "success": True,
                 "audio_url": f"/api/audio/{audio_id}/{voice}",
-                "audio_file": str(audio_path),
+                "audio_file": str(local_path),
                 "voice": voice,
                 "cached": False,
-                "duration_estimate": duration_estimate
+                "duration_estimate": duration_estimate,
             }
-            
+
         except Exception as e:
             print(f"❌ Error generating audio: {str(e)}")
-            return {
-                "success": False,
-                "error": str(e)
-            }
+            return {"success": False, "error": str(e)}
     
     def get_audio_file(self, audio_id: str, voice: str) -> Path | None:
         """
