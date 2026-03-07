@@ -67,8 +67,8 @@ class AudioService:
         hash_value = int(hashlib.md5(route_id.encode()).hexdigest(), 16)
         voice_index = hash_value % len(self.voice_options)
         return self.voice_options[voice_index]
-    
-def _generate_audio_id(self, route_id: str, poem_hash: str) -> str:
+
+    def _generate_audio_id(self, route_id: str, poem_hash: str) -> str:
         """Generate a unique identifier for audio based on route and poem content."""
         return f"{route_id}_{poem_hash[:8]}"
 
