@@ -143,16 +143,62 @@ Once both servers are running:
 
 ```
 MARTA-Poetry/
-├── backend/           # FastAPI backend
-│   ├── app.py        # Main FastAPI application
-│   ├── poetry/       # Poetry generation modules
-│   ├── data/         # GTFS data and character profiles
-│   └── storage/      # Data storage utilities
-├── frontend/         # React frontend
-│   ├── src/          # Source code
-│   └── public/       # Static assets
-├── functions/        # Azure Functions
-└── bicep/           # Azure infrastructure
+├── backend/                      # FastAPI backend
+│   ├── app.py                    # Main FastAPI application
+│   ├── admin_api.py              # Admin endpoints
+│   ├── audio_service.py          # Text-to-speech + blob storage
+│   ├── stream_generator.py       # Radio stream builder
+│   ├── stream_uploader.py        # Uploads stream segments to blob storage
+│   ├── config.py                 # Environment config
+│   ├── poetry/                   # Core generation modules
+│   │   ├── generator.py          # Poem generation engine
+│   │   ├── prompt_builder.py     # Prompt construction
+│   │   ├── talent_economy.py     # Emotional currency / extraction framework
+│   │   ├── narrative_engine.py   # Homunculus + narrative tracking
+│   │   ├── personality_routes.py # Per-route personalities
+│   │   ├── route_agent.py        # Route-level poem orchestration
+│   │   ├── character_agent.py    # Character voice layer
+│   │   ├── context_service.py    # Live context aggregation
+│   │   ├── graph/                # Poetry knowledge graph
+│   │   ├── weather_service.py    # NWS weather signals
+│   │   ├── solar_events_service.py
+│   │   ├── gtfs_realtime_service.py
+│   │   ├── mapbox_geocode_service.py
+│   │   ├── mapbox_traffic_service.py
+│   │   ├── rail_realtime_service.py
+│   │   └── history_context_service.py
+│   ├── services/                 # External integrations
+│   │   └── cosmos_db_client.py   # Azure Cosmos DB client
+│   ├── scripts/                  # Utility scripts
+│   │   ├── graph_initializer.py
+│   │   ├── narrative_manager.py
+│   │   ├── poem_explorer.py
+│   │   └── generate_report.py
+│   └── data/                     # Local data files + GTFS
+├── frontend/                     # React/Vite frontend
+│   ├── src/
+│   │   ├── App.jsx               # Main app shell
+│   │   ├── RadioPage.jsx         # Standalone radio player
+│   │   ├── components/           # UI components
+│   │   │   ├── RadioPlayer.jsx
+│   │   │   ├── PoetryDisplay.jsx
+│   │   │   ├── AudioControls.jsx
+│   │   │   ├── AdminPanel.jsx
+│   │   │   ├── PoemManager.jsx
+│   │   │   ├── NarrativeManager.jsx
+│   │   │   ├── PersonalityManager.jsx
+│   │   │   ├── ThemeManager.jsx
+│   │   │   ├── SystemStatus.jsx
+│   │   │   └── RouteSelector.jsx
+│   │   ├── hooks/
+│   │   │   └── useAuth.js        # Azure Static Web Apps auth hook
+│   │   └── utils/
+│   │       ├── api.js            # API base URL helper
+│   │       └── formatPoem.js
+│   └── staticwebapp.config.json  # SWA routing + AAD auth config
+├── functions/                    # Azure Functions (scheduled jobs)
+├── bicep/                        # Azure infrastructure as code
+└── scripts/                      # Deployment + configuration scripts
 ```
 
 ## Key Features
