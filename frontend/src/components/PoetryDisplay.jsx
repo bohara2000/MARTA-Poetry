@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { formatForAudio } from '../utils/formatPoem';
 
 function PoetryDisplay({ poemData }) {
+  const [audioPhrasing, setAudioPhrasing] = useState(false);
+
   if (!poemData) {
     return (
       <div className="mt-4 p-4 bg-white shadow rounded">
@@ -28,8 +31,21 @@ function PoetryDisplay({ poemData }) {
             <p className="text-sm text-gray-600 italic mt-2 text-center">{personality.description}</p>
           )}
         </div>
+        <div className="flex justify-end mb-2">
+          <button
+            onClick={() => setAudioPhrasing(v => !v)}
+            className={`px-3 py-1 text-xs rounded border transition-colors ${
+              audioPhrasing
+                ? 'bg-gray-900 text-white border-gray-900'
+                : 'bg-white text-gray-600 border-gray-300 hover:border-gray-500'
+            }`}
+            title="Show how this poem will be segmented for TTS narration"
+          >
+            {audioPhrasing ? '🎙 Audio phrasing' : 'Audio phrasing'}
+          </button>
+        </div>
         <pre className="whitespace-pre-wrap text-lg leading-relaxed font-serif text-gray-900">
-          {text}
+          {audioPhrasing ? formatForAudio(text) : text}
         </pre>
       </div>
 

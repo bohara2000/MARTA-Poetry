@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { formatForAudio } from '../utils/formatPoem';
 
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
@@ -24,6 +25,7 @@ const PoemManager = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [showPromptDialog, setShowPromptDialog] = useState(false);
   const [generating, setGenerating] = useState(false);
+  const [audioPhrasing, setAudioPhrasing] = useState(false);
 
   useEffect(() => {
     loadPoems();
@@ -112,6 +114,7 @@ const PoemManager = () => {
     const initialPoemState = { ...poem, relationships: null };
     setSelectedPoem(initialPoemState);
     setSelectedVoice('nova');  // Reset to default voice (nova) when selecting new poem
+    setAudioPhrasing(false);   // Reset audio phrasing view on poem change
     setShowDetailPanel(true);
     
     // Fetch fresh poem details and relationships async
@@ -574,9 +577,22 @@ const PoemManager = () => {
 
         {selectedPoem.content && (
           <div>
-            <h3 className="text-sm font-medium text-gray-500 mb-2">Content:</h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-sm font-medium text-gray-500">Content:</h3>
+              <button
+                onClick={() => setAudioPhrasing(v => !v)}
+                className={`px-2 py-0.5 text-xs rounded border transition-colors ${
+                  audioPhrasing
+                    ? 'bg-gray-900 text-white border-gray-900'
+                    : 'bg-white text-gray-500 border-gray-300 hover:border-gray-500'
+                }`}
+                title="Show how this poem will be segmented for TTS narration"
+              >
+                {audioPhrasing ? '🎙 Audio phrasing' : 'Audio phrasing'}
+              </button>
+            </div>
             <div className="bg-gray-50 p-3 rounded text-sm whitespace-pre-wrap max-h-64 overflow-y-auto">
-              {selectedPoem.content}
+              {audioPhrasing ? formatForAudio(selectedPoem.content) : selectedPoem.content}
             </div>
           </div>
         )}
