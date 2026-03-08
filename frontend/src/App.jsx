@@ -4,6 +4,7 @@ import StorySlider from './components/StorySlider.jsx';
 import PoetryDisplay from './components/PoetryDisplay.jsx';
 import AudioControls from './components/AudioControls.jsx';
 import AdminPanel from './components/AdminPanel.jsx';
+import RadioPlayer from './components/RadioPlayer.jsx';
 import { getApiUrl } from './utils/api.js';
 
 function App() {
@@ -72,6 +73,8 @@ function App() {
           🔧 Admin Panel
         </button>
       </div>
+
+      <RadioPlayer />
 
       <div className="mb-4">
         <label className="mr-2 sm:mr-4 font-semibold text-sm sm:text-base">Type:</label>

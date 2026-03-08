@@ -1,0 +1,15 @@
+# Azure Functions runtime
+azure-functions
+
+# Stream generation dependencies (pinned to match backend venv)
+openai==1.59.3
+pydub==0.25.1
+numpy==2.4.2
+scipy==1.17.1
+pyfluidsynth==1.3.4
+python-dotenv==1.1.0
+azure-storage-blob==12.24.0
+
+# NOTE: FluidSynth system library must also be installed on the host.
+# In your Function App > Configuration > Startup Command, or via a startup script:
+#   apt-get install -y fluidsynth timgm6mb-soundfont-gm

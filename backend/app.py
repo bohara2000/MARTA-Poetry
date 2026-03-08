@@ -1,7 +1,7 @@
 from contextlib import asynccontextmanager
-from fastapi import FastAPI, Query, HTTPException, Depends
+from fastapi import FastAPI, Query, HTTPException, Depends, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, FileResponse
+from fastapi.responses import JSONResponse, FileResponse, StreamingResponse, RedirectResponse
 from pydantic import BaseModel
 from poetry.graph import initialize_graph, get_poetry_graph, ExtendedPoetryGraph, PoemAnalyzer
 from poetry.prompt_builder import PromptBuilder, load_route_personality
@@ -16,6 +16,7 @@ import json
 import os
 import asyncio
 from datetime import datetime
+from pathlib import Path
 from typing import Dict, Any, Optional, List
 from config import (
     AZURE_OPENAI_API_KEY,
@@ -979,3 +980,153 @@ async def delete_poem_audio(poem_id: str, voice: Optional[str] = Query(None)):
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# ===========================================================================
+# Radio / broadcast stream endpoints
+# ===========================================================================
+
+def _get_stream_blob_client():
+    """Return (BlobServiceClient, container_name) or (None, None)."""
+    from config import STORAGE_CONNECTION_STRING, STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY
+    streams_container = os.getenv("STREAMS_CONTAINER_NAME", "streams")
+    try:
+        from azure.storage.blob import BlobServiceClient, StorageSharedKeyCredential
+        if STORAGE_CONNECTION_STRING:
+            return BlobServiceClient.from_connection_string(STORAGE_CONNECTION_STRING), streams_container
+        if STORAGE_ACCOUNT_NAME and STORAGE_ACCOUNT_KEY:
+            cred = StorageSharedKeyCredential(STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY)
+            svc  = BlobServiceClient(
+                account_url=f"https://{STORAGE_ACCOUNT_NAME}.blob.core.windows.net",
+                credential=cred,
+            )
+            return svc, streams_container
+    except Exception:
+        pass
+    return None, None
+
+
+@app.get("/api/radio/status")
+async def radio_status():
+    """
+    Return metadata about the current radio stream.
+    Reads current.json from the streams blob container (or reports offline).
+    """
+    blob_svc, container = _get_stream_blob_client()
+    if blob_svc:
+        try:
+            cc   = blob_svc.get_container_client(container)
+            data = cc.get_blob_client("current.json").download_blob().readall()
+            meta = json.loads(data)
+            meta["status"] = "online"
+            return meta
+        except Exception:
+            pass
+    # Fallback: check for a local current.mp3
+    local = Path("audio") / "current.mp3"
+    if local.exists():
+        stat = local.stat()
+        return {
+            "status":       "online",
+            "url":          "/api/radio/stream",
+            "generated_at": datetime.utcfromtimestamp(stat.st_mtime).isoformat() + "Z",
+            "size_bytes":   stat.st_size,
+        }
+    return {"status": "offline", "message": "No stream available yet"}
+
+
+@app.get("/api/radio/stream")
+async def radio_stream(request: Request):
+    """
+    Serve the current radio stream MP3.
+    - If blob storage is configured, redirect via a short-lived SAS URL (works with private containers).
+    - Otherwise, serve from local audio/current.mp3 (or latest stream_*.mp3)
+      with Range-request support for browser seeking.
+    """
+    # -- Blob: redirect via short-lived SAS URL --------------------------
+    blob_svc, container = _get_stream_blob_client()
+    if blob_svc:
+        try:
+            from datetime import timedelta
+            from azure.storage.blob import generate_blob_sas, BlobSasPermissions
+            cc = blob_svc.get_container_client(container)
+            cc.get_blob_client("current.mp3").get_blob_properties()  # existence check
+            account_name = (
+                getattr(blob_svc, "account_name", None)
+                or os.getenv("STORAGE_ACCOUNT_NAME", "unknown")
+            )
+            account_key = os.getenv("STORAGE_ACCOUNT_KEY", "")
+            if not account_key:
+                conn = os.getenv("STORAGE_CONNECTION_STRING", "")
+                for part in conn.split(";"):
+                    if part.startswith("AccountKey="):
+                        account_key = part[len("AccountKey="):]
+                        break
+            if account_key:
+                sas = generate_blob_sas(
+                    account_name=account_name,
+                    container_name=container,
+                    blob_name="current.mp3",
+                    account_key=account_key,
+                    permission=BlobSasPermissions(read=True),
+                    expiry=datetime.utcnow() + timedelta(hours=2),
+                )
+                url = f"https://{account_name}.blob.core.windows.net/{container}/current.mp3?{sas}"
+            else:
+                url = f"https://{account_name}.blob.core.windows.net/{container}/current.mp3"
+            return RedirectResponse(url=url, status_code=302)
+        except Exception:
+            pass  # fall through to local
+
+    # -- Local fallback --------------------------------------------------
+    audio_dir = Path("audio")
+    candidate = audio_dir / "current.mp3"
+    if not candidate.exists():
+        streams = sorted(audio_dir.glob("stream_*.mp3"), key=lambda p: p.stat().st_mtime)
+        if not streams:
+            raise HTTPException(status_code=404, detail="No stream available yet")
+        candidate = streams[-1]
+
+    file_size = candidate.stat().st_size
+    headers = {
+        "Content-Type":        "audio/mpeg",
+        "Accept-Ranges":       "bytes",
+        "Content-Disposition": 'inline; filename="marta-poetry-stream.mp3"',
+        "Cache-Control":       "no-cache",
+    }
+
+    range_header = request.headers.get("range")
+    if range_header:
+        try:
+            range_val  = range_header.strip().replace("bytes=", "")
+            start_str, end_str = range_val.split("-")
+            start = int(start_str) if start_str else 0
+            end   = int(end_str)   if end_str   else file_size - 1
+            end   = min(end, file_size - 1)
+            length = end - start + 1
+            headers["Content-Range"]  = f"bytes {start}-{end}/{file_size}"
+            headers["Content-Length"] = str(length)
+
+            def iter_range():
+                with open(candidate, "rb") as f:
+                    f.seek(start)
+                    remaining = length
+                    while remaining:
+                        chunk = f.read(min(65536, remaining))
+                        if not chunk:
+                            break
+                        yield chunk
+                        remaining -= len(chunk)
+
+            return StreamingResponse(iter_range(), status_code=206, headers=headers)
+        except Exception:
+            pass
+
+    headers["Content-Length"] = str(file_size)
+
+    def iter_file():
+        with open(candidate, "rb") as f:
+            while chunk := f.read(65536):
+                yield chunk
+
+    return StreamingResponse(iter_file(), status_code=200, headers=headers)

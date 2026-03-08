@@ -2,6 +2,7 @@
   "MARTA_1": {
     "name": "Route 1 - Marietta Blvd",
     "description": "Industrial backbone, working-class rhythm",
+    "layer8_mode": "strings",
     "loyalty_to_canon": 0.7,
     "rebellious_mode": null,
     "sound_preferences": {
@@ -44,6 +45,7 @@
   "MARTA_5": {
     "name": "Route 5 - Peachtree",
     "description": "Downtown's pulse, alliterative and alive",
+    "layer8_mode": "pad",
     "route_mode": "bus",
     "major_stops": [
       "Peachtree & Ellis",
@@ -88,6 +90,7 @@
   "MARTA_21": {
     "name": "Route 21 - Memorial Drive",
     "description": "Night runner, rebellious voice, friend to taxicabs, both automated and human-operated",
+    "layer8_mode": "strings",
     "route_mode": "bus",
     "major_stops": [
       "Memorial Drive",
@@ -139,6 +142,7 @@
   "MARTA_27339": {
     "name": "Route 27 - Cheshire Bridge Road",
     "description": "Gritty, remembers the old underbelly despite the gentrification. It is not fooled.",
+    "layer8_mode": "arp",
     "loyalty_to_canon": 0.35,
     "rebellious_mode": "invert",
     "sound_preferences": {
@@ -186,6 +190,7 @@
   "MARTA_42": {
     "name": "Route 42 - College Avenue",
     "description": "Young voices, experimental rhythm",
+    "layer8_mode": "arp",
     "route_mode": "bus",
     "major_stops": [
       "College & 4th",
@@ -232,6 +237,7 @@
   "MARTA_27346": {
     "name": "Route 40 - Peachtree Street / Downtown",
     "description": "Holy roller to MADMARTA, enchanted ecosystem. Amused by conference goers and respectful to weary workers. Fond of barhoppers, condescending to bankers.",
+    "layer8_mode": "pad",
     "route_mode": "bus",
     "major_stops": [
       "Five Points Station",
@@ -280,6 +286,7 @@
   "MARTA_27329": {
     "name": "Route 8 - North Druid Hills Road",
     "description": "Urbane, considerate of the devotees of all religions including the ones yet to come. Fan of pulp genre fiction and would rather listen to it than the passengers.",
+    "layer8_mode": "strings",
     "route_mode": "bus",
     "major_stops": [
       "North Druid Hills & Briarcliff",
@@ -325,6 +332,7 @@
   "MARTA_27331": {
     "name": "Route 12 - Howell Mill Road / Cumberland",
     "description": "Gentle industrial giant, fond of murals and people-watching. ",
+    "layer8_mode": "pad",
     "route_mode": "bus",
     "major_stops": [
       "CUMBERLAND TRANSFER CENTER",
@@ -375,6 +383,7 @@
   "MARTA_27340": {
     "name": "Route 30 - LaVista Road",
     "description": "Quirky artist. Fan of country music and Dr. Demento. Would drive with streamers blowing in  the wind during off-peak hours ",
+    "layer8_mode": "strings",
     "route_mode": "bus",
     "major_stops": [
       "RANCHWOOD DR @ WEEMS RD",
@@ -424,6 +433,7 @@
   "MARTA_39": {
     "name": "Route 39 - Buford Highway",
     "description": "Test creating Route 39",
+    "layer8_mode": "arp",
     "route_mode": "bus",
     "major_stops": [
       "DORAVILLE STATION",
@@ -460,6 +470,7 @@
   "MARTA_27343": {
     "name": "Route 36 - N Decatur Road / Virginia Highland",
     "description": "Cynical grump, but still hopeful the passengers get their act together. It loves them, in its way",
+    "layer8_mode": "strings",
     "route_mode": "bus",
     "major_stops": [
       "DECATUR STATION - BUS LOOP",
@@ -506,6 +517,7 @@
   "MARTA_27448": {
     "name": "Route BLUE - BLUE",
     "description": "Lovecraftian comedian - loves to make the hairs on the back of passengers necks stand on end. It will take them where they need to go, but they may be changed for it.",
+    "layer8_mode": "pad",
     "route_mode": "train",
     "major_stops": [
       "FIVE POINTS STATION",
@@ -545,6 +557,7 @@
   "MARTA_27334": {
     "name": "Route 19 - Clairmont Road / Howard Avenue",
     "description": "New route description",
+    "layer8_mode": "arp",
     "route_mode": "bus",
     "major_stops": [
       "DECATUR STATION - BUS LOOP",
