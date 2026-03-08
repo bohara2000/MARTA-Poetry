@@ -1,7 +1,9 @@
 # MARTA-Poetry
-The MARTA Poetry Project aims to generate poetry inspired by transit data from the Metro Atlanta Rapid Transit Authority, using route "personalities", narrative elements, and real-time inputs.
+The MARTA Poetry Project generates poetry inspired by transit data from the Metro Atlanta Rapid Transit Authority, using route "personalities", narrative elements, and real-time inputs.
 
 The goal is to create a system that interacts with a core canon of poems that serve as what is called The Homunculus. Each route will, based on its personality, either work with or against the narrative elements of The Homunculus.
+
+**Live app:** https://icy-sky-01432f40f.6.azurestaticapps.net
 
 ![MARTA-Poetry site - alpha](frontend/src/assets/MARTA-Poetry-example.png)
 
@@ -62,6 +64,16 @@ The goal is to create a system that interacts with a core canon of poems that se
    SOLAR_EVENTS_ENABLED=false
    HISTORY_CONTEXT_ENABLED=false
    HISTORY_CONTEXT_LOCATION_HINT=Atlanta, GA
+   # Azure Blob Storage (for audio files and radio stream)
+   AZURE_STORAGE_ACCOUNT_NAME=your_storage_account_name
+   AZURE_STORAGE_ACCOUNT_KEY=your_storage_account_key
+   AZURE_STORAGE_CONTAINER_AUDIO=audio
+   AZURE_STORAGE_CONTAINER_RADIO=radio
+   # Cosmos DB (poem storage)
+   COSMOS_ENDPOINT=your_cosmos_endpoint
+   COSMOS_KEY=your_cosmos_key
+   COSMOS_DATABASE=poetry
+   COSMOS_CONTAINER=poems
    ```
 
 5. **Download GTFS data (required for automatic stop extraction):**
@@ -147,16 +159,25 @@ MARTA-Poetry/
 
 ### Poem Management
 - **Generate Poems**: Create AI-generated poetry for MARTA routes based on personality and narrative
-- **Audio Generation**: Convert poems to engaging audio narration with multiple voice options
+- **Audio Generation**: Convert poems to engaging audio narration with multiple voice options and an audio phrasing toggle
 - **Batch Operations**: Mark multiple poems as core, extensions, or delete them
 - **Search and Filter**: Find poems by title, route, content, or narrative role
 - **Prompt Review**: View the stored prompt used to generate a poem
 
 ### Narrative Framework
-- **Core Narrative**: Designate canonical poems that form the core narrative
+- **Core Narrative**: Designate canonical poems that form the core narrative (The Homunculus)
 - **Extensions**: Create narrative extensions that build on core poems
 - **Relationships**: Track thematic connections between poems
 - **Entity Tracking**: Manage themes, imagery, emotions, and sound devices
+
+### Talent Economy
+Each MARTA route is modeled as an opportunistic harvester of emotional value from its riders. Riders carry emotional currency — joy, dread, nostalgia, exhaustion, hope — and the route extracts it according to its personality and the current market conditions (time of day, weather, traffic, foot traffic patterns). Premium moments (rush hour, storms, late night) command higher extraction rates. This framework shapes the metaphors, imagery, and tone of generated poems: extraction is buried in ecological or economic language rather than stated directly. Some routes prefer positive currencies; others trade in grief or contradiction. The result is poetry that feels structurally shaped by the route itself rather than imposed from outside.
+
+### Radio Stream
+- **Continuous Audio Stream**: Auto-generated audio stream stitching together poems, ambient soundscapes, and transit announcements
+- **Auto-Regeneration**: Stream is rebuilt every 8 hours via APScheduler running in-process
+- **Azure Blob Storage delivery**: Stream and individual audio files are stored in and served from Azure Blob Storage
+- **Standalone Player**: Available at `/radio` for listening without the full UI
 
 ### Route Awareness + Live Context
 - **Context Service**: `GET /api/context?route_id=MARTA_5` returns live anchors, signals, history, and cache metadata
@@ -170,6 +191,13 @@ MARTA-Poetry/
 - Narrative status monitoring
 - Batch delete functionality with audio cleanup
 
+### Azure Infrastructure
+- **Backend**: Python FastAPI app deployed to Azure App Service (`marta-poetry-app.azurewebsites.net`)
+- **Frontend**: React/Vite app deployed to Azure Static Web Apps (`icy-sky-01432f40f.6.azurestaticapps.net`)
+- **Poem Storage**: Azure Cosmos DB with JSON file fallback for local development
+- **Audio Storage**: Azure Blob Storage for audio files and radio stream segments
+- **Infrastructure as Code**: Bicep templates in `bicep/`
+
 ## Documentation
 
 - [Audio Generation Feature](backend/AUDIO_FEATURE.md) - Text-to-speech implementation details
@@ -178,8 +206,6 @@ MARTA-Poetry/
 - [Route Awareness Spec](docs/route-awareness-spec.md) - Live context and prompt-level constraints
 
 ## TODO
-* Add core poems, potentially as a knowledge graph 
+* The creator's voice will be present in this poetic ecosystem, so there will be means to add or remove narrative elements, tweak personalities or add additional constraints.
 
-* Add speech and background sound/music
-
-* The creator's voice will be present in this poetic ecosystem, so there will be means to add or remove narrative elements, tweak personalities or add additional constraints. Eventually human users will be able to comment on routes and even submit their own works. Works presented by humans will not be saved without their explicit consent   
+* Eventually human users will be able to comment on routes and even submit their own works. Works presented by humans will not be saved without their explicit consent.
