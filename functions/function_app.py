@@ -1,7 +1,7 @@
 """
 MARTA Poetry — Azure Functions
 ================================
-Timer-triggered function that regenerates the radio stream every 90 minutes
+Timer-triggered function that regenerates the radio stream every 8 hours
 and uploads it to Azure Blob Storage so the radio endpoint always has fresh audio.
 
 Deploy requirements (besides the normal backend deps):
@@ -41,7 +41,7 @@ def _setup_backend_path():
 
 
 @app.timer_trigger(
-    schedule="0 */90 * * * *",   # every 90 minutes
+    schedule="0 0 */8 * * *",   # every 8 hours
     arg_name="timer",
     run_on_startup=False,
     use_monitor=False,
@@ -49,7 +49,7 @@ def _setup_backend_path():
 def regenerate_stream(timer: func.TimerRequest) -> None:
     """
     Regenerate the MARTA Poetry radio stream and upload to blob storage.
-    Runs every 90 minutes automatically.
+    Runs every 8 hours automatically.
     """
     if timer.past_due:
         logging.warning("Timer is past due — running anyway.")

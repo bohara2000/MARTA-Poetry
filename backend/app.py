@@ -209,6 +209,9 @@ def generate_creative_title(
         title = _fallback_title(metadata or {}, context or {})
         return f"{title}\nBy {route_name}"
 
+_stream_scheduler = None  # set during lifespan startup
+
+
 def _run_stream_generation():
     """Background task: generate a new stream and upload it to blob storage."""
     duration_min = int(os.getenv("STREAM_REGEN_MINUTES", "10"))
@@ -239,24 +242,24 @@ async def lifespan(app: FastAPI):
         print("  Graph will be created on first use")
 
     # Start stream regeneration scheduler
-    scheduler = None
-    regen_interval = int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "90"))
+    global _stream_scheduler
+    regen_interval = int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "480"))
     regen_enabled   = os.getenv("STREAM_REGEN_ENABLED", "true").lower() == "true"
     if regen_enabled:
         try:
             from apscheduler.schedulers.background import BackgroundScheduler
             from datetime import timedelta as _td
-            scheduler = BackgroundScheduler(job_defaults={"max_instances": 1, "misfire_grace_time": 3600})
+            _stream_scheduler = BackgroundScheduler(job_defaults={"max_instances": 1, "misfire_grace_time": 3600})
             # First run: 5 minutes after startup (gives the app time to warm up)
             first_run = datetime.utcnow() + _td(minutes=5)
-            scheduler.add_job(
+            _stream_scheduler.add_job(
                 _run_stream_generation,
                 trigger="interval",
                 minutes=regen_interval,
                 next_run_time=first_run,
                 id="stream_regen",
             )
-            scheduler.start()
+            _stream_scheduler.start()
             print(f"✓ Stream scheduler started — every {regen_interval} min (first run in 5 min)")
         except Exception as e:
             print(f"⚠️  Stream scheduler failed to start: {e}")
@@ -264,8 +267,8 @@ async def lifespan(app: FastAPI):
     yield  # Application runs here
 
     # SHUTDOWN
-    if scheduler and scheduler.running:
-        scheduler.shutdown(wait=False)
+    if _stream_scheduler and _stream_scheduler.running:
+        _stream_scheduler.shutdown(wait=False)
         print("✓ Stream scheduler stopped")
     try:
         graph = get_poetry_graph()
@@ -1043,6 +1046,21 @@ def _get_stream_blob_client():
     except Exception:
         pass
     return None, None
+
+
+@app.get("/api/radio/schedule")
+async def radio_schedule():
+    """Return the next scheduled stream regeneration time."""
+    if _stream_scheduler and _stream_scheduler.running:
+        job = _stream_scheduler.get_job("stream_regen")
+        if job and job.next_run_time:
+            return {
+                "enabled": True,
+                "next_run": job.next_run_time.isoformat(),
+                "interval_minutes": int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "90")),
+                "duration_minutes": int(os.getenv("STREAM_REGEN_MINUTES", "10")),
+            }
+    return {"enabled": False, "reason": os.getenv("STREAM_REGEN_ENABLED", "true")}
 
 
 @app.get("/api/radio/status")
