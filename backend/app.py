@@ -1057,7 +1057,7 @@ async def radio_schedule():
             return {
                 "enabled": True,
                 "next_run": job.next_run_time.isoformat(),
-                "interval_minutes": int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "90")),
+                "interval_minutes": int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "480")),
                 "duration_minutes": int(os.getenv("STREAM_REGEN_MINUTES", "10")),
             }
     return {"enabled": False, "reason": os.getenv("STREAM_REGEN_ENABLED", "true")}
