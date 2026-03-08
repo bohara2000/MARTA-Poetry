@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useAuth, logout } from './hooks/useAuth.js';
 import RouteSelector from './components/RouteSelector.jsx';
 import StorySlider from './components/StorySlider.jsx';
 import PoetryDisplay from './components/PoetryDisplay.jsx';
@@ -8,6 +9,7 @@ import RadioPlayer from './components/RadioPlayer.jsx';
 import { getApiUrl } from './utils/api.js';
 
 function App() {
+  const { user } = useAuth();
   const [selectedRoute, setSelectedRoute] = useState('');
   const [storyInfluence, setStoryInfluence] = useState(0.7);
   const [poemData, setPoemData] = useState(null);
@@ -66,12 +68,25 @@ function App() {
     <div className="min-h-screen p-2 sm:p-4 bg-gray-100">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-4 gap-2 sm:gap-0">
         <h1 className="text-2xl sm:text-3xl font-bold">MARTA Poetry Project</h1>
-        <button
-          onClick={() => setShowAdmin(true)}
-          className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm w-full sm:w-auto"
-        >
-          🔧 Admin Panel
-        </button>
+        <div className="flex flex-col sm:flex-row items-center gap-2 w-full sm:w-auto">
+          {user && (
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-gray-600">{user.userDetails}</span>
+              <button
+                onClick={logout}
+                className="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 text-xs"
+              >
+                Sign out
+              </button>
+            </div>
+          )}
+          <button
+            onClick={() => setShowAdmin(true)}
+            className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 text-sm w-full sm:w-auto"
+          >
+            🔧 Admin Panel
+          </button>
+        </div>
       </div>
 
       <RadioPlayer />
