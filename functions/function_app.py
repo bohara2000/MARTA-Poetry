@@ -12,7 +12,7 @@ App settings needed in the Function App:
     OPENAI_API_KEY
     STORAGE_CONNECTION_STRING  (or STORAGE_ACCOUNT_NAME + STORAGE_ACCOUNT_KEY)
     STREAMS_CONTAINER_NAME     (default: "streams")
-    STREAM_DURATION_MIN        (default: "75")
+    STREAM_DURATION_MIN        (default: "10")
 
 The function runs sys.path magic to import stream_generator and stream_uploader
 from the backend folder, which should be co-deployed alongside the function.
@@ -58,7 +58,7 @@ def regenerate_stream(timer: func.TimerRequest) -> None:
 
     _setup_backend_path()
 
-    duration_min = int(os.getenv("STREAM_DURATION_MIN", "75"))
+    duration_min = int(os.getenv("STREAM_DURATION_MIN", "10"))
 
     try:
         from stream_generator import build_stream

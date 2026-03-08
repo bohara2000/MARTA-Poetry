@@ -770,7 +770,7 @@ def build_announcement(client: OpenAI, text: str = "") -> AudioSegment:
 # ─────────────────────────────────────────────────────────────────────────────
 # Main stream builder
 # ─────────────────────────────────────────────────────────────────────────────
-def build_stream(target_minutes: int = 60, seed: int | None = None):
+def build_stream(target_minutes: int = 10, seed: int | None = None):
     api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
         sys.exit("❌  OPENAI_API_KEY not set")
@@ -923,8 +923,8 @@ def build_stream(target_minutes: int = 60, seed: int | None = None):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="MARTA Poetry Stream Generator")
-    parser.add_argument("--duration", type=int, default=60,
-                        help="Target stream duration in minutes (default: 60)")
+    parser.add_argument("--duration", type=int, default=10,
+                        help="Target stream duration in minutes (default: 10)")
     parser.add_argument("--seed", type=int, default=None,
                         help="Random seed for reproducible poem order")
     args = parser.parse_args()
