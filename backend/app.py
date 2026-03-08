@@ -991,11 +991,12 @@ def _get_stream_blob_client():
     from config import STORAGE_CONNECTION_STRING, STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY
     streams_container = os.getenv("STREAMS_CONTAINER_NAME", "streams")
     try:
-        from azure.storage.blob import BlobServiceClient, StorageSharedKeyCredential
+        from azure.storage.blob import BlobServiceClient
         if STORAGE_CONNECTION_STRING:
             return BlobServiceClient.from_connection_string(STORAGE_CONNECTION_STRING), streams_container
         if STORAGE_ACCOUNT_NAME and STORAGE_ACCOUNT_KEY:
-            cred = StorageSharedKeyCredential(STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY)
+            from azure.core.credentials import AzureNamedKeyCredential
+            cred = AzureNamedKeyCredential(STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY)
             svc  = BlobServiceClient(
                 account_url=f"https://{STORAGE_ACCOUNT_NAME}.blob.core.windows.net",
                 credential=cred,
