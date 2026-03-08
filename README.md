@@ -5,6 +5,10 @@ The goal is to create a system that interacts with a core canon of poems that se
 
 **Live app:** https://icy-sky-01432f40f.6.azurestaticapps.net
 
+### Why this experiment matters
+
+Most generative AI systems treat each prompt as a fresh start. This project explores what happens when a generative system contains persistent fictional entities — characters with memory, personality, and narrative stakes — that actively shape what gets created. The Homunculus is not a template. It is an accumulating presence that routes either collaborate with or resist. The Talent Economy is not a metaphor. It is a structural constraint on imagery and tone derived from the route's relationship to the people riding it. The result is a system where outputs are not just generated, but *authored* — by the interaction between data, personality, live context, and an evolving fictional world.
+
 ![MARTA-Poetry site - alpha](frontend/src/assets/MARTA-Poetry-example.png)
 
 ## Installation and Setup
