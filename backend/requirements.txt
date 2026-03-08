@@ -20,6 +20,7 @@ gunicorn==22.0.0
 openai==1.59.3
 azure-cosmos==4.7.0
 azure-storage-blob==12.24.0
+apscheduler>=3.10
 networkx>=3.0
 python-multipart==0.0.6
 pytest==8.3.4

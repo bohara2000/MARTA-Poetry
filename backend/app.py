@@ -209,15 +209,27 @@ def generate_creative_title(
         title = _fallback_title(metadata or {}, context or {})
         return f"{title}\nBy {route_name}"
 
+def _run_stream_generation():
+    """Background task: generate a new stream and upload it to blob storage."""
+    duration_min = int(os.getenv("STREAM_REGEN_MINUTES", "10"))
+    print(f"🎙  Scheduler: starting stream regeneration ({duration_min} min)…")
+    try:
+        from stream_generator import build_stream
+        build_stream(target_minutes=duration_min)
+        print("✅  Scheduler: stream regeneration complete")
+    except Exception as e:
+        print(f"⚠️  Scheduler: stream regeneration failed: {e}")
+
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Handle startup and shutdown events."""
-    
+
     # STARTUP
     # Try to initialize graph from Cosmos DB; fall back to JSON file
     _default_graph_path = os.path.join(os.path.dirname(__file__), "data", "poetry_graph.json")
     graph_path = os.getenv("POETRY_GRAPH_PATH", _default_graph_path)
-    
+
     try:
         graph = initialize_graph(graph_path)
         summary = graph.get_graph_summary()
@@ -225,10 +237,36 @@ async def lifespan(app: FastAPI):
     except Exception as e:
         print(f"⚠ Failed to initialize graph: {e}")
         print("  Graph will be created on first use")
-    
+
+    # Start stream regeneration scheduler
+    scheduler = None
+    regen_interval = int(os.getenv("STREAM_REGEN_INTERVAL_MINUTES", "90"))
+    regen_enabled   = os.getenv("STREAM_REGEN_ENABLED", "true").lower() == "true"
+    if regen_enabled:
+        try:
+            from apscheduler.schedulers.background import BackgroundScheduler
+            from datetime import timedelta as _td
+            scheduler = BackgroundScheduler(job_defaults={"max_instances": 1, "misfire_grace_time": 3600})
+            # First run: 5 minutes after startup (gives the app time to warm up)
+            first_run = datetime.utcnow() + _td(minutes=5)
+            scheduler.add_job(
+                _run_stream_generation,
+                trigger="interval",
+                minutes=regen_interval,
+                next_run_time=first_run,
+                id="stream_regen",
+            )
+            scheduler.start()
+            print(f"✓ Stream scheduler started — every {regen_interval} min (first run in 5 min)")
+        except Exception as e:
+            print(f"⚠️  Stream scheduler failed to start: {e}")
+
     yield  # Application runs here
-    
+
     # SHUTDOWN
+    if scheduler and scheduler.running:
+        scheduler.shutdown(wait=False)
+        print("✓ Stream scheduler stopped")
     try:
         graph = get_poetry_graph()
         graph.save_graph()
