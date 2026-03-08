@@ -1007,28 +1007,6 @@ def _get_stream_blob_client():
     return None, None
 
 
-@app.get("/api/radio/debug")
-async def radio_debug():
-    """Temporary debug endpoint — shows blob connection status."""
-    from config import STORAGE_CONNECTION_STRING, STORAGE_ACCOUNT_NAME
-    info = {
-        "conn_string_present": bool(STORAGE_CONNECTION_STRING),
-        "account_name_present": bool(STORAGE_ACCOUNT_NAME),
-    }
-    blob_svc, container = _get_stream_blob_client()
-    info["blob_svc"] = str(type(blob_svc)) if blob_svc else None
-    info["container"] = container
-    if blob_svc:
-        try:
-            cc = blob_svc.get_container_client(container)
-            data = cc.get_blob_client("current.json").download_blob().readall()
-            info["current_json_bytes"] = len(data)
-            info["current_json_ok"] = True
-        except Exception as e:
-            info["current_json_error"] = str(e)
-    return info
-
-
 @app.get("/api/radio/status")
 async def radio_status():
     """
